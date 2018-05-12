@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Headers, Http, Response } from "@angular/http";
+import { HttpClient, HttpHeaders, HttpResponse } from "@angular/common/http";
 import "rxjs/add/operator/catch";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
@@ -10,25 +10,21 @@ import { User } from "./user";
 
 @Injectable()
 export class UserService {
-    constructor(private http: Http) {}
+    constructor(private http: HttpClient) {}
 
     login(user: User) {
+
         return this.http.post(
-            Config.apiUrl + "/oauth/v2/token",
-            JSON.stringify({
+            Config.apiUrl + "oauth/v2/token",
+            {
                 grant_type: "password",
                 client_id: Config.appKey,
                 client_secret: Config.appSecret,
                 username: user.username,
                 password: user.password
-            }),
+            },
             { headers: this.getCommonHeaders() }
-        )
-            .map((response) => response.json())
-            .do((data) => {
-                Config.token = data.access_token;
-            })
-            .catch(this.handleErrors);
+        );
     }
 
     register(user: User) {
@@ -40,19 +36,14 @@ export class UserService {
             }),
             { headers: this.getCommonHeaders() }
         )
-            .catch(this.handleErrors);
     }
 
     getCommonHeaders() {
-        const headers = new Headers();
-        headers.append("Content-Type", "application/json");
+        const headers = new HttpHeaders({
+            "Content-Type": "application/json"
+        });
 
         return headers;
     }
 
-    handleErrors(error: Response) {
-        console.log(JSON.stringify(error.json()));
-
-        return Observable.throw(error);
-    }
 }

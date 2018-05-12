@@ -1,13 +1,17 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 
-import { LoginRoutingModule } from "./login-routing.module";
+import { NativeScriptFormsModule } from "nativescript-angular";
+import { NativeScriptCommonModule } from "nativescript-angular/common";
+import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { LoginRoutingModule } from "~/pages/login/login-routing.module";
 import { LoginComponent } from "./login.component";
 
 @NgModule({
     imports: [
-        NativeScriptModule,
-        LoginRoutingModule
+        NativeScriptCommonModule,
+        LoginRoutingModule,
+        NativeScriptFormsModule,
+        NativeScriptHttpClientModule
     ],
     declarations: [
         LoginComponent

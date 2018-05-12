@@ -1,4 +1,9 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { Page } from "tns-core-modules/ui/page";
+import { Config } from "~/shared/config";
+import { User } from "~/shared/user/user";
+import { UserService } from "~/shared/user/user.service";
 
 /* ***********************************************************
 * Before you can navigate to this page from your app, you need to reference this page's module in the
@@ -9,45 +14,44 @@ import { Component, OnInit } from "@angular/core";
 
 @Component({
     selector: "Login",
+    providers: [UserService],
     moduleId: module.id,
     templateUrl: "./login.component.html"
 })
 export class LoginComponent implements OnInit {
-    email: string;
-    password: string;
+    user: User;
+    isLoggingIn = true;
 
-    constructor() {
+    constructor(private router: Router, private userService: UserService, private page: Page) {
         /* ***********************************************************
         * Use the constructor to inject app services that you need in this component.
         *************************************************************/
     }
 
     ngOnInit(): void {
-        /* ***********************************************************
-        * Use the "ngOnInit" handler to initialize data for this component.
-        *************************************************************/
-    }
+        this.page.actionBarHidden = true;
+        this.user = {
+            username: "",
+            password: ""
+        };
 
-    onLoginWithSocialProviderButtonTap(): void {
-        /* ***********************************************************
-        * For log in with social provider you can add your custom logic or
-        * use NativeScript plugin for log in with Facebook
-        * http://market.nativescript.org/plugins/nativescript-facebook
-        *************************************************************/
+        if (Config.username && Config.username !== "") {
+            this.user.username = Config.username;
+        }
     }
 
     onSigninButtonTap(): void {
-        const email = this.email;
-        const password = this.password;
-
-        /* ***********************************************************
-        * Call your custom sign in logic using the email and password data.
-        *************************************************************/
-    }
-
-    onForgotPasswordTap(): void {
-        /* ***********************************************************
-        * Call your Forgot Password logic here.
-        *************************************************************/
+        this.userService.login(this.user)
+            .subscribe(
+                (result) => {
+                    console.log("SuccesFull Login!");
+                    Config.token = (<any>result).json.data.access_token;
+                    this.router.navigate(["/tabs"]);
+                },
+                (error) => {
+                    console.dir(error);
+                    alert("Unfortunately we could not find your account.");
+                }
+            );
     }
 }
