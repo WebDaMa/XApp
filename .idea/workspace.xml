@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="29231f43-1602-4262-8068-fafd9ea89c9e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/pages/login/login-common.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/pages/login/login.android.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/pages/login/login.ios.css" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/app-routing.module.js" afterPath="$PROJECT_DIR$/app/app-routing.module.js" />
-      <change beforePath="$PROJECT_DIR$/app/app-routing.module.ts" afterPath="$PROJECT_DIR$/app/app-routing.module.ts" />
-      <change beforePath="$PROJECT_DIR$/app/app.module.js" afterPath="$PROJECT_DIR$/app/app.module.js" />
-      <change beforePath="$PROJECT_DIR$/app/app.module.ts" afterPath="$PROJECT_DIR$/app/app.module.ts" />
-      <change beforePath="$PROJECT_DIR$/app/pages/login/login-routing.module.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/pages/login/login-routing.module.ts" afterPath="$PROJECT_DIR$/app/pages/login/login-routing.module.ts" />
-      <change beforePath="$PROJECT_DIR$/app/pages/login/login.component.html" afterPath="$PROJECT_DIR$/app/pages/login/login.component.html" />
-      <change beforePath="$PROJECT_DIR$/app/pages/login/login.component.js" afterPath="$PROJECT_DIR$/app/pages/login/login.component.js" />
-      <change beforePath="$PROJECT_DIR$/app/pages/login/login.component.ts" afterPath="$PROJECT_DIR$/app/pages/login/login.component.ts" />
-      <change beforePath="$PROJECT_DIR$/app/pages/login/login.module.js" afterPath="$PROJECT_DIR$/app/pages/login/login.module.js" />
-      <change beforePath="$PROJECT_DIR$/app/pages/login/login.module.ts" afterPath="$PROJECT_DIR$/app/pages/login/login.module.ts" />
-      <change beforePath="$PROJECT_DIR$/app/shared/user/user.service.js" afterPath="$PROJECT_DIR$/app/shared/user/user.service.js" />
-      <change beforePath="$PROJECT_DIR$/app/shared/user/user.service.ts" afterPath="$PROJECT_DIR$/app/shared/user/user.service.ts" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-    </list>
+    <list default="true" id="29231f43-1602-4262-8068-fafd9ea89c9e" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
