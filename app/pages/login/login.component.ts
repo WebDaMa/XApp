@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { RouterExtensions } from "nativescript-angular";
 import { Page } from "tns-core-modules/ui/page";
 import { Config } from "~/shared/config";
 import { User } from "~/shared/user/user";
@@ -22,22 +22,26 @@ export class LoginComponent implements OnInit {
     user: User;
     isLoggingIn = true;
 
-    constructor(private router: Router, private userService: UserService, private page: Page) {
+    constructor(private routerExtensions: RouterExtensions, private userService: UserService, private page: Page) {
         /* ***********************************************************
         * Use the constructor to inject app services that you need in this component.
         *************************************************************/
     }
 
     ngOnInit(): void {
+        const appSettings = require("application-settings");
+        const token = appSettings.getString("token");
+        if (token !== "") {
+            /* Already logged in keep going */
+            this.routerExtensions.navigate(["/tabs"], { clearHistory: true });
+        }
+
         this.page.actionBarHidden = true;
         this.user = {
             username: "",
             password: ""
         };
 
-        if (Config.username && Config.username !== "") {
-            this.user.username = Config.username;
-        }
     }
 
     onSigninButtonTap(): void {
@@ -45,8 +49,11 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 (result) => {
                     console.log("SuccesFull Login!");
-                    Config.token = (<any>result).json.data.access_token;
-                    this.router.navigate(["/tabs"]);
+                    const appSettings = require("application-settings");
+                    appSettings.setString("token", (<any>result).access_token);
+                    appSettings.setString("username", this.user.username);
+
+                    this.routerExtensions.navigate(["/tabs"], { clearHistory: true });
                 },
                 (error) => {
                     console.dir(error);
