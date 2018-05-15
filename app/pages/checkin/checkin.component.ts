@@ -8,11 +8,11 @@ import { Component, OnInit } from "@angular/core";
 *************************************************************/
 
 @Component({
-    selector: "Sizes",
+    selector: "Checkin",
     moduleId: module.id,
-    templateUrl: "./sizes.component.html"
+    templateUrl: "./checkin.component.html"
 })
-export class SizesComponent implements OnInit {
+export class CheckinComponent implements OnInit {
     _title: string;
 
     constructor() {
@@ -25,6 +25,6 @@ export class SizesComponent implements OnInit {
         /* ***********************************************************
         * Use the "ngOnInit" handler to initialize data for this component.
         *************************************************************/
-        this._title = "Pakken";
+        this._title = "Check-in";
     }
 }

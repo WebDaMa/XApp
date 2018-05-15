@@ -26,16 +26,15 @@ export class LoginComponent implements OnInit {
         /* ***********************************************************
         * Use the constructor to inject app services that you need in this component.
         *************************************************************/
-    }
-
-    ngOnInit(): void {
         const appSettings = require("application-settings");
         const token = appSettings.getString("token");
         if (token !== "") {
             /* Already logged in keep going */
             this.routerExtensions.navigate(["/tabs"], { clearHistory: true });
         }
+    }
 
+    ngOnInit(): void {
         this.page.actionBarHidden = true;
         this.user = {
             username: "",

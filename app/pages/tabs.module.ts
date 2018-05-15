@@ -7,6 +7,7 @@ import { SettingsComponent } from "./settings/settings.component";
 import { SizesComponent } from "./sizes/sizes.component";
 import { TabsRoutingModule } from "./tabs-routing.module";
 import { TabsComponent } from "./tabs.component";
+import {CheckinComponent} from "~/pages/checkin/checkin.component";
 
 @NgModule({
     imports: [
@@ -14,11 +15,11 @@ import { TabsComponent } from "./tabs.component";
         TabsRoutingModule
     ],
     declarations: [
+        CheckinComponent,
         TabsComponent,
         MaterialsComponent,
         OptionsComponent,
-        SizesComponent,
-        SettingsComponent
+        SizesComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

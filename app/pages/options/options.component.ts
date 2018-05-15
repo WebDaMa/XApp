@@ -13,6 +13,8 @@ import { Component, OnInit } from "@angular/core";
     templateUrl: "./options.component.html"
 })
 export class OptionsComponent implements OnInit {
+    _title: string;
+
     constructor() {
         /* ***********************************************************
         * Use the constructor to inject app services that you need in this component.
@@ -23,5 +25,6 @@ export class OptionsComponent implements OnInit {
         /* ***********************************************************
         * Use the "ngOnInit" handler to initialize data for this component.
         *************************************************************/
+        this._title = "Opties";
     }
 }

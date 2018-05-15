@@ -1,11 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 
 @Component({
-    selector: "Materials",
+    selector: "MaterialsSettings",
     moduleId: module.id,
-    templateUrl: "./materials.component.html"
+    templateUrl: "./materials-settings.component.html"
 })
-export class MaterialsComponent implements OnInit {
+export class MaterialsSettingsComponent implements OnInit {
     private _title: string;
 
     constructor() {
@@ -14,6 +14,6 @@ export class MaterialsComponent implements OnInit {
 
     ngOnInit(): void {
         // Init your component properties here.
-        this._title = "Materiaal";
+        this._title = "Materiaal Settings";
     }
 }

@@ -1,5 +1,18 @@
 <ActionBar class="action-bar">
-    <Label class="action-bar-title" [text]="title"></Label>
+    <!--
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!--
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+                ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Home"></Label>
 </ActionBar>
 
 <!--
@@ -8,23 +21,7 @@ tapping on some of the tabs or by swiping between the views.
 Learn more about the TabView component in this documentation article:
 http://docs.nativescript.org/angular/code-samples/ui/tab-view
 -->
-<TabView (selectedIndexChanged)="onSelectedIndexChanged($event)">
-    <ActionBar class="action-bar">
-        <!--
-        Use the NavigationButton as a side-drawer button in Android
-        because ActionItems are shown on the right side of the ActionBar
-        -->
-        <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
-        <!--
-        Use the ActionItem for IOS with position set to left. Using the
-        NavigationButton as a side-drawer button in iOS is not possible,
-        because its function is to always navigate back in the application.
-        -->
-        <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
-                    ios.position="left">
-        </ActionItem>
-        <Label class="action-bar-title" text="Home"></Label>
-    </ActionBar>
+<TabView (selectedIndexChanged)="onSelectedIndexChanged($event)" androidTabsPosition="bottom">
 
     <StackLayout *tabItem="{title: 'Materiaal', iconSource: getIconSource('materials')}">
         <Materials></Materials>
@@ -38,7 +35,7 @@ http://docs.nativescript.org/angular/code-samples/ui/tab-view
         <Options></Options>
     </StackLayout>
 
-    <StackLayout *tabItem="{title: 'Settings', iconSource: getIconSource('settings')}">
-        <Settings></Settings>
+    <StackLayout *tabItem="{title: 'Check-in', iconSource: getIconSource('checkin')}">
+        <Checkin></Checkin>
     </StackLayout>
 </TabView>

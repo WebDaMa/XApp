@@ -1,11 +1,13 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 
+import { NativeScriptCommonModule } from "nativescript-angular/common";
+import { SettingsRoutingModule } from "~/pages/settings/settings-routing.module";
 import { SettingsComponent } from "./settings.component";
 
 @NgModule({
     imports: [
-        NativeScriptModule,
+        NativeScriptCommonModule,
+        SettingsRoutingModule
     ],
     declarations: [
         SettingsComponent
