@@ -4,6 +4,7 @@ import { Page } from "tns-core-modules/ui/page";
 import { Config } from "~/shared/config";
 import { User } from "~/shared/user/user";
 import { UserService } from "~/shared/user/user.service";
+import {Router} from "@angular/router";
 
 /* ***********************************************************
 * Before you can navigate to this page from your app, you need to reference this page's module in the
@@ -26,15 +27,18 @@ export class LoginComponent implements OnInit {
         /* ***********************************************************
         * Use the constructor to inject app services that you need in this component.
         *************************************************************/
-        const appSettings = require("application-settings");
-        const token = appSettings.getString("token");
-        if (token !== "") {
-            /* Already logged in keep going */
-            this.routerExtensions.navigate(["/tabs"], { clearHistory: true });
-        }
     }
 
     ngOnInit(): void {
+        const appSettings = require("application-settings");
+        const token = appSettings.getString("token");
+        console.log("continue");
+        if (token !== "") {
+            /* Already logged in keep going */
+            this.routerExtensions.navigateByUrl(
+                "/tabs",
+                { clearHistory: true });
+        }
         this.page.actionBarHidden = true;
         this.user = {
             username: "",
@@ -52,7 +56,9 @@ export class LoginComponent implements OnInit {
                     appSettings.setString("token", (<any>result).access_token);
                     appSettings.setString("username", this.user.username);
 
-                    this.routerExtensions.navigate(["/tabs"], { clearHistory: true });
+                    this.routerExtensions.navigate(
+                        ["/tabs"],
+                        { clearHistory: true });
                 },
                 (error) => {
                     console.dir(error);

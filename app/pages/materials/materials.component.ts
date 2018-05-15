@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { RouterExtensions } from "nativescript-angular";
 
 @Component({
     selector: "Materials",
@@ -8,7 +10,7 @@ import { Component, OnInit } from "@angular/core";
 export class MaterialsComponent implements OnInit {
     private _title: string;
 
-    constructor() {
+    constructor(private router: RouterExtensions, private route: ActivatedRoute) {
         // Use the component constructor to inject providers.
     }
 

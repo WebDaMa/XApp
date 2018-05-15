@@ -1,7 +1,8 @@
 <GridLayout class="page page-content" tkMainContent>
-        <GridLayout class="sidedrawer-list-item" (tap)="onNavItemTap('/materials/settings')">
-            <Button horizontalAlignment="right" text="&#xf013;" class="fa"></Button>
-        </GridLayout>
+    <StackLayout>
+        <Button horizontalAlignment="right" text="&#xf013;" class="fa" [nsRouterLink]="['/tabs/(materials/settings)']"></Button>
 
         <Label text="test"></Label>
+    </StackLayout>
+
 </GridLayout>

@@ -12,7 +12,7 @@
     <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
                 ios.position="left">
     </ActionItem>
-    <Label class="action-bar-title" text="Home"></Label>
+    <Label class="action-bar-title" [text]="title" ngDefaultControl></Label>
 </ActionBar>
 
 <!--
@@ -23,17 +23,37 @@ http://docs.nativescript.org/angular/code-samples/ui/tab-view
 -->
 <TabView (selectedIndexChanged)="onSelectedIndexChanged($event)" androidTabsPosition="bottom">
 
+    <!--<page-router-outlet
+            *tabItem="{title: 'Materiaal', iconSource: getIconSource('materials')}"
+            name="materialsTab">
+    </page-router-outlet>-->
+
     <StackLayout *tabItem="{title: 'Materiaal', iconSource: getIconSource('materials')}">
         <Materials></Materials>
     </StackLayout>
 
-    <StackLayout *tabItem="{title: 'Pakmaat', iconSource: getIconSource('sizes')}">
+    <!--<page-router-outlet
+            *tabItem="{title: 'Pakmaat', iconSource: getIconSource('sizes')}"
+            name="sizesTab">
+    </page-router-outlet>-->
+
+    <StackLayout *tabItem="{title: 'Pakmaat', iconSource: getIconSource('sizes')}" >
         <Sizes></Sizes>
     </StackLayout>
+
+    <!--<page-router-outlet
+            *tabItem="{title: 'Opties', iconSource: getIconSource('options')}"
+            name="optionsTab">
+    </page-router-outlet>-->
 
     <StackLayout *tabItem="{title: 'Opties', iconSource: getIconSource('options')}">
         <Options></Options>
     </StackLayout>
+
+    <!--<page-router-outlet
+            *tabItem="{title: 'Check-in', iconSource: getIconSource('checkin')}"
+            name="checkinTab">
+    </page-router-outlet>-->
 
     <StackLayout *tabItem="{title: 'Check-in', iconSource: getIconSource('checkin')}">
         <Checkin></Checkin>

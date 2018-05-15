@@ -1,9 +1,6 @@
-import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders, HttpResponse } from "@angular/common/http";
-import "rxjs/add/operator/catch";
-import "rxjs/add/operator/do";
-import "rxjs/add/operator/map";
-import { Observable } from "rxjs/Observable";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 
 import { Config } from "../config";
 import { User } from "./user";
@@ -35,7 +32,7 @@ export class UserService {
                 password: user.password
             }),
             { headers: this.getCommonHeaders() }
-        )
+        );
     }
 
     getCommonHeaders() {

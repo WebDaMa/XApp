@@ -5,7 +5,7 @@ import * as app from "tns-core-modules/application";
 import { SelectedIndexChangedEventData, TabView, TabViewItem } from "tns-core-modules/ui/tab-view";
 
 @Component({
-    selector: "TabsComponent",
+    selector: "Tabs",
     moduleId: module.id,
     templateUrl: "./tabs.component.html",
     styleUrls: ["./tabs.component.scss"]

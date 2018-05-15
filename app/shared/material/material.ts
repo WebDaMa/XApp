@@ -1,21 +1,5 @@
-import { Observable } from "tns-core-modules/data/observable";
 import { Size } from "~/shared/size/size";
 import { SizeTotal } from "~/shared/size/sizeTotal";
-
-export class MaterialViewModel extends Observable {
-
-    constructor() {
-        super();
-    }
-
-    set material(value: Material) {
-        this.set("_material", value);
-    }
-
-    get material(): Material {
-        return this.get("_material");
-    }
-}
 
 export class Material {
     date: string;
@@ -40,5 +24,4 @@ export class Material {
         this.helmetTotals = helmetTotals;
         this.userSizes = userSizes;
     }
-
 }
