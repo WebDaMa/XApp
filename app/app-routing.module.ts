@@ -21,7 +21,10 @@ const routes: Routes = [
             { path: "options", component: OptionsComponent, outlet: "optionsTab" },
 
             { path: "checkin", component: CheckinComponent, outlet: "checkinTab" }
-        ] }
+        ] },
+
+    /*current fix to skip outlets*/
+    { path: "materials/settings", component: MaterialsSettingsComponent }
 ];
 
 @NgModule({

@@ -2,40 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29231f43-1602-4262-8068-fafd9ea89c9e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/shared/material/materialViewModel.ts" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/tsconfig_roots.xml" afterPath="$PROJECT_DIR$/.idea/libraries/tsconfig_roots.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app/app-routing.module.js" afterPath="$PROJECT_DIR$/app/app-routing.module.js" />
       <change beforePath="$PROJECT_DIR$/app/app-routing.module.ts" afterPath="$PROJECT_DIR$/app/app-routing.module.ts" />
-      <change beforePath="$PROJECT_DIR$/app/app.module.js" afterPath="$PROJECT_DIR$/app/app.module.js" />
-      <change beforePath="$PROJECT_DIR$/app/app.module.ts" afterPath="$PROJECT_DIR$/app/app.module.ts" />
-      <change beforePath="$PROJECT_DIR$/app/pages/login/login-routing.module.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/pages/login/login.component.js" afterPath="$PROJECT_DIR$/app/pages/login/login.component.js" />
-      <change beforePath="$PROJECT_DIR$/app/pages/login/login.component.ts" afterPath="$PROJECT_DIR$/app/pages/login/login.component.ts" />
       <change beforePath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html" afterPath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html" />
-      <change beforePath="$PROJECT_DIR$/app/pages/materials/materials-routing.module.js" afterPath="" />
       <change beforePath="$PROJECT_DIR$/app/pages/materials/materials.component.html" afterPath="$PROJECT_DIR$/app/pages/materials/materials.component.html" />
       <change beforePath="$PROJECT_DIR$/app/pages/materials/materials.component.js" afterPath="$PROJECT_DIR$/app/pages/materials/materials.component.js" />
       <change beforePath="$PROJECT_DIR$/app/pages/materials/materials.component.ts" afterPath="$PROJECT_DIR$/app/pages/materials/materials.component.ts" />
-      <change beforePath="$PROJECT_DIR$/app/pages/materials/materials.module.js" afterPath="$PROJECT_DIR$/app/pages/materials/materials.module.js" />
-      <change beforePath="$PROJECT_DIR$/app/pages/materials/materials.module.ts" afterPath="$PROJECT_DIR$/app/pages/materials/materials.module.ts" />
-      <change beforePath="$PROJECT_DIR$/app/pages/settings/settings-routing.module.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/pages/signup/signup-routing.module.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/pages/signup/signup.module.js" afterPath="$PROJECT_DIR$/app/pages/signup/signup.module.js" />
-      <change beforePath="$PROJECT_DIR$/app/pages/signup/signup.module.ts" afterPath="$PROJECT_DIR$/app/pages/signup/signup.module.ts" />
-      <change beforePath="$PROJECT_DIR$/app/pages/tabs-routing.module.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/pages/tabs-routing.module.ts" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/pages/tabs.component.html" afterPath="$PROJECT_DIR$/app/pages/tabs.component.html" />
-      <change beforePath="$PROJECT_DIR$/app/pages/tabs.component.js" afterPath="$PROJECT_DIR$/app/pages/tabs.component.js" />
-      <change beforePath="$PROJECT_DIR$/app/pages/tabs.component.ts" afterPath="$PROJECT_DIR$/app/pages/tabs.component.ts" />
-      <change beforePath="$PROJECT_DIR$/app/pages/tabs.module.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/pages/tabs.module.ts" afterPath="" />
       <change beforePath="$PROJECT_DIR$/app/shared/material/material.js" afterPath="$PROJECT_DIR$/app/shared/material/material.js" />
       <change beforePath="$PROJECT_DIR$/app/shared/material/material.ts" afterPath="$PROJECT_DIR$/app/shared/material/material.ts" />
-      <change beforePath="$PROJECT_DIR$/app/shared/user/user.service.js" afterPath="$PROJECT_DIR$/app/shared/user/user.service.js" />
-      <change beforePath="$PROJECT_DIR$/app/shared/user/user.service.ts" afterPath="$PROJECT_DIR$/app/shared/user/user.service.ts" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="tabs.component.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/pages/tabs.component.html">
+      <file leaf-file-name="materials.component.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-167">
-              <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="13" selection-end-column="17" />
+            <state relative-caret-position="707">
+              <caret line="53" column="56" lean-forward="false" selection-start-line="53" selection-start-column="56" selection-end-line="53" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -69,7 +44,11 @@
     <findStrings>
       <find>code</find>
       <find>rxjs</find>
+      <find>[Size]</find>
     </findStrings>
+    <replaceStrings>
+      <replace>Array&lt;Size&gt;</replace>
+    </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/app</dir>
     </dirStrings>
@@ -103,9 +82,6 @@
         <option value="$PROJECT_DIR$/app/pages/sizes/sizes.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/options/options.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/checkin/checkin.component.ts" />
-        <option value="$PROJECT_DIR$/app/pages/materials/materials.component.ts" />
-        <option value="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html" />
-        <option value="$PROJECT_DIR$/app/shared/material/material.ts" />
         <option value="$PROJECT_DIR$/app/shared/material/materialViewModel.ts" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/app/shared/user/user.service.ts" />
@@ -116,12 +92,15 @@
         <option value="$PROJECT_DIR$/app/app.module.ts" />
         <option value="$PROJECT_DIR$/app/pages/login/login.module.ts" />
         <option value="$PROJECT_DIR$/app/pages/settings/settings.module.ts" />
-        <option value="$PROJECT_DIR$/app/pages/materials/materials.component.html" />
         <option value="$PROJECT_DIR$/app/pages/tabs.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/tabs.component.html" />
         <option value="$PROJECT_DIR$/app/app.component.html" />
-        <option value="$PROJECT_DIR$/app/app-routing.module.ts" />
         <option value="$PROJECT_DIR$/app/pages/login/login.component.ts" />
+        <option value="$PROJECT_DIR$/app/app-routing.module.ts" />
+        <option value="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html" />
+        <option value="$PROJECT_DIR$/app/shared/material/material.ts" />
+        <option value="$PROJECT_DIR$/app/pages/materials/materials.component.ts" />
+        <option value="$PROJECT_DIR$/app/pages/materials/materials.component.html" />
       </list>
     </option>
   </component>
@@ -189,6 +168,13 @@
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="materials" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XApp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="materials-settings" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
@@ -283,12 +269,12 @@
       <workItem from="1525945068570" duration="4451000" />
       <workItem from="1526149176851" duration="5000" />
       <workItem from="1526149984032" duration="7884000" />
-      <workItem from="1526397190716" duration="10282000" />
+      <workItem from="1526397190716" duration="14699000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31921000" />
+    <option name="totallyTimeSpent" value="36338000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -512,45 +498,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="60" lean-forward="true" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/size/size.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/size/sizeTotal.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/shared/user/user.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/material/material.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="10" lean-forward="false" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -702,22 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="13" column="61" lean-forward="true" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="115" lean-forward="false" selection-start-line="2" selection-start-column="115" selection-end-line="2" selection-end-column="115" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/tabs.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
@@ -734,16 +670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/app-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="34" lean-forward="false" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/login/login.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="602">
@@ -752,10 +678,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/app-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="60" lean-forward="false" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/tabs.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-167">
-          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="13" selection-end-column="17" />
+        <state relative-caret-position="380">
+          <caret line="20" column="41" lean-forward="false" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/size/sizeTotal.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/size/size.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/material/material.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="14" column="42" lean-forward="false" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="706">
+          <caret line="79" column="14" lean-forward="true" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="707">
+          <caret line="53" column="56" lean-forward="false" selection-start-line="53" selection-start-column="56" selection-end-line="53" selection-end-column="56" />
           <folding />
         </state>
       </provider>

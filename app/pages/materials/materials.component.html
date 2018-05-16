@@ -1,8 +1,57 @@
-<GridLayout class="page page-content" tkMainContent>
-    <StackLayout>
-        <Button horizontalAlignment="right" text="&#xf013;" class="fa" [nsRouterLink]="['/tabs/(materials/settings)']"></Button>
+<StackLayout>
+    <Button horizontalAlignment="right" text="&#xf013;" class="fa" [nsRouterLink]="['/materials/settings']"></Button>
 
-        <Label text="test"></Label>
-    </StackLayout>
+    <GridLayout columns="10, *, *" rows="auto, auto, auto" margin="3">
+        <Label row="0" col="1" text="16/05/2018"></Label>
+        <Label row="0" col="2" text="CG Arjen"></Label>
+        <Label row="1" col="1" text="Viandico"></Label>
+        <Label row="1" col="2" text="Base"></Label>
+        <Label row="2" col="1" text="Groeptotaal:"></Label>
+        <Label row="2" col="2" text="14"></Label>
+    </GridLayout>
 
+    <Label text=" Pak Totaal" backgroundColor="#d3d3d3" margin="5"></Label>
+
+</StackLayout>
+
+<ListView [items]="sizeTotals" (itemTap)="onItemTap($event)">
+    <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+        <GridLayout columns="10, *, *" rows="*" margin="3" [class.odd]="odd" [class.even]="even">
+            <Label row="0" col="1" [text]="item.size"></Label>
+            <Label row="0" col="2" [text]="item.total"></Label>
+        </GridLayout>
+    </ng-template>
+</ListView>
+
+<Label text=" Gordel Totaal" backgroundColor="#d3d3d3" margin="5"></Label>
+<ListView [items]="beltTotals" (itemTap)="onItemTap($event)">
+    <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+        <GridLayout columns="10, *, *" rows="*" margin="3" [class.odd]="odd" [class.even]="even">
+            <Label row="0" col="1" [text]="item.size"></Label>
+            <Label row="0" col="2" [text]="item.total"></Label>
+        </GridLayout>
+    </ng-template>
+</ListView>
+<Label text=" Helm Totaal" backgroundColor="#d3d3d3" margin="5"></Label>
+<ListView [items]="helmetTotals" (itemTap)="onItemTap($event)">
+    <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+        <GridLayout columns="10, *, *" rows="*" margin="3" [class.odd]="odd" [class.even]="even">
+            <Label row="0" col="1" [text]="item.size"></Label>
+            <Label row="0" col="2" [text]="item.total"></Label>
+        </GridLayout>
+    </ng-template>
+</ListView>
+<GridLayout columns="10, *, *, *" rows="auto" margin="3" [class.odd]="odd" [class.even]="even" backgroundColor="#d3d3d3">
+    <Label row="0" col="1" text="Deelnemer"></Label>
+    <Label row="0" col="2" text="Maat"></Label>
+    <Label row="0" col="3" text="Maatinfo"></Label>
 </GridLayout>
+<ListView [items]="userSizes" (itemTap)="onItemTap($event)">
+    <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+        <GridLayout columns="10, *, *, *" rows="*" margin="3" [class.odd]="odd" [class.even]="even">
+            <Label row="0" col="1" [text]="item.customer"></Label>
+            <Label row="0" col="2" [text]="item.size"></Label>
+            <Label row="0" col="3" [text]="item.sizeInfo"></Label>
+        </GridLayout>
+    </ng-template>
+</ListView>

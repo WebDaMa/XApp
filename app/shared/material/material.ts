@@ -7,13 +7,14 @@ export class Material {
     activity: string;
     groupName: string;
     groupTotal: string;
-    sizeTotals: [SizeTotal];
-    beltTotals: [SizeTotal];
-    helmetTotals: [SizeTotal];
-    userSizes: [Size];
+    sizeTotals: Array<SizeTotal>;
+    beltTotals: Array<SizeTotal>;
+    helmetTotals: Array<SizeTotal>;
+    userSizes: Array<Size>;
 
     constructor(date: string, guide: string, activity: string, groupName: string, groupTotal: string,
-                sizeTotals: [SizeTotal], beltTotals: [SizeTotal], helmetTotals: [SizeTotal], userSizes: [Size]) {
+                sizeTotals: Array<SizeTotal>, beltTotals: Array<SizeTotal>, helmetTotals: Array<SizeTotal>,
+                userSizes: Array<Size>) {
         this.date = date;
         this.guide = guide;
         this.activity = activity;
