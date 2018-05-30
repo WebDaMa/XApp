@@ -15,6 +15,6 @@
     <Label class="action-bar-title" text="Settings"></Label>
 </ActionBar>
 <GridLayout class="page page-content" tkMainContent>
-    <Label class="page-icon fa" text="&#xf015;"></Label>
-    <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
+    <Label class="text-center" text="Kies een locatie:"></Label>
+    <ListPicker [items]="items" [selectedIndex]="selectedIndex" (selectedIndexChange)="selectedIndexChanged($event)" class="p-15"></ListPicker>
 </GridLayout>

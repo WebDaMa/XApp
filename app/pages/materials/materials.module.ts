@@ -2,10 +2,12 @@ import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
 
 import { MaterialsComponent } from "./materials.component";
+import {NativeScriptHttpClientModule} from "nativescript-angular/http-client";
 
 @NgModule({
     imports: [
-        NativeScriptCommonModule
+        NativeScriptCommonModule,
+        NativeScriptHttpClientModule
     ],
     declarations: [
         MaterialsComponent

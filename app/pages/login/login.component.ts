@@ -2,9 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular";
 import { Page } from "tns-core-modules/ui/page";
 import { Config } from "~/shared/config";
-import { User } from "~/shared/user/user";
-import { UserService } from "~/shared/user/user.service";
 import {Router} from "@angular/router";
+import {UserService} from "~/shared/services/user.service";
+import {User} from "~/shared/models/user.model";
 
 /* ***********************************************************
 * Before you can navigate to this page from your app, you need to reference this page's module in the
@@ -40,10 +40,9 @@ export class LoginComponent implements OnInit {
                 { clearHistory: true });
         }
         this.page.actionBarHidden = true;
-        this.user = {
-            username: "",
-            password: ""
-        };
+        this.user = new User();
+        this.user.password = "";
+        this.user.username = "";
 
     }
 
@@ -55,6 +54,7 @@ export class LoginComponent implements OnInit {
                     const appSettings = require("application-settings");
                     appSettings.setString("token", (<any>result).access_token);
                     appSettings.setString("username", this.user.username);
+                    console.log(appSettings.getString("username"));
 
                     this.routerExtensions.navigate(
                         ["/tabs"],

@@ -1,20 +1,25 @@
 <StackLayout>
-    <Button horizontalAlignment="right" text="&#xf013;" class="fa" [nsRouterLink]="['/materials/settings']"></Button>
+    <GridLayout columns="10, *, *, 10" rows="auto" margin="3">
+        <Button col="1" horizontalAlignment="left" text="&#xf021;" class="fa btn btn-primary btn-active" (tap)="reload()"></Button>
+        <Button col="2" horizontalAlignment="right" text="&#xf013;" class="fa" [nsRouterLink]="['/materials/settings']"></Button>
+    </GridLayout>
 
-    <GridLayout columns="10, *, *" rows="auto, auto, auto" margin="3">
-        <Label row="0" col="1" text="16/05/2018"></Label>
-        <Label row="0" col="2" text="CG Arjen"></Label>
-        <Label row="1" col="1" text="Viandico"></Label>
-        <Label row="1" col="2" text="Base"></Label>
-        <Label row="2" col="1" text="Groeptotaal:"></Label>
-        <Label row="2" col="2" text="14"></Label>
+    <GridLayout columns="10, *, *" rows="auto, auto, auto, auto" margin="3">
+        <Label row="0" col="1" [text]="material.date"></Label>
+        <Label row="0" col="2" [text]="material.activity"></Label>
+        <Label row="1" col="1" [text]="material.guide.short"></Label>
+        <Label row="1" col="2" [text]="material.guide.name"></Label>
+        <Label row="2" col="1" text="Groep:"></Label>
+        <Label row="2" col="2" [text]="material.groupName"></Label>
+        <Label row="3" col="1" text="Groeptotaal:"></Label>
+        <Label row="3" col="2" [text]="material.groupTotal"></Label>
     </GridLayout>
 
     <Label text=" Pak Totaal" backgroundColor="#d3d3d3" margin="5"></Label>
 
 </StackLayout>
 
-<ListView [items]="sizeTotals" (itemTap)="onItemTap($event)">
+<ListView [items]="material.sizeTotals" (itemTap)="onItemTap($event)">
     <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
         <GridLayout columns="10, *, *" rows="*" margin="3" [class.odd]="odd" [class.even]="even">
             <Label row="0" col="1" [text]="item.size"></Label>
@@ -24,7 +29,7 @@
 </ListView>
 
 <Label text=" Gordel Totaal" backgroundColor="#d3d3d3" margin="5"></Label>
-<ListView [items]="beltTotals" (itemTap)="onItemTap($event)">
+<ListView [items]="material.beltTotals" (itemTap)="onItemTap($event)">
     <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
         <GridLayout columns="10, *, *" rows="*" margin="3" [class.odd]="odd" [class.even]="even">
             <Label row="0" col="1" [text]="item.size"></Label>
@@ -33,7 +38,7 @@
     </ng-template>
 </ListView>
 <Label text=" Helm Totaal" backgroundColor="#d3d3d3" margin="5"></Label>
-<ListView [items]="helmetTotals" (itemTap)="onItemTap($event)">
+<ListView [items]="material.helmetTotals" (itemTap)="onItemTap($event)">
     <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
         <GridLayout columns="10, *, *" rows="*" margin="3" [class.odd]="odd" [class.even]="even">
             <Label row="0" col="1" [text]="item.size"></Label>
@@ -46,7 +51,7 @@
     <Label row="0" col="2" text="Maat"></Label>
     <Label row="0" col="3" text="Maatinfo"></Label>
 </GridLayout>
-<ListView [items]="userSizes" (itemTap)="onItemTap($event)">
+<ListView [items]="material.userSizes" (itemTap)="onItemTap($event)">
     <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
         <GridLayout columns="10, *, *, *" rows="*" margin="3" [class.odd]="odd" [class.even]="even">
             <Label row="0" col="1" [text]="item.customer"></Label>

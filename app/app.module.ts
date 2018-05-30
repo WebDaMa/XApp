@@ -2,8 +2,9 @@ import { NgModule, NgModuleFactoryLoader, NO_ERRORS_SCHEMA } from "@angular/core
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular";
 
-import { NativeScriptFormsModule, NativeScriptHttpModule } from "nativescript-angular";
-import {AppRoutingModule, navigatableComponents} from "./app-routing.module";
+import { NativeScriptFormsModule } from "nativescript-angular";
+import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { AppRoutingModule, navigatableComponents } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
 @NgModule({
@@ -14,7 +15,7 @@ import { AppComponent } from "./app.component";
         AppRoutingModule,
         NativeScriptModule,
         NativeScriptFormsModule,
-        NativeScriptHttpModule,
+        NativeScriptHttpClientModule,
         NativeScriptModule,
         NativeScriptUISideDrawerModule
     ],

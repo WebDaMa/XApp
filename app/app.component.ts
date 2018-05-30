@@ -10,7 +10,6 @@ import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from "nat
 export class AppComponent implements OnInit {
     private _selectedPage: string;
     private _sideDrawerTransition: DrawerTransitionBase;
-    private appSettings = require("application-settings");
     private username: string;
 
     constructor(private routerExtensions: RouterExtensions) {
@@ -20,7 +19,8 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
         this._selectedPage = "Home";
         this._sideDrawerTransition = new SlideInOnTopTransition();
-        this.username = this.appSettings.getString("username");
+        const appSettings = require("application-settings");
+        this.username = appSettings.getString("username");
     }
 
     get sideDrawerTransition(): DrawerTransitionBase {
@@ -45,8 +45,9 @@ export class AppComponent implements OnInit {
     logout(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.closeDrawer();
-        this.appSettings.setString("token", "");
-        this.appSettings.setString("username", "");
+        const appSettings = require("application-settings");
+        appSettings.setString("token", "");
+        appSettings.setString("username", "");
         this.routerExtensions.navigate(["/login"], { clearHistory: true });
     }
 }

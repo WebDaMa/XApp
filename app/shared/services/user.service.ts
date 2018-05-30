@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders, HttpResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
+import { User } from "~/shared/models/user.model";
 import { Config } from "../config";
-import { User } from "./user";
 
 @Injectable()
 export class UserService {
