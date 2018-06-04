@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders, HttpResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
-import { map } from "rxjs/internal/operators";
 import { Guide } from "~/shared/models/guide.model";
 import { Service } from "~/shared/services/service";
 import { Config } from "../config";

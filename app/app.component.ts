@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import * as app from "application";
 import { RouterExtensions } from "nativescript-angular/router";
 import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from "nativescript-ui-sidedrawer";
+import { Observable } from "tns-core-modules/data/observable";
 
 @Component({
     selector: "ns-app",
@@ -10,7 +11,6 @@ import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from "nat
 export class AppComponent implements OnInit {
     private _selectedPage: string;
     private _sideDrawerTransition: DrawerTransitionBase;
-    private username: string;
 
     constructor(private routerExtensions: RouterExtensions) {
         // Use the component constructor to inject services.
@@ -19,8 +19,6 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
         this._selectedPage = "Home";
         this._sideDrawerTransition = new SlideInOnTopTransition();
-        const appSettings = require("application-settings");
-        this.username = appSettings.getString("username");
     }
 
     get sideDrawerTransition(): DrawerTransitionBase {

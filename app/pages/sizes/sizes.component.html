@@ -1,4 +1,6 @@
-<GridLayout class="page page-content" tkMainContent>
-    <Label class="page-icon fa" text="&#xf015;"></Label>
-    <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<StackLayout class="page page-content" tkMainContent>
+    <Label class="text-center" [visibility]="!hasGroeps ? 'visible' : 'collapse'" text="Geen groepen gevonden, kies een andere locatie."></Label>
+    <Label class="text-center" text="Kies een groep:" [visibility]="hasGroeps ? 'visible' : 'collapse'"></Label>
+    <ListPicker [items]="items" [visibility]="hasGroeps ? 'visible' : 'collapse'" [selectedIndex]="selectedIndex" (selectedIndexChange)="selectedIndexChanged($event)"
+                class="p-15"></ListPicker>
+</StackLayout>

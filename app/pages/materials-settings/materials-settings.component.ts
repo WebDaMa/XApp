@@ -3,6 +3,7 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { DatePicker } from "tns-core-modules/ui/date-picker";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
+import { Page } from "tns-core-modules/ui/page";
 import { Guide } from "~/shared/models/guide.model";
 import { GuideService } from "~/shared/services/guide.service";
 
@@ -16,29 +17,26 @@ export class MaterialsSettingsComponent implements OnInit {
     guides: Array<Guide> = [];
     items: object = {};
     guide: Guide;
-    year: number;
-    month: number;
-    day: number;
+    hasGuides: boolean = false;
     selectedIndex: number = 0;
 
-    constructor(private guideService: GuideService) {
+    constructor(private guideService: GuideService, private page: Page) {
     }
 
     ngOnInit(): void {
-        this.getGuides();
+        this.page.on(Page.navigatingToEvent, () => {
+            this.getGuides();
+        });
     }
 
     selectedIndexChanged(args) {
         const picker = <ListPicker>args.object;
         const appSettings = require("application-settings");
 
-        if (picker.selectedIndex !== 0) {
+        if (this.guides.length > 0) {
             appSettings.setNumber("guideIndex", picker.selectedIndex);
-        }
-
-        if (this.guides.length < 0) {
             this.guide = this.guides[picker.selectedIndex];
-            appSettings.setNumber("guideId", this.guide.id);
+            appSettings.setString("guideId", this.guide.id);
         }
 
     }
@@ -47,7 +45,7 @@ export class MaterialsSettingsComponent implements OnInit {
         const appSettings = require("application-settings");
         let locationId: string = "1";
         if (appSettings.hasKey("locationId")) {
-            locationId = appSettings.getNumber("locationId");
+            locationId = appSettings.getString("locationId");
         }
 
         const now = new Date();
@@ -73,6 +71,8 @@ export class MaterialsSettingsComponent implements OnInit {
 
                             }
                         };
+                        this.hasGuides = true;
+                        console.log("found me some guides");
                     }
 
                     this.selectedIndex = appSettings.hasKey("guideIndex") ?
@@ -81,6 +81,7 @@ export class MaterialsSettingsComponent implements OnInit {
                 },
                 (error) => {
                     console.dir(error);
+                    this.hasGuides = false;
                     /*TODO: handle errors*/
                 }
             );

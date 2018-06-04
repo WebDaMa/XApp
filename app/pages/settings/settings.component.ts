@@ -61,13 +61,14 @@ export class SettingsComponent implements OnInit {
         const picker = <ListPicker>args.object;
         const appSettings = require("application-settings");
 
-        if (picker.selectedIndex !== 0) {
+        if (this.locations.length > 0) {
             appSettings.setNumber("locationIndex", picker.selectedIndex);
+            this.location = this.locations[picker.selectedIndex];
+            appSettings.setString("locationId", this.location.id);
+            appSettings.setNumber("guideIndex", 0);
+            appSettings.setNumber("groepIndex", 0);
         }
 
-        this.location = this.locations[picker.selectedIndex];
-        appSettings.setNumber("locationId", this.location.id);
-        appSettings.setNumber("guideIndex", 0);
     }
 
     onDrawerButtonTap(): void {

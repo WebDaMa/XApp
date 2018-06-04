@@ -1,7 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { RouterExtensions } from "nativescript-angular";
-import { Location } from "~/shared/models/location.model";
 import { Material } from "~/shared/models/material.model";
 import { MaterialService } from "~/shared/services/material.service";
 
@@ -45,7 +42,7 @@ export class MaterialsComponent implements OnInit {
         if (appSettings.hasKey("materialDate")) {
             date = appSettings.getString("materialDate");
         }
-        let guideId: number = 3;
+        let guideId: string = "3";
         if (appSettings.hasKey("guideId")) {
             guideId = appSettings.getString("guideId");
         }
