@@ -14,7 +14,7 @@ export class GuideService extends Service {
 
     getAllGuidesForWeekAndLocationAction(date, locationId): Observable<Array<Guide>> {
         const headers = this.createRequestHeader();
-        const url = Config.apiUrl + "api/guides-for-week-and-location/" + date + "/" + locationId;
+        const url = Config.apiUrl + "api/guides/week-and-location/" + date + "/" + locationId;
         console.dir(url);
 
         return this.http.get<Array<Guide>>(url, { headers });

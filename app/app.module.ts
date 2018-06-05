@@ -4,6 +4,7 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 
 import { NativeScriptFormsModule } from "nativescript-angular";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { NativeScriptUIDataFormModule } from "nativescript-ui-dataform/angular";
 import { AppRoutingModule, navigatableComponents } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
@@ -17,7 +18,8 @@ import { AppComponent } from "./app.component";
         NativeScriptFormsModule,
         NativeScriptHttpClientModule,
         NativeScriptModule,
-        NativeScriptUISideDrawerModule
+        NativeScriptUISideDrawerModule,
+        NativeScriptUIDataFormModule
     ],
     declarations: [
         AppComponent,

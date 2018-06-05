@@ -2,29 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29231f43-1602-4262-8068-fafd9ea89c9e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/shared/models/groep.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/shared/services/groep.service.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/shared/models/groepCustomer.model.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/shared/models/suitSize.model.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/shared/services/customer.service.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/shared/services/suitSize.service.ts" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/app.component.html" afterPath="$PROJECT_DIR$/app/app.component.html" />
-      <change beforePath="$PROJECT_DIR$/app/app.component.js" afterPath="$PROJECT_DIR$/app/app.component.js" />
-      <change beforePath="$PROJECT_DIR$/app/app.component.ts" afterPath="$PROJECT_DIR$/app/app.component.ts" />
-      <change beforePath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html" afterPath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html" />
-      <change beforePath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.js" afterPath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.js" />
-      <change beforePath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.ts" afterPath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.ts" />
+      <change beforePath="$PROJECT_DIR$/app/app.module.js" afterPath="$PROJECT_DIR$/app/app.module.js" />
+      <change beforePath="$PROJECT_DIR$/app/app.module.ts" afterPath="$PROJECT_DIR$/app/app.module.ts" />
       <change beforePath="$PROJECT_DIR$/app/pages/materials/materials.component.html" afterPath="$PROJECT_DIR$/app/pages/materials/materials.component.html" />
-      <change beforePath="$PROJECT_DIR$/app/pages/materials/materials.component.js" afterPath="$PROJECT_DIR$/app/pages/materials/materials.component.js" />
-      <change beforePath="$PROJECT_DIR$/app/pages/materials/materials.component.ts" afterPath="$PROJECT_DIR$/app/pages/materials/materials.component.ts" />
-      <change beforePath="$PROJECT_DIR$/app/pages/settings/settings.component.js" afterPath="$PROJECT_DIR$/app/pages/settings/settings.component.js" />
-      <change beforePath="$PROJECT_DIR$/app/pages/settings/settings.component.ts" afterPath="$PROJECT_DIR$/app/pages/settings/settings.component.ts" />
+      <change beforePath="$PROJECT_DIR$/app/pages/materials/materials.module.js" afterPath="$PROJECT_DIR$/app/pages/materials/materials.module.js" />
+      <change beforePath="$PROJECT_DIR$/app/pages/materials/materials.module.ts" afterPath="$PROJECT_DIR$/app/pages/materials/materials.module.ts" />
       <change beforePath="$PROJECT_DIR$/app/pages/sizes/sizes.component.html" afterPath="$PROJECT_DIR$/app/pages/sizes/sizes.component.html" />
       <change beforePath="$PROJECT_DIR$/app/pages/sizes/sizes.component.js" afterPath="$PROJECT_DIR$/app/pages/sizes/sizes.component.js" />
       <change beforePath="$PROJECT_DIR$/app/pages/sizes/sizes.component.ts" afterPath="$PROJECT_DIR$/app/pages/sizes/sizes.component.ts" />
+      <change beforePath="$PROJECT_DIR$/app/pages/sizes/sizes.module.js" afterPath="$PROJECT_DIR$/app/pages/sizes/sizes.module.js" />
+      <change beforePath="$PROJECT_DIR$/app/pages/sizes/sizes.module.ts" afterPath="$PROJECT_DIR$/app/pages/sizes/sizes.module.ts" />
+      <change beforePath="$PROJECT_DIR$/app/shared/services/groep.service.js" afterPath="$PROJECT_DIR$/app/shared/services/groep.service.js" />
+      <change beforePath="$PROJECT_DIR$/app/shared/services/groep.service.ts" afterPath="$PROJECT_DIR$/app/shared/services/groep.service.ts" />
       <change beforePath="$PROJECT_DIR$/app/shared/services/guide.service.js" afterPath="$PROJECT_DIR$/app/shared/services/guide.service.js" />
       <change beforePath="$PROJECT_DIR$/app/shared/services/guide.service.ts" afterPath="$PROJECT_DIR$/app/shared/services/guide.service.ts" />
-      <change beforePath="$PROJECT_DIR$/app/shared/services/location.service.js" afterPath="$PROJECT_DIR$/app/shared/services/location.service.js" />
-      <change beforePath="$PROJECT_DIR$/app/shared/services/location.service.ts" afterPath="$PROJECT_DIR$/app/shared/services/location.service.ts" />
-      <change beforePath="$PROJECT_DIR$/app/shared/services/material.service.js" afterPath="$PROJECT_DIR$/app/shared/services/material.service.js" />
-      <change beforePath="$PROJECT_DIR$/app/shared/services/material.service.ts" afterPath="$PROJECT_DIR$/app/shared/services/material.service.ts" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
       <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
@@ -37,13 +33,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="materials-settings.component.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.ts">
+      <file leaf-file-name="sizes.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/pages/sizes/sizes.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+            <state relative-caret-position="676">
+              <caret line="153" column="38" lean-forward="true" selection-start-line="153" selection-start-column="38" selection-end-line="153" selection-end-column="38" />
               <folding>
-                <element signature="e#0#50#0" expanded="true" />
+                <element signature="e#0#70#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,6 +67,8 @@
       <find>location</find>
       <find>locationId</find>
       <find>locationIndex</find>
+      <find>items</find>
+      <find>groepId</find>
     </findStrings>
     <replaceStrings>
       <replace>Array&lt;Size&gt;</replace>
@@ -86,13 +84,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/pages/tabs.module.ts" />
-        <option value="$PROJECT_DIR$/app/pages/login/login.module.ts" />
-        <option value="$PROJECT_DIR$/app/pages/tabs.component.ts" />
-        <option value="$PROJECT_DIR$/app/pages/tabs.component.html" />
-        <option value="$PROJECT_DIR$/app/app-routing.module.ts" />
-        <option value="$PROJECT_DIR$/app/shared/material/material.ts" />
-        <option value="$PROJECT_DIR$/app/shared/service.ts" />
         <option value="$PROJECT_DIR$/app/shared/guide/guide.service.ts" />
         <option value="$PROJECT_DIR$/app/shared/location/location.service.ts" />
         <option value="$PROJECT_DIR$/app/shared/material/material.service.ts" />
@@ -111,12 +102,9 @@
         <option value="$PROJECT_DIR$/app/shared/services/service.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/base/typeBase.model.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/guide.model.ts" />
-        <option value="$PROJECT_DIR$/app/shared/models/size.model.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/sizeTotal.model.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/user.model.ts" />
         <option value="$PROJECT_DIR$/app/pages/settings/settings.component.html" />
-        <option value="$PROJECT_DIR$/app/pages/materials/materials.module.ts" />
-        <option value="$PROJECT_DIR$/app/app.module.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/material.model.ts" />
         <option value="$PROJECT_DIR$/app/pages/login/login.component.ts" />
         <option value="$PROJECT_DIR$/app/shared/services/material.service.ts" />
@@ -126,17 +114,27 @@
         <option value="$PROJECT_DIR$/app/shared/config.ts" />
         <option value="$PROJECT_DIR$/app/shared/settings.ts" />
         <option value="$PROJECT_DIR$/app/pages/materials/materials.component.ts" />
-        <option value="$PROJECT_DIR$/app/pages/materials/materials.component.html" />
         <option value="$PROJECT_DIR$/app/app.component.html" />
         <option value="$PROJECT_DIR$/app/app.component.ts" />
-        <option value="$PROJECT_DIR$/app/shared/services/guide.service.ts" />
         <option value="$PROJECT_DIR$/app/shared/services/location.service.ts" />
-        <option value="$PROJECT_DIR$/app/shared/services/groep.service.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/groep.ts" />
-        <option value="$PROJECT_DIR$/app/pages/sizes/sizes.component.html" />
         <option value="$PROJECT_DIR$/app/pages/settings/settings.component.ts" />
-        <option value="$PROJECT_DIR$/app/pages/sizes/sizes.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.ts" />
+        <option value="$PROJECT_DIR$/app/shared/services/groep.service.ts" />
+        <option value="$PROJECT_DIR$/app/shared/services/guide.service.ts" />
+        <option value="$PROJECT_DIR$/app/pages/materials/materials.component.html" />
+        <option value="$PROJECT_DIR$/app/shared/services/size.service.ts" />
+        <option value="$PROJECT_DIR$/app/shared/models/suitSize.model.ts" />
+        <option value="$PROJECT_DIR$/app/shared/services/suitSize.service.ts" />
+        <option value="$PROJECT_DIR$/app/shared/models/groepCustomer.model.ts" />
+        <option value="$PROJECT_DIR$/app/pages/materials/materials.module.ts" />
+        <option value="$PROJECT_DIR$/app/pages/sizes/sizes.module.ts" />
+        <option value="$PROJECT_DIR$/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/app/shared/models/person.ts" />
+        <option value="$PROJECT_DIR$/app/shared/models/size.model.ts" />
+        <option value="$PROJECT_DIR$/app/pages/sizes/sizes.component.html" />
+        <option value="$PROJECT_DIR$/app/shared/services/customer.service.ts" />
+        <option value="$PROJECT_DIR$/app/pages/sizes/sizes.component.ts" />
       </list>
     </option>
   </component>
@@ -171,7 +169,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -195,13 +192,6 @@
               <item name="XApp" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="login" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="XApp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="materials" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -210,13 +200,6 @@
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="materials-settings" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="XApp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="settings" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
@@ -257,6 +240,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -278,8 +262,8 @@
       <recent name="$PROJECT_DIR$/app/pages" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/shared/services" />
       <recent name="$PROJECT_DIR$/app/shared/models" />
+      <recent name="$PROJECT_DIR$/app/shared/services" />
       <recent name="$PROJECT_DIR$/app/shared/location" />
       <recent name="$PROJECT_DIR$/app/shared/material" />
       <recent name="$PROJECT_DIR$/app/pages/materials" />
@@ -320,29 +304,29 @@
       <workItem from="1527607503462" duration="24000" />
       <workItem from="1527613786763" duration="130000" />
       <workItem from="1527614141294" duration="21584000" />
-      <workItem from="1528027031827" duration="8935000" />
+      <workItem from="1528027031827" duration="17578000" />
+      <workItem from="1528206854947" duration="4368000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67223000" />
+    <option name="totallyTimeSpent" value="80234000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="NativeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4188889" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4188889" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -350,6 +334,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -380,6 +365,10 @@
         <option value="$PROJECT_DIR$/app/shared/models/base/typeBase.model.js" />
         <option value="$PROJECT_DIR$/app/shared/services/groep.service.js" />
         <option value="$PROJECT_DIR$/app/shared/models/groep.js" />
+        <option value="$PROJECT_DIR$/app/shared/services/customer.service.js" />
+        <option value="$PROJECT_DIR$/app/shared/models/groepCustomer.model.js" />
+        <option value="$PROJECT_DIR$/app/shared/services/suitSize.service.js" />
+        <option value="$PROJECT_DIR$/app/shared/models/suitSize.model.js" />
       </list>
     </option>
   </component>
@@ -391,55 +380,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/signup/signup-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="12" column="15" lean-forward="false" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/main.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/vendor.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/login/login-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/materials-settings/materials-settings.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/signup/signup.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/tabs-routing.module.ts" />
     <entry file="file://$PROJECT_DIR$/app/pages/tabs.module.ts" />
     <entry file="file://$PROJECT_DIR$/app/pages/login/login.component.html">
@@ -487,35 +427,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/models/user.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/models/sizeTotal.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/models/size.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/services/user.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/settings/settings.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -524,32 +435,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="17" column="2" lean-forward="true" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/settings/settings.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/models/material.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -564,15 +453,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
           <caret line="32" column="59" lean-forward="false" selection-start-line="32" selection-start-column="59" selection-end-line="32" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -584,27 +464,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/settings.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="37" lean-forward="true" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="102" lean-forward="false" selection-start-line="3" selection-start-column="102" selection-end-line="3" selection-end-column="102" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/settings.ts" />
     <entry file="file://$PROJECT_DIR$/app/app.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="6" column="42" lean-forward="false" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -624,19 +488,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/models/guide.model.ts">
+    <entry file="file://$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="42" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="26" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/models/groep.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="22" column="30" lean-forward="true" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/settings/settings.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#50#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/shared/services/guide.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
+        <state relative-caret-position="304">
+          <caret line="16" column="48" lean-forward="false" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#77#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -664,44 +564,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html">
+    <entry file="file://$PROJECT_DIR$/app/shared/services/user.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" column="42" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="26" selection-end-column="42" />
+        <state relative-caret-position="-312">
+          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/shared/services/groep.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="15" lean-forward="true" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#77#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/models/groep.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/sizes/sizes.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="51" lean-forward="false" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/models/location.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="152">
+          <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -710,42 +584,144 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/models/guide.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/models/location.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="1" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/models/material.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.component.ts">
+    <entry file="file://$PROJECT_DIR$/app/shared/models/sizeTotal.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="22" column="30" lean-forward="true" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+        <state relative-caret-position="76">
+          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/settings/settings.component.ts">
+    <entry file="file://$PROJECT_DIR$/app/shared/models/user.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        <state relative-caret-position="76">
+          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/models/suitSize.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/services/suitSize.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="42" lean-forward="true" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/sizes/sizes.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/materials-settings/materials-settings.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/models/person.ts" />
+    <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="48" column="42" lean-forward="true" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/models/groepCustomer.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/models/size.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/sizes/sizes.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="128" lean-forward="false" selection-start-line="9" selection-start-column="128" selection-end-line="9" selection-end-column="128" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/services/customer.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="25" column="80" lean-forward="false" selection-start-line="25" selection-start-column="80" selection-end-line="25" selection-end-column="80" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/sizes/sizes.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="35" column="11" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="35" selection-end-column="11" />
+        <state relative-caret-position="676">
+          <caret line="153" column="38" lean-forward="true" selection-start-line="153" selection-start-column="38" selection-end-line="153" selection-end-column="38" />
           <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#0#70#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -3,4 +3,27 @@
     <Label class="text-center" text="Kies een groep:" [visibility]="hasGroeps ? 'visible' : 'collapse'"></Label>
     <ListPicker [items]="items" [visibility]="hasGroeps ? 'visible' : 'collapse'" [selectedIndex]="selectedIndex" (selectedIndexChange)="selectedIndexChanged($event)"
                 class="p-15"></ListPicker>
+
+    <ListView [items]="customers">
+        <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+            <StackLayout>
+                <RadDataForm #cdf tkExampleTitle tkToggleNavButton [source]="item" (propertyCommitted)="dfPropertyCommitted(item)">
+                    <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
+                        <TKDataFormGridLayout tkPropertyGroupLayout></TKDataFormGridLayout>
+                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" name="id" displayName="Deelnemer" index="0">
+                        </TKEntityProperty>
+                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" readOnly="true" name="customer" displayName="Deelnemer" index="0">
+                            <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                        </TKEntityProperty>
+                        <TKEntityProperty tkPropertyGroupProperties columnIndex="1" name="size" displayName="Maat" [valuesProvider]="sizes" index="0">
+                            <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
+                        </TKEntityProperty>
+                        <TKEntityProperty tkPropertyGroupProperties columnIndex="2" name="sizeInfo" displayName="Maat Info" index="0">
+                            <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
+                        </TKEntityProperty>
+                    </TKPropertyGroup>
+                </RadDataForm>
+            </StackLayout>
+        </ng-template>
+    </ListView>
 </StackLayout>

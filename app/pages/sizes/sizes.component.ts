@@ -1,11 +1,15 @@
-import { Component, OnInit } from "@angular/core";
+import {Component, OnInit, QueryList, ViewChild} from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
-import { DatePicker } from "tns-core-modules/ui/date-picker";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Page } from "tns-core-modules/ui/page";
 import { Groep } from "~/shared/models/groep";
+import { GroepCustomer } from "~/shared/models/groepCustomer.model";
+import { SuitSize } from "~/shared/models/suitSize.model";
+import { CustomerService } from "~/shared/services/customer.service";
 import { GroepService } from "~/shared/services/groep.service";
+import { SuitSizeService } from "~/shared/services/suitSize.service";
+import {RadDataFormComponent} from "nativescript-ui-dataform/angular";
 
 /* ***********************************************************
 * Before you can navigate to this page from your app, you need to reference this page's module in the
@@ -17,20 +21,25 @@ import { GroepService } from "~/shared/services/groep.service";
 @Component({
     selector: "Sizes",
     moduleId: module.id,
-    providers: [GroepService],
+    providers: [GroepService, CustomerService, SuitSizeService],
     templateUrl: "./sizes.component.html"
 })
 export class SizesComponent implements OnInit {
+    @ViewChild("cdf") cdf: QueryList<RadDataFormComponent>;
     groeps: Array<Groep> = [];
     items: object = {};
     groep: Groep;
     hasGroeps: boolean = false;
     selectedIndex: number = 0;
+    customers: Array<GroepCustomer> = [];
+    sizes: Array<object> = [];
 
-    constructor(private groepService: GroepService, private page: Page) {
+    constructor(private groepService: GroepService, private customerService: CustomerService,
+                private suitSizeService: SuitSizeService, private page: Page) {
     }
 
     ngOnInit(): void {
+        this.getSizes();
         this.page.on(Page.navigatingToEvent, () => {
             this.getGroeps();
         });
@@ -44,6 +53,7 @@ export class SizesComponent implements OnInit {
             appSettings.setNumber("groepIndex", picker.selectedIndex);
             this.groep = this.groeps[picker.selectedIndex];
             appSettings.setString("groepId", this.groep.id);
+            this.getCustomers();
         }
 
     }
@@ -85,10 +95,63 @@ export class SizesComponent implements OnInit {
                     this.selectedIndex = appSettings.hasKey("groepIndex") ?
                         appSettings.getNumber("groepIndex") : 0;
 
+                    this.getCustomers();
+
                 },
                 (error) => {
                     console.dir(error);
                     this.hasGroeps = false;
+                    /*TODO: handle errors*/
+                }
+            );
+    }
+
+    getCustomers(): void {
+        const appSettings = require("application-settings");
+        if (appSettings.hasKey("groepId")) {
+            const groepId = appSettings.getString("groepId");
+
+            this.customerService.getAllByGroepAction(groepId)
+                .subscribe(
+                    (result: Array<GroepCustomer>) => {
+
+                        this.customers = result;
+                        console.log("found me some customers");
+                    },
+                    (error) => {
+                        console.dir(error);
+                        this.hasGroeps = false;
+                        /*TODO: handle errors*/
+                    }
+                );
+        }
+
+    }
+
+    getSizes(): void {
+        this.suitSizeService.getAllAction()
+            .subscribe(
+                (result: Array<SuitSize>) => {
+
+                    this.sizes = result.map(({ id, name }) => ({ key: id, label: name }));
+                },
+                (error) => {
+                    console.dir(error);
+                    /*TODO: handle errors*/
+                }
+            );
+
+    }
+
+    dfPropertyCommitted(groepCustomer: GroepCustomer) {
+        console.dir(groepCustomer);
+        this.customerService.putCustomerSizeAction(groepCustomer)
+            .subscribe(
+                () => {
+                    console.log("Updated customer");
+                },
+                (error) => {
+                    console.dir(error);
                     /*TODO: handle errors*/
                 }
             );

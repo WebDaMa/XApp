@@ -1,11 +1,11 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 
+import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { SizesComponent } from "./sizes.component";
 
 @NgModule({
     imports: [
-        NativeScriptModule
+        NativeScriptCommonModule
     ],
     declarations: [
         SizesComponent

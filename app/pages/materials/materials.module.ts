@@ -7,7 +7,6 @@ import {NativeScriptHttpClientModule} from "nativescript-angular/http-client";
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        NativeScriptHttpClientModule
     ],
     declarations: [
         MaterialsComponent
