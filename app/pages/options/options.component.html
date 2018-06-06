@@ -1,4 +1,35 @@
-<GridLayout class="page page-content" tkMainContent>
-    <Label class="page-icon fa" text="&#xf015;"></Label>
-    <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<StackLayout class="page page-content" tkMainContent>
+    <Label class="text-center" [visibility]="!hasGroeps ? 'visible' : 'collapse'" text="Geen groepen gevonden, kies een andere locatie."></Label>
+    <Label class="text-center" text="Kies een groep:" [visibility]="hasGroeps ? 'visible' : 'collapse'"></Label>
+    <ListPicker [items]="groepItems" [visibility]="hasGroeps ? 'visible' : 'collapse'" [selectedIndex]="selectedGroepIndex" (selectedIndexChange)="selectedGroepIndexChanged($event)"
+                class=""></ListPicker>
+    <Label class="text-center" text="Kies een optie categorie:"></Label>
+    <ListPicker [items]="optionCategoryItems" [visibility]="hasGroeps ? 'visible' : 'collapse'" [selectedIndex]="selectedOptionCategoryIndex" (selectedIndexChange)="selectedOptionCategoryIndexChanged($event)"
+                class=""></ListPicker>
+
+    <!--<ListView [items]="raftingCustomers">
+        <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+            <StackLayout>
+                <RadDataForm tkExampleTitle tkToggleNavButton [source]="item" (propertyCommitted)="dfPropertyCommittedRafting(item)">
+                    <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
+                        <TKDataFormGridLayout tkPropertyGroupLayout></TKDataFormGridLayout>
+                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" name="id" index="0">
+                        </TKEntityProperty>
+                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" readOnly="true" name="customer" displayName="Deelnemer" index="0">
+                            <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                        </TKEntityProperty>
+                        <TKEntityProperty tkPropertyGroupProperties columnIndex="1" name="programType" displayName="Program" index="0">
+                            <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                        </TKEntityProperty>
+                        <TKEntityProperty tkPropertyGroupProperties columnIndex="2" name="age" displayName="Leeftijd" index="0">
+                            <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                        </TKEntityProperty>
+                        <TKEntityProperty tkPropertyGroupProperties columnIndex="3" name="activityId" displayName="Activiteit" [valuesProvider]="raftingOptions" index="0">
+                            <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
+                        </TKEntityProperty>
+                    </TKPropertyGroup>
+                </RadDataForm>
+            </StackLayout>
+        </ng-template>
+    </ListView>-->
+</StackLayout>

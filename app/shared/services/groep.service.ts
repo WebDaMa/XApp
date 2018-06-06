@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders, HttpResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
-import { Groep } from "~/shared/models/groep";
+import { Groep } from "~/shared/models/groep.model";
 import { Service } from "~/shared/services/service";
 import { Config } from "../config";
 

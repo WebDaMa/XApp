@@ -1,4 +1,4 @@
-export class TypeBase {
+export class TypeCode {
     id: string;
     code: string;
 }

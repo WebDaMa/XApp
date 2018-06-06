@@ -2,15 +2,15 @@
     <Label class="text-center" [visibility]="!hasGroeps ? 'visible' : 'collapse'" text="Geen groepen gevonden, kies een andere locatie."></Label>
     <Label class="text-center" text="Kies een groep:" [visibility]="hasGroeps ? 'visible' : 'collapse'"></Label>
     <ListPicker [items]="items" [visibility]="hasGroeps ? 'visible' : 'collapse'" [selectedIndex]="selectedIndex" (selectedIndexChange)="selectedIndexChanged($event)"
-                class="p-15"></ListPicker>
+                class="p-10"></ListPicker>
 
     <ListView [items]="customers">
         <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
             <StackLayout>
-                <RadDataForm #cdf tkExampleTitle tkToggleNavButton [source]="item" (propertyCommitted)="dfPropertyCommitted(item)">
+                <RadDataForm tkExampleTitle tkToggleNavButton [source]="item" (propertyCommitted)="dfPropertyCommitted(item)">
                     <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
                         <TKDataFormGridLayout tkPropertyGroupLayout></TKDataFormGridLayout>
-                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" name="id" displayName="Deelnemer" index="0">
+                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" name="id" index="0">
                         </TKEntityProperty>
                         <TKEntityProperty tkPropertyGroupProperties columnIndex="0" readOnly="true" name="customer" displayName="Deelnemer" index="0">
                             <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>

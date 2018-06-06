@@ -1,4 +1,4 @@
-export class Groep {
+export class TypeName {
     id: string;
     name: string;
 }

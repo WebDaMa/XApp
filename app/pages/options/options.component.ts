@@ -1,4 +1,15 @@
 import { Component, OnInit } from "@angular/core";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
+import * as app from "tns-core-modules/application";
+import { ListPicker } from "tns-core-modules/ui/list-picker";
+import { Page } from "tns-core-modules/ui/page";
+import { Activity } from "~/shared/models/activity.model";
+import { Groep } from "~/shared/models/groep.model";
+import { OptionCategory } from "~/shared/models/optionCategory.model";
+import { RaftingCustomer } from "~/shared/models/raftingCustomer.model";
+import { CustomerService } from "~/shared/services/customer.service";
+import { GroepService } from "~/shared/services/groep.service";
+import { OptionService } from "~/shared/services/option.service";
 
 /* ***********************************************************
 * Before you can navigate to this page from your app, you need to reference this page's module in the
@@ -10,21 +21,213 @@ import { Component, OnInit } from "@angular/core";
 @Component({
     selector: "Options",
     moduleId: module.id,
+    providers: [GroepService, CustomerService, OptionService],
     templateUrl: "./options.component.html"
 })
 export class OptionsComponent implements OnInit {
-    _title: string;
+    groeps: Array<Groep> = [];
+    groepItems: object = {};
+    groep: Groep;
+    hasGroeps: boolean = false;
 
-    constructor() {
-        /* ***********************************************************
-        * Use the constructor to inject app services that you need in this component.
-        *************************************************************/
+    activities: Array<object> = [];
+
+    optionCategories: Array<OptionCategory> = [];
+    optionCategoryItems: object = {};
+    optionCategory: OptionCategory;
+
+    hasRaftingGroeps: boolean = false;
+    selectedGroepIndex: number = 0;
+    selectedOptionCategoryIndex: number = 0;
+    raftingCustomers: Array<RaftingCustomer> = [];
+
+    constructor(private groepService: GroepService, private customerService: CustomerService,
+                private page: Page, private optionService: OptionService) {
     }
 
     ngOnInit(): void {
-        /* ***********************************************************
-        * Use the "ngOnInit" handler to initialize data for this component.
-        *************************************************************/
-        this._title = "Opties";
+        this.getActivities();
+        this.getOptionCategories();
+        this.page.on(Page.navigatingToEvent, () => {
+            this.getGroeps();
+        });
+    }
+
+    selectedGroepIndexChanged(args) {
+        const picker = <ListPicker>args.object;
+        const appSettings = require("application-settings");
+
+        if (this.groeps.length > 0) {
+            appSettings.setNumber("groepIndex", picker.selectedIndex);
+            this.groep = this.groeps[picker.selectedIndex];
+            appSettings.setString("groepId", this.groep.id);
+            this.getCustomers();
+        }
+
+    }
+
+    selectedOptionCategoryIndexChanged(args) {
+        const picker = <ListPicker>args.object;
+        const appSettings = require("application-settings");
+
+        if (this.optionCategories.length > 0) {
+            appSettings.setNumber("optionCategoryIndex", picker.selectedIndex);
+            this.optionCategory = this.optionCategories[picker.selectedIndex];
+            appSettings.setString("optionCategoryId", this.optionCategory.id);
+            this.getActivities();
+            this.getCustomers();
+        }
+
+    }
+
+    getCustomers(): void {
+        /*TODO: write logic*/
+    }
+
+    getGroeps(): void {
+        const appSettings = require("application-settings");
+        let locationId: string = "1";
+        if (appSettings.hasKey("locationId")) {
+            locationId = appSettings.getString("locationId");
+        }
+
+        /*TODO: move to settings*/
+        const now = new Date();
+        let date: string = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
+        if (appSettings.hasKey("materialDate")) {
+            date = appSettings.getString("materialDate");
+        }
+
+        this.groepService.getAllGroepsForWeekAndLocationAction(date, locationId)
+            .subscribe(
+                (result: Array<Groep>) => {
+
+                    this.groeps = result;
+
+                    if (this.groeps.length > 0) {
+                        this.groepItems = {
+                            items: this.groeps,
+                            length: this.groeps.length,
+                            getItem: (index) => {
+                                const item = this.groeps[index];
+
+                                return item.name;
+                            }
+                        };
+                        this.hasGroeps = true;
+                        console.log("found me some groeps");
+                    }
+
+                    this.selectedGroepIndex = appSettings.hasKey("groepIndex") ?
+                        appSettings.getNumber("groepIndex") : 0;
+
+                    /* TODO: get The data
+                    this.getCustomers();*/
+
+                },
+                (error) => {
+                    console.dir(error);
+                    this.hasGroeps = false;
+                    /*TODO: handle errors*/
+                }
+            );
+    }
+
+    getOptionCategories(): void {
+        const appSettings = require("application-settings");
+
+        this.optionService.getAllCategoriesAction()
+            .subscribe(
+                (result: Array<OptionCategory>) => {
+
+                    this.optionCategories = result;
+
+                    if (this.optionCategories.length > 0) {
+                        this.optionCategoryItems = {
+                            items: this.optionCategories,
+                            length: this.optionCategories.length,
+                            getItem: (index) => {
+                                const item = this.optionCategories[index];
+
+                                return item.name;
+                            }
+                        };
+                        console.log("found me some optionCategories");
+                    }
+
+                    this.selectedOptionCategoryIndex = appSettings.hasKey("optionCategoryIndex") ?
+                        appSettings.getNumber("optionCategoryIndex") : 0;
+
+                    /* TODO: get The data
+                    this.getCustomers();*/
+
+                },
+                (error) => {
+                    console.dir(error);
+                    /*TODO: handle errors*/
+                }
+            );
+    }
+
+    getRaftingCustomers(): void {
+        const appSettings = require("application-settings");
+        if (appSettings.hasKey("groepId")) {
+            const groepId = appSettings.getString("groepId");
+
+            this.customerService.getAllByGroepWithRaftingOptionAction(groepId)
+                .subscribe(
+                    (result: Array<RaftingCustomer>) => {
+
+                        this.raftingCustomers = result;
+                        this.hasRaftingGroeps = true;
+                        console.log("found me some customers");
+                    },
+                    (error) => {
+                        console.dir(error);
+                        this.hasRaftingGroeps = false;
+                        /*TODO: handle errors*/
+                    }
+                );
+        }
+
+    }
+
+    getActivities(): void {
+        const appSettings = require("application-settings");
+
+        if (appSettings.hasKey("optionCategoryId")) {
+            const categoryId = appSettings.getString("optionCategoryId");
+            this.optionService.getAllActivitiesByCategoryAction(categoryId)
+                .subscribe(
+                    (result: Array<Activity>) => {
+
+                        this.activities = result.map(({id, name}) => ({key: id, label: name}));
+                        console.log("got me some activities");
+                    },
+                    (error) => {
+                        console.dir(error);
+                        /*TODO: handle errors*/
+                    }
+                );
+        }
+
+    }
+
+    dfPropertyCommittedRafting(raftingCustomer: RaftingCustomer) {
+        console.dir(raftingCustomer);
+        /*this.customerService.putCustomerSizeAction(raftingCustomer)
+            .subscribe(
+                () => {
+                    console.log("Updated customer");
+                },
+                (error) => {
+                    console.dir(error);
+                }
+            );*/
+    }
+
+    onDrawerButtonTap(): void {
+        const sideDrawer = <RadSideDrawer>app.getRootView();
+        sideDrawer.showDrawer();
     }
 }

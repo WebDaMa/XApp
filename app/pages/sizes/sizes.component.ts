@@ -1,15 +1,14 @@
-import {Component, OnInit, QueryList, ViewChild} from "@angular/core";
+import { Component, OnInit, QueryList, ViewChild} from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Page } from "tns-core-modules/ui/page";
-import { Groep } from "~/shared/models/groep";
+import { Groep } from "~/shared/models/groep.model";
 import { GroepCustomer } from "~/shared/models/groepCustomer.model";
 import { SuitSize } from "~/shared/models/suitSize.model";
 import { CustomerService } from "~/shared/services/customer.service";
 import { GroepService } from "~/shared/services/groep.service";
 import { SuitSizeService } from "~/shared/services/suitSize.service";
-import {RadDataFormComponent} from "nativescript-ui-dataform/angular";
 
 /* ***********************************************************
 * Before you can navigate to this page from your app, you need to reference this page's module in the
@@ -25,7 +24,6 @@ import {RadDataFormComponent} from "nativescript-ui-dataform/angular";
     templateUrl: "./sizes.component.html"
 })
 export class SizesComponent implements OnInit {
-    @ViewChild("cdf") cdf: QueryList<RadDataFormComponent>;
     groeps: Array<Groep> = [];
     items: object = {};
     groep: Groep;
@@ -81,13 +79,13 @@ export class SizesComponent implements OnInit {
                         this.items = {
                             items: this.groeps,
                             length: this.groeps.length,
-                            getItem(index) {
-                                const item = this.items[index];
+                            getItem: (index) => {
+                                const item = this.groeps[index];
 
                                 return item.name;
-
                             }
                         };
+
                         this.hasGroeps = true;
                         console.log("found me some groeps");
                     }
@@ -144,7 +142,6 @@ export class SizesComponent implements OnInit {
     }
 
     dfPropertyCommitted(groepCustomer: GroepCustomer) {
-        console.dir(groepCustomer);
         this.customerService.putCustomerSizeAction(groepCustomer)
             .subscribe(
                 () => {
