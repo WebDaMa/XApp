@@ -3,9 +3,8 @@
     <Label class="text-center" text="Kies een groep:" [visibility]="hasGroeps ? 'visible' : 'collapse'"></Label>
     <ListPicker [items]="groepItems" [visibility]="hasGroeps ? 'visible' : 'collapse'" [selectedIndex]="selectedGroepIndex" (selectedIndexChange)="selectedGroepIndexChanged($event)"
                 class=""></ListPicker>
-    <Label class="text-center" text="Kies een optie categorie:"></Label>
-    <ListPicker [items]="optionCategoryItems" [visibility]="hasGroeps ? 'visible' : 'collapse'" [selectedIndex]="selectedOptionCategoryIndex" (selectedIndexChange)="selectedOptionCategoryIndexChanged($event)"
-                class=""></ListPicker>
+    <SegmentedBar [items]="optionCategoryItems" [visibility]="hasGroeps ? 'visible' : 'collapse'" (selectedIndexChange)="selectedOptionCategoryIndexChanged($event)" ></SegmentedBar>
+
 
     <!--<ListView [items]="raftingCustomers">
         <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">

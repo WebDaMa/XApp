@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
 
 /* ***********************************************************
 * Before you can navigate to this page from your app, you need to reference this page's module in the
@@ -13,18 +14,24 @@ import { Component, OnInit } from "@angular/core";
     templateUrl: "./checkin.component.html"
 })
 export class CheckinComponent implements OnInit {
-    _title: string;
+    items: Array<SegmentedBarItem> = [];
+    selectedIndex = 0;
+    titles = ["Bus Heen", "Bus Terug", "Verblijf", "Vol pension"];
 
     constructor() {
-        /* ***********************************************************
-        * Use the constructor to inject app services that you need in this component.
-        *************************************************************/
+    }
+
+    onSelectedIndexChange(args) {
+        const segmentedBar = <SegmentedBar>args.object;
+        this.selectedIndex = segmentedBar.selectedIndex;
     }
 
     ngOnInit(): void {
-        /* ***********************************************************
-        * Use the "ngOnInit" handler to initialize data for this component.
-        *************************************************************/
-        this._title = "Check-in";
+        for (const title of this.titles) {
+            const segmentedBarItem = <SegmentedBarItem>new SegmentedBarItem();
+            segmentedBarItem.title = title;
+            this.items.push(segmentedBarItem);
+        }
+        this.selectedIndex = 0;
     }
 }

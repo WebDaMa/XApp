@@ -3,6 +3,7 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Page } from "tns-core-modules/ui/page";
+import {SegmentedBar, SegmentedBarItem} from "tns-core-modules/ui/segmented-bar";
 import { Activity } from "~/shared/models/activity.model";
 import { Groep } from "~/shared/models/groep.model";
 import { OptionCategory } from "~/shared/models/optionCategory.model";
@@ -33,12 +34,14 @@ export class OptionsComponent implements OnInit {
     activities: Array<object> = [];
 
     optionCategories: Array<OptionCategory> = [];
-    optionCategoryItems: object = {};
-    optionCategory: OptionCategory;
+    optionCategoryItems: Array<SegmentedBarItem> = [];
+    optionCategory: OptionCategory = {
+        id: "1",
+        name: ""
+    };
 
     hasRaftingGroeps: boolean = false;
     selectedGroepIndex: number = 0;
-    selectedOptionCategoryIndex: number = 0;
     raftingCustomers: Array<RaftingCustomer> = [];
 
     constructor(private groepService: GroepService, private customerService: CustomerService,
@@ -51,6 +54,7 @@ export class OptionsComponent implements OnInit {
         this.page.on(Page.navigatingToEvent, () => {
             this.getGroeps();
         });
+
     }
 
     selectedGroepIndexChanged(args) {
@@ -67,13 +71,12 @@ export class OptionsComponent implements OnInit {
     }
 
     selectedOptionCategoryIndexChanged(args) {
-        const picker = <ListPicker>args.object;
+        const segmentedBar = <SegmentedBar>args.object;
+        const selectedIndex = segmentedBar.selectedIndex;
         const appSettings = require("application-settings");
 
         if (this.optionCategories.length > 0) {
-            appSettings.setNumber("optionCategoryIndex", picker.selectedIndex);
-            this.optionCategory = this.optionCategories[picker.selectedIndex];
-            appSettings.setString("optionCategoryId", this.optionCategory.id);
+            this.optionCategory = this.optionCategories[selectedIndex];
             this.getActivities();
             this.getCustomers();
         }
@@ -141,22 +144,14 @@ export class OptionsComponent implements OnInit {
                 (result: Array<OptionCategory>) => {
 
                     this.optionCategories = result;
+                    console.log("found me some optionCategories");
 
-                    if (this.optionCategories.length > 0) {
-                        this.optionCategoryItems = {
-                            items: this.optionCategories,
-                            length: this.optionCategories.length,
-                            getItem: (index) => {
-                                const item = this.optionCategories[index];
-
-                                return item.name;
-                            }
-                        };
-                        console.log("found me some optionCategories");
+                    this.optionCategoryItems = [];
+                    for (const optionCategory of this.optionCategories) {
+                        const segmentedBarItem = <SegmentedBarItem>new SegmentedBarItem();
+                        segmentedBarItem.title = optionCategory.name;
+                        this.optionCategoryItems.push(segmentedBarItem);
                     }
-
-                    this.selectedOptionCategoryIndex = appSettings.hasKey("optionCategoryIndex") ?
-                        appSettings.getNumber("optionCategoryIndex") : 0;
 
                     /* TODO: get The data
                     this.getCustomers();*/
@@ -195,21 +190,19 @@ export class OptionsComponent implements OnInit {
     getActivities(): void {
         const appSettings = require("application-settings");
 
-        if (appSettings.hasKey("optionCategoryId")) {
-            const categoryId = appSettings.getString("optionCategoryId");
-            this.optionService.getAllActivitiesByCategoryAction(categoryId)
-                .subscribe(
-                    (result: Array<Activity>) => {
+        const categoryId = this.optionCategory.id;
+        this.optionService.getAllActivitiesByCategoryAction(categoryId)
+            .subscribe(
+                (result: Array<Activity>) => {
 
-                        this.activities = result.map(({id, name}) => ({key: id, label: name}));
-                        console.log("got me some activities");
-                    },
-                    (error) => {
-                        console.dir(error);
-                        /*TODO: handle errors*/
-                    }
-                );
-        }
+                    this.activities = result.map(({id, name}) => ({key: id, label: name}));
+                    console.log("got me some activities");
+                },
+                (error) => {
+                    console.dir(error);
+                    /*TODO: handle errors*/
+                }
+            );
 
     }
 

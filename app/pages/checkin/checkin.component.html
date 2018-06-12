@@ -1,4 +1,17 @@
-<GridLayout class="page page-content" tkMainContent>
-    <Label class="page-icon fa" text="&#xf015;"></Label>
-    <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<StackLayout class="page page-content" tkMainContent>
+    <SegmentedBar [items]="items" (selectedIndexChange)="onSelectedIndexChange($event)" ></SegmentedBar>
+    <GridLayout visibility="{{ titles[selectedIndex] === 'Bus Heen' ? 'visible' : 'collapsed' }}" backgroundColor="white">
+        <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center"></Label>
+    </GridLayout>
+
+    <GridLayout rows="*" visibility="{{ titles[selectedIndex] === 'Bus Terug' ? 'visible' : 'collapsed' }}" backgroundColor="green">
+        <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center" color="white"></Label>
+    </GridLayout>
+
+    <GridLayout rows="*" visibility="{{ titles[selectedIndex] === 'Verblijf' ? 'visible' : 'collapsed' }}" backgroundColor="red">
+        <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center" color="white"></Label>
+    </GridLayout>
+    <GridLayout rows="*" visibility="{{ titles[selectedIndex] === 'Vol pension' ? 'visible' : 'collapsed' }}" backgroundColor="orange">
+        <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center" color="white"></Label>
+    </GridLayout>
+</StackLayout>
