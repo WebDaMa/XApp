@@ -16,13 +16,6 @@
 </ActionBar>
 
 <StackLayout class="page page-content" tkMainContent>
-    <Label class="text-center" text="Kies een datum:"></Label>
-
-    <DatePicker (loaded)="onPickerLoaded($event)" (dateChange)="onDateChanged($event)"
-                 verticalAlignment="center"></DatePicker>
-    <Button text="Huidige dag continu!" (tap)="setCurrentDay()" class="btn btn-primary btn-active"></Button>
-    <Label class="text-center" [visibility]="!hasGuides ? 'visible' : 'collapse'" text="Geen gids gevonden, kies een andere locatie of datum."></Label>
-    <Label class="text-center" text="Kies een gids:" [visibility]="hasGuides ? 'visible' : 'collapse'"></Label>
     <ListPicker [items]="items" [visibility]="hasGuides ? 'visible' : 'collapse'" [selectedIndex]="selectedIndex" (selectedIndexChange)="selectedIndexChanged($event)"
                 class="p-10"></ListPicker>
 </StackLayout>

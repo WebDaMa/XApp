@@ -87,38 +87,9 @@ export class MaterialsSettingsComponent implements OnInit {
             );
     }
 
-    onPickerLoaded(args) {
-        const datePicker = <DatePicker>args.object;
-        const appSettings = require("application-settings");
-
-        if (appSettings.hasKey("materialDate")) {
-            const date = new Date(appSettings.getString("materialDate"));
-            datePicker.year = date.getFullYear();
-            datePicker.month = date.getMonth() + 1;
-            datePicker.day = date.getDate();
-        }
-
-        datePicker.minDate = new Date(2017, 0, 1);
-        datePicker.maxDate = new Date(2035, 12, 30);
-    }
-
-    onDateChanged(args) {
-        const appSettings = require("application-settings");
-        const date = args.value;
-        appSettings.setString("materialDate", date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate());
-        this.getGuides();
-    }
-
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
     }
 
-    setCurrentDay(): void {
-        const appSettings = require("application-settings");
-        const now = new Date();
-
-        appSettings.remove("materialDate");
-        alert("Datum ingesteld op: " + now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate());
-    }
 }
