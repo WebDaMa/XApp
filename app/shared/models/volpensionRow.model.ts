@@ -1,8 +1,6 @@
-import {VolpensionCustomer} from "~/shared/models/volpensionCustomer.model";
+import { VolpensionTotal } from "~/shared/models/volpensionTotal.model";
 
-export class Volpension {
-    total: string;
-    date: string;
-    totals: Array<>;
-    customers: Array<VolpensionCustomer>;
+export class VolpensionRow {
+    name: string;
+    totals: Array<VolpensionTotal>;
 }

@@ -1,8 +1,7 @@
-export class BusCustomer {
+export class VolpensionCustomer {
     id: string;
-    busCheckedIn: boolean;
     customer: string;
-    place: string;
-    agency: string;
-    phone: string;
+    allInType: string;
+    hasBus: boolean;
+    infoFile: string;
 }

@@ -1,7 +1,9 @@
-import { BusPlace } from "~/shared/models/busPlace.model";
+import { VolpensionCustomer } from "~/shared/models/volpensionCustomer.model";
+import { VolpensionRow } from "~/shared/models/volpensionRow.model";
 
-export class CheckinBus {
+export class Volpension {
     total: string;
     date: string;
-    places: Array<BusPlace>;
+    totalRows: Array<VolpensionRow>;
+    customers: Array<VolpensionCustomer>;
 }
