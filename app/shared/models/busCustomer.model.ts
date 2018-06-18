@@ -4,5 +4,5 @@ export class BusCustomer {
     customer: string;
     place: string;
     agency: string;
-    phone: string;
+    gsm: string;
 }
