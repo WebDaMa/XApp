@@ -32,8 +32,8 @@ export class LoginComponent implements OnInit {
     ngOnInit(): void {
         const appSettings = require("application-settings");
         const token = appSettings.getString("token");
-        console.log("continue");
         if (token !== "") {
+            console.log("continue");
             /* Already logged in keep going */
             this.routerExtensions.navigateByUrl(
                 "/tabs",

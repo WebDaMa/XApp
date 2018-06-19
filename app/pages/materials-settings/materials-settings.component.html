@@ -16,6 +16,9 @@
 </ActionBar>
 
 <StackLayout class="page page-content" tkMainContent>
-    <ListPicker [items]="items" [visibility]="hasGuides ? 'visible' : 'collapse'" [selectedIndex]="selectedIndex" (selectedIndexChange)="selectedIndexChanged($event)"
+    <TextView class="text-center" [visibility]="!hasGuides ? 'visible' : 'collapse'" text="Geen gids gevonden, kies een andere locatie of datum bij settings."></TextView>
+    <Label class="text-center" text="Kies een gids:" [visibility]="hasGuides ? 'visible' : 'collapse'"></Label>
+
+    <ListPicker [items]="guideItems" [visibility]="hasGuides ? 'visible' : 'collapse'" [selectedIndex]="selectedIndex" (selectedIndexChange)="selectedIndexChanged($event)"
                 class="p-10"></ListPicker>
 </StackLayout>

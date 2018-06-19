@@ -9,6 +9,8 @@ import { MaterialService } from "~/shared/services/material.service";
     templateUrl: "./materials.component.html"
 })
 export class MaterialsComponent implements OnInit {
+
+    isBusy: boolean = true;
     private _material: any | Material;
 
     constructor(private materialService: MaterialService) {
@@ -50,6 +52,7 @@ export class MaterialsComponent implements OnInit {
             (result: Material) => {
 
                 this.material = result;
+                this.isBusy = false;
 
             },
             (error) => {

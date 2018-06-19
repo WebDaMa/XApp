@@ -7,6 +7,8 @@ import { Service } from "~/shared/services/service";
 import { Config } from "../config";
 import {GroepCustomer} from "~/shared/models/groepCustomer.model";
 import {RaftingCustomer} from "~/shared/models/raftingCustomer.model";
+import {CheckinBus} from "~/shared/models/checkinBus.model";
+import {BusCustomer} from "~/shared/models/busCustomer.model";
 
 @Injectable()
 export class CustomerService extends Service {
@@ -30,21 +32,21 @@ export class CustomerService extends Service {
         return this.http.get<Array<RaftingCustomer>>(url, { headers });
     }
 
-    /*getAllByGroepWithCanyoningOptionAction(groepId): Observable<Array<RaftingCustomer>> {
+    getBusGoCustomersByWeek(date): Observable<CheckinBus> {
         const headers = this.createRequestHeader();
-        const url = Config.apiUrl + "api/customers/groep/rafting/" + groepId;
+        const url = Config.apiUrl + "api/customers/bus/go/" + date;
         console.dir(url);
 
-        return this.http.get<Array<RaftingCustomer>>(url, { headers });
+        return this.http.get<CheckinBus>(url, { headers });
     }
 
-    getAllByGroepWithSpecialOptionAction(groepId): Observable<Array<RaftingCustomer>> {
+    getBusBackCustomersByWeek(date): Observable<CheckinBus> {
         const headers = this.createRequestHeader();
-        const url = Config.apiUrl + "api/customers/groep/rafting/" + groepId;
+        const url = Config.apiUrl + "api/customers/bus/back/" + date;
         console.dir(url);
 
-        return this.http.get<Array<RaftingCustomer>>(url, { headers });
-    }*/
+        return this.http.get<CheckinBus>(url, { headers });
+    }
 
     putCustomerSizeAction(groepCustomer: GroepCustomer): Observable<object> {
         const headers = this.createRequestHeader();
@@ -52,6 +54,22 @@ export class CustomerService extends Service {
         console.dir(url);
 
         return this.http.put(url, groepCustomer, { headers });
+    }
+
+    putBusGoCustomerAction(busCustomer: BusCustomer): Observable<object> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/bus/go/" + busCustomer.id;
+        console.dir(url);
+
+        return this.http.put(url, busCustomer, { headers });
+    }
+
+    putBusBackCustomerAction(busCustomer: BusCustomer): Observable<object> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/bus/back/" + busCustomer.id;
+        console.dir(url);
+
+        return this.http.put(url, busCustomer, { headers });
     }
 
 }

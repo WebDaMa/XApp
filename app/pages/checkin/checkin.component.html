@@ -1,17 +1,145 @@
 <StackLayout class="page page-content" tkMainContent>
-    <SegmentedBar [items]="items" (selectedIndexChange)="onSelectedIndexChange($event)" ></SegmentedBar>
-    <GridLayout visibility="{{ titles[selectedIndex] === 'Bus Heen' ? 'visible' : 'collapsed' }}" backgroundColor="white">
-        <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center"></Label>
+    <GridLayout columns="10, *, *, 10" rows="auto" class="m-5">
+        <Button col="2" horizontalAlignment="right" text="&#xf021;" class="fa btn btn-primary btn-active" (tap)="loadData()"></Button>
     </GridLayout>
 
-    <GridLayout rows="*" visibility="{{ titles[selectedIndex] === 'Bus Terug' ? 'visible' : 'collapsed' }}" backgroundColor="green">
-        <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center" color="white"></Label>
-    </GridLayout>
+    <SegmentedBar [items]="items" (selectedIndexChange)="onSelectedIndexChange($event)"></SegmentedBar>
 
-    <GridLayout rows="*" visibility="{{ titles[selectedIndex] === 'Verblijf' ? 'visible' : 'collapsed' }}" backgroundColor="red">
-        <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center" color="white"></Label>
-    </GridLayout>
-    <GridLayout rows="*" visibility="{{ titles[selectedIndex] === 'Vol pension' ? 'visible' : 'collapsed' }}" backgroundColor="orange">
-        <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center" color="white"></Label>
-    </GridLayout>
+    <StackLayout [visibility]="titles[selectedIndex] === 'Bus Heen' ? 'visible' : 'collapsed'">
+        <Label [text]="'Bus Heen - '+ checkinBusGo.date " class="h3 text-center"></Label>
+        <GridLayout columns="*, *, *, * ,*, *" rows="auto" class="m-5" backgroundColor="#d3d3d3">
+            <Label [text]="'Totaal ' + checkinBusGo.total" class="font-weight-bold" col="0"></Label>
+            <Label text="XAD" col="1"></Label>
+            <Label text="FAD" col="2"></Label>
+            <Label text="JAD" col="3"></Label>
+            <Label text="TEA" col="4"></Label>
+            <Label text="Totaal" col="5"></Label>
+        </GridLayout>
+        <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100" class="activity-indicator"></ActivityIndicator>
+        <TextView [visibility]="checkinBusGo.total + 1 < 2 && !isBusy ? 'visible' : 'collapsed'" text="Geen bus lijst gevonden voor deze dag. Ga naar settings om een andere dag te kiezen."
+                  editable="false" class="text-center"></TextView>
+
+        <ListView [items]="checkinBusGo.places" class="m-5">
+            <ng-template let-item="item" let-i="index">
+                <GridLayout columns="*, *, *, * ,*, *" rows="auto" class="m-5">
+                    <Label [text]="item.place" class="font-weight-bold" col="0"></Label>
+                    <Label [text]="item.totals.XAD ? item.totals.XAD : 0" col="1"></Label>
+                    <Label [text]="item.totals.FAD ? item.totals.FAD : 0" col="2"></Label>
+                    <Label [text]="item.totals.JAD ? item.totals.JAD : 0" col="3"></Label>
+                    <Label [text]="item.totals.TEA ? item.totals.TEA : 0" col="4"></Label>
+                    <Label [text]="item.total" col="5"></Label>
+                </GridLayout>
+            </ng-template>
+        </ListView>
+        |
+        <ScrollView>
+            <StackLayout>
+                <StackLayout *ngFor="let place of checkinBusGo.places">
+                    <Label [text]="place.place" class="text-center h3 p-4" backgroundColor="#d3d3d3"></Label>
+                    <StackLayout *ngFor="let customer of place.customers">
+                        <RadDataForm tkExampleTitle tkToggleNavButton [source]="customer"
+                                     (propertyCommitted)="dfPropertyGoCommitted($event)">
+                            <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
+                                <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true"
+                                                  readOnly="true" name="id" index="0">
+                                </TKEntityProperty>
+                                <TKEntityProperty tkPropertyGroupProperties columnIndex="0" name="busCheckedIn"
+                                                  displayName="" index="0">
+                                    <TKPropertyEditor tkEntityPropertyEditor type="Switch"></TKPropertyEditor>
+                                </TKEntityProperty>
+                                <TKEntityProperty tkPropertyGroupProperties columnIndex="1" readOnly="true"
+                                                  name="customer" displayName="Deelnemer" index="0">
+                                    <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                                </TKEntityProperty>
+                                <TKEntityProperty tkPropertyGroupProperties columnIndex="2" readOnly="true"
+                                                  name="place" displayName="Opstapplaats" index="0">
+                                    <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                                </TKEntityProperty>
+                                <TKEntityProperty tkPropertyGroupProperties columnIndex="3" readOnly="true"
+                                                  name="agency" displayName="Agentschap" index="0">
+                                    <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                                </TKEntityProperty>
+                                <TKEntityProperty tkPropertyGroupProperties columnIndex="4" readOnly="true"
+                                                  name="gsm" displayName="GSM" index="0">
+                                    <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                                </TKEntityProperty>
+                            </TKPropertyGroup>
+                        </RadDataForm>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+
+    <StackLayout rows="*" [visibility]="titles[selectedIndex] === 'Bus Terug' ? 'visible' : 'collapsed'">
+        <Label [text]="'Bus Terug - '+ checkinBusBack.date " class="h3 text-center"></Label>
+        <GridLayout columns="*, *, *, * ,*, *" rows="auto" class="m-5" backgroundColor="#d3d3d3">
+            <Label [text]="'Totaal ' + checkinBusBack.total" class="font-weight-bold" col="0"></Label>
+            <Label text="XAD" col="1"></Label>
+            <Label text="FAD" col="2"></Label>
+            <Label text="JAD" col="3"></Label>
+            <Label text="TEA" col="4"></Label>
+            <Label text="Totaal" col="5"></Label>
+        </GridLayout>
+
+        <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100" class="activity-indicator"></ActivityIndicator>
+        <TextView [visibility]="checkinBusBack.total + 1 < 2 && !isBusy ? 'visible' : 'collapsed'" text="Geen bus lijst gevonden voor deze dag. Ga naar settings om een andere dag te kiezen." editable="false" class="text-center"></TextView>
+
+        <ListView [items]="checkinBusBack.places" class="m-5">
+            <ng-template let-item="item" let-i="index">
+                <GridLayout columns="*, *, *, * ,*, *" rows="auto" class="m-5">
+                    <Label [text]="item.place" class="font-weight-bold" col="0"></Label>
+                    <Label [text]="item.totals.XAD ? item.totals.XAD : 0" col="1"></Label>
+                    <Label [text]="item.totals.FAD ? item.totals.FAD : 0" col="2"></Label>
+                    <Label [text]="item.totals.JAD ? item.totals.JAD : 0" col="3"></Label>
+                    <Label [text]="item.totals.TEA ? item.totals.TEA : 0" col="4"></Label>
+                    <Label [text]="item.total" col="5"></Label>
+                </GridLayout>
+            </ng-template>
+        </ListView>
+        |
+        <ScrollView>
+            <StackLayout>
+                <StackLayout *ngFor="let place of checkinBusBack.places">
+                    <Label [text]="place.place" class="text-center h3 p-4" backgroundColor="#d3d3d3"></Label>
+                    <StackLayout *ngFor="let customer of place.customers">
+                        <RadDataForm tkExampleTitle tkToggleNavButton [source]="customer"
+                                     (propertyCommitted)="dfPropertyGoCommitted($event)">
+                            <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
+                                <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true"
+                                                  readOnly="true" name="id" index="0">
+                                </TKEntityProperty>
+                                <TKEntityProperty tkPropertyGroupProperties columnIndex="0" name="busCheckedIn"
+                                                  displayName="" index="0">
+                                    <TKPropertyEditor tkEntityPropertyEditor type="Switch"></TKPropertyEditor>
+                                </TKEntityProperty>
+                                <TKEntityProperty tkPropertyGroupProperties columnIndex="1" readOnly="true"
+                                                  name="customer" displayName="Deelnemer" index="0">
+                                    <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                                </TKEntityProperty>
+                                <TKEntityProperty tkPropertyGroupProperties columnIndex="2" readOnly="true"
+                                                  name="place" displayName="Opstapplaats" index="0">
+                                    <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                                </TKEntityProperty>
+                                <TKEntityProperty tkPropertyGroupProperties columnIndex="3" readOnly="true"
+                                                  name="agency" displayName="Agentschap" index="0">
+                                    <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                                </TKEntityProperty>
+                                <TKEntityProperty tkPropertyGroupProperties columnIndex="4" readOnly="true"
+                                                  name="gsm" displayName="GSM" index="0">
+                                    <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                                </TKEntityProperty>
+                            </TKPropertyGroup>
+                        </RadDataForm>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+
+    <StackLayout rows="*" [visibility]="titles[selectedIndex] === 'Verblijf' ? 'visible' : 'collapsed'">
+    </StackLayout>
+
+    <StackLayout rows="*" [visibility]="titles[selectedIndex] === 'Vol pension' ? 'visible' : 'collapsed'">
+    </StackLayout>
 </StackLayout>

@@ -1,0 +1,9 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Volpension = /** @class */ (function () {
+    function Volpension() {
+    }
+    return Volpension;
+}());
+exports.Volpension = Volpension;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidm9scGVuc2lvbi5tb2RlbC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbInZvbHBlbnNpb24ubW9kZWwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFHQTtJQUFBO0lBS0EsQ0FBQztJQUFELGlCQUFDO0FBQUQsQ0FBQyxBQUxELElBS0M7QUFMWSxnQ0FBVSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFZvbHBlbnNpb25DdXN0b21lciB9IGZyb20gXCJ+L3NoYXJlZC9tb2RlbHMvdm9scGVuc2lvbkN1c3RvbWVyLm1vZGVsXCI7XG5pbXBvcnQgeyBWb2xwZW5zaW9uUm93IH0gZnJvbSBcIn4vc2hhcmVkL21vZGVscy92b2xwZW5zaW9uUm93Lm1vZGVsXCI7XG5cbmV4cG9ydCBjbGFzcyBWb2xwZW5zaW9uIHtcbiAgICB0b3RhbDogc3RyaW5nO1xuICAgIGRhdGU6IHN0cmluZztcbiAgICB0b3RhbFJvd3M6IEFycmF5PFZvbHBlbnNpb25Sb3c+O1xuICAgIGN1c3RvbWVyczogQXJyYXk8Vm9scGVuc2lvbkN1c3RvbWVyPjtcbn1cbiJdfQ==

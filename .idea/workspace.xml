@@ -3,6 +3,31 @@
   <component name="ChangeListManager">
     <list default="true" id="29231f43-1602-4262-8068-fafd9ea89c9e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/checkin/checkin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/checkin/checkin.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/checkin/checkin.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/checkin/checkin.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/checkin/checkin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/checkin/checkin.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/login/login.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/login/login.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/materials/materials.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/materials/materials.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/materials/materials.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/materials/materials.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/materials/materials.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/materials/materials.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/settings/settings.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/settings/settings.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/settings/settings.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/settings/settings.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/settings/settings.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/settings/settings.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/sizes/sizes.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/sizes/sizes.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/sizes/sizes.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/sizes/sizes.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/sizes/sizes.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/sizes/sizes.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/shared/models/busPlace.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/busPlace.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/shared/models/busTotal.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/shared/services/customer.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/services/customer.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/shared/services/customer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/services/customer.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/shared/services/location.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/services/location.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/shared/services/location.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/services/location.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/shared/services/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/services/user.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/shared/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/services/user.service.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,13 +38,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="busPlace.model.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/shared/models/busPlace.model.ts">
+      <file leaf-file-name="sizes.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/pages/sizes/sizes.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+            <state relative-caret-position="456">
+              <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
               <folding>
-                <element signature="e#0#64#0" expanded="true" />
+                <element signature="e#0#71#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -47,7 +72,6 @@
       <find>location</find>
       <find>locationId</find>
       <find>locationIndex</find>
-      <find>items</find>
       <find>groepId</find>
       <find>cdf</find>
       <find>page</find>
@@ -55,9 +79,13 @@
       <find>optionCategoryId</find>
       <find>optionCategoryItems</find>
       <find>optionCategoryIndex</find>
+      <find>GridLayout</find>
+      <find>items</find>
+      <find>isb</find>
     </findStrings>
     <replaceStrings>
       <replace>Array&lt;Size&gt;</replace>
+      <replace>StackLayout</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/app</dir>
@@ -70,17 +98,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/pages/materials/materials.component.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/app/shared/config.ts" />
         <option value="$PROJECT_DIR$/app/shared/settings.ts" />
-        <option value="$PROJECT_DIR$/app/pages/materials/materials.component.ts" />
         <option value="$PROJECT_DIR$/app/app.component.html" />
         <option value="$PROJECT_DIR$/app/app.component.ts" />
-        <option value="$PROJECT_DIR$/app/shared/services/location.service.ts" />
         <option value="$PROJECT_DIR$/app/shared/services/groep.service.ts" />
         <option value="$PROJECT_DIR$/app/shared/services/guide.service.ts" />
-        <option value="$PROJECT_DIR$/app/pages/materials/materials.component.html" />
         <option value="$PROJECT_DIR$/app/shared/services/size.service.ts" />
         <option value="$PROJECT_DIR$/app/shared/services/suitSize.service.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/groepCustomer.model.ts" />
@@ -93,27 +116,16 @@
         <option value="$PROJECT_DIR$/app/shared/models/base/typeCode.model.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/groep.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/option.ts" />
-        <option value="$PROJECT_DIR$/app/pages/sizes/sizes.component.html" />
         <option value="$PROJECT_DIR$/app/shared/models/suitSize.model.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/canyonActivity.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/specialActivity.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/base/typeName.model.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/raftingActivity.ts" />
-        <option value="$PROJECT_DIR$/app/shared/services/customer.service.ts" />
-        <option value="$PROJECT_DIR$/app/pages/sizes/sizes.component.ts" />
         <option value="$PROJECT_DIR$/app/shared/services/option.service.ts" />
         <option value="$PROJECT_DIR$/app/pages/options/options.module.ts" />
-        <option value="$PROJECT_DIR$/app/pages/checkin/checkin.component.html" />
-        <option value="$PROJECT_DIR$/app/pages/checkin/checkin.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/options/options.component.html" />
         <option value="$PROJECT_DIR$/app/pages/options/options.component.ts" />
-        <option value="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html" />
-        <option value="$PROJECT_DIR$/app/pages/settings/settings.component.html" />
-        <option value="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.ts" />
-        <option value="$PROJECT_DIR$/app/pages/settings/settings.component.ts" />
-        <option value="$PROJECT_DIR$/app/shared/models/busCustomer.model.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/busTotal.model.ts" />
-        <option value="$PROJECT_DIR$/app/shared/models/busPlace.model.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/checkinBus.model.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/lodgingCustomer.model.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/lodging.model.ts" />
@@ -121,6 +133,22 @@
         <option value="$PROJECT_DIR$/app/shared/models/volpensionTotal.model.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/volpensionRow.model.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/volpension.model.ts" />
+        <option value="$PROJECT_DIR$/app/shared/models/busCustomer.model.ts" />
+        <option value="$PROJECT_DIR$/app/shared/services/user.service.ts" />
+        <option value="$PROJECT_DIR$/app/pages/login/login.component.ts" />
+        <option value="$PROJECT_DIR$/app/shared/services/location.service.ts" />
+        <option value="$PROJECT_DIR$/app/shared/models/busPlace.model.ts" />
+        <option value="$PROJECT_DIR$/app/shared/services/customer.service.ts" />
+        <option value="$PROJECT_DIR$/app/pages/checkin/checkin.component.ts" />
+        <option value="$PROJECT_DIR$/app/pages/settings/settings.component.ts" />
+        <option value="$PROJECT_DIR$/app/pages/settings/settings.component.html" />
+        <option value="$PROJECT_DIR$/app/pages/checkin/checkin.component.html" />
+        <option value="$PROJECT_DIR$/app/pages/materials/materials.component.html" />
+        <option value="$PROJECT_DIR$/app/pages/materials/materials.component.ts" />
+        <option value="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html" />
+        <option value="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.ts" />
+        <option value="$PROJECT_DIR$/app/pages/sizes/sizes.component.html" />
+        <option value="$PROJECT_DIR$/app/pages/sizes/sizes.component.ts" />
       </list>
     </option>
   </component>
@@ -170,6 +198,26 @@
               <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="XApp" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XApp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="checkin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XApp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="sizes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XApp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="shared" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -178,6 +226,13 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="shared" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XApp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -251,12 +306,12 @@
       <workItem from="1528803336753" duration="98000" />
       <workItem from="1528803533383" duration="16000" />
       <workItem from="1528803591737" duration="7852000" />
-      <workItem from="1529356244150" duration="276000" />
+      <workItem from="1529356244150" duration="21303000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103948000" />
+    <option name="totallyTimeSpent" value="124975000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -320,6 +375,15 @@
         <option value="$PROJECT_DIR$/app/shared/models/activity.model.js" />
         <option value="$PROJECT_DIR$/app/shared/models/optionCategory.model.js" />
         <option value="$PROJECT_DIR$/app/shared/models/base/typeName.model.js" />
+        <option value="$PROJECT_DIR$/app/shared/models/lodgingCustomer.model.js" />
+        <option value="$PROJECT_DIR$/app/shared/models/volpension.model.js" />
+        <option value="$PROJECT_DIR$/app/shared/models/busCustomer.model.js" />
+        <option value="$PROJECT_DIR$/app/shared/models/volpensionTotal.model.js" />
+        <option value="$PROJECT_DIR$/app/shared/models/lodging.model.js" />
+        <option value="$PROJECT_DIR$/app/shared/models/checkinBus.model.js" />
+        <option value="$PROJECT_DIR$/app/shared/models/busPlace.model.js" />
+        <option value="$PROJECT_DIR$/app/shared/models/volpensionRow.model.js" />
+        <option value="$PROJECT_DIR$/app/shared/models/volpensionCustomer.model.js" />
       </list>
     </option>
   </component>
@@ -327,46 +391,10 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/shared/models/sizeTotal.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/models/user.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="42" lean-forward="true" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/models/person.ts" />
-    <entry file="file://$PROJECT_DIR$/app/shared/models/groepCustomer.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="9" selection-start-column="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/tabs.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="377">
           <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="48" column="42" lean-forward="true" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -428,13 +456,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/services/customer.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="33" column="14" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/shared/models/optionCategory.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -450,7 +471,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/checkin/checkin.module.ts">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.module.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -469,13 +496,6 @@
     <entry file="file://$PROJECT_DIR$/app/pages/signup/signup.component.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/sizes/sizes.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="79" column="34" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/tabs.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
@@ -490,20 +510,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/sizes/sizes.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="22" column="30" lean-forward="true" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/materials-settings/materials-settings.module.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -514,13 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/checkin/checkin.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/options/options.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -528,45 +527,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/checkin/checkin.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="54" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/settings/settings.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="111" selection-start-line="23" selection-start-column="111" selection-end-line="23" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/settings/settings.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="101" column="5" selection-start-line="101" selection-start-column="5" selection-end-line="101" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/options/options.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="789">
           <caret line="55" column="11" selection-start-line="53" selection-start-column="8" selection-end-line="55" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -574,13 +541,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/models/material.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -629,33 +589,163 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/models/busCustomer.model.ts">
+    <entry file="file://$PROJECT_DIR$/app/pages/login/login.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+        <state>
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/models/busTotal.model.ts">
+    <entry file="file://$PROJECT_DIR$/app/shared/services/user.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" selection-start-column="21" selection-end-column="21" />
+        <state relative-caret-position="115">
+          <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/login/login.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/services/location.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/shared/models/checkinBus.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
-          <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/models/material.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/tns-core-modules/tns-core-modules.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/models/busTotal.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/shared/models/busPlace.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        <state relative-caret-position="19">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/models/busCustomer.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="20" lean-forward="true" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/services/customer.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="623">
+          <caret line="59" column="33" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/settings/settings.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/settings/settings.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="68" column="51" selection-start-line="68" selection-start-column="51" selection-end-line="68" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="79" column="64" lean-forward="true" selection-start-line="79" selection-start-column="64" selection-end-line="79" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/checkin/checkin.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="19" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/sizes/sizes.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="51" lean-forward="true" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/checkin/checkin.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="143" column="16" selection-start-line="143" selection-start-column="13" selection-end-line="143" selection-end-column="16" />
           <folding>
-            <element signature="e#0#64#0" expanded="true" />
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/sizes/sizes.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#71#0" expanded="true" />
           </folding>
         </state>
       </provider>

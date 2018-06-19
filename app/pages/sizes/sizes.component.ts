@@ -10,13 +10,6 @@ import { CustomerService } from "~/shared/services/customer.service";
 import { GroepService } from "~/shared/services/groep.service";
 import { SuitSizeService } from "~/shared/services/suitSize.service";
 
-/* ***********************************************************
-* Before you can navigate to this page from your app, you need to reference this page's module in the
-* global app router module. Add the following object to the global array of routes:
-* { path: "sizes", loadChildren: "./sizes/sizes.module#SizesModule" }
-* Note that this simply points the path to the page module file. If you move the page, you need to update the route too.
-*************************************************************/
-
 @Component({
     selector: "Sizes",
     moduleId: module.id,
@@ -25,9 +18,12 @@ import { SuitSizeService } from "~/shared/services/suitSize.service";
 })
 export class SizesComponent implements OnInit {
     groeps: Array<Groep> = [];
-    items: object = {};
+    groepItems: object = {};
     groep: Groep;
     hasGroeps: boolean = false;
+
+    isBusy: boolean = true;
+
     selectedIndex: number = 0;
     customers: Array<GroepCustomer> = [];
     sizes: Array<object> = [];
@@ -76,7 +72,7 @@ export class SizesComponent implements OnInit {
                     this.groeps = result;
 
                     if (this.groeps.length > 0) {
-                        this.items = {
+                        this.groepItems = {
                             items: this.groeps,
                             length: this.groeps.length,
                             getItem: (index) => {
@@ -105,6 +101,7 @@ export class SizesComponent implements OnInit {
     }
 
     getCustomers(): void {
+        this.isBusy = true;
         const appSettings = require("application-settings");
         if (appSettings.hasKey("groepId")) {
             const groepId = appSettings.getString("groepId");
@@ -115,6 +112,7 @@ export class SizesComponent implements OnInit {
 
                         this.customers = result;
                         console.log("found me some customers");
+                        this.isBusy = false;
                     },
                     (error) => {
                         console.dir(error);

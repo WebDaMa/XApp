@@ -1,10 +1,14 @@
 <StackLayout>
-    <GridLayout columns="10, *, *, 10" rows="auto" margin="3">
+    <GridLayout columns="10, *, *, 10" rows="auto" class="m-5">
         <Button col="1" horizontalAlignment="left" text="&#xf021;" class="fa btn btn-primary btn-active" (tap)="reload()"></Button>
         <Button col="2" horizontalAlignment="right" text="&#xf013;" class="fa btn btn-grey btn-primary" [nsRouterLink]="['/materials/settings']"></Button>
     </GridLayout>
 
-    <GridLayout columns="10, *, *" rows="auto, auto, auto, auto" margin="3">
+    <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100" class="activity-indicator"></ActivityIndicator>
+    <TextView [visibility]="material.groupTotal + 1 < 2 && !isBusy ? 'visible' : 'collapsed'" text="Geen materiaal lijst gevonden voor deze dag. Ga naar settings om een andere dag of gids te kiezen."
+              editable="false" class="text-center"></TextView>
+
+    <GridLayout columns="10, *, *" rows="auto, auto, auto, auto" class="m-5">
         <Label row="0" col="1" [text]="material.date"></Label>
         <Label row="0" col="2" [text]="material.activity"></Label>
         <Label row="1" col="1" [text]="material.guide.short"></Label>
@@ -15,45 +19,45 @@
         <Label row="3" col="2" [text]="material.groupTotal"></Label>
     </GridLayout>
 
-    <Label text=" Pak Totaal" backgroundColor="#d3d3d3" margin="5"></Label>
+    <Label text=" Pak Totaal" class="m-5" backgroundColor="#d3d3d3"></Label>
 
 </StackLayout>
 
 <ListView [items]="material.sizeTotals" (itemTap)="onItemTap($event)">
     <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
-        <GridLayout columns="10, *, *" rows="*" margin="3" [class.odd]="odd" [class.even]="even">
+        <GridLayout columns="10, *, *" rows="*" class="m-5">
             <Label row="0" col="1" [text]="item.size"></Label>
             <Label row="0" col="2" [text]="item.total"></Label>
         </GridLayout>
     </ng-template>
 </ListView>
 
-<Label text=" Gordel Totaal" backgroundColor="#d3d3d3" margin="5"></Label>
+<Label text=" Gordel Totaal" class="m-5" backgroundColor="#d3d3d3"></Label>
 <ListView [items]="material.beltTotals" (itemTap)="onItemTap($event)">
     <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
-        <GridLayout columns="10, *, *" rows="*" margin="3" [class.odd]="odd" [class.even]="even">
+        <GridLayout columns="10, *, *" rows="*" class="m-5">
             <Label row="0" col="1" [text]="item.size"></Label>
             <Label row="0" col="2" [text]="item.total"></Label>
         </GridLayout>
     </ng-template>
 </ListView>
-<Label text=" Helm Totaal" backgroundColor="#d3d3d3" margin="5"></Label>
+<Label text=" Helm Totaal" class="m-5" backgroundColor="#d3d3d3"></Label>
 <ListView [items]="material.helmetTotals" (itemTap)="onItemTap($event)">
     <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
-        <GridLayout columns="10, *, *" rows="*" margin="3" [class.odd]="odd" [class.even]="even">
+        <GridLayout columns="10, *, *" rows="*" class="m-5">
             <Label row="0" col="1" [text]="item.size"></Label>
             <Label row="0" col="2" [text]="item.total"></Label>
         </GridLayout>
     </ng-template>
 </ListView>
-<GridLayout columns="10, *, *, *" rows="auto" margin="3" backgroundColor="#d3d3d3">
+<GridLayout columns="10, *, *, *" rows="auto" class="m-5" backgroundColor="#d3d3d3">
     <Label row="0" col="1" text="Deelnemer"></Label>
     <Label row="0" col="2" text="Maat"></Label>
     <Label row="0" col="3" text="Maatinfo"></Label>
 </GridLayout>
 <ListView [items]="material.userSizes" (itemTap)="onItemTap($event)">
     <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
-        <GridLayout columns="10, *, *, *" rows="*" margin="3" [class.odd]="odd" [class.even]="even">
+        <GridLayout columns="10, *, *, *" rows="*" class="m-5">
             <Label row="0" col="1" [text]="item.customer"></Label>
             <Label row="0" col="2" [text]="item.size"></Label>
             <Label row="0" col="3" [text]="item.sizeInfo"></Label>

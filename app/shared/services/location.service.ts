@@ -16,6 +16,8 @@ export class LocationService extends Service {
         const headers = this.createRequestHeader();
         const url = Config.apiUrl + "api/locations";
 
+        console.log(url);
+
         return this.http.get<Array<Location>>(url, { headers });
 
     }

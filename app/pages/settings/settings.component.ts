@@ -1,10 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
+import { DatePicker } from "tns-core-modules/ui/date-picker";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Location } from "~/shared/models/location.model";
 import { LocationService } from "~/shared/services/location.service";
-import {DatePicker} from "tns-core-modules/ui/date-picker";
 
 /* ***********************************************************
 * Before you can navigate to this page from your app, you need to reference this page's module in the
@@ -21,10 +21,11 @@ import {DatePicker} from "tns-core-modules/ui/date-picker";
 })
 export class SettingsComponent implements OnInit {
     locations: Array<Location> = [];
-    items: object = {};
+    locationItems: object = {};
     location: Location;
     selectedIndex: number = 0;
 
+    @ViewChild(DatePicker) datePicker: DatePicker;
     constructor(private locationService: LocationService) {
     }
 
@@ -36,14 +37,13 @@ export class SettingsComponent implements OnInit {
 
                     this.locations = result;
 
-                    this.items = {
+                    this.locationItems = {
                         items: this.locations,
                         length: this.locations.length,
-                        getItem(index) {
-                            const item = this.items[index];
+                        getItem: (index) => {
+                            const item = this.locations[index];
 
                             return item.code;
-
                         }
                     };
 
@@ -90,15 +90,44 @@ export class SettingsComponent implements OnInit {
     onDateChanged(args) {
         const appSettings = require("application-settings");
         const date = args.value;
-        appSettings.setString("materialDate", date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate());
+        let year;
+        let month;
+        let day;
+
+        year = date.getFullYear();
+        month = date.getMonth() + 1;
+        day = date.getDate();
+        appSettings.setString("materialDate", year + "-" + month + "-" + day);
+
+        if (this.datePicker !== null && typeof this.datePicker !== "undefined") {
+            this.datePicker.year = year;
+            this.datePicker.month = month;
+            this.datePicker.day = day;
+        }
+
     }
 
     setCurrentDay(): void {
         const appSettings = require("application-settings");
         const now = new Date();
 
+        let year;
+        let month;
+        let day;
+
+        year = now.getFullYear();
+        month = now.getMonth() + 1;
+        day = now.getDate();
+
+        if (this.datePicker !== null && typeof this.datePicker !== "undefined") {
+            this.datePicker.year = year;
+            this.datePicker.month = month;
+            this.datePicker.day = day;
+        }
+
         appSettings.remove("materialDate");
-        alert("Datum ingesteld op: " + now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate());
+
+        alert("Datum ingesteld op: " + year + "-" + month + "-" + day);
     }
 
     onDrawerButtonTap(): void {

@@ -15,7 +15,7 @@ import { GuideService } from "~/shared/services/guide.service";
 })
 export class MaterialsSettingsComponent implements OnInit {
     guides: Array<Guide> = [];
-    items: object = {};
+    guideItems: object = {};
     guide: Guide;
     hasGuides: boolean = false;
     selectedIndex: number = 0;
@@ -27,6 +27,7 @@ export class MaterialsSettingsComponent implements OnInit {
         this.page.on(Page.navigatingToEvent, () => {
             this.getGuides();
         });
+        this.getGuides();
     }
 
     selectedIndexChanged(args) {
@@ -61,11 +62,11 @@ export class MaterialsSettingsComponent implements OnInit {
                     this.guides = result;
 
                     if (this.guides.length > 0) {
-                        this.items = {
+                        this.guideItems = {
                             items: this.guides,
                             length: this.guides.length,
-                            getItem(index) {
-                                const item = this.items[index];
+                            getItem: (index) => {
+                                const item = this.guides[index];
 
                                 return item.guideShort + " - " + item.guideFirstName + " - " + item.guideLastName;
 
@@ -77,6 +78,8 @@ export class MaterialsSettingsComponent implements OnInit {
 
                     this.selectedIndex = appSettings.hasKey("guideIndex") ?
                         appSettings.getNumber("guideIndex") : 0;
+                    this.guide = this.guides[this.selectedIndex];
+                    appSettings.setString("guideId", this.guide.id);
 
                 },
                 (error) => {

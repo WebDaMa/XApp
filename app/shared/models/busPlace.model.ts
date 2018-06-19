@@ -1,8 +1,8 @@
 import { BusCustomer } from "~/shared/models/busCustomer.model";
-import { BusTotal } from "~/shared/models/busTotal.model";
 
 export class BusPlace {
-    totals: Array<BusTotal>;
+    total: string;
+    totals: Array<any>;
     place: string;
     customers: Array<BusCustomer>;
 }

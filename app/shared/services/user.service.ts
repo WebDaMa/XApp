@@ -10,9 +10,11 @@ export class UserService {
     constructor(private http: HttpClient) {}
 
     login(user: User) {
+        const url = Config.apiUrl + "oauth/v2/token";
+        console.log(url);
 
         return this.http.post(
-            Config.apiUrl + "oauth/v2/token",
+            url,
             {
                 grant_type: "password",
                 client_id: Config.appKey,
