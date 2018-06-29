@@ -3,10 +3,14 @@ import { RadDataForm } from "nativescript-ui-dataform";
 import { Page } from "tns-core-modules/ui/page";
 import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
 import { BusCustomer } from "~/shared/models/busCustomer.model";
-import { BusPlace } from "~/shared/models/busPlace.model";
 import { CheckinBus } from "~/shared/models/checkinBus.model";
-import { GroepCustomer } from "~/shared/models/groepCustomer.model";
+import { AgencyService } from "~/shared/services/agency.service";
 import { CustomerService } from "~/shared/services/customer.service";
+import {Lodging} from "~/shared/models/lodging.model";
+import {Settings} from "~/settings/settings";
+import {Agency} from "~/shared/models/agency.model";
+import {ListPicker} from "tns-core-modules/ui/list-picker";
+import {LodgingCustomer} from "~/shared/models/lodgingCustomer.model";
 
 /* ***********************************************************
 * Before you can navigate to this page from your app, you need to reference this page's module in the
@@ -18,7 +22,7 @@ import { CustomerService } from "~/shared/services/customer.service";
 @Component({
     selector: "Checkin",
     moduleId: module.id,
-    providers: [CustomerService],
+    providers: [CustomerService, AgencyService],
     templateUrl: "./checkin.component.html"
 })
 export class CheckinComponent implements OnInit {
@@ -44,7 +48,21 @@ export class CheckinComponent implements OnInit {
         date: ""
     };
 
-    constructor(private customerService: CustomerService, private page: Page) {
+    agencies: Array<Agency> = [];
+    agency: Agency = {
+        id: "",
+        name: ""
+    };
+    agenciesItems: object = {};
+    hasAgencies: boolean = false;
+
+    lodging: Lodging = {
+        date: "",
+        customers: []
+    };
+
+    constructor(private customerService: CustomerService, private agencyService: AgencyService,
+                private page: Page) {
     }
 
     ngOnInit(): void {
@@ -54,6 +72,9 @@ export class CheckinComponent implements OnInit {
             this.items.push(segmentedBarItem);
         }
         this.selectedIndex = 0;
+        this.page.on(Page.navigatingToEvent, () => {
+            this.loadData();
+        });
     }
 
     onSelectedIndexChange(args) {
@@ -64,18 +85,13 @@ export class CheckinComponent implements OnInit {
     }
 
     getCustomersBusGo(): void {
-        const appSettings = require("application-settings");
-
-        const now = new Date();
-        let date: string = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
-        if (appSettings.hasKey("materialDate")) {
-            date = appSettings.getString("materialDate");
-        }
+        const date = Settings.getDate();
 
         this.customerService.getBusGoCustomersByWeek(date)
             .subscribe(
                 (result: CheckinBus) => {
                     this.checkinBusGo = result;
+                    console.log("got me some bus customers");
                     this.isBusy = false;
                 },
                 (error) => {
@@ -85,14 +101,42 @@ export class CheckinComponent implements OnInit {
             );
     }
 
-    getCustomersBusBack(): void {
-        const appSettings = require("application-settings");
+    getAgencies(): void {
+        const date = Settings.getDate();
+        const locationId = Settings.getLocation();
 
-        const now = new Date();
-        let date: string = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
-        if (appSettings.hasKey("materialDate")) {
-            date = appSettings.getString("materialDate");
-        }
+        this.agencyService.getAllAgenciesForWeekAndLocationAction(date, locationId)
+            .subscribe(
+                (result: Array<Agency>) => {
+                    this.agencies = result;
+
+                    if (this.agencies.length > 0) {
+                        this.agenciesItems = {
+                            items: this.agencies,
+                            length: this.agencies.length,
+                            getItem: (index) => {
+                                const item = this.agencies[index];
+
+                                return item.name;
+                            }
+                        };
+
+                        this.hasAgencies = true;
+                        this.agency = this.agencies[0];
+                        console.log("found me some agencies");
+                    }
+                    this.getCustomersLodging();
+                },
+                (error) => {
+                    console.dir(error);
+                    this.hasAgencies = false;
+                    /*TODO: handle errors*/
+                }
+            );
+    }
+
+    getCustomersBusBack(): void {
+        const date = Settings.getDate();
 
         this.customerService.getBusBackCustomersByWeek(date)
             .subscribe(
@@ -140,6 +184,50 @@ export class CheckinComponent implements OnInit {
             );
     }
 
+    dfPropertyLodgingCommitted(args) {
+        const dataForm = <RadDataForm>args.object;
+        const lodgingCustomer: LodgingCustomer = <LodgingCustomer> JSON.parse(dataForm.editedObject);
+        console.log(lodgingCustomer);
+
+        this.customerService.putLodgingLayoutCustomerAction(lodgingCustomer)
+            .subscribe(
+                () => {
+                    console.log("Updated customer");
+                },
+                (error) => {
+                    console.dir(error);
+                    /*TODO: handle errors*/
+                }
+            );
+    }
+
+    getCustomersLodging(): void {
+        this.isBusy = true;
+        const date = Settings.getDate();
+
+        this.customerService.getAllByAgencyForLodgingAndPeriodAction(this.agency.id, date)
+            .subscribe(
+                (result: Lodging) => {
+                    this.lodging = result;
+                    this.isBusy = false;
+                },
+                (error) => {
+                    console.dir(error);
+                    /*TODO: handle errors*/
+                }
+            );
+    }
+
+    selectedIndexAgencyChanged(args) {
+        const picker = <ListPicker>args.object;
+
+        if (this.agencies.length > 0) {
+            this.agency = this.agencies[picker.selectedIndex];
+            this.getCustomersLodging();
+        }
+
+    }
+
     loadData(): void {
         this.isBusy = true;
         switch (this.titles[this.selectedIndex]) {
@@ -152,7 +240,7 @@ export class CheckinComponent implements OnInit {
                 break;
 
             case this.VERBLIJF:
-
+                this.getAgencies();
                 break;
 
             case this.VOLPENSION:

@@ -11,7 +11,7 @@
     <ListView [items]="customers">
         <ng-template let-item="item" let-i="index">
             <StackLayout>
-                <RadDataForm tkExampleTitle tkToggleNavButton [source]="item" (propertyCommitted)="dfPropertyCommitted(item)">
+                <RadDataForm tkExampleTitle tkToggleNavButton [source]="item" (propertyCommitted)="dfPropertyCommitted($event)">
                     <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
                         <TKDataFormGridLayout tkPropertyGroupLayout></TKDataFormGridLayout>
                         <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" readOnly="true" name="id" index="0">

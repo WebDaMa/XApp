@@ -9,6 +9,8 @@ import {GroepCustomer} from "~/shared/models/groepCustomer.model";
 import {RaftingCustomer} from "~/shared/models/raftingCustomer.model";
 import {CheckinBus} from "~/shared/models/checkinBus.model";
 import {BusCustomer} from "~/shared/models/busCustomer.model";
+import {LodgingCustomer} from "~/shared/models/lodgingCustomer.model";
+import {Lodging} from "~/shared/models/lodging.model";
 
 @Injectable()
 export class CustomerService extends Service {
@@ -22,6 +24,14 @@ export class CustomerService extends Service {
         console.dir(url);
 
         return this.http.get<Array<GroepCustomer>>(url, { headers });
+    }
+
+    getAllByAgencyForLodgingAndPeriodAction(agencyId, date): Observable<Lodging> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/lodging/" + agencyId + "/" + date;
+        console.dir(url);
+
+        return this.http.get<Lodging>(url, { headers });
     }
 
     getAllByGroepWithRaftingOptionAction(groepId): Observable<Array<RaftingCustomer>> {
@@ -70,6 +80,14 @@ export class CustomerService extends Service {
         console.dir(url);
 
         return this.http.put(url, busCustomer, { headers });
+    }
+
+    putLodgingLayoutCustomerAction(lodgingCustomer: LodgingCustomer): Observable<object> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/lodging/layout/" + lodgingCustomer.id;
+        console.dir(url);
+
+        return this.http.put(url, lodgingCustomer, { headers });
     }
 
 }

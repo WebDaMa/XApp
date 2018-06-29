@@ -1,14 +1,17 @@
-import { Component, OnInit, QueryList, ViewChild} from "@angular/core";
+import { Component, OnInit, QueryList, ViewChild } from "@angular/core";
+import { RadDataForm } from "nativescript-ui-dataform";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Page } from "tns-core-modules/ui/page";
+import { BusCustomer } from "~/shared/models/busCustomer.model";
 import { Groep } from "~/shared/models/groep.model";
 import { GroepCustomer } from "~/shared/models/groepCustomer.model";
 import { SuitSize } from "~/shared/models/suitSize.model";
 import { CustomerService } from "~/shared/services/customer.service";
 import { GroepService } from "~/shared/services/groep.service";
 import { SuitSizeService } from "~/shared/services/suitSize.service";
+import {Settings} from "~/settings/settings";
 
 @Component({
     selector: "Sizes",
@@ -54,16 +57,9 @@ export class SizesComponent implements OnInit {
 
     getGroeps(): void {
         const appSettings = require("application-settings");
-        let locationId: string = "1";
-        if (appSettings.hasKey("locationId")) {
-            locationId = appSettings.getString("locationId");
-        }
 
-        const now = new Date();
-        let date: string = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
-        if (appSettings.hasKey("materialDate")) {
-            date = appSettings.getString("materialDate");
-        }
+        const locationId = Settings.getLocation();
+        const date = Settings.getDate();
 
         this.groepService.getAllGroepsForWeekAndLocationAction(date, locationId)
             .subscribe(
@@ -139,7 +135,10 @@ export class SizesComponent implements OnInit {
 
     }
 
-    dfPropertyCommitted(groepCustomer: GroepCustomer) {
+    dfPropertyCommitted(args) {
+        const dataForm = <RadDataForm>args.object;
+        const groepCustomer: GroepCustomer = <GroepCustomer> JSON.parse(dataForm.editedObject);
+
         this.customerService.putCustomerSizeAction(groepCustomer)
             .subscribe(
                 () => {

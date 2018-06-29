@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Material } from "~/shared/models/material.model";
 import { MaterialService } from "~/shared/services/material.service";
+import {Settings} from "~/settings/settings";
 
 @Component({
     selector: "Materials",
@@ -37,13 +38,11 @@ export class MaterialsComponent implements OnInit {
     }
 
     reload(): void {
-        const appSettings = require("application-settings");
+        this.isBusy = true;
 
-        const now = new Date();
-        let date: string = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
-        if (appSettings.hasKey("materialDate")) {
-            date = appSettings.getString("materialDate");
-        }
+        const date = Settings.getDate();
+
+        const appSettings = require("application-settings");
         let guideId: string = "3";
         if (appSettings.hasKey("guideId")) {
             guideId = appSettings.getString("guideId");

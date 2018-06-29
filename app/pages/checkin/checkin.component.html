@@ -1,9 +1,7 @@
 <StackLayout class="page page-content" tkMainContent>
-    <GridLayout columns="10, *, *, 10" rows="auto" class="m-5">
-        <Button col="2" horizontalAlignment="right" text="&#xf021;" class="fa btn btn-primary btn-active" (tap)="loadData()"></Button>
-    </GridLayout>
-
     <SegmentedBar [items]="items" (selectedIndexChange)="onSelectedIndexChange($event)"></SegmentedBar>
+
+    <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100" class="activity-indicator"></ActivityIndicator>
 
     <StackLayout [visibility]="titles[selectedIndex] === 'Bus Heen' ? 'visible' : 'collapsed'">
         <Label [text]="'Bus Heen - '+ checkinBusGo.date " class="h3 text-center"></Label>
@@ -15,7 +13,6 @@
             <Label text="TEA" col="4"></Label>
             <Label text="Totaal" col="5"></Label>
         </GridLayout>
-        <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100" class="activity-indicator"></ActivityIndicator>
         <TextView [visibility]="checkinBusGo.total + 1 < 2 && !isBusy ? 'visible' : 'collapsed'" text="Geen bus lijst gevonden voor deze dag. Ga naar settings om een andere dag te kiezen."
                   editable="false" class="text-center"></TextView>
 
@@ -82,7 +79,6 @@
             <Label text="Totaal" col="5"></Label>
         </GridLayout>
 
-        <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100" class="activity-indicator"></ActivityIndicator>
         <TextView [visibility]="checkinBusBack.total + 1 < 2 && !isBusy ? 'visible' : 'collapsed'" text="Geen bus lijst gevonden voor deze dag. Ga naar settings om een andere dag te kiezen." editable="false" class="text-center"></TextView>
 
         <ListView [items]="checkinBusBack.places" class="m-5">
@@ -137,9 +133,37 @@
         </ScrollView>
     </StackLayout>
 
-    <StackLayout rows="*" [visibility]="titles[selectedIndex] === 'Verblijf' ? 'visible' : 'collapsed'">
+    <StackLayout [visibility]="titles[selectedIndex] === 'Verblijf' ? 'visible' : 'collapsed'">
+        <Label class="text-center" [visibility]="!hasAgencies ? 'visible' : 'collapse'" text="Geen agencies gevonden, kies een andere locatie bij settings."></Label>
+        <Label class="text-center" text="Kies een groep:" [visibility]="hasAgencies ? 'visible' : 'collapse'"></Label>
+        <ListPicker [items]="agenciesItems" [visibility]="hasAgencies ? 'visible' : 'collapse'" (selectedIndexChange)="selectedIndexAgencyChanged($event)"
+                    class="p-10"></ListPicker>
+        <Label [text]="agency.name + ' - '+ lodging.date " class="h3 text-center" [visibility]="hasAgencies && agency != null && agency.name != null ? 'visible' : 'collapse'"></Label>
+
+        <ListView [items]="lodging.customers">
+            <ng-template let-item="item" let-i="index">
+                <StackLayout>
+                    <RadDataForm tkExampleTitle tkToggleNavButton [source]="item" (propertyCommitted)="dfPropertyLodgingCommitted($event)">
+                        <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
+                            <TKDataFormGridLayout tkPropertyGroupLayout></TKDataFormGridLayout>
+                            <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" readOnly="true" name="id" index="0">
+                            </TKEntityProperty>
+                            <TKEntityProperty tkPropertyGroupProperties columnIndex="0" readOnly="true" name="customer" displayName="Deelnemer" index="0">
+                                <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                            </TKEntityProperty>
+                            <TKEntityProperty tkPropertyGroupProperties columnIndex="1" readOnly="true" name="lodgingType" displayName="Type" index="0">
+                                <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                            </TKEntityProperty>
+                            <TKEntityProperty tkPropertyGroupProperties columnIndex="2" name="lodgingLayout" displayName="Plaats" index="0">
+                                <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
+                            </TKEntityProperty>
+                        </TKPropertyGroup>
+                    </RadDataForm>
+                </StackLayout>
+            </ng-template>
+        </ListView>
     </StackLayout>
 
-    <StackLayout rows="*" [visibility]="titles[selectedIndex] === 'Vol pension' ? 'visible' : 'collapsed'">
+    <StackLayout [visibility]="titles[selectedIndex] === 'Vol pension' ? 'visible' : 'collapsed'">
     </StackLayout>
 </StackLayout>

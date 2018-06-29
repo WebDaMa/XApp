@@ -6,6 +6,7 @@ import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Page } from "tns-core-modules/ui/page";
 import { Guide } from "~/shared/models/guide.model";
 import { GuideService } from "~/shared/services/guide.service";
+import {Settings} from "~/settings/settings";
 
 @Component({
     selector: "MaterialsSettings",
@@ -44,16 +45,8 @@ export class MaterialsSettingsComponent implements OnInit {
 
     getGuides(): void {
         const appSettings = require("application-settings");
-        let locationId: string = "1";
-        if (appSettings.hasKey("locationId")) {
-            locationId = appSettings.getString("locationId");
-        }
-
-        const now = new Date();
-        let date: string = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
-        if (appSettings.hasKey("materialDate")) {
-            date = appSettings.getString("materialDate");
-        }
+        const locationId = Settings.getLocation();
+        const date = Settings.getDate();
 
         this.guideService.getAllGuidesForWeekAndLocationAction(date, locationId)
             .subscribe(

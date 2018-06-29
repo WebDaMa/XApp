@@ -76,8 +76,8 @@ export class SettingsComponent implements OnInit {
         const datePicker = <DatePicker>args.object;
         const appSettings = require("application-settings");
 
-        if (appSettings.hasKey("materialDate")) {
-            const date = new Date(appSettings.getString("materialDate"));
+        if (appSettings.hasKey("settingsDate")) {
+            const date = new Date(appSettings.getString("settingsDate"));
             datePicker.year = date.getFullYear();
             datePicker.month = date.getMonth() + 1;
             datePicker.day = date.getDate();
@@ -97,7 +97,7 @@ export class SettingsComponent implements OnInit {
         year = date.getFullYear();
         month = date.getMonth() + 1;
         day = date.getDate();
-        appSettings.setString("materialDate", year + "-" + month + "-" + day);
+        appSettings.setString("settingsDate", year + "-" + month + "-" + day);
 
         if (this.datePicker !== null && typeof this.datePicker !== "undefined") {
             this.datePicker.year = year;
@@ -125,7 +125,7 @@ export class SettingsComponent implements OnInit {
             this.datePicker.day = day;
         }
 
-        appSettings.remove("materialDate");
+        appSettings.remove("settingsDate");
 
         alert("Datum ingesteld op: " + year + "-" + month + "-" + day);
     }

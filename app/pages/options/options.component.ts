@@ -11,6 +11,7 @@ import { RaftingCustomer } from "~/shared/models/raftingCustomer.model";
 import { CustomerService } from "~/shared/services/customer.service";
 import { GroepService } from "~/shared/services/groep.service";
 import { OptionService } from "~/shared/services/option.service";
+import {Settings} from "~/settings/settings";
 
 /* ***********************************************************
 * Before you can navigate to this page from your app, you need to reference this page's module in the
@@ -89,17 +90,8 @@ export class OptionsComponent implements OnInit {
 
     getGroeps(): void {
         const appSettings = require("application-settings");
-        let locationId: string = "1";
-        if (appSettings.hasKey("locationId")) {
-            locationId = appSettings.getString("locationId");
-        }
-
-        /*TODO: move to settings*/
-        const now = new Date();
-        let date: string = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
-        if (appSettings.hasKey("materialDate")) {
-            date = appSettings.getString("materialDate");
-        }
+        const locationId = Settings.getLocation();
+        const date = Settings.getDate();
 
         this.groepService.getAllGroepsForWeekAndLocationAction(date, locationId)
             .subscribe(
