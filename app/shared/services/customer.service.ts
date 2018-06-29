@@ -11,6 +11,7 @@ import {CheckinBus} from "~/shared/models/checkinBus.model";
 import {BusCustomer} from "~/shared/models/busCustomer.model";
 import {LodgingCustomer} from "~/shared/models/lodgingCustomer.model";
 import {Lodging} from "~/shared/models/lodging.model";
+import {Volpension} from "~/shared/models/volpension.model";
 
 @Injectable()
 export class CustomerService extends Service {
@@ -26,9 +27,9 @@ export class CustomerService extends Service {
         return this.http.get<Array<GroepCustomer>>(url, { headers });
     }
 
-    getAllByAgencyForLodgingAndPeriodAction(agencyId, date): Observable<Lodging> {
+    getAllByAgencyForLodgingAndLocationAndPeriodAction(agencyId, locationId, date): Observable<Lodging> {
         const headers = this.createRequestHeader();
-        const url = Config.apiUrl + "api/customers/lodging/" + agencyId + "/" + date;
+        const url = Config.apiUrl + "api/customers/lodging/" + agencyId + "/" + locationId + "/" + date;
         console.dir(url);
 
         return this.http.get<Lodging>(url, { headers });
@@ -56,6 +57,14 @@ export class CustomerService extends Service {
         console.dir(url);
 
         return this.http.get<CheckinBus>(url, { headers });
+    }
+
+    getAllByAllInTypeForLocationAndPeriodAction(locationId, date): Observable<Volpension> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/all-in-type/" + locationId + "/" + date;
+        console.dir(url);
+
+        return this.http.get<Volpension>(url, { headers });
     }
 
     putCustomerSizeAction(groepCustomer: GroepCustomer): Observable<object> {

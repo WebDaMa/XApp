@@ -1,9 +1,7 @@
-import { VolpensionCustomer } from "~/shared/models/volpensionCustomer.model";
-import { VolpensionRow } from "~/shared/models/volpensionRow.model";
+import { AllInType } from "~/shared/models/allInType.model";
 
 export class Volpension {
-    total: string;
     date: string;
-    totalRows: Array<VolpensionRow>;
-    customers: Array<VolpensionCustomer>;
+    total: string;
+    allInTypes: Array<AllInType>;
 }

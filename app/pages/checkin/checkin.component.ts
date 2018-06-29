@@ -1,23 +1,17 @@
 import { Component, OnInit } from "@angular/core";
 import { RadDataForm } from "nativescript-ui-dataform";
+import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Page } from "tns-core-modules/ui/page";
 import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
+import { Settings } from "~/settings/settings";
+import { Agency } from "~/shared/models/agency.model";
 import { BusCustomer } from "~/shared/models/busCustomer.model";
 import { CheckinBus } from "~/shared/models/checkinBus.model";
+import { Lodging } from "~/shared/models/lodging.model";
+import { LodgingCustomer } from "~/shared/models/lodgingCustomer.model";
+import { Volpension } from "~/shared/models/volpension.model";
 import { AgencyService } from "~/shared/services/agency.service";
 import { CustomerService } from "~/shared/services/customer.service";
-import {Lodging} from "~/shared/models/lodging.model";
-import {Settings} from "~/settings/settings";
-import {Agency} from "~/shared/models/agency.model";
-import {ListPicker} from "tns-core-modules/ui/list-picker";
-import {LodgingCustomer} from "~/shared/models/lodgingCustomer.model";
-
-/* ***********************************************************
-* Before you can navigate to this page from your app, you need to reference this page's module in the
-* global app router module. Add the following object to the global array of routes:
-* { path: "sizes", loadChildren: "./sizes/sizes.module#SizesModule" }
-* Note that this simply points the path to the page module file. If you move the page, you need to update the route too.
-*************************************************************/
 
 @Component({
     selector: "Checkin",
@@ -29,7 +23,7 @@ export class CheckinComponent implements OnInit {
     BUS_HEEN: string = "Bus Heen";
     BUS_TERUG: string = "Bus Terug";
     VERBLIJF: string = "Verblijf";
-    VOLPENSION: string = "Vol Pension";
+    VOLPENSION: string = "Volpension";
 
     isBusy: boolean = true;
 
@@ -42,9 +36,16 @@ export class CheckinComponent implements OnInit {
         places: [],
         date: ""
     };
+
     checkinBusBack: CheckinBus = {
         total: "0",
         places: [],
+        date: ""
+    };
+
+    volpension: Volpension = {
+        total: "0",
+        allInTypes: [],
         date: ""
     };
 
@@ -92,6 +93,24 @@ export class CheckinComponent implements OnInit {
                 (result: CheckinBus) => {
                     this.checkinBusGo = result;
                     console.log("got me some bus customers");
+                    this.isBusy = false;
+                },
+                (error) => {
+                    console.dir(error);
+                    /*TODO: handle errors*/
+                }
+            );
+    }
+
+    getCustomersVolpension(): void {
+        const date = Settings.getDate();
+        const locationId = Settings.getLocation();
+
+        this.customerService.getAllByAllInTypeForLocationAndPeriodAction(locationId, date)
+            .subscribe(
+                (result: Volpension) => {
+                    this.volpension = result;
+                    console.log("got me some volpension customers");
                     this.isBusy = false;
                 },
                 (error) => {
@@ -204,8 +223,9 @@ export class CheckinComponent implements OnInit {
     getCustomersLodging(): void {
         this.isBusy = true;
         const date = Settings.getDate();
+        const locationId = Settings.getLocation();
 
-        this.customerService.getAllByAgencyForLodgingAndPeriodAction(this.agency.id, date)
+        this.customerService.getAllByAgencyForLodgingAndLocationAndPeriodAction(this.agency.id, locationId, date)
             .subscribe(
                 (result: Lodging) => {
                     this.lodging = result;
@@ -244,7 +264,7 @@ export class CheckinComponent implements OnInit {
                 break;
 
             case this.VOLPENSION:
-
+                this.getCustomersVolpension();
                 break;
         }
     }
