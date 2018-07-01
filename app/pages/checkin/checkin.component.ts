@@ -225,17 +225,20 @@ export class CheckinComponent implements OnInit {
         const date = Settings.getDate();
         const locationId = Settings.getLocation();
 
-        this.customerService.getAllByAgencyForLodgingAndLocationAndPeriodAction(this.agency.id, locationId, date)
-            .subscribe(
-                (result: Lodging) => {
-                    this.lodging = result;
-                    this.isBusy = false;
-                },
-                (error) => {
-                    console.dir(error);
-                    /*TODO: handle errors*/
-                }
-            );
+        if ((typeof this.agency !== "undefined" &&
+        this.agency !== null ? this.agency.id : void 0) != null) {
+            this.customerService.getAllByAgencyForLodgingAndLocationAndPeriodAction(this.agency.id, locationId, date)
+                .subscribe(
+                    (result: Lodging) => {
+                        this.lodging = result;
+                        this.isBusy = false;
+                    },
+                    (error) => {
+                        console.dir(error);
+                        /*TODO: handle errors*/
+                    }
+                );
+        }
     }
 
     selectedIndexAgencyChanged(args) {

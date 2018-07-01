@@ -1,5 +1,5 @@
 import { Size } from "~/shared/models/size.model";
 
-export class GroepCustomer extends Size {
+export class SizeCustomer extends Size {
     id: string;
 }
