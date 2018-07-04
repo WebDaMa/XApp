@@ -1,17 +1,9 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { RadSideDrawer } from "nativescript-ui-sidedrawer";
-import * as app from "tns-core-modules/application";
+import { RouterExtensions } from "nativescript-angular";
 import { DatePicker } from "tns-core-modules/ui/date-picker";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Location } from "~/shared/models/location.model";
 import { LocationService } from "~/shared/services/location.service";
-
-/* ***********************************************************
-* Before you can navigate to this page from your app, you need to reference this page's module in the
-* global app router module. Add the following object to the global array of routes:
-* { path: "sizes", loadChildren: "./sizes/sizes.module#SizesModule" }
-* Note that this simply points the path to the page module file. If you move the page, you need to update the route too.
-*************************************************************/
 
 @Component({
     selector: "Settings",
@@ -25,11 +17,31 @@ export class SettingsComponent implements OnInit {
     location: Location;
     selectedIndex: number = 0;
 
+    isBusy: boolean = true;
+
     @ViewChild(DatePicker) datePicker: DatePicker;
-    constructor(private locationService: LocationService) {
+    constructor(private locationService: LocationService, private routerExtensions: RouterExtensions) {
     }
 
     ngOnInit(): void {
+        this.getLocations();
+    }
+
+    selectedIndexChanged(args) {
+        const picker = <ListPicker>args.object;
+        const appSettings = require("application-settings");
+
+        if (this.locations.length > 0) {
+            appSettings.setNumber("locationIndex", picker.selectedIndex);
+            this.location = this.locations[picker.selectedIndex];
+            appSettings.setString("locationId", this.location.id);
+            appSettings.setNumber("guideIndex", 0);
+            appSettings.setNumber("groepIndex", 0);
+        }
+
+    }
+
+    getLocations(): void {
         const appSettings = require("application-settings");
         this.locationService.getLocationsAction()
             .subscribe(
@@ -49,27 +61,15 @@ export class SettingsComponent implements OnInit {
 
                     this.selectedIndex = appSettings.hasKey("locationIndex") ?
                         appSettings.getNumber("locationIndex") : 0;
+                    this.isBusy = false;
 
                 },
                 (error) => {
                     console.dir(error);
                     /*TODO: handle errors*/
+                    this.isBusy = false;
                 }
             );
-    }
-
-    selectedIndexChanged(args) {
-        const picker = <ListPicker>args.object;
-        const appSettings = require("application-settings");
-
-        if (this.locations.length > 0) {
-            appSettings.setNumber("locationIndex", picker.selectedIndex);
-            this.location = this.locations[picker.selectedIndex];
-            appSettings.setString("locationId", this.location.id);
-            appSettings.setNumber("guideIndex", 0);
-            appSettings.setNumber("groepIndex", 0);
-        }
-
     }
 
     onPickerLoaded(args) {
@@ -130,8 +130,7 @@ export class SettingsComponent implements OnInit {
         alert("Datum ingesteld op: " + year + "-" + month + "-" + day);
     }
 
-    onDrawerButtonTap(): void {
-        const sideDrawer = <RadSideDrawer>app.getRootView();
-        sideDrawer.showDrawer();
+    goBack() {
+        this.routerExtensions.backToPreviousPage();
     }
 }

@@ -1,10 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular";
 import { Page } from "tns-core-modules/ui/page";
-import { Config } from "~/shared/config";
-import {Router} from "@angular/router";
-import {UserService} from "~/shared/services/user.service";
-import {User} from "~/shared/models/user.model";
+import { User } from "~/shared/models/user.model";
+import { UserService } from "~/shared/services/user.service";
 
 /* ***********************************************************
 * Before you can navigate to this page from your app, you need to reference this page's module in the
@@ -32,7 +30,7 @@ export class LoginComponent implements OnInit {
     ngOnInit(): void {
         const appSettings = require("application-settings");
         const token = appSettings.getString("token");
-        if (token !== "") {
+        if (appSettings.hasKey("token") && token !== "") {
             console.log("continue");
             /* Already logged in keep going */
             this.routerExtensions.navigateByUrl(

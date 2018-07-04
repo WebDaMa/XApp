@@ -1,12 +1,12 @@
 import { Component, OnInit } from "@angular/core";
+import { RouterExtensions } from "nativescript-angular";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
-import { DatePicker } from "tns-core-modules/ui/date-picker";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Page } from "tns-core-modules/ui/page";
+import { Settings } from "~/settings/settings";
 import { Guide } from "~/shared/models/guide.model";
 import { GuideService } from "~/shared/services/guide.service";
-import {Settings} from "~/settings/settings";
 
 @Component({
     selector: "MaterialsSettings",
@@ -21,7 +21,7 @@ export class MaterialsSettingsComponent implements OnInit {
     hasGuides: boolean = false;
     selectedIndex: number = 0;
 
-    constructor(private guideService: GuideService, private page: Page) {
+    constructor(private guideService: GuideService, private page: Page, private routerExtensions: RouterExtensions) {
     }
 
     ngOnInit(): void {
@@ -83,9 +83,8 @@ export class MaterialsSettingsComponent implements OnInit {
             );
     }
 
-    onDrawerButtonTap(): void {
-        const sideDrawer = <RadSideDrawer>app.getRootView();
-        sideDrawer.showDrawer();
+    goBack() {
+        this.routerExtensions.backToPreviousPage();
     }
 
 }

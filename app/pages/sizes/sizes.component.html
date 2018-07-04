@@ -1,33 +1,38 @@
-<StackLayout class="page page-content" tkMainContent>
-    <Label class="text-center" [visibility]="!hasGroeps ? 'visible' : 'collapse'" text="Geen groepen gevonden, kies een andere locatie."></Label>
-    <Label class="text-center" text="Kies een groep:" [visibility]="hasGroeps ? 'visible' : 'collapse'"></Label>
-    <ListPicker [items]="groepItems" [visibility]="hasGroeps ? 'visible' : 'collapse'" [selectedIndex]="selectedIndex" (selectedIndexChange)="selectedIndexChanged($event)"
-                class="p-10"></ListPicker>
+<ScrollView>
+    <StackLayout>
+        <Label class="text-center" [visibility]="!hasGroeps ? 'visible' : 'collapse'"
+               text="Geen groepen gevonden, kies een andere locatie."></Label>
+        <ListPicker [items]="groepItems" [visibility]="hasGroeps ? 'visible' : 'collapse'"
+                    [selectedIndex]="selectedIndex" (selectedIndexChange)="selectedIndexChanged($event)"
+                    class="p-10"></ListPicker>
 
-    <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100" class="activity-indicator"></ActivityIndicator>
-    <TextView [visibility]="customers.length < 1 && !isBusy ? 'visible' : 'collapsed'" text="Geen deelnemers lijst gevonden voor deze groep. Ga naar settings om een andere dag of locatie te kiezen."
-              editable="false" class="text-center"></TextView>
-
-    <ListView [items]="customers">
-        <ng-template let-item="item" let-i="index">
-            <StackLayout>
-                <RadDataForm tkExampleTitle tkToggleNavButton [source]="item" (propertyCommitted)="dfPropertyCommitted($event)">
-                    <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
-                        <TKDataFormGridLayout tkPropertyGroupLayout></TKDataFormGridLayout>
-                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" readOnly="true" name="id" index="0">
-                        </TKEntityProperty>
-                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" readOnly="true" name="customer" displayName="Deelnemer" index="0">
-                            <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
-                        </TKEntityProperty>
-                        <TKEntityProperty tkPropertyGroupProperties columnIndex="1" name="size" displayName="Maat" [valuesProvider]="sizes" index="0">
-                            <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
-                        </TKEntityProperty>
-                        <TKEntityProperty tkPropertyGroupProperties columnIndex="2" name="sizeInfo" displayName="Maat Info" index="0">
-                            <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
-                        </TKEntityProperty>
-                    </TKPropertyGroup>
-                </RadDataForm>
-            </StackLayout>
-        </ng-template>
-    </ListView>
-</StackLayout>
+        <ActivityIndicator [visibility]="isBusy ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100"
+                           class="activity-indicator"></ActivityIndicator>
+        <TextView [visibility]="customers.length < 1 && !isBusy ? 'visible' : 'collapsed'"
+                  text="Geen deelnemers lijst gevonden voor deze groep. Ga naar settings om een andere dag of locatie te kiezen."
+                  editable="false" class="text-center"></TextView>
+        <StackLayout *ngFor="let customer of customers">
+            <RadDataForm tkExampleTitle tkToggleNavButton [source]="customer"
+                         (propertyCommitted)="dfPropertyCommitted($event)">
+                <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
+                    <TKDataFormGridLayout tkPropertyGroupLayout></TKDataFormGridLayout>
+                    <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" readOnly="true"
+                                      name="id" index="0">
+                    </TKEntityProperty>
+                    <TKEntityProperty tkPropertyGroupProperties columnIndex="0" readOnly="true" name="customer"
+                                      displayName="Deelnemer" index="0">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                    </TKEntityProperty>
+                    <TKEntityProperty tkPropertyGroupProperties columnIndex="1" name="size" displayName="Maat"
+                                      [valuesProvider]="sizes" index="0">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
+                    </TKEntityProperty>
+                    <TKEntityProperty tkPropertyGroupProperties columnIndex="2" name="sizeInfo"
+                                      displayName="Maat Info" index="0">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
+                    </TKEntityProperty>
+                </TKPropertyGroup>
+            </RadDataForm>
+        </StackLayout>
+    </StackLayout>
+</ScrollView>

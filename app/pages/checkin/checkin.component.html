@@ -1,4 +1,4 @@
-<StackLayout class="page page-content" tkMainContent>
+<StackLayout>
     <SegmentedBar [items]="items" (selectedIndexChange)="onSelectedIndexChange($event)"></SegmentedBar>
 
     <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100" class="activity-indicator"></ActivityIndicator>
@@ -49,14 +49,6 @@
                                     <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
                                 </TKEntityProperty>
                                 <TKEntityProperty tkPropertyGroupProperties columnIndex="2" readOnly="true"
-                                                  name="place" displayName="Opstapplaats" index="0">
-                                    <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
-                                </TKEntityProperty>
-                                <TKEntityProperty tkPropertyGroupProperties columnIndex="3" readOnly="true"
-                                                  name="agency" displayName="Agentschap" index="0">
-                                    <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
-                                </TKEntityProperty>
-                                <TKEntityProperty tkPropertyGroupProperties columnIndex="4" readOnly="true"
                                                   name="gsm" displayName="GSM" index="0">
                                     <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
                                 </TKEntityProperty>
@@ -114,14 +106,6 @@
                                     <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
                                 </TKEntityProperty>
                                 <TKEntityProperty tkPropertyGroupProperties columnIndex="2" readOnly="true"
-                                                  name="place" displayName="Opstapplaats" index="0">
-                                    <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
-                                </TKEntityProperty>
-                                <TKEntityProperty tkPropertyGroupProperties columnIndex="3" readOnly="true"
-                                                  name="agency" displayName="Agentschap" index="0">
-                                    <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
-                                </TKEntityProperty>
-                                <TKEntityProperty tkPropertyGroupProperties columnIndex="4" readOnly="true"
                                                   name="gsm" displayName="GSM" index="0">
                                     <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
                                 </TKEntityProperty>
@@ -134,16 +118,15 @@
     </StackLayout>
 
     <StackLayout [visibility]="titles[selectedIndex] === VERBLIJF ? 'visible' : 'collapsed'">
-        <Label class="text-center" [visibility]="!hasAgencies ? 'visible' : 'collapse'" text="Geen agencies gevonden, kies een andere locatie bij settings."></Label>
-        <Label class="text-center" text="Kies een groep:" [visibility]="hasAgencies ? 'visible' : 'collapse'"></Label>
-        <ListPicker [items]="agenciesItems" [visibility]="hasAgencies ? 'visible' : 'collapse'" (selectedIndexChange)="selectedIndexAgencyChanged($event)"
-                    class="p-10"></ListPicker>
-        <Label [text]="agency.name + ' - '+ lodging.date " class="h3 text-center" [visibility]="hasAgencies && agency != null && agency.name != null ? 'visible' : 'collapse'"></Label>
+        <ScrollView>
+            <StackLayout>
+                <Label class="text-center" [visibility]="!hasAgencies ? 'visible' : 'collapse'" text="Geen agencies gevonden, kies een andere locatie bij settings."></Label>
+                <ListPicker [items]="agenciesItems" [visibility]="hasAgencies ? 'visible' : 'collapse'" (selectedIndexChange)="selectedIndexAgencyChanged($event)"
+                            class="p-10"></ListPicker>
+                <Label [text]="agency.name + ' - '+ lodging.date " class="h3 text-center" [visibility]="hasAgencies && agency != null && agency.name != null ? 'visible' : 'collapse'"></Label>
 
-        <ListView [items]="lodging.customers">
-            <ng-template let-item="item" let-i="index">
-                <StackLayout>
-                    <RadDataForm tkExampleTitle tkToggleNavButton [source]="item" (propertyCommitted)="dfPropertyLodgingCommitted($event)">
+                <StackLayout *ngFor="let customer of lodging.customers">
+                    <RadDataForm tkExampleTitle tkToggleNavButton [source]="customer" (propertyCommitted)="dfPropertyLodgingCommitted($event)">
                         <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
                             <TKDataFormGridLayout tkPropertyGroupLayout></TKDataFormGridLayout>
                             <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" readOnly="true" name="id" index="0">
@@ -160,8 +143,8 @@
                         </TKPropertyGroup>
                     </RadDataForm>
                 </StackLayout>
-            </ng-template>
-        </ListView>
+            </StackLayout>
+        </ScrollView>
     </StackLayout>
 
     <StackLayout [visibility]="titles[selectedIndex] === VOLPENSION ? 'visible' : 'collapsed'">
@@ -209,14 +192,6 @@
                                     <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
                                 </TKEntityProperty>
                                 <TKEntityProperty tkPropertyGroupProperties columnIndex="2" readOnly="true"
-                                                  name="allInType" displayName="Regime" index="0">
-                                    <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
-                                </TKEntityProperty>
-                                <TKEntityProperty tkPropertyGroupProperties columnIndex="3" readOnly="true"
-                                                  name="hasBus" displayName="Bus" index="0">
-                                    <TKPropertyEditor tkEntityPropertyEditor type="Switch"></TKPropertyEditor>
-                                </TKEntityProperty>
-                                <TKEntityProperty tkPropertyGroupProperties columnIndex="4" readOnly="true"
                                                   name="infoFile" displayName="Opmerking" index="0">
                                     <TKPropertyEditor tkEntityPropertyEditor type="MultilineText"></TKPropertyEditor>
                                 </TKEntityProperty>

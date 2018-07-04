@@ -100,6 +100,22 @@ export class CustomerService extends Service {
         return this.http.put(url, raftingCustomer, { headers });
     }
 
+    putCustomerCanyoningOptionAction(canyoningCustomer: CanyoningCustomer): Observable<object> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/canyoning/" + canyoningCustomer.id;
+        console.dir(url);
+
+        return this.http.put(url, canyoningCustomer, { headers });
+    }
+
+    putCustomerSpecialOptionAction(specialCustomer: SpecialCustomer): Observable<object> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/special/" + specialCustomer.id;
+        console.dir(url);
+
+        return this.http.put(url, specialCustomer, { headers });
+    }
+
     putBusGoCustomerAction(busCustomer: BusCustomer): Observable<object> {
         const headers = this.createRequestHeader();
         const url = Config.apiUrl + "api/customers/bus/go/" + busCustomer.id;

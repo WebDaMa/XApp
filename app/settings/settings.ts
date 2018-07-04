@@ -21,4 +21,14 @@ export class Settings {
 
         return locationId;
     }
+
+    static getCurrentTabViewIndex() {
+        const appSettings = require("application-settings");
+        let tabViewIndex: number = 0;
+        if (appSettings.hasKey("tabViewIndex")) {
+            tabViewIndex = appSettings.getNumber("tabViewIndex");
+        }
+
+        return tabViewIndex;
+    }
 }

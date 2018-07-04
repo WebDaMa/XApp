@@ -57,6 +57,7 @@ export class MaterialsComponent implements OnInit {
             (error) => {
                 console.dir(error);
                 /*TODO: handle errors*/
+                this.isBusy = false;
             }
         );
     }

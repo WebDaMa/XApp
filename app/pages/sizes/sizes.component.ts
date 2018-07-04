@@ -39,7 +39,9 @@ export class SizesComponent implements OnInit {
         this.getSizes();
         this.getGroeps();
         this.page.on(Page.navigatingToEvent, () => {
-            this.getGroeps();
+            if (Settings.getCurrentTabViewIndex() === 1) {
+                this.getGroeps();
+            }
         });
     }
 

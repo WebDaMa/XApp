@@ -27,9 +27,17 @@ export class OptionsComponent implements OnInit {
     groep: Groep;
     hasGroeps: boolean = false;
 
+    test: CanyoningCustomer = {
+        id: "1",
+        activityIds: [],
+        customer: "hey",
+        programType: "AC"
+    };
+
     isBusy: boolean = true;
 
-    activities: Array<object> = [];
+    activities: Array<any> = [];
+    activitiesFull: Array<any> = [];
 
     optionCategories: Array<OptionCategory> = [];
     optionCategoryItems: Array<SegmentedBarItem> = [];
@@ -55,56 +63,61 @@ export class OptionsComponent implements OnInit {
 
     ngOnInit(): void {
         this.getGroeps();
-        this.getOptionCategories();
         this.page.on(Page.navigatingToEvent, () => {
-            this.getGroeps();
-            this.getOptionCategories();
-            this.getCustomers();
+            if (Settings.getCurrentTabViewIndex() === 2) {
+                this.isBusy = true;
+                this.getGroeps();
+            }
         });
 
     }
 
     selectedGroepIndexChanged(args) {
+        this.isBusy = true;
         const picker = <ListPicker>args.object;
 
         if (this.groeps.length > 0) {
             this.groep = this.groeps[picker.selectedIndex];
+
             if ((typeof this.optionCategory !== "undefined" &&
             this.optionCategory !== null ? this.optionCategory.id : void 0) != null) {
-                this.getCustomers();
+                this.getOptionCategories();
             }
         }
 
     }
 
     selectedOptionCategoryIndexChanged(args) {
+        this.isBusy = true;
+
         const segmentedBar = <SegmentedBar>args.object;
         const selectedIndex = segmentedBar.selectedIndex;
 
         if (this.optionCategories.length > 0) {
             this.optionCategory = this.optionCategories[selectedIndex];
             this.getActivities();
-            this.getCustomers();
         }
 
     }
 
     getCustomers(): void {
-        if ((typeof this.groep !== "undefined" &&
-        this.groep !== null ? this.groep.id : void 0) != null) {
-            this.isBusy = true;
-            switch (this.optionCategory.name) {
-                case "raft":
-                    this.getRaftingCustomers();
-                    break;
+        if (Settings.getCurrentTabViewIndex() === 2) {
 
-                case "canyon":
-                    this.getCanyoningCustomers();
-                    break;
+            if ((typeof this.groep !== "undefined" &&
+            this.groep !== null ? this.groep.id : void 0) != null) {
+                switch (this.optionCategory.name) {
+                    case "raft":
+                        this.getRaftingCustomers();
+                        break;
 
-                case "special":
-                    this.getSpecialCustomers();
-                    break;
+                    case "canyon":
+                        this.getCanyoningCustomers();
+                        break;
+
+                    case "special":
+                        this.getSpecialCustomers();
+                        break;
+                }
             }
         }
     }
@@ -133,12 +146,16 @@ export class OptionsComponent implements OnInit {
                         console.log("found me some groeps");
 
                         this.groep = this.groeps[0];
+                        this.getOptionCategories();
                     }
+                    this.isBusy = false;
 
                 },
                 (error) => {
                     console.dir(error);
                     this.hasGroeps = false;
+                    this.isBusy = false;
+
                     /*TODO: handle errors*/
                 }
             );
@@ -161,12 +178,16 @@ export class OptionsComponent implements OnInit {
 
                     if (this.optionCategories.length > 0) {
                         this.optionCategory = this.optionCategories[0];
-                        this.getCustomers();
+                        this.getActivities();
+                    } else {
+                        this.isBusy = false;
                     }
 
                 },
                 (error) => {
                     console.dir(error);
+                    this.isBusy = false;
+
                     /*TODO: handle errors*/
                 }
             );
@@ -184,6 +205,8 @@ export class OptionsComponent implements OnInit {
                 (error) => {
                     console.dir(error);
                     this.hasRaftingCustomers = false;
+                    this.isBusy = false;
+
                     /*TODO: handle errors*/
                 }
             );
@@ -203,6 +226,8 @@ export class OptionsComponent implements OnInit {
                 (error) => {
                     console.dir(error);
                     this.hasCanyoningCustomers = false;
+                    this.isBusy = false;
+
                     /*TODO: handle errors*/
                 }
             );
@@ -221,6 +246,8 @@ export class OptionsComponent implements OnInit {
                 (error) => {
                     console.dir(error);
                     this.hasSpecialCustomers = false;
+                    this.isBusy = false;
+
                     /*TODO: handle errors*/
                 }
             );
@@ -233,9 +260,17 @@ export class OptionsComponent implements OnInit {
             this.optionService.getAllActivitiesByCategoryAction(this.optionCategory.id)
                 .subscribe(
                     (result: Array<Activity>) => {
-                        this.activities = [{key: "0", label: "Kies een activiteit"}];
-                        this.activities = [...this.activities, ...result.map(({id, name}) => ({key: id, label: name}))];
+                        if (this.optionCategory.name === "raft") {
+                            this.activities = [{key: "0", label: "Kies een activiteit"}];
+                            this.activities = [...this.activities,
+                                ...result.map(({id, name}) => ({key: id, label: name}))];
+                        } else {
+                            this.activities = result.map(({id, name}) => (name));
+                            this.activitiesFull = result.map(({id, name}) => ({key: id, label: name}));
+                        }
+
                         console.log("got me some activities");
+                        this.getCustomers();
                     },
                     (error) => {
                         console.dir(error);
@@ -249,11 +284,33 @@ export class OptionsComponent implements OnInit {
         const dataForm = <RadDataForm>args.object;
         const raftingCustomer: RaftingCustomer = <RaftingCustomer> JSON.parse(dataForm.editedObject);
 
-        if (raftingCustomer.activityId !== "0") {
-            this.customerService.putCustomerRaftingOptionAction(raftingCustomer)
+        this.customerService.putCustomerRaftingOptionAction(raftingCustomer)
+            .subscribe(
+                () => {
+                    console.log("Updated rafting customer");
+                },
+                (error) => {
+                    console.dir(error);
+                    /*TODO: handle errors*/
+                }
+            );
+    }
+
+    dfPropertyCommittedCanyoning(args): void {
+        const dataForm = <RadDataForm>args.object;
+        const canyoningCustomer: CanyoningCustomer = <CanyoningCustomer> JSON.parse(dataForm.editedObject);
+        canyoningCustomer.activityIds = (typeof canyoningCustomer.activityIds === "string" &&
+            canyoningCustomer.activityIds.length > 2)
+        || (typeof canyoningCustomer.activityIds === "object" &&
+            canyoningCustomer.activityIds.length !== 0) ? this.getActivityIds(canyoningCustomer.activityIds) : [];
+
+        if (canyoningCustomer.activityIds) {
+            canyoningCustomer.activityIds = JSON.stringify(canyoningCustomer.activityIds);
+
+            this.customerService.putCustomerCanyoningOptionAction(canyoningCustomer)
                 .subscribe(
                     () => {
-                        console.log("Updated rafting customer");
+                        console.log("Updated canyoning customer");
                     },
                     (error) => {
                         console.dir(error);
@@ -263,12 +320,61 @@ export class OptionsComponent implements OnInit {
         }
     }
 
-    dfPropertyCommittedCanyoning(args): void {
+    getActivityIds(activities): Array<string> {
+        const activitiesIds = [];
+        /*suddenly activities is a string*/
 
+        if (typeof activities === "string") {
+            let stringBuild = "";
+            /*Remove [ ]*/
+            let i = 1;
+            const lengthString = activities.length;
+            for (const letter of activities) {
+                if (i !== 1 && i < lengthString) {
+                    stringBuild += letter;
+                }
+                i++;
+            }
+            stringBuild.replace(/\s/g, "");
+            const textArr = stringBuild.split(",");
+            const arrActivities = [];
+            for (const text of textArr) {
+                arrActivities.push(String(text));
+            }
+            activities = arrActivities;
+        }
+
+        for (const activityName of activities) {
+            const activityId = this.activitiesFull.find((x) => x.label === activityName.trim()).key;
+            activitiesIds.push(activityId);
+        }
+
+        return activitiesIds;
     }
 
     dfPropertyCommittedSpecial(args): void {
+        const dataForm = <RadDataForm>args.object;
+        const specialCustomer: SpecialCustomer = <SpecialCustomer> JSON.parse(dataForm.editedObject);
 
+        specialCustomer.activityIds = (typeof specialCustomer.activityIds === "string" &&
+            specialCustomer.activityIds.length > 2)
+        || (typeof specialCustomer.activityIds === "object" &&
+            specialCustomer.activityIds.length !== 0) ? this.getActivityIds(specialCustomer.activityIds) : [];
+
+        if (specialCustomer.activityIds) {
+            specialCustomer.activityIds = JSON.stringify(specialCustomer.activityIds);
+
+            this.customerService.putCustomerSpecialOptionAction(specialCustomer)
+                .subscribe(
+                    () => {
+                        console.log("Updated special customer");
+                    },
+                    (error) => {
+                        console.dir(error);
+                        /*TODO: handle errors*/
+                    }
+                );
+        }
     }
 
 }

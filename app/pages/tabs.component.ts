@@ -36,10 +36,15 @@ export class TabsComponent implements OnInit {
     }
 
     onSelectedIndexChanged(args: SelectedIndexChangedEventData) {
+        const appSettings = require("application-settings");
+
+        appSettings.setNumber("tabViewIndex", args.newIndex);
+
         const tabView = <TabView>args.object;
         const selectedTabViewItem = tabView.items[args.newIndex];
 
         this.title = selectedTabViewItem.title;
+
     }
 
     onDrawerButtonTap(): void {

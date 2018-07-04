@@ -74,7 +74,9 @@ export class CheckinComponent implements OnInit {
         }
         this.selectedIndex = 0;
         this.page.on(Page.navigatingToEvent, () => {
-            this.loadData();
+            if (Settings.getCurrentTabViewIndex() === 3) {
+                this.loadData();
+            }
         });
     }
 
@@ -116,6 +118,8 @@ export class CheckinComponent implements OnInit {
                 (error) => {
                     console.dir(error);
                     /*TODO: handle errors*/
+                    this.isBusy = false;
+
                 }
             );
     }
@@ -128,7 +132,7 @@ export class CheckinComponent implements OnInit {
             .subscribe(
                 (result: Array<Agency>) => {
                     this.agencies = result;
-
+                    this.isBusy = false;
                     if (this.agencies.length > 0) {
                         this.agenciesItems = {
                             items: this.agencies,
@@ -236,6 +240,7 @@ export class CheckinComponent implements OnInit {
                     (error) => {
                         console.dir(error);
                         /*TODO: handle errors*/
+                        this.isBusy = false;
                     }
                 );
         }

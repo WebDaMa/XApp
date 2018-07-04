@@ -3,19 +3,16 @@
     Use the NavigationButton as a side-drawer button in Android
     because ActionItems are shown on the right side of the ActionBar
     -->
-    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <NavigationButton android.systemIcon="ic_menu_back" text="Back to ActionBar" (tap)="goBack()"></NavigationButton>
     <!--
     Use the ActionItem for IOS with position set to left. Using the
     NavigationButton as a side-drawer button in iOS is not possible,
     because its function is to always navigate back in the application.
     -->
-    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
-                ios.position="left">
-    </ActionItem>
     <Label class="action-bar-title" text="Settings"></Label>
 </ActionBar>
 <StackLayout class="page page-content" tkMainContent>
-    <Label class="text-center" text="Kies een datum:"></Label>
+    <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100" class="activity-indicator"></ActivityIndicator>
 
     <DatePicker #datePicker (loaded)="onPickerLoaded($event)" (dateChange)="onDateChanged($event)"
                 verticalAlignment="center"></DatePicker>
