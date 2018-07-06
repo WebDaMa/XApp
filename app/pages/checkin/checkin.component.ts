@@ -74,9 +74,7 @@ export class CheckinComponent implements OnInit {
         }
         this.selectedIndex = 0;
         this.page.on(Page.navigatingToEvent, () => {
-            if (Settings.getCurrentTabViewIndex() === 3) {
-                this.loadData();
-            }
+            this.loadData();
         });
     }
 

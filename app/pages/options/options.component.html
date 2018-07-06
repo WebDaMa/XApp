@@ -48,7 +48,13 @@
                              (propertyCommitted)="dfPropertyCommittedCanyoning($event)">
                     <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
                         <TKDataFormGridLayout tkPropertyGroupLayout></TKDataFormGridLayout>
-                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" name="id"
+                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" readOnly="true" hidden="true" name="id"
+                                          index="0">
+                        </TKEntityProperty>
+                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" name="possibleActivities"
+                                          index="0">
+                        </TKEntityProperty>
+                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" name="possibleActivitiesFull"
                                           index="0">
                         </TKEntityProperty>
                         <TKEntityProperty tkPropertyGroupProperties columnIndex="0" readOnly="true"
@@ -62,7 +68,7 @@
                         </TKEntityProperty>
                         <TKEntityProperty tkDataFormProperty columnIndex="2" name="activityIds"
                                           displayName="Canyons"
-                                          autoCompleteDisplayMode="token" [valuesProvider]="activities"
+                                          autoCompleteDisplayMode="token" [valuesProvider]="customer.possibleActivities"
                                           index="0">
                             <TKPropertyEditor tkEntityPropertyEditor
                                               type="AutoCompleteInline"></TKPropertyEditor>
@@ -81,6 +87,12 @@
                         <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" name="id"
                                           index="0">
                         </TKEntityProperty>
+                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" name="possibleActivities"
+                                          index="0">
+                        </TKEntityProperty>
+                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" name="possibleActivitiesFull"
+                                          index="0">
+                        </TKEntityProperty>
                         <TKEntityProperty tkPropertyGroupProperties columnIndex="0" readOnly="true"
                                           name="customer"
                                           displayName="Deelnemer" index="0">
@@ -92,7 +104,7 @@
                         </TKEntityProperty>
                         <TKEntityProperty tkDataFormProperty columnIndex="2" name="activityIds"
                                           displayName="Specials" autoCompleteDisplayMode="tokens"
-                                          [valuesProvider]="activities" index="0">
+                                          [valuesProvider]="customer.possibleActivities" index="0">
                             <TKPropertyEditor tkEntityPropertyEditor
                                               type="AutoCompleteInline"></TKPropertyEditor>
                         </TKEntityProperty>

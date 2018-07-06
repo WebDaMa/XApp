@@ -37,17 +37,13 @@ export class SizesComponent implements OnInit {
 
     ngOnInit(): void {
         this.getSizes();
-        this.getGroeps();
         this.page.on(Page.navigatingToEvent, () => {
-            if (Settings.getCurrentTabViewIndex() === 1) {
-                this.getGroeps();
-            }
+            this.getGroeps();
         });
     }
 
     selectedIndexChanged(args) {
         const picker = <ListPicker>args.object;
-        const appSettings = require("application-settings");
 
         if (this.groeps.length > 0) {
             this.groep = this.groeps[picker.selectedIndex];

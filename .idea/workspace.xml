@@ -3,70 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="29231f43-1602-4262-8068-fafd9ea89c9e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/Android/drawable-hdpi/background.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/Android/drawable-hdpi/background.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/Android/drawable-hdpi/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/Android/drawable-hdpi/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/Android/drawable-ldpi/background.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/Android/drawable-ldpi/background.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/Android/drawable-ldpi/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/Android/drawable-ldpi/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/Android/drawable-mdpi/background.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/Android/drawable-mdpi/background.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/Android/drawable-mdpi/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/Android/drawable-mdpi/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/Android/drawable-xhdpi/background.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/Android/drawable-xhdpi/background.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/Android/drawable-xhdpi/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/Android/drawable-xhdpi/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/Android/drawable-xxhdpi/background.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/Android/drawable-xxhdpi/background.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/Android/drawable-xxhdpi/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/Android/drawable-xxhdpi/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/Android/drawable-xxxhdpi/background.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/Android/drawable-xxxhdpi/background.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/Android/drawable-xxxhdpi/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/Android/drawable-xxxhdpi/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default-1125h.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default-1125h.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default-568h@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default-568h@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default-667h@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default-667h@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default-736h@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default-736h@3x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default-Landscape-X.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default-Landscape-X.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default-Landscape.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default-Landscape.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default-Landscape@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default-Landscape@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default-Landscape@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default-Landscape@3x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default-Portrait.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default-Portrait.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default-Portrait@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default-Portrait@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchImage.launchimage/Default@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchScreen.AspectFill.imageset/LaunchScreen-AspectFill.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchScreen.AspectFill.imageset/LaunchScreen-AspectFill.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchScreen.AspectFill.imageset/LaunchScreen-AspectFill@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchScreen.AspectFill.imageset/LaunchScreen-AspectFill@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchScreen.Center.imageset/LaunchScreen-Center.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchScreen.Center.imageset/LaunchScreen-Center.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchScreen.Center.imageset/LaunchScreen-Center@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/iOS/Assets.xcassets/LaunchScreen.Center.imageset/LaunchScreen-Center@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/checkin/checkin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/checkin/checkin.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/App_Resources/Android/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/Android/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/App_Resources/iOS/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/iOS/Info.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/checkin/checkin.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/checkin/checkin.component.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/checkin/checkin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/checkin/checkin.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/login/login.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/login/login.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/login/login.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/materials/materials.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/materials/materials.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/materials/materials.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/materials/materials.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/materials/materials.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/materials/materials.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/options/options.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/options/options.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/options/options.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/options/options.component.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/options/options.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/options/options.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/settings/settings.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/settings/settings.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/settings/settings.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/settings/settings.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/settings/settings.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/settings/settings.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/sizes/sizes.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/sizes/sizes.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/sizes/sizes.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/sizes/sizes.component.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/sizes/sizes.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/sizes/sizes.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/tabs.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/tabs.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/tabs.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/tabs.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/tabs.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/tabs.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/settings/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/settings/settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/settings/settings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/settings/settings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/allInTypeCustomer.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/allInTypeCustomer.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/allInTypeCustomer.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/allInTypeCustomer.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/busCustomer.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/busCustomer.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/busCustomer.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/busCustomer.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/shared/models/canyoningCustomer.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/canyoningCustomer.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/shared/models/canyoningCustomer.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/canyoningCustomer.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/shared/models/specialCustomer.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/specialCustomer.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/shared/models/specialCustomer.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/specialCustomer.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/services/customer.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/services/customer.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/services/customer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/services/customer.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -77,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/App_Resources/Android/AndroidManifest.xml">
+      <file leaf-file-name="options.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/pages/options/options.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="185" selection-start-line="8" selection-start-column="185" selection-end-line="8" selection-end-column="185" />
+            <state relative-caret-position="203">
+              <caret line="377" column="50" selection-start-line="377" selection-start-column="50" selection-end-line="377" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -97,11 +48,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>guideId</find>
-      <find>groepIndex</find>
-      <find>location</find>
-      <find>locationIndex</find>
-      <find>groepId</find>
       <find>cdf</find>
       <find>page</find>
       <find>selectedGroepIndex</find>
@@ -127,6 +73,11 @@
       <find>lodg</find>
       <find>agenciesItems</find>
       <find>getAgencies</find>
+      <find>activitiesFull</find>
+      <find>key</find>
+      <find>loadData</find>
+      <find>map</find>
+      <find>.key</find>
     </findStrings>
     <replaceStrings>
       <replace>Array&lt;Size&gt;</replace>
@@ -173,28 +124,28 @@
         <option value="$PROJECT_DIR$/app/shared/models/AllInTypeCustomer.model.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/volpension.model.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/groepCustomer.model.ts" />
-        <option value="$PROJECT_DIR$/app/shared/models/canyoningCustomer.model.ts" />
-        <option value="$PROJECT_DIR$/app/shared/models/specialCustomer.model.ts" />
         <option value="$PROJECT_DIR$/app/shared/services/customer.service.ts" />
         <option value="$PROJECT_DIR$/app/pages/login/login.component.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/allInTypeCustomer.model.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/busCustomer.model.ts" />
         <option value="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.ts" />
         <option value="$PROJECT_DIR$/app/settings/settings.ts" />
-        <option value="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html" />
         <option value="$PROJECT_DIR$/app/pages/materials/materials.component.html" />
         <option value="$PROJECT_DIR$/app/pages/tabs.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/tabs.component.html" />
         <option value="$PROJECT_DIR$/app/pages/sizes/sizes.component.html" />
-        <option value="$PROJECT_DIR$/app/pages/sizes/sizes.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/settings/settings.component.ts" />
-        <option value="$PROJECT_DIR$/app/pages/settings/settings.component.html" />
         <option value="$PROJECT_DIR$/app/pages/checkin/checkin.component.html" />
-        <option value="$PROJECT_DIR$/app/pages/options/options.component.ts" />
-        <option value="$PROJECT_DIR$/app/pages/options/options.component.html" />
-        <option value="$PROJECT_DIR$/app/pages/checkin/checkin.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/materials/materials.component.ts" />
         <option value="$PROJECT_DIR$/app/App_Resources/Android/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/pages/checkin/checkin.component.ts" />
+        <option value="$PROJECT_DIR$/app/pages/settings/settings.component.html" />
+        <option value="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html" />
+        <option value="$PROJECT_DIR$/app/pages/sizes/sizes.component.ts" />
+        <option value="$PROJECT_DIR$/app/shared/models/canyoningCustomer.model.ts" />
+        <option value="$PROJECT_DIR$/app/shared/models/specialCustomer.model.ts" />
+        <option value="$PROJECT_DIR$/app/pages/options/options.component.html" />
+        <option value="$PROJECT_DIR$/app/pages/options/options.component.ts" />
       </list>
     </option>
   </component>
@@ -326,13 +277,6 @@
               <item name="shared" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="XApp" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -414,12 +358,13 @@
       <workItem from="1530431945767" duration="27026000" />
       <workItem from="1530514537948" duration="4000" />
       <workItem from="1530603352543" duration="2192000" />
-      <workItem from="1530734524851" duration="8840000" />
+      <workItem from="1530734524851" duration="9046000" />
+      <workItem from="1530875134126" duration="6004000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186040000" />
+    <option name="totallyTimeSpent" value="192250000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -433,11 +378,11 @@
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.4188889" />
       <window_info anchor="bottom" id="TypeScript" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Nativescript Palette" order="3" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -500,9 +445,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/pages/login/login.module.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/shared/services/user.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -632,20 +574,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/models/canyoningCustomer.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/models/specialCustomer.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/login/login.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-490">
@@ -678,16 +606,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1525">
-          <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -729,31 +647,10 @@
         <state relative-caret-position="-946" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/sizes/sizes.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" selection-start-line="19" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
           <caret line="36" column="65" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/sizes/sizes.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -774,13 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/settings/settings.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="86" selection-start-line="14" selection-start-column="86" selection-end-line="14" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/shared/services/customer.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="545">
@@ -798,45 +688,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/options/options.component.ts">
+    <entry file="file://$PROJECT_DIR$/app/App_Resources/Android/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="155" column="43" lean-forward="true" selection-start-line="155" selection-start-column="43" selection-end-line="155" selection-end-column="43" />
+        <state relative-caret-position="152">
+          <caret line="8" column="185" selection-start-line="8" selection-start-column="185" selection-end-line="8" selection-end-column="185" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/options/options.component.html">
+    <entry file="file://$PROJECT_DIR$/app/pages/sizes/sizes.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-130">
-          <caret line="3" column="74" selection-start-line="3" selection-start-column="74" selection-end-line="3" selection-end-column="74" />
+        <state>
+          <caret selection-end-line="1" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/checkin/checkin.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3221">
+        <state>
           <caret column="12" selection-start-column="12" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/checkin/checkin.component.ts">
+    <entry file="file://$PROJECT_DIR$/app/pages/settings/settings.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="121" lean-forward="true" selection-start-line="121" selection-end-line="121" />
+        <state relative-caret-position="418">
+          <caret line="22" selection-start-line="22" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
+        <state relative-caret-position="1015">
           <caret line="60" selection-start-line="60" selection-end-line="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/App_Resources/Android/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/app/pages/sizes/sizes.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/options/options.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="61" column="31" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/checkin/checkin.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/models/canyoningCustomer.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
-          <caret line="8" column="185" selection-start-line="8" selection-start-column="185" selection-end-line="8" selection-end-column="185" />
+          <caret line="8" selection-start-line="8" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/models/specialCustomer.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/options/options.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="58" column="43" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/options/options.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="377" column="50" selection-start-line="377" selection-start-column="50" selection-end-line="377" selection-end-column="50" />
         </state>
       </provider>
     </entry>

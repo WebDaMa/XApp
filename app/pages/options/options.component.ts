@@ -27,17 +27,9 @@ export class OptionsComponent implements OnInit {
     groep: Groep;
     hasGroeps: boolean = false;
 
-    test: CanyoningCustomer = {
-        id: "1",
-        activityIds: [],
-        customer: "hey",
-        programType: "AC"
-    };
-
     isBusy: boolean = true;
 
     activities: Array<any> = [];
-    activitiesFull: Array<any> = [];
 
     optionCategories: Array<OptionCategory> = [];
     optionCategoryItems: Array<SegmentedBarItem> = [];
@@ -62,12 +54,9 @@ export class OptionsComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.getGroeps();
         this.page.on(Page.navigatingToEvent, () => {
-            if (Settings.getCurrentTabViewIndex() === 2) {
-                this.isBusy = true;
-                this.getGroeps();
-            }
+            this.isBusy = true;
+            this.getGroeps();
         });
 
     }
@@ -217,6 +206,15 @@ export class OptionsComponent implements OnInit {
         this.customerService.getAllByGroepWithCanyoningOptionAction(this.groep.id)
             .subscribe(
                 (result: Array<CanyoningCustomer>) => {
+                    let i = 0;
+                    for (const canyoningCustomer of result) {
+                        canyoningCustomer.possibleActivitiesFull =
+                            this.mapCustomerActivitiesFull(canyoningCustomer.possibleActivities);
+                        canyoningCustomer.possibleActivities =
+                            this.mapCustomerActivitiesName(canyoningCustomer.possibleActivities);
+                        result[i] = canyoningCustomer;
+                        i++;
+                    }
                     this.canyoningCustomers = result;
                     this.hasCanyoningCustomers = true;
                     console.log("found me some customers");
@@ -238,6 +236,15 @@ export class OptionsComponent implements OnInit {
         this.customerService.getAllByGroepWithSpecialOptionAction(this.groep.id)
             .subscribe(
                 (result: Array<SpecialCustomer>) => {
+                    let i = 0;
+                    for (const specialCustomer of result) {
+                        specialCustomer.possibleActivitiesFull =
+                            this.mapCustomerActivitiesFull(specialCustomer.possibleActivities);
+                        specialCustomer.possibleActivities =
+                            this.mapCustomerActivitiesName(specialCustomer.possibleActivities);
+                        result[i] = specialCustomer;
+                        i++;
+                    }
                     this.specialCustomers = result;
                     this.hasSpecialCustomers = true;
                     console.log("found me some customers");
@@ -256,18 +263,14 @@ export class OptionsComponent implements OnInit {
 
     getActivities(): void {
         if ((typeof this.optionCategory !== "undefined" &&
-        this.optionCategory !== null ? this.optionCategory.id : void 0) != null) {
+        this.optionCategory !== null ? this.optionCategory.id : void 0) != null &&
+            this.optionCategory.name === "raft") {
             this.optionService.getAllActivitiesByCategoryAction(this.optionCategory.id)
                 .subscribe(
                     (result: Array<Activity>) => {
-                        if (this.optionCategory.name === "raft") {
-                            this.activities = [{key: "0", label: "Kies een activiteit"}];
-                            this.activities = [...this.activities,
-                                ...result.map(({id, name}) => ({key: id, label: name}))];
-                        } else {
-                            this.activities = result.map(({id, name}) => (name));
-                            this.activitiesFull = result.map(({id, name}) => ({key: id, label: name}));
-                        }
+                        this.activities = [{key: "0", label: "Kies een activiteit"}];
+                        this.activities = [...this.activities,
+                            ...result.map(({id, name}) => ({key: id, label: name}))];
 
                         console.log("got me some activities");
                         this.getCustomers();
@@ -277,6 +280,8 @@ export class OptionsComponent implements OnInit {
                         /*TODO: handle errors*/
                     }
                 );
+        } else {
+            this.getCustomers();
         }
     }
 
@@ -302,7 +307,8 @@ export class OptionsComponent implements OnInit {
         canyoningCustomer.activityIds = (typeof canyoningCustomer.activityIds === "string" &&
             canyoningCustomer.activityIds.length > 2)
         || (typeof canyoningCustomer.activityIds === "object" &&
-            canyoningCustomer.activityIds.length !== 0) ? this.getActivityIds(canyoningCustomer.activityIds) : [];
+            canyoningCustomer.activityIds.length !== 0) ? this.getActivityIds(canyoningCustomer.activityIds,
+            canyoningCustomer.possibleActivitiesFull) : [];
 
         if (canyoningCustomer.activityIds) {
             canyoningCustomer.activityIds = JSON.stringify(canyoningCustomer.activityIds);
@@ -320,7 +326,7 @@ export class OptionsComponent implements OnInit {
         }
     }
 
-    getActivityIds(activities): Array<string> {
+    getActivityIds(activities, activitiesFull): Array<string> {
         const activitiesIds = [];
         /*suddenly activities is a string*/
 
@@ -345,11 +351,20 @@ export class OptionsComponent implements OnInit {
         }
 
         for (const activityName of activities) {
-            const activityId = this.activitiesFull.find((x) => x.label === activityName.trim()).key;
+            const activityId = activitiesFull
+                .find((x) => x.label === activityName.trim()).key;
             activitiesIds.push(activityId);
         }
 
         return activitiesIds;
+    }
+
+    mapCustomerActivitiesName(activities) {
+        return activities.map(({id, name}) => (name));
+    }
+
+    mapCustomerActivitiesFull(activities) {
+        return activities.map(({id, name}) => ({key: id, label: name}));
     }
 
     dfPropertyCommittedSpecial(args): void {
@@ -359,7 +374,8 @@ export class OptionsComponent implements OnInit {
         specialCustomer.activityIds = (typeof specialCustomer.activityIds === "string" &&
             specialCustomer.activityIds.length > 2)
         || (typeof specialCustomer.activityIds === "object" &&
-            specialCustomer.activityIds.length !== 0) ? this.getActivityIds(specialCustomer.activityIds) : [];
+            specialCustomer.activityIds.length !== 0) ? this.getActivityIds(specialCustomer.activityIds,
+            specialCustomer.possibleActivitiesFull) : [];
 
         if (specialCustomer.activityIds) {
             specialCustomer.activityIds = JSON.stringify(specialCustomer.activityIds);
