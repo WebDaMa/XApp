@@ -13,19 +13,48 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
         <ScrollView row="1">
             <StackLayout class="sidedrawer-content">
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('Tabs')" (tap)="onNavItemTap('/tabs')">
-                    <Label col="0" text="&#xf015;" class="fa"></Label>
+                    <Label col="0" text="&#xf015;&nbsp;&nbsp;" class="fas"></Label>
                     <Label col="1" text="Home" class="p-r-10"></Label>
                 </GridLayout>
 
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('BusGo')" (tap)="onNavItemTap('/busgo')">
+                    <Label col="0" text="&#xf207;&nbsp;&nbsp;" class="fas"></Label>
+                    <Label col="1" text="Bus check vertrek" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('BusBack')" (tap)="onNavItemTap('/busback')">
+                    <Label col="0" text="&#xf55e;&nbsp;&nbsp;" class="fas"></Label>
+                    <Label col="1" text="Bus check terug" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('Volpension')" (tap)="onNavItemTap('/volpension')">
+                    <Label col="0" text="&#xf2e7;&nbsp;&nbsp;" class="fas"></Label>
+                    <Label col="1" text="Volpension" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('Lodging')" (tap)="onNavItemTap('/lodging')">
+                    <Label col="0" text="&#xf594;&nbsp;&nbsp;" class="fas"></Label>
+                    <Label col="1" text="Logement" class="p-r-10"></Label>
+                </GridLayout>
+
+                <StackLayout class="hr-light"></StackLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('Bill')" (tap)="onNavItemTap('/bill')">
+                    <Label col="0" text="&#xf571;&nbsp;&nbsp;" class="fas"></Label>
+                    <Label col="1" text="Afrekening" class="p-r-10"></Label>
+                </GridLayout>
+
+                <StackLayout class="hr-light"></StackLayout>
+
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('Settings')" (tap)="onNavItemTap('/settings')">
-                    <Label col="0" text="&#xf013;" class="fa"></Label>
+                    <Label col="0" text="&#xf013;&nbsp;&nbsp;" class="fas"></Label>
                     <Label col="1" text="Settings" class="p-r-10"></Label>
                 </GridLayout>
 
                 <StackLayout class="hr-light"></StackLayout>
 
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" (tap)="logout()">
-                    <Label col="0" text="&#xf0a9;" class="fa"></Label>
+                    <Label col="0" text="&#xf0a9;&nbsp;&nbsp;" class="fas"></Label>
                     <Label col="1" text="Logout" class="p-r-10"></Label>
                 </GridLayout>
 

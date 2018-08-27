@@ -13,6 +13,9 @@ import { SpecialCustomer } from "~/shared/models/specialCustomer.model";
 import { Volpension } from "~/shared/models/volpension.model";
 import { Service } from "~/shared/services/service";
 import { Config } from "../config";
+import {BillCustomer} from "~/shared/models/billCustomer.model";
+import {BillCustomerDetail} from "~/shared/models/billCustomerDetail.model";
+import {BillCustomerTotal} from "~/shared/models/billCustomerTotal.model";
 
 @Injectable()
 export class CustomerService extends Service {
@@ -26,6 +29,22 @@ export class CustomerService extends Service {
         console.dir(url);
 
         return this.http.get<Array<SizeCustomer>>(url, { headers });
+    }
+
+    getAllByGroepForBillAction(groepId): Observable<Array<BillCustomer>> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/groep/bill/" + groepId;
+        console.dir(url);
+
+        return this.http.get<Array<BillCustomer>>(url, { headers });
+    }
+
+    getBillByCustomerId(customerId): Observable<BillCustomerDetail> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/bill/" + customerId;
+        console.dir(url);
+
+        return this.http.get<BillCustomerDetail>(url, { headers });
     }
 
     getAllByAgencyForLodgingAndLocationAndPeriodAction(agencyId, locationId, date): Observable<Lodging> {
@@ -138,6 +157,14 @@ export class CustomerService extends Service {
         console.dir(url);
 
         return this.http.put(url, lodgingCustomer, { headers });
+    }
+
+    putBillPayedAction(billCustomerTotal: BillCustomerTotal): Observable<object> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/bill/" + billCustomerTotal.id;
+        console.dir(url);
+
+        return this.http.put(url, billCustomerTotal, { headers });
     }
 
 }

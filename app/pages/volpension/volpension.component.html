@@ -1,0 +1,71 @@
+<ActionBar class="action-bar">
+    <!--
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton android.systemIcon="ic_menu_back" (tap)="goBack()"></NavigationButton>
+    <!--
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <Label class="action-bar-title" text="Volpension"></Label>
+</ActionBar>
+<StackLayout class="page page-content" tkMainContent>
+    <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100" class="activity-indicator"></ActivityIndicator>
+
+    <Label [text]="'Volpension - '+ volpension.date " class="h3 text-center"></Label>
+    <GridLayout columns="*, *, *, * ,*, *" rows="auto" class="m-5" backgroundColor="#d3d3d3">
+        <Label [text]="'Totaal ' + volpension.total" class="font-weight-bold" col="0"></Label>
+        <Label text="XAD" col="1"></Label>
+        <Label text="FAD" col="2"></Label>
+        <Label text="JAD" col="3"></Label>
+        <Label text="TEA" col="4"></Label>
+        <Label text="Totaal" col="5"></Label>
+    </GridLayout>
+    <TextView [visibility]="volpension.total + 1 < 2 && !isBusy ? 'visible' : 'collapsed'" text="Geen volpension lijst gevonden voor deze week. Ga naar settings om een andere dag te kiezen."
+              editable="false" class="text-center"></TextView>
+
+    <ListView [items]="volpension.allInTypes" class="m-5">
+        <ng-template let-item="item" let-i="index">
+            <GridLayout columns="*, *, *, * ,*, *" rows="auto" class="m-5">
+                <Label [text]="item.allInType" class="font-weight-bold" col="0"></Label>
+                <Label [text]="item.totals.XAD ? item.totals.XAD : 0" col="1"></Label>
+                <Label [text]="item.totals.FAD ? item.totals.FAD : 0" col="2"></Label>
+                <Label [text]="item.totals.JAD ? item.totals.JAD : 0" col="3"></Label>
+                <Label [text]="item.totals.TEA ? item.totals.TEA : 0" col="4"></Label>
+                <Label [text]="item.total" col="5"></Label>
+            </GridLayout>
+        </ng-template>
+    </ListView>
+    |
+    <ScrollView>
+        <StackLayout>
+            <StackLayout *ngFor="let allInType of volpension.allInTypes">
+                <Label [text]="allInType.allInType" class="text-center h3 p-4" backgroundColor="#d3d3d3"></Label>
+                <StackLayout *ngFor="let customer of allInType.customers">
+                    <RadDataForm tkExampleTitle tkToggleNavButton [source]="customer">
+                        <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
+                            <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true"
+                                              readOnly="true" name="id" index="0">
+                            </TKEntityProperty>
+                            <TKEntityProperty tkPropertyGroupProperties columnIndex="0" readOnly="true"
+                                              name="customer" displayName="Deelnemer" index="0">
+                                <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                            </TKEntityProperty>
+                            <TKEntityProperty tkPropertyGroupProperties columnIndex="1" readOnly="true"
+                                              name="agency" displayName="Agentschap" index="0">
+                                <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                            </TKEntityProperty>
+                            <TKEntityProperty tkPropertyGroupProperties columnIndex="2" readOnly="true"
+                                              name="infoFile" displayName="Opmerking" index="0">
+                                <TKPropertyEditor tkEntityPropertyEditor type="MultilineText"></TKPropertyEditor>
+                            </TKEntityProperty>
+                        </TKPropertyGroup>
+                    </RadDataForm>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+
+</StackLayout>
