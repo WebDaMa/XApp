@@ -16,26 +16,26 @@
         <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100"
                            class="activity-indicator"></ActivityIndicator>
 
-        <GridLayout columns="10, *, *" rows="*,*" class="m-5" backgroundColor="#d5d5d5">
+        <GridLayout columns="10, *, *" rows="*,*" class="m-5 h3" backgroundColor="#d5d5d5">
             <Label row="0" col="1" text="Naam:"></Label>
             <Label row="0" col="2" [text]="customerBillDetail.customer"></Label>
             <Label row="1" col="1" text="Booker:"></Label>
             <Label row="1" col="2" [text]="customerBillDetail.booker.customer"></Label>
         </GridLayout>
 
-        <GridLayout columns="10, *, *, auto" rows="auto" class="m-5" backgroundColor="#d3d3d3">
+        <GridLayout columns="10, *, *, auto" rows="auto" class="m-5 h3" backgroundColor="#e5e5e5">
             <Label row="0" col="1" text="Type optie"></Label>
             <Label row="0" col="2" text="Optie"></Label>
             <Label row="0" col="3" text="Prijs"></Label>
         </GridLayout>
 
-        <GridLayout *ngFor="let option of customerBillDetail.options" columns="10, *, *, auto" rows="*" class="m-5">
+        <GridLayout *ngFor="let option of customerBillDetail.options" columns="10, *, *, auto" rows="*" class="m-5 h3">
             <Label row="0" col="1" [text]="option.type"></Label>
             <Label row="0" col="2" [text]="option.name"></Label>
             <Label row="0" col="3" [text]="'€ ' + option.price"></Label>
         </GridLayout>
 
-        <GridLayout columns="10, *, *, auto" rows="auto" class="m-5" backgroundColor="#d3d3d3">
+        <GridLayout columns="10, *, *, auto" rows="auto" class="m-5 h3" backgroundColor="#e5e5e5">
             <Label row="0" col="1" text="Klant"></Label>
             <Label row="0" col="2" text="Totaal (€)"></Label>
             <Label row="0" col="3" text="Betaald"></Label>
@@ -65,7 +65,7 @@
             </RadDataForm>
         </StackLayout>
 
-        <GridLayout columns="10, *, *, auto" rows="auto" class="m-5" backgroundColor="#d3d3d3">
+        <GridLayout columns="10, *, *, auto" rows="auto" class="m-5 h3" backgroundColor="#e5e5e5">
             <Label row="0" col="1" text="Booker"></Label>
             <Label row="0" col="2" text="Totaal (€)"></Label>
             <Label row="0" col="3" text="Betaald"></Label>

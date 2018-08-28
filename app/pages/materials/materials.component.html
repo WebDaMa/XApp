@@ -25,31 +25,31 @@
                 <Label row="3" col="2" [text]="material.groupTotal"></Label>
             </GridLayout>
 
-            <Label text=" Pak Totaal" class="m-5" backgroundColor="#d3d3d3"></Label>
+            <Label text=" Pak Totaal" class="m-5 h3" backgroundColor="#e5e5e5"></Label>
 
             <GridLayout *ngFor="let total of material.sizeTotals" columns="10, *, *" rows="*" class="m-5">
                 <Label row="0" col="1" [text]="total.size"></Label>
                 <Label row="0" col="2" [text]="total.total"></Label>
             </GridLayout>
 
-            <Label text=" Gordel Totaal" class="m-5" backgroundColor="#d3d3d3"></Label>
+            <Label text=" Gordel Totaal" class="m-5 h3" backgroundColor="#e5e5e5"></Label>
 
             <GridLayout *ngFor="let total of material.beltTotals" columns="10, *, *" rows="*" class="m-5">
                 <Label row="0" col="1" [text]="total.size"></Label>
                 <Label row="0" col="2" [text]="total.total"></Label>
             </GridLayout>
 
-            <Label text=" Helm Totaal" class="m-5" backgroundColor="#d3d3d3"></Label>
+            <Label text=" Helm Totaal" class="m-5 h3" backgroundColor="#e5e5e5"></Label>
 
             <GridLayout *ngFor="let total of material.helmetTotals" columns="10, *, *" rows="*" class="m-5">
                 <Label row="0" col="1" [text]="total.size"></Label>
                 <Label row="0" col="2" [text]="total.total"></Label>
             </GridLayout>
 
-            <GridLayout columns="10, *, *, *" rows="auto" class="m-5" backgroundColor="#d3d3d3">
-                <Label row="0" col="1" text="Deelnemer"></Label>
-                <Label row="0" col="2" text="Maat"></Label>
-                <Label row="0" col="3" text="Maatinfo"></Label>
+            <GridLayout columns="10, *, *, *" rows="auto" class="m-5 h3" backgroundColor="#e5e5e5">
+                <Label row="0" col="1" text="Deelnemer" class="h3"></Label>
+                <Label row="0" col="2" text="Maat" class="h3"></Label>
+                <Label row="0" col="3" text="Maatinfo" class="h3"></Label>
             </GridLayout>
 
             <GridLayout *ngFor="let customer of material.userSizes" columns="10, *, *, *" rows="*" class="m-5">

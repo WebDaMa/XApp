@@ -15,7 +15,7 @@
     <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100" class="activity-indicator"></ActivityIndicator>
 
     <Label [text]="'Bus Terug - '+ checkinBusBack.date " class="h3 text-center"></Label>
-    <GridLayout columns="*, *, *, * ,*, *" rows="auto" class="m-5" backgroundColor="#d3d3d3">
+    <GridLayout columns="*, *, *, * ,*, *" rows="auto" class="m-5 h3" backgroundColor="#e5e5e5">
         <Label [text]="'Totaal ' + checkinBusBack.total" class="font-weight-bold" col="0"></Label>
         <Label text="XAD" col="1"></Label>
         <Label text="FAD" col="2"></Label>
@@ -44,7 +44,7 @@
     <ScrollView>
         <StackLayout>
             <StackLayout *ngFor="let place of checkinBusBack.places">
-                <Label [text]="place.place" class="text-center h3 p-4" backgroundColor="#d3d3d3"></Label>
+                <Label [text]="place.place" class="text-center h3 p-4" backgroundColor="#e5e5e5"></Label>
                 <StackLayout *ngFor="let customer of place.customers">
                     <RadDataForm tkExampleTitle tkToggleNavButton [source]="customer"
                                  (propertyCommitted)="dfPropertyGoCommitted($event)">
