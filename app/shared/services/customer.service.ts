@@ -1,21 +1,23 @@
-import { HttpClient, HttpHeaders, HttpResponse } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
+import { BillCustomer } from "~/shared/models/billCustomer.model";
+import { BillCustomerDetail } from "~/shared/models/billCustomerDetail.model";
+import { BillCustomerTotal } from "~/shared/models/billCustomerTotal.model";
 import { BusCustomer } from "~/shared/models/busCustomer.model";
 import { CanyoningCustomer } from "~/shared/models/canyoningCustomer.model";
 import { CheckinBus } from "~/shared/models/checkinBus.model";
+import { PaymentCustomer } from "~/shared/models/paymentCustomer.model";
 import { Lodging } from "~/shared/models/lodging.model";
 import { LodgingCustomer } from "~/shared/models/lodgingCustomer.model";
+import { Payment } from "~/shared/models/payment.model";
 import { RaftingCustomer } from "~/shared/models/raftingCustomer.model";
 import { SizeCustomer } from "~/shared/models/sizeCustomer.model";
 import { SpecialCustomer } from "~/shared/models/specialCustomer.model";
 import { Volpension } from "~/shared/models/volpension.model";
 import { Service } from "~/shared/services/service";
 import { Config } from "../config";
-import {BillCustomer} from "~/shared/models/billCustomer.model";
-import {BillCustomerDetail} from "~/shared/models/billCustomerDetail.model";
-import {BillCustomerTotal} from "~/shared/models/billCustomerTotal.model";
 
 @Injectable()
 export class CustomerService extends Service {
@@ -37,6 +39,14 @@ export class CustomerService extends Service {
         console.dir(url);
 
         return this.http.get<Array<BillCustomer>>(url, { headers });
+    }
+
+    getAllByGroepForPaymentsAction(groepId): Observable<Array<PaymentCustomer>> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/groep/payments/" + groepId;
+        console.dir(url);
+
+        return this.http.get<Array<PaymentCustomer>>(url, { headers });
     }
 
     getBillByCustomerId(customerId): Observable<BillCustomerDetail> {
@@ -167,4 +177,11 @@ export class CustomerService extends Service {
         return this.http.put(url, billCustomerTotal, { headers });
     }
 
+    putPaymentToCustomerAction(payment: Payment): Observable<object> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/payments/" + payment.customerId;
+        console.dir(url);
+
+        return this.http.put(url, payment, { headers });
+    }
 }

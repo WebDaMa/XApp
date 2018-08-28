@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this._selectedPage = "Home";
+        this._selectedPage = "/tabs";
         this._sideDrawerTransition = new SlideInOnTopTransition();
     }
 
@@ -35,6 +35,8 @@ export class AppComponent implements OnInit {
                 name: "fade"
             }
         });
+
+        this._selectedPage = navItemRoute;
 
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.closeDrawer();

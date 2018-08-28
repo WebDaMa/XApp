@@ -2,145 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29231f43-1602-4262-8068-fafd9ea89c9e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/fonts/fa-brands-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/fonts/fa-regular-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/fonts/fa-solid-900.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/bill-detail/billDetail-routing.module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/bill-detail/billDetail-routing.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/bill-detail/billDetail.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/bill-detail/billDetail.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/bill-detail/billDetail.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/bill-detail/billDetail.module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/bill-detail/billDetail.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/bill/bill-routing.module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/bill/bill-routing.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/bill/bill.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/bill/bill.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/bill/bill.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/bill/bill.module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/bill/bill.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/busback/busback-routing.module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/busback/busback-routing.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/busback/busback.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/busback/busback.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/busback/busback.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/busback/busback.module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/busback/busback.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/busgo/busgo-routing.module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/busgo/busgo-routing.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/busgo/busgo.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/busgo/busgo.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/busgo/busgo.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/busgo/busgo.module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/busgo/busgo.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/lodging/lodging-routing.module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/lodging/lodging-routing.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/lodging/lodging.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/lodging/lodging.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/lodging/lodging.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/lodging/lodging.module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/lodging/lodging.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/volpension/volpension-routing.module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/volpension/volpension-routing.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/volpension/volpension.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/volpension/volpension.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/volpension/volpension.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/volpension/volpension.module.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/volpension/volpension.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/shared/models/billCustomer.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/shared/models/billCustomerDetail.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/shared/models/billCustomerTotal.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/shared/models/option.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/pages/payments-add/paymentsAdd-routing.module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/pages/payments-add/paymentsAdd-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/pages/payments-add/paymentsAdd.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/pages/payments-add/paymentsAdd.component.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/pages/payments-add/paymentsAdd.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/pages/payments-add/paymentsAdd.module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/pages/payments-add/paymentsAdd.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/pages/payments/payments-routing.module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/pages/payments/payments-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/pages/payments/payments.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/pages/payments/payments.component.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/pages/payments/payments.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/pages/payments/payments.module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/pages/payments/payments.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/shared/models/payment.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/shared/models/paymentCustomer.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/Android/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/Android/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_app-common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/_app-common.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app-routing.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/app-routing.module.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.android.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.android.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.ios.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.ios.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/fonts/FontAwesome.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main.aot.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.aot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/checkin/checkin.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/checkin/checkin.component.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/checkin/checkin.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/checkin/checkin.module.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/checkin/checkin.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/login/login-routing.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/login/login-routing.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/login/login.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/login/login.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/login/login.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/login/login.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/materials/materials-routing.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/materials/materials-routing.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/materials/materials.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/materials/materials.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/materials/materials.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/materials/materials.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/materials/materials.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/materials/materials.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/materials/materials.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/materials/materials.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/options/options.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/options/options.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/options/options.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/options/options.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/settings/settings-routing.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/settings/settings-routing.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/settings/settings-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/settings/settings-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/settings/settings.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/settings/settings.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/settings/settings.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/settings/settings.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/settings/settings.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/settings/settings.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/settings/settings.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/settings/settings.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/signup/signup-routing.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/signup/signup-routing.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/signup/signup.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/signup/signup.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/signup/signup.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/signup/signup.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/sizes/sizes.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/sizes/sizes.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/sizes/sizes.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/sizes/sizes.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/tabs.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/tabs.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/tabs.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/tabs.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/settings/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/settings/settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/activity.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/activity.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/agency.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/agency.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/allInType.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/allInType.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/allInTypeCustomer.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/allInTypeCustomer.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/base/typeCode.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/base/typeCode.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/base/typeName.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/base/typeName.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/busCustomer.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/busCustomer.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/busPlace.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/busPlace.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/canyoningCustomer.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/canyoningCustomer.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/checkinBus.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/checkinBus.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/groep.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/groep.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/guide.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/guide.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/location.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/location.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/lodging.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/lodging.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/lodgingCustomer.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/lodgingCustomer.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/material.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/material.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/optionCategory.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/optionCategory.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/raftingCustomer.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/raftingCustomer.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/size.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/size.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/sizeCustomer.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/sizeCustomer.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/sizeTotal.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/sizeTotal.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/specialCustomer.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/specialCustomer.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/suitSize.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/suitSize.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/user.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/models/volpension.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/volpension.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/services/agency.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/services/agency.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/bill-detail/billDetail.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/bill-detail/billDetail.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/bill-detail/billDetail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/bill-detail/billDetail.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/bill/bill.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/bill/bill.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/bill/bill.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/bill/bill.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/shared/services/customer.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/services/customer.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/shared/services/customer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/services/customer.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/services/groep.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/services/groep.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/services/guide.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/services/guide.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/services/location.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/services/location.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/services/material.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/services/material.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/services/option.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/services/option.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/services/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/services/service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/services/suitSize.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/services/suitSize.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/services/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/services/user.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/vendor-platform.android.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/vendor-platform.android.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/vendor-platform.ios.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/vendor-platform.ios.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/vendor.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/vendor.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -151,11 +40,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="bill.component.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/pages/bill/bill.component.html">
+      <file leaf-file-name="customer.service.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/shared/services/customer.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="34" column="80" selection-start-line="34" selection-start-column="80" selection-end-line="34" selection-end-column="80" />
+            <state relative-caret-position="650">
+              <caret line="181" column="82" selection-start-line="181" selection-start-column="82" selection-end-line="181" selection-end-column="82" />
             </state>
           </provider>
         </entry>
@@ -220,23 +109,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html" />
-        <option value="$PROJECT_DIR$/app/pages/sizes/sizes.component.ts" />
-        <option value="$PROJECT_DIR$/app/shared/models/canyoningCustomer.model.ts" />
-        <option value="$PROJECT_DIR$/app/shared/models/specialCustomer.model.ts" />
-        <option value="$PROJECT_DIR$/app/pages/options/options.component.html" />
-        <option value="$PROJECT_DIR$/app/pages/options/options.component.ts" />
-        <option value="$PROJECT_DIR$/app/pages/settings/settings.component.html" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/app/pages/bill/bill-routing.module.ts" />
-        <option value="$PROJECT_DIR$/app/pages/settings/settings-routing.module.ts" />
-        <option value="$PROJECT_DIR$/app/pages/tabs.component.html" />
-        <option value="$PROJECT_DIR$/app/pages/busgo/settings.component.html" />
-        <option value="$PROJECT_DIR$/app/pages/busgo/busgo-routing.module.ts" />
-        <option value="$PROJECT_DIR$/app/pages/busback/busback-routing.module.ts" />
-        <option value="$PROJECT_DIR$/app/pages/logement/logement.component.html" />
-        <option value="$PROJECT_DIR$/app/pages/checkin/checkin.component.html" />
-        <option value="$PROJECT_DIR$/app/pages/checkin/checkin.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/logement/logement.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/lodging/logement.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/busgo/busgo.component.ts" />
@@ -254,23 +126,40 @@
         <option value="$PROJECT_DIR$/app/shared/models/billCustomer.model.ts" />
         <option value="$PROJECT_DIR$/app/pages/materials/materials.module.ts" />
         <option value="$PROJECT_DIR$/app/pages/billdetail/billDetail.module.ts" />
-        <option value="$PROJECT_DIR$/app/app-routing.module.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/billCustomerDetail.model.ts" />
         <option value="$PROJECT_DIR$/app/shared/models/billCustomerTotal.model.ts" />
-        <option value="$PROJECT_DIR$/app/pages/bill/bill.component.ts" />
-        <option value="$PROJECT_DIR$/app/shared/services/customer.service.ts" />
         <option value="$PROJECT_DIR$/app/pages/lodging/lodging.module.ts" />
         <option value="$PROJECT_DIR$/app/pages/volpension/volpension.module.ts" />
         <option value="$PROJECT_DIR$/app/pages/busback/busback.module.ts" />
         <option value="$PROJECT_DIR$/app/pages/busgo/busgo.module.ts" />
         <option value="$PROJECT_DIR$/app/pages/bill/bill.module.ts" />
         <option value="$PROJECT_DIR$/app/pages/bill-detail/billDetail.module.ts" />
-        <option value="$PROJECT_DIR$/app/pages/bill-detail/billDetail.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/bill-detail/billDetail.component.html" />
         <option value="$PROJECT_DIR$/app/_app-common.scss" />
         <option value="$PROJECT_DIR$/app/pages/materials/materials.component.html" />
-        <option value="$PROJECT_DIR$/app/app.component.html" />
         <option value="$PROJECT_DIR$/app/pages/bill/bill.component.html" />
+        <option value="$PROJECT_DIR$/app/pages/costs/bill.module.js" />
+        <option value="$PROJECT_DIR$/app/pages/costs/costs.module.js" />
+        <option value="$PROJECT_DIR$/app/pages/costs/costs-routing.module.ts" />
+        <option value="$PROJECT_DIR$/app/pages/costs/costs.module.ts" />
+        <option value="$PROJECT_DIR$/app/pages/costs/costs.component.ts" />
+        <option value="$PROJECT_DIR$/app/pages/bill/bill.component.ts" />
+        <option value="$PROJECT_DIR$/app/pages/costs/costs.component.html" />
+        <option value="$PROJECT_DIR$/app/pages/payments/payments-routing.module.ts" />
+        <option value="$PROJECT_DIR$/app/pages/payments/payments.module.ts" />
+        <option value="$PROJECT_DIR$/app/shared/models/costCustomer.model.ts" />
+        <option value="$PROJECT_DIR$/app/app-routing.module.ts" />
+        <option value="$PROJECT_DIR$/app/pages/payments-add/paymentsAdd-routing.module.ts" />
+        <option value="$PROJECT_DIR$/app/pages/payments-add/paymentsAdd.module.ts" />
+        <option value="$PROJECT_DIR$/app/pages/payments/payments.component.ts" />
+        <option value="$PROJECT_DIR$/app/app.component.html" />
+        <option value="$PROJECT_DIR$/app/app.component.ts" />
+        <option value="$PROJECT_DIR$/app/pages/payments/payments.component.html" />
+        <option value="$PROJECT_DIR$/app/pages/bill-detail/billDetail.component.ts" />
+        <option value="$PROJECT_DIR$/app/shared/models/payment.model.ts" />
+        <option value="$PROJECT_DIR$/app/pages/payments-add/paymentsAdd.component.ts" />
+        <option value="$PROJECT_DIR$/app/pages/payments-add/paymentsAdd.component.html" />
+        <option value="$PROJECT_DIR$/app/shared/services/customer.service.ts" />
       </list>
     </option>
   </component>
@@ -320,20 +209,7 @@
               <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="XApp" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="fonts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="XApp" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="XApp" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="bill" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
@@ -347,7 +223,7 @@
               <item name="XApp" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="busback" type="462c0819:PsiDirectoryNode" />
+              <item name="busgo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
@@ -361,34 +237,34 @@
               <item name="XApp" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="materials-settings" type="462c0819:PsiDirectoryNode" />
+              <item name="payments" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="XApp" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="settings" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="XApp" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="sizes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="XApp" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="volpension" type="462c0819:PsiDirectoryNode" />
+              <item name="payments-add" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="XApp" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XApp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XApp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -414,9 +290,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/fonts" />
       <recent name="$PROJECT_DIR$/app/shared/models" />
       <recent name="$PROJECT_DIR$/app/pages" />
+      <recent name="$PROJECT_DIR$/app/fonts" />
       <recent name="$PROJECT_DIR$/app/shared/services" />
       <recent name="$PROJECT_DIR$/app/shared/models/base" />
     </key>
@@ -487,12 +363,12 @@
       <workItem from="1534357055397" duration="509000" />
       <workItem from="1534412306700" duration="3801000" />
       <workItem from="1534954439422" duration="8681000" />
-      <workItem from="1535358788817" duration="11956000" />
+      <workItem from="1535358788817" duration="23271000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225341000" />
+    <option name="totallyTimeSpent" value="236656000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -567,6 +443,8 @@
         <option value="$PROJECT_DIR$/app/shared/models/billCustomerDetail.model.js" />
         <option value="$PROJECT_DIR$/app/shared/models/option.model.js" />
         <option value="$PROJECT_DIR$/app/shared/models/billCustomerTotal.model.js" />
+        <option value="$PROJECT_DIR$/app/shared/models/costCustomer.model.js" />
+        <option value="$PROJECT_DIR$/app/shared/models/payment.model.js" />
       </list>
     </option>
   </component>
@@ -574,126 +452,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/pages/volpension/volpension-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/busgo/busgo.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/volpension/volpension.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#0#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/lodging/lodging.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1079">
-          <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-205" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/busgo/busgo.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/volpension/volpension.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/busback/busback-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/bill-detail/billDetail.module.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/models/option.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/models/billCustomer.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/bill/bill-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="23" column="61" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/bill-detail/billDetail-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/shared/models/billCustomerDetail.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -747,23 +505,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/bill/bill.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-813">
-          <caret line="28" column="37" lean-forward="true" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/services/customer.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="688">
-          <caret line="161" column="59" selection-start-line="161" selection-start-column="59" selection-end-line="161" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/busback/busback.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
@@ -775,13 +516,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" column="50" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/sizes/sizes.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="33" column="34" selection-start-line="16" selection-start-column="16" selection-end-line="33" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -883,26 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/bill-detail/billDetail.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/bill-detail/billDetail.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/bill-detail/billDetail.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-148">
@@ -932,6 +646,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/payments/payments.module.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/bill/bill.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="79" column="43" selection-start-line="79" selection-start-column="43" selection-end-line="79" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/bill/bill.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="33" column="107" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/payments/payments-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/payments/payments.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/models/paymentCustomer.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/payments-add/paymentsAdd.module.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/sizes/sizes.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="34" column="26" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="34" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/models/option.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="742">
+          <caret line="53" column="118" selection-start-line="53" selection-start-column="118" selection-end-line="53" selection-end-column="118" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -939,27 +731,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/materials-settings/materials-settings.component.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.component.html">
+    <entry file="file://$PROJECT_DIR$/app/pages/payments/payments.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="15" column="61" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
-          <caret line="20" column="61" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
-          <caret line="25" column="61" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
-          <caret line="30" column="61" selection-start-line="30" selection-start-column="61" selection-end-line="30" selection-end-column="61" />
-          <caret line="35" column="61" selection-start-line="35" selection-start-column="61" selection-end-line="35" selection-end-column="61" />
-          <caret line="42" column="61" selection-start-line="42" selection-start-column="61" selection-end-line="42" selection-end-column="61" />
-          <caret line="49" column="61" selection-start-line="49" selection-start-column="61" selection-end-line="49" selection-end-column="61" />
-          <caret line="56" column="61" selection-start-line="56" selection-start-column="61" selection-end-line="56" selection-end-column="61" />
+        <state relative-caret-position="630">
+          <caret line="89" column="46" selection-start-line="89" selection-start-column="46" selection-end-line="89" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/bill/bill.component.html">
+    <entry file="file://$PROJECT_DIR$/app/pages/payments/payments.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="34" column="80" selection-start-line="34" selection-start-column="80" selection-end-line="34" selection-end-column="80" />
+        <state relative-caret-position="627">
+          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/bill-detail/billDetail.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="23" column="103" selection-start-line="23" selection-start-column="103" selection-end-line="23" selection-end-column="103" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/payments-add/paymentsAdd-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/bill-detail/billDetail.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="36" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/payments-add/paymentsAdd.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/busgo/busgo.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="53" column="75" selection-start-line="53" selection-start-column="50" selection-end-line="53" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/models/payment.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/payments-add/paymentsAdd.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="75" selection-start-line="24" selection-start-column="75" selection-end-line="24" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/payments-add/paymentsAdd.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="37" column="50" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/services/customer.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="181" column="82" selection-start-line="181" selection-start-column="82" selection-end-line="181" selection-end-column="82" />
         </state>
       </provider>
     </entry>

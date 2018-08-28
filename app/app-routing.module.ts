@@ -20,6 +20,8 @@ const routes: Routes = [
     { path: "busback", loadChildren: "./pages/busback/busback.module#BusbackModule" },
     { path: "volpension", loadChildren: "./pages/volpension/volpension.module#VolpensionModule" },
     { path: "lodging", loadChildren: "./pages/lodging/lodging.module#LodgingModule" },
+    { path: "payments", loadChildren: "./pages/payments/payments.module#PaymentsModule" },
+    { path: "payments/:customer_id", loadChildren: "./pages/payments-add/paymentsAdd.module#PaymentsAddModule" },
     { path: "bill", loadChildren: "./pages/bill/bill.module#BillModule" },
     { path: "bill/:customer_id", loadChildren: "./pages/bill-detail/billDetail.module#BillDetailModule" },
     { path: "tabs", component: TabsComponent, children: [

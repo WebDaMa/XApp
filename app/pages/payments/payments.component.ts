@@ -1,20 +1,20 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Page } from "tns-core-modules/ui/page";
 import { Settings } from "~/settings/settings";
-import { BillCustomer } from "~/shared/models/billCustomer.model";
+import { PaymentCustomer } from "~/shared/models/paymentCustomer.model";
 import { Groep } from "~/shared/models/groep.model";
 import { CustomerService } from "~/shared/services/customer.service";
 import { GroepService } from "~/shared/services/groep.service";
 
 @Component({
-    selector: "Bill",
+    selector: "Payments",
     moduleId: module.id,
     providers: [GroepService, CustomerService],
-    templateUrl: "./bill.component.html"
+    templateUrl: "./payments.component.html"
 })
-export class BillComponent implements OnInit {
+export class PaymentsComponent implements OnInit {
     groeps: Array<Groep> = [];
     groepItems: object = {};
     groep: Groep;
@@ -22,7 +22,7 @@ export class BillComponent implements OnInit {
 
     selectedIndex: number = 0;
 
-    customers: Array<BillCustomer> = [];
+    customers: Array<PaymentCustomer> = [];
 
     isBusy: boolean = true;
 
@@ -68,7 +68,7 @@ export class BillComponent implements OnInit {
                         };
 
                         this.hasGroeps = true;
-                        console.log("found me some bill groeps");
+                        console.log("found me some size groeps");
                         this.groep = this.groeps[0];
                     }
 
@@ -77,6 +77,7 @@ export class BillComponent implements OnInit {
                 },
                 (error) => {
                     console.dir(error);
+                    this.hasGroeps = false;
                     /*TODO: handle errors*/
                 }
             );
@@ -86,17 +87,16 @@ export class BillComponent implements OnInit {
         if ((typeof this.groep !== "undefined" &&
         this.groep !== null ? this.groep.id : void 0) != null) {
             this.isBusy = true;
-            this.customerService.getAllByGroepForBillAction(this.groep.id)
+            this.customerService.getAllByGroepForPaymentsAction(this.groep.id)
                 .subscribe(
-                    (result: Array<BillCustomer>) => {
+                    (result: Array<PaymentCustomer>) => {
 
                         this.customers = result;
-                        console.log("found me some size customers");
+                        console.log("found me some costs customers");
                         this.isBusy = false;
                     },
                     (error) => {
                         console.dir(error);
-                        this.hasGroeps = false;
                         /*TODO: handle errors*/
                     }
                 );
