@@ -51,6 +51,11 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
 
                 <StackLayout class="hr-light"></StackLayout>
 
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/groep')" (tap)="onNavItemTap('/groep')">
+                    <Label col="0" text="&#xf0c0;&nbsp;&nbsp;" class="fas"></Label>
+                    <Label col="1" text="Groepsindeling" class="p-r-10"></Label>
+                </GridLayout>
+
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/planning')" (tap)="onNavItemTap('/planning')">
                     <Label col="0" text="&#xf279;&nbsp;&nbsp;" class="fas"></Label>
                     <Label col="1" text="Planning" class="p-r-10"></Label>

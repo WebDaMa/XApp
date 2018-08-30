@@ -20,6 +20,7 @@ import { Service } from "~/shared/services/service";
 import { Config } from "../config";
 import {CheckinCustomer} from "~/shared/models/checkinCustomer.model";
 import {CheckinCustomerDetail} from "~/shared/models/checkinCustomerDetail.model";
+import {GroepCustomer} from "~/shared/models/groepCustomer.model";
 
 @Injectable()
 export class CustomerService extends Service {
@@ -49,6 +50,14 @@ export class CustomerService extends Service {
         console.dir(url);
 
         return this.http.get<Array<CheckinCustomer>>(url, { headers });
+    }
+
+    getAllByPeriodIdAndLocationIdForGroupLayoutAction(date, locationId): Observable<Array<GroepCustomer>> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/groep/" + date + "/" + locationId;
+        console.dir(url);
+
+        return this.http.get<Array<GroepCustomer>>(url, { headers });
     }
 
     getAllByGroepForPaymentsAction(groepId): Observable<Array<PaymentCustomer>> {
@@ -217,5 +226,13 @@ export class CustomerService extends Service {
         console.dir(url);
 
         return this.http.put(url, payment, { headers });
+    }
+
+    putGroepCustomerAction(groepCustomer: GroepCustomer): Observable<object> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/groep/" + groepCustomer.id;
+        console.dir(url);
+
+        return this.http.put(url, groepCustomer, { headers });
     }
 }
