@@ -22,6 +22,16 @@ export class Settings {
         return locationId;
     }
 
+    static getRole() {
+        const appSettings = require("application-settings");
+        let role: string = "ROLE_USER";
+        if (appSettings.hasKey("role")) {
+            role = appSettings.getString("role");
+        }
+
+        return role;
+    }
+
     static getCurrentTabViewIndex() {
         const appSettings = require("application-settings");
         let tabViewIndex: number = 0;

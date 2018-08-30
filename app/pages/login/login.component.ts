@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular";
 import { Page } from "tns-core-modules/ui/page";
+import { Settings } from "~/settings/settings";
 import { User } from "~/shared/models/user.model";
 import { UserService } from "~/shared/services/user.service";
 
@@ -54,14 +55,41 @@ export class LoginComponent implements OnInit {
                     appSettings.setString("username", this.user.username);
                     console.log(appSettings.getString("username"));
 
-                    this.routerExtensions.navigate(
-                        ["/tabs"],
-                        { clearHistory: true });
+                    this.userService.getRoles().subscribe(
+                        (res: Array<string>) => {
+                            appSettings.setString("role", this.decideRole(res));
+
+                            this.routerExtensions.navigate(
+                                ["/tabs"],
+                                { clearHistory: true });
+                        }
+                    );
                 },
                 (error) => {
                     console.dir(error);
                     alert("Unfortunately we could not find your account.");
                 }
             );
+    }
+
+    decideRole(roles: Array<string>): string {
+        let role = "ROLE_USER";
+        if (roles.indexOf("ROLE_KV") !== -1) {
+            role = "ROLE_KV";
+
+            return role;
+        }
+
+        if (roles.indexOf("ROLE_STV") !== -1) {
+            role = "ROLE_STV";
+
+            return role;
+        }
+
+        if (roles.indexOf("ROLE_ADMIN") !== -1) {
+            role = "ROLE_ADMIN";
+
+            return role;
+        }
     }
 }

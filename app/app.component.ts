@@ -3,6 +3,8 @@ import * as app from "application";
 import { RouterExtensions } from "nativescript-angular/router";
 import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from "nativescript-ui-sidedrawer";
 import { Observable } from "tns-core-modules/data/observable";
+import { Settings } from "~/settings/settings";
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
     selector: "ns-app",
@@ -49,5 +51,11 @@ export class AppComponent implements OnInit {
         appSettings.setString("token", "");
         appSettings.setString("username", "");
         this.routerExtensions.navigate(["/login"], { clearHistory: true });
+    }
+
+    checkRoles(roles: Array<string>): boolean {
+        const role = Settings.getRole();
+
+        return roles.indexOf(role) !== -1;
     }
 }

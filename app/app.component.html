@@ -34,37 +34,42 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
 
                 <StackLayout class="hr-light"></StackLayout>
 
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/checkin')" (tap)="onNavItemTap('/checkin')">
-                    <Label col="0" text="&#xf4fc;&nbsp;&nbsp;" class="fas"></Label>
-                    <Label col="1" text="Checkin" class="p-r-10"></Label>
-                </GridLayout>
+                <StackLayout [visibility]="checkRoles(['ROLE_KV', 'ROLE_STV', 'ROLE_ADMIN']) ? 'visible' : 'collapsed'">
+                    <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/checkin')" (tap)="onNavItemTap('/checkin')">
+                        <Label col="0" text="&#xf4fc;&nbsp;&nbsp;" class="fas"></Label>
+                        <Label col="1" text="Checkin" class="p-r-10"></Label>
+                    </GridLayout>
 
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/lodging')" (tap)="onNavItemTap('/lodging')">
-                    <Label col="0" text="&#xf594;&nbsp;&nbsp;" class="fas"></Label>
-                    <Label col="1" text="Logement" class="p-r-10"></Label>
-                </GridLayout>
+                    <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/lodging')" (tap)="onNavItemTap('/lodging')">
+                        <Label col="0" text="&#xf594;&nbsp;&nbsp;" class="fas"></Label>
+                        <Label col="1" text="Logement" class="p-r-10"></Label>
+                    </GridLayout>
 
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/volpension')" (tap)="onNavItemTap('/volpension')">
-                    <Label col="0" text="&#xf2e7;&nbsp;&nbsp;" class="fas"></Label>
-                    <Label col="1" text="Volpension" class="p-r-10"></Label>
-                </GridLayout>
+                    <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/volpension')" (tap)="onNavItemTap('/volpension')">
+                        <Label col="0" text="&#xf2e7;&nbsp;&nbsp;" class="fas"></Label>
+                        <Label col="1" text="Volpension" class="p-r-10"></Label>
+                    </GridLayout>
+                </StackLayout>
 
-                <StackLayout class="hr-light"></StackLayout>
+                <StackLayout [visibility]="checkRoles(['ROLE_STV', 'ROLE_ADMIN']) ? 'visible' : 'collapsed'">
+                    <StackLayout class="hr-light"></StackLayout>
 
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/groep')" (tap)="onNavItemTap('/groep')">
-                    <Label col="0" text="&#xf0c0;&nbsp;&nbsp;" class="fas"></Label>
-                    <Label col="1" text="Groepsindeling" class="p-r-10"></Label>
-                </GridLayout>
+                    <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/groep')" (tap)="onNavItemTap('/groep')">
+                        <Label col="0" text="&#xf0c0;&nbsp;&nbsp;" class="fas"></Label>
+                        <Label col="1" text="Groepsindeling" class="p-r-10"></Label>
+                    </GridLayout>
 
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/planning')" (tap)="onNavItemTap('/planning')">
-                    <Label col="0" text="&#xf279;&nbsp;&nbsp;" class="fas"></Label>
-                    <Label col="1" text="Planning" class="p-r-10"></Label>
-                </GridLayout>
+                    <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/planning')" (tap)="onNavItemTap('/planning')">
+                        <Label col="0" text="&#xf279;&nbsp;&nbsp;" class="fas"></Label>
+                        <Label col="1" text="Planning" class="p-r-10"></Label>
+                    </GridLayout>
 
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/bill')" (tap)="onNavItemTap('/bill')">
-                    <Label col="0" text="&#xf571;&nbsp;&nbsp;" class="fas"></Label>
-                    <Label col="1" text="Afrekening" class="p-r-10"></Label>
-                </GridLayout>
+                    <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/bill')" (tap)="onNavItemTap('/bill')">
+                        <Label col="0" text="&#xf571;&nbsp;&nbsp;" class="fas"></Label>
+                        <Label col="1" text="Afrekening" class="p-r-10"></Label>
+                    </GridLayout>
+                </StackLayout>
+
 
                 <StackLayout class="hr-light"></StackLayout>
 

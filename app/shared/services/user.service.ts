@@ -4,10 +4,13 @@ import { Observable } from "rxjs";
 
 import { User } from "~/shared/models/user.model";
 import { Config } from "../config";
+import {Service} from "~/shared/services/service";
 
 @Injectable()
-export class UserService {
-    constructor(private http: HttpClient) {}
+export class UserService extends Service {
+    constructor(private http: HttpClient) {
+        super();
+    }
 
     login(user: User) {
         const url = Config.apiUrl + "oauth/v2/token";
@@ -35,6 +38,14 @@ export class UserService {
             }),
             { headers: this.getCommonHeaders() }
         );
+    }
+
+    getRoles(): Observable<object> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/user/roles";
+        console.dir(url);
+
+        return this.http.get<Array<string>>(url, { headers });
     }
 
     getCommonHeaders() {
