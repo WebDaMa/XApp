@@ -2,29 +2,28 @@ import { Component, OnInit } from "@angular/core";
 import { PageRoute, RouterExtensions } from "nativescript-angular";
 import { RadDataForm } from "nativescript-ui-dataform";
 import { switchMap } from "rxjs/operators";
-import { BillCustomerDetail } from "~/shared/models/billCustomerDetail.model";
-import { BillCustomerTotal } from "~/shared/models/billCustomerTotal.model";
+import { CheckinCustomerDetail } from "~/shared/models/checkinCustomerDetail.model";
 import { CustomerService } from "~/shared/services/customer.service";
 
 @Component({
-    selector: "BillDetail",
+    selector: "CheckinDetail",
     moduleId: module.id,
     providers: [CustomerService],
-    templateUrl: "./billDetail.component.html"
+    templateUrl: "./checkinDetail.component.html"
 })
-export class BillDetailComponent implements OnInit {
+export class CheckinDetailComponent implements OnInit {
     customerId: number;
-    customerBillDetail: BillCustomerDetail = {
+    customerCheckinDetail: CheckinCustomerDetail = {
         id: "",
-        customer: "",
-        booker: {
-            id: "",
-            customer: "",
-            total: "",
-            payed: false
-        },
-        totals: [],
-        options: []
+        firstName: "",
+        lastName: "",
+        licensePlate: "",
+        expireDate: "",
+        nationalRegisterNumber: "",
+        gsm: "",
+        emergencyNumber: "",
+        email: "",
+        birthdate: ""
     };
 
     isBusy: boolean = true;
@@ -42,11 +41,11 @@ export class BillDetailComponent implements OnInit {
 
     getCustomerDetail(): void {
         this.isBusy = true;
-        this.customerService.getBillByCustomerId(this.customerId)
+        this.customerService.getCheckinByCustomerId(this.customerId)
             .subscribe(
-                (result: BillCustomerDetail) => {
-                    this.customerBillDetail = result;
-                    console.log("found me some customer bill detail");
+                (result: CheckinCustomerDetail) => {
+                    this.customerCheckinDetail = result;
+                    console.log("found me some customer checkin detail");
                     this.isBusy = false;
                 },
                 (error) => {
@@ -56,16 +55,15 @@ export class BillDetailComponent implements OnInit {
             );
     }
 
-    dfPropertyPayedCommitted(args): void {
+    dfPropertyCommitted(args): void {
         const dataForm = <RadDataForm>args.object;
-        const customer: BillCustomerTotal = <BillCustomerTotal> JSON.parse(dataForm.editedObject);
+        const customer: CheckinCustomerDetail = <CheckinCustomerDetail> JSON.parse(dataForm.editedObject);
 
         this.isBusy = true;
 
-        this.customerService.putBillPayedAction(customer).subscribe(
+        this.customerService.putCheckinCustomerDetailAction(customer).subscribe(
             (res) => {
                 console.log("Updated customer");
-                this.getCustomerDetail();
                 this.isBusy = false;
             },
             (error) => {
@@ -73,7 +71,6 @@ export class BillDetailComponent implements OnInit {
                 /*TODO: handle errors*/
             }
         );
-
     }
 
     goBack() {

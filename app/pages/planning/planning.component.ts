@@ -28,7 +28,6 @@ export class PlanningComponent implements OnInit {
 
     ngOnInit(): void {
         this.getGuides();
-        this.getPlannings();
     }
 
     getPlannings(): void {
@@ -50,6 +49,7 @@ export class PlanningComponent implements OnInit {
     }
 
     getGuides(): void {
+        this.isBusy = true;
         const locationId = Settings.getLocation();
         const date = Settings.getDate();
         this.guideService.getAllGuidesForWeekAndLocationAction(date, locationId)
@@ -59,6 +59,7 @@ export class PlanningComponent implements OnInit {
                     this.guides = [...this.guides, ...result.map(
                         ({ id, guideShort, guideFirstName, guideLastName }) => (
                             { key: id, label: guideShort + " - " + guideFirstName + " " + guideLastName }))];
+                    this.getPlannings();
 
                 },
                 (error) => {
@@ -72,9 +73,10 @@ export class PlanningComponent implements OnInit {
     dfPropertyCommitted(args) {
         const dataForm = <RadDataForm>args.object;
         const planning: Planning = <Planning> JSON.parse(dataForm.editedObject);
-        this.isBusy = true;
 
         if (planning.guideId !== "0") {
+            this.isBusy = true;
+
             this.planningService.putPlanningUpdateAction(planning)
                 .subscribe(
                     () => {

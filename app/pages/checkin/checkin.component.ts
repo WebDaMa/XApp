@@ -2,19 +2,21 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Page } from "tns-core-modules/ui/page";
+import { Switch } from "tns-core-modules/ui/switch";
 import { Settings } from "~/settings/settings";
 import { BillCustomer } from "~/shared/models/billCustomer.model";
+import { CheckinCustomer } from "~/shared/models/checkinCustomer.model";
 import { Groep } from "~/shared/models/groep.model";
 import { CustomerService } from "~/shared/services/customer.service";
 import { GroepService } from "~/shared/services/groep.service";
 
 @Component({
-    selector: "Bill",
+    selector: "Checkin",
     moduleId: module.id,
     providers: [GroepService, CustomerService],
-    templateUrl: "./bill.component.html"
+    templateUrl: "./checkin.component.html"
 })
-export class BillComponent implements OnInit {
+export class CheckinComponent implements OnInit {
     groeps: Array<Groep> = [];
     groepItems: object = {};
     groep: Groep;
@@ -22,7 +24,7 @@ export class BillComponent implements OnInit {
 
     selectedIndex: number = 0;
 
-    customers: Array<BillCustomer> = [];
+    customers: Array<CheckinCustomer> = [];
 
     isBusy: boolean = true;
 
@@ -68,7 +70,7 @@ export class BillComponent implements OnInit {
                         };
 
                         this.hasGroeps = true;
-                        console.log("found me some bill groeps");
+                        console.log("found me some checkin groeps");
                         this.groep = this.groeps[0];
                     }
 
@@ -86,12 +88,12 @@ export class BillComponent implements OnInit {
         if ((typeof this.groep !== "undefined" &&
         this.groep !== null ? this.groep.id : void 0) != null) {
             this.isBusy = true;
-            this.customerService.getAllByGroepForBillAction(this.groep.id)
+            this.customerService.getAllByGroepForCheckinAction(this.groep.id)
                 .subscribe(
-                    (result: Array<BillCustomer>) => {
+                    (result: Array<CheckinCustomer>) => {
 
                         this.customers = result;
-                        console.log("found me some bill customers");
+                        console.log("found me some checkin customers");
                         this.isBusy = false;
                     },
                     (error) => {
@@ -102,6 +104,32 @@ export class BillComponent implements OnInit {
                 );
         }
 
+    }
+
+    isInfoComplete(customer: CheckinCustomer): boolean {
+
+        return (customer.email !== "" && customer.email !== null && customer.birthdate !== "" &&
+            customer.birthdate !== null
+            && customer.expireDate !== "" && customer.expireDate !== null &&
+            customer.nationalRegisterNumber !== "" && customer.nationalRegisterNumber !== null);
+    }
+
+    checkinCustomer(args, customer: CheckinCustomer) {
+        const checkinSwitch = <Switch>args.object;
+        const checkin = checkinSwitch.checked;
+
+        customer.checkedin = checkin;
+
+        this.customerService.putCheckinCustomerAction(customer).subscribe(
+            (res) => {
+                console.log("Updated customer");
+                this.isBusy = false;
+            },
+            (error) => {
+                console.dir(error);
+                /*TODO: handle errors*/
+            }
+        );
     }
 
     goBack() {

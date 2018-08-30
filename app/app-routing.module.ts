@@ -15,6 +15,8 @@ const routes: Routes = [
     { path: "busback", loadChildren: "./pages/busback/busback.module#BusbackModule" },
     { path: "volpension", loadChildren: "./pages/volpension/volpension.module#VolpensionModule" },
     { path: "lodging", loadChildren: "./pages/lodging/lodging.module#LodgingModule" },
+    { path: "checkin", loadChildren: "./pages/checkin/checkin.module#CheckinModule" },
+    { path: "checkin/:customer_id", loadChildren: "./pages/checkin-detail/checkinDetail.module#CheckinDetailModule" },
     { path: "planning", loadChildren: "./pages/planning/planning.module#PlanningModule" },
     { path: "payments", loadChildren: "./pages/payments/payments.module#PaymentsModule" },
     { path: "payments/:customer_id", loadChildren: "./pages/payments-add/paymentsAdd.module#PaymentsAddModule" },

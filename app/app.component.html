@@ -27,9 +27,16 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                     <Label col="1" text="Bus check terug" class="p-r-10"></Label>
                 </GridLayout>
 
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/volpension')" (tap)="onNavItemTap('/volpension')">
-                    <Label col="0" text="&#xf2e7;&nbsp;&nbsp;" class="fas"></Label>
-                    <Label col="1" text="Volpension" class="p-r-10"></Label>
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/payments')" (tap)="onNavItemTap('/payments')">
+                    <Label col="0" text="&#xf153;&nbsp;&nbsp;" class="fas"></Label>
+                    <Label col="1" text="Kosten" class="p-r-10"></Label>
+                </GridLayout>
+
+                <StackLayout class="hr-light"></StackLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/checkin')" (tap)="onNavItemTap('/checkin')">
+                    <Label col="0" text="&#xf4fc;&nbsp;&nbsp;" class="fas"></Label>
+                    <Label col="1" text="Checkin" class="p-r-10"></Label>
                 </GridLayout>
 
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/lodging')" (tap)="onNavItemTap('/lodging')">
@@ -37,16 +44,16 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                     <Label col="1" text="Logement" class="p-r-10"></Label>
                 </GridLayout>
 
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/volpension')" (tap)="onNavItemTap('/volpension')">
+                    <Label col="0" text="&#xf2e7;&nbsp;&nbsp;" class="fas"></Label>
+                    <Label col="1" text="Volpension" class="p-r-10"></Label>
+                </GridLayout>
+
                 <StackLayout class="hr-light"></StackLayout>
 
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/planning')" (tap)="onNavItemTap('/planning')">
                     <Label col="0" text="&#xf279;&nbsp;&nbsp;" class="fas"></Label>
                     <Label col="1" text="Planning" class="p-r-10"></Label>
-                </GridLayout>
-
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/payments')" (tap)="onNavItemTap('/payments')">
-                    <Label col="0" text="&#xf153;&nbsp;&nbsp;" class="fas"></Label>
-                    <Label col="1" text="Kosten" class="p-r-10"></Label>
                 </GridLayout>
 
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('/bill')" (tap)="onNavItemTap('/bill')">

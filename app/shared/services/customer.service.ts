@@ -18,6 +18,8 @@ import { SpecialCustomer } from "~/shared/models/specialCustomer.model";
 import { Volpension } from "~/shared/models/volpension.model";
 import { Service } from "~/shared/services/service";
 import { Config } from "../config";
+import {CheckinCustomer} from "~/shared/models/checkinCustomer.model";
+import {CheckinCustomerDetail} from "~/shared/models/checkinCustomerDetail.model";
 
 @Injectable()
 export class CustomerService extends Service {
@@ -41,6 +43,14 @@ export class CustomerService extends Service {
         return this.http.get<Array<BillCustomer>>(url, { headers });
     }
 
+    getAllByGroepForCheckinAction(groepId): Observable<Array<CheckinCustomer>> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/groep/checkin/" + groepId;
+        console.dir(url);
+
+        return this.http.get<Array<CheckinCustomer>>(url, { headers });
+    }
+
     getAllByGroepForPaymentsAction(groepId): Observable<Array<PaymentCustomer>> {
         const headers = this.createRequestHeader();
         const url = Config.apiUrl + "api/customers/groep/payments/" + groepId;
@@ -55,6 +65,14 @@ export class CustomerService extends Service {
         console.dir(url);
 
         return this.http.get<BillCustomerDetail>(url, { headers });
+    }
+
+    getCheckinByCustomerId(customerId): Observable<CheckinCustomerDetail> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/checkin/detail/" + customerId;
+        console.dir(url);
+
+        return this.http.get<CheckinCustomerDetail>(url, { headers });
     }
 
     getAllByAgencyForLodgingAndLocationAndPeriodAction(agencyId, locationId, date): Observable<Lodging> {
@@ -175,6 +193,22 @@ export class CustomerService extends Service {
         console.dir(url);
 
         return this.http.put(url, billCustomerTotal, { headers });
+    }
+
+    putCheckinCustomerAction(checkinCustomer: CheckinCustomer): Observable<object> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/checkin/" + checkinCustomer.id;
+        console.dir(url);
+
+        return this.http.put(url, checkinCustomer, { headers });
+    }
+
+    putCheckinCustomerDetailAction(checkinCustomerDetail: CheckinCustomerDetail): Observable<object> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/checkin/detail/" + checkinCustomerDetail.id;
+        console.dir(url);
+
+        return this.http.put(url, checkinCustomerDetail, { headers });
     }
 
     putPaymentToCustomerAction(payment: Payment): Observable<object> {
