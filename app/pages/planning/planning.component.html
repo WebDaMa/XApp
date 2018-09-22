@@ -30,6 +30,11 @@
                                       name="groepName" index="0">
                     </TKEntityProperty>
 
+                    <TKEntityProperty tkPropertyGroupProperties columnIndex="0" name="date"
+                                      displayName="Datum" index="0">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                    </TKEntityProperty>
+
                     <TKEntityProperty tkPropertyGroupProperties columnIndex="0" name="activity"
                                       displayName="Activiteit" index="0">
                         <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
@@ -38,6 +43,21 @@
                     <TKEntityProperty tkPropertyGroupProperties columnIndex="1" name="guideId" displayName="Gids"
                         [valuesProvider]="guides" index="0">
                         <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties columnIndex="1" name="cag1Id" displayName="Gids 2"
+                                      [valuesProvider]="guides" index="0">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties columnIndex="1" name="cag2Id" displayName="Gids 3"
+                                      [valuesProvider]="guides" index="0">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties columnIndex="0" name="transport"
+                                      displayName="Transport" index="0">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
                     </TKEntityProperty>
                 </TKPropertyGroup>
             </RadDataForm>

@@ -6,6 +6,7 @@ import { MaterialsComponent } from "~/pages/materials/materials.component";
 import { OptionsComponent } from "~/pages/options/options.component";
 import { SizesComponent } from "~/pages/sizes/sizes.component";
 import { TabsComponent } from "~/pages/tabs.component";
+import { WeekOverviewComponent } from "~/pages/weekOverview/weekOverview.component";
 
 const routes: Routes = [
     { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -25,6 +26,7 @@ const routes: Routes = [
     { path: "bill/:customer_id", loadChildren: "./pages/bill-detail/billDetail.module#BillDetailModule" },
     { path: "tabs", component: TabsComponent, children: [
             { path: "materials", component: MaterialsComponent },
+            { path: "planning", component: WeekOverviewComponent },
             { path: "sizes", component: SizesComponent },
             { path: "options", component: OptionsComponent }
         ] },
@@ -44,5 +46,6 @@ export const navigatableComponents = [
     MaterialsComponent,
     MaterialsSettingsComponent,
     SizesComponent,
-    OptionsComponent
+    OptionsComponent,
+    WeekOverviewComponent
 ];

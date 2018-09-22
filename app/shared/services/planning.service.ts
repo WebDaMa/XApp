@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders, HttpResponse } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
@@ -15,6 +15,16 @@ export class PlanningService extends Service {
     getAllByDayAndLocationAction(date, locationId): Observable<Array<Planning>> {
         const headers = this.createRequestHeader();
         const url = Config.apiUrl + "api/planning/" + date + "/" + locationId;
+        console.dir(url);
+
+        return this.http.get<Array<Planning>>(url, { headers });
+
+    }
+
+    getAllByGuideAndWeekAndLocationAction(guideId, date, locationId): Observable<Array<Planning>> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/planning/" + guideId + "/" + date + "/" + locationId;
+        console.dir(url);
 
         return this.http.get<Array<Planning>>(url, { headers });
 
@@ -27,5 +37,4 @@ export class PlanningService extends Service {
 
         return this.http.put(url, planning, { headers });
     }
-
 }

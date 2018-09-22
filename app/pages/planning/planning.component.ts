@@ -3,10 +3,10 @@ import { RouterExtensions } from "nativescript-angular";
 import { RadDataForm } from "nativescript-ui-dataform";
 import { Settings } from "~/settings/settings";
 import { Guide } from "~/shared/models/guide.model";
+import { Planning } from "~/shared/models/planning.model";
 import { CustomerService } from "~/shared/services/customer.service";
 import { GuideService } from "~/shared/services/guide.service";
 import { PlanningService } from "~/shared/services/planning.service";
-import {Planning} from "~/shared/models/planning.model";
 
 @Component({
     selector: "Planning",
@@ -79,7 +79,7 @@ export class PlanningComponent implements OnInit {
 
             this.planningService.putPlanningUpdateAction(planning)
                 .subscribe(
-                    () => {
+                    (res) => {
                         console.log("Updated planning");
                         this.isBusy = false;
                     },

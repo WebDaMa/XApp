@@ -90,7 +90,7 @@ export class OptionsComponent implements OnInit {
     }
 
     getCustomers(): void {
-        if (Settings.getCurrentTabViewIndex() === 2) {
+        if (Settings.getCurrentTabViewIndex() === 3) {
 
             if ((typeof this.groep !== "undefined" &&
             this.groep !== null ? this.groep.id : void 0) != null) {

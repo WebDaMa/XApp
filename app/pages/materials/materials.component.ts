@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { Settings } from "~/settings/settings";
 import { Material } from "~/shared/models/material.model";
 import { MaterialService } from "~/shared/services/material.service";
-import {Settings} from "~/settings/settings";
 
 @Component({
     selector: "Materials",

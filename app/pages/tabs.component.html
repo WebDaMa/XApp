@@ -27,6 +27,10 @@ http://docs.nativescript.org/angular/code-samples/ui/tab-view
         <Materials></Materials>
     </StackLayout>
 
+    <StackLayout *tabItem="{title: 'Planning', iconSource: getIconSource('planning')}">
+        <WeekOverview></WeekOverview>
+    </StackLayout>
+
     <StackLayout *tabItem="{title: 'Pakmaat', iconSource: getIconSource('sizes')}" >
         <Sizes></Sizes>
     </StackLayout>
