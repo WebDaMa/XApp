@@ -8,4 +8,5 @@ export class CheckinCustomer {
     email: string;
     nationalRegisterNumber: string;
     expireDate: string;
+    isComplete: boolean;
 }

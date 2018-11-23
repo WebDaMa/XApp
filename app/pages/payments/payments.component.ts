@@ -1,10 +1,11 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Page } from "tns-core-modules/ui/page";
 import { Settings } from "~/settings/settings";
-import { PaymentCustomer } from "~/shared/models/paymentCustomer.model";
 import { Groep } from "~/shared/models/groep.model";
+import { PaymentCustomer } from "~/shared/models/paymentCustomer.model";
 import { CustomerService } from "~/shared/services/customer.service";
 import { GroepService } from "~/shared/services/groep.service";
 
@@ -27,7 +28,7 @@ export class PaymentsComponent implements OnInit {
     isBusy: boolean = true;
 
     constructor(private groepService: GroepService, private customerService: CustomerService,
-                private routerExtensions: RouterExtensions, private page: Page) {
+                private routerExtensions: RouterExtensions, private page: Page, private activeRoute: ActivatedRoute) {
         this.page.on(Page.navigatingToEvent, () => {
             this.getCustomers();
         });
@@ -35,6 +36,7 @@ export class PaymentsComponent implements OnInit {
 
     ngOnInit(): void {
         this.getGroeps();
+
     }
 
     selectedIndexChanged(args) {
@@ -105,6 +107,6 @@ export class PaymentsComponent implements OnInit {
     }
 
     goBack() {
-        this.routerExtensions.backToPreviousPage();
+        this.routerExtensions.back({ relativeTo: this.activeRoute });
     }
 }

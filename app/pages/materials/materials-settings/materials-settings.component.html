@@ -9,15 +9,19 @@
     NavigationButton as a side-drawer button in iOS is not possible,
     because its function is to always navigate back in the application.
     -->
-    <Label class="action-bar-title" text="Materiaal Settings" ngDefaultControl></Label>
+    <Label class="action-bar-title" text="Materiaal Settings"></Label>
 </ActionBar>
 
 <StackLayout class="page page-content" tkMainContent>
+    <GridLayout columns="10, *, *, 10" rows="auto" class="m-5">
+        <Button col="1" horizontalAlignment="left" text="&#xf021;" class="fas btn btn-primary btn-active"
+                (tap)="getGuides()"></Button>
+    </GridLayout>
     <Label class="text-center" text="Kies een gids:" [visibility]="hasGuides ? 'visible' : 'collapse'"></Label>
 
     <ListPicker [items]="guideItems" [visibility]="hasGuides ? 'visible' : 'collapse'" [selectedIndex]="selectedIndex" (selectedIndexChange)="selectedIndexChanged($event)"
                 class="p-10"></ListPicker>
-    <ActivityIndicator [visibility]="!hasGuides  ? 'visible' : 'collapsed'" [busy]="!hasGuides" width="100" height="100" class="activity-indicator"></ActivityIndicator>
+    <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100" class="activity-indicator"></ActivityIndicator>
     <TextView [visibility]="!hasGuides ? 'visible' : 'collapsed'" text="Geen gids gevonden, kies een andere locatie of datum bij settings."
               editable="false" class="text-center"></TextView>
 

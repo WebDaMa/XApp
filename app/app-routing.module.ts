@@ -1,12 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
-import { MaterialsSettingsComponent } from "~/pages/materials-settings/materials-settings.component";
-import { MaterialsComponent } from "~/pages/materials/materials.component";
-import { OptionsComponent } from "~/pages/options/options.component";
-import { SizesComponent } from "~/pages/sizes/sizes.component";
-import { TabsComponent } from "~/pages/tabs.component";
-import { WeekOverviewComponent } from "~/pages/weekOverview/weekOverview.component";
 
 const routes: Routes = [
     { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -18,21 +12,13 @@ const routes: Routes = [
     { path: "lodging", loadChildren: "./pages/lodging/lodging.module#LodgingModule" },
     { path: "groep", loadChildren: "./pages/groep/groep.module#GroepModule" },
     { path: "checkin", loadChildren: "./pages/checkin/checkin.module#CheckinModule" },
-    { path: "checkin/:customer_id", loadChildren: "./pages/checkin-detail/checkinDetail.module#CheckinDetailModule" },
     { path: "planning", loadChildren: "./pages/planning/planning.module#PlanningModule" },
     { path: "payments", loadChildren: "./pages/payments/payments.module#PaymentsModule" },
-    { path: "payments/:customer_id", loadChildren: "./pages/payments-add/paymentsAdd.module#PaymentsAddModule" },
     { path: "bill", loadChildren: "./pages/bill/bill.module#BillModule" },
-    { path: "bill/:customer_id", loadChildren: "./pages/bill-detail/billDetail.module#BillDetailModule" },
-    { path: "tabs", component: TabsComponent, children: [
-            { path: "materials", component: MaterialsComponent },
-            { path: "planning", component: WeekOverviewComponent },
-            { path: "sizes", component: SizesComponent },
-            { path: "options", component: OptionsComponent }
-        ] },
-
-    /*current fix to skip outlets*/
-    { path: "materials/settings", component: MaterialsSettingsComponent }
+    {
+        path: "tabs",
+        loadChildren: "./pages/tabs.module#TabsModule"
+    }
 ];
 
 @NgModule({
@@ -42,10 +28,4 @@ const routes: Routes = [
 export class AppRoutingModule { }
 
 export const navigatableComponents = [
-    TabsComponent,
-    MaterialsComponent,
-    MaterialsSettingsComponent,
-    SizesComponent,
-    OptionsComponent,
-    WeekOverviewComponent
 ];

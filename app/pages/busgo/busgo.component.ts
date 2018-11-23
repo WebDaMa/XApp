@@ -1,10 +1,11 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular";
+import { RadDataForm } from "nativescript-ui-dataform";
 import { Settings } from "~/settings/settings";
+import { BusCustomer } from "~/shared/models/busCustomer.model";
 import { CheckinBus } from "~/shared/models/checkinBus.model";
 import { CustomerService } from "~/shared/services/customer.service";
-import {BusCustomer} from "~/shared/models/busCustomer.model";
-import {RadDataForm} from "nativescript-ui-dataform";
 
 @Component({
     selector: "Busgo",
@@ -20,9 +21,10 @@ export class BusgoComponent implements OnInit {
         date: ""
     };
 
-    isBusy: boolean = true;
+    isBusy: boolean;
 
-    constructor(private customerService: CustomerService, private routerExtensions: RouterExtensions) {
+    constructor(private customerService: CustomerService, private routerExtensions: RouterExtensions,
+                private activeRoute: ActivatedRoute) {
     }
 
     ngOnInit(): void {
@@ -31,6 +33,7 @@ export class BusgoComponent implements OnInit {
 
     getCustomersBusGo(): void {
         const date = Settings.getDate();
+        this.isBusy = true;
 
         this.customerService.getBusGoCustomersByWeek(date)
             .subscribe(
@@ -41,6 +44,7 @@ export class BusgoComponent implements OnInit {
                 },
                 (error) => {
                     console.dir(error);
+                    this.isBusy = false;
                     /*TODO: handle errors*/
                 }
             );
@@ -50,6 +54,8 @@ export class BusgoComponent implements OnInit {
         const dataForm = <RadDataForm>args.object;
         const busCostumer: BusCustomer = <BusCustomer> JSON.parse(dataForm.editedObject);
 
+        this.isBusy = true;
+
         this.customerService.putBusGoCustomerAction(busCostumer)
             .subscribe(
                 (res) => {
@@ -58,12 +64,13 @@ export class BusgoComponent implements OnInit {
                 },
                 (error) => {
                     console.dir(error);
+                    this.isBusy = false;
                     /*TODO: handle errors*/
                 }
             );
     }
 
     goBack() {
-        this.routerExtensions.backToPreviousPage();
+        this.routerExtensions.back({ relativeTo: this.activeRoute });
     }
 }

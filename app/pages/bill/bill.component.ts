@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Page } from "tns-core-modules/ui/page";
@@ -27,7 +28,7 @@ export class BillComponent implements OnInit {
     isBusy: boolean = true;
 
     constructor(private groepService: GroepService, private customerService: CustomerService,
-                private routerExtensions: RouterExtensions, private page: Page) {
+                private routerExtensions: RouterExtensions, private page: Page, private activeRoute: ActivatedRoute) {
         this.page.on(Page.navigatingToEvent, () => {
             this.getCustomers();
         });
@@ -105,6 +106,6 @@ export class BillComponent implements OnInit {
     }
 
     goBack() {
-        this.routerExtensions.backToPreviousPage();
+        this.routerExtensions.back({ relativeTo: this.activeRoute });
     }
 }

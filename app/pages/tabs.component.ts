@@ -1,8 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { RadSideDrawer } from "nativescript-ui-sidedrawer";
-import { isAndroid } from "platform";
-import * as app from "tns-core-modules/application";
-import { SelectedIndexChangedEventData, TabView, TabViewItem } from "tns-core-modules/ui/tab-view";
+import { ActivatedRoute } from "@angular/router";
+import { RouterExtensions } from "nativescript-angular";
+import { Page } from "tns-core-modules/ui/page";
 
 @Component({
     selector: "Tabs",
@@ -11,44 +10,29 @@ import { SelectedIndexChangedEventData, TabView, TabViewItem } from "tns-core-mo
     styleUrls: ["./tabs.component.scss"]
 })
 export class TabsComponent implements OnInit {
-    private _title: string;
 
-    constructor() {
+    constructor(private page: Page, private routerExtension: RouterExtensions,
+                private activeRoute: ActivatedRoute) {
         // Use the component constructor to inject providers.
     }
 
     ngOnInit(): void {
+        this.page.actionBarHidden = true;
         // Init your component properties here.
-    }
+        this.page.backgroundSpanUnderStatusBar = true;
+        this.page.on("loaded", (args) => {
+            if (this.page.android) {
+                this.page.android.setFitsSystemWindows(true);
+            }
+        });
 
-    get title(): string {
-        return this._title;
-    }
-
-    set title(value: string) {
-        if (this._title !== value) {
-            this._title = value;
-        }
-    }
-
-    getIconSource(icon: string): string {
-        return isAndroid ? "" : "res://tabIcons/" + icon;
-    }
-
-    onSelectedIndexChanged(args: SelectedIndexChangedEventData) {
-        const appSettings = require("application-settings");
-
-        appSettings.setNumber("tabViewIndex", args.newIndex);
-
-        const tabView = <TabView>args.object;
-        const selectedTabViewItem = tabView.items[args.newIndex];
-
-        this.title = selectedTabViewItem.title;
-
-    }
-
-    onDrawerButtonTap(): void {
-        const sideDrawer = <RadSideDrawer>app.getRootView();
-        sideDrawer.showDrawer();
+        this.routerExtension.navigate([{
+            outlets: {
+                materialsTab: ["materials"],
+                weekOverviewTab: ["weekOverview"],
+                sizesTab: ["sizes"],
+                optionsTab: ["options"]
+            }
+        }], { relativeTo: this.activeRoute });
     }
 }

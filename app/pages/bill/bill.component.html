@@ -31,7 +31,7 @@
         <GridLayout *ngFor="let customer of customers" columns="10, *, *, auto" rows="*" class="m-5">
             <Button class="btn btn-primary btn-active" row="0" col="1" [text]="customer.customer"
                     [nsRouterLink]="['/bill/', customer.id]"></Button>
-            <Button row="0" col="2" [text]="customer.booker" [nsRouterLink]="['/bill/', customer.bookerId]" class="btn-grey btn"></Button>
+            <Button row="0" col="2" [text]="customer.booker" [nsRouterLink]="['/bill', customer.bookerId]" class="btn-outline btn"></Button>
             <Switch row="0" col="3" [class]="customer.payed ? 'bg-primary h3' : ''" [checked]="customer.payed" [isEnabled]="false"></Switch>
         </GridLayout>
     </StackLayout>

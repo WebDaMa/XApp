@@ -2,7 +2,7 @@ export class CheckinCustomerDetail {
     id: string;
     firstName: string;
     lastName: string;
-    birthdate: string;
+    birthdate: any;
     email: string;
     nationalRegisterNumber: string;
     expireDate: string;

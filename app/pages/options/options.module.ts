@@ -1,11 +1,17 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 
+import { NativeScriptFormsModule } from "nativescript-angular";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
+import { NativeScriptUIDataFormModule } from "nativescript-ui-dataform/angular";
+import { OptionsRoutingModule } from "~/pages/options/options-routing.module";
 import { OptionsComponent } from "./options.component";
 
 @NgModule({
     imports: [
-        NativeScriptCommonModule
+        NativeScriptCommonModule,
+        OptionsRoutingModule,
+        NativeScriptFormsModule,
+        NativeScriptUIDataFormModule
     ],
     declarations: [
         OptionsComponent

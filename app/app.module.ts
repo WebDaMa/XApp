@@ -5,7 +5,7 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 import { NativeScriptFormsModule } from "nativescript-angular";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { NativeScriptUIDataFormModule } from "nativescript-ui-dataform/angular";
-import { AppRoutingModule, navigatableComponents } from "./app-routing.module";
+import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
 @NgModule({
@@ -15,15 +15,10 @@ import { AppComponent } from "./app.component";
     imports: [
         AppRoutingModule,
         NativeScriptModule,
-        NativeScriptFormsModule,
-        NativeScriptHttpClientModule,
-        NativeScriptModule,
-        NativeScriptUISideDrawerModule,
-        NativeScriptUIDataFormModule
+        NativeScriptUISideDrawerModule
     ],
     declarations: [
-        AppComponent,
-        ...navigatableComponents
+        AppComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

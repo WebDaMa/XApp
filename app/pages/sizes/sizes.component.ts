@@ -1,11 +1,10 @@
-import { Component, OnInit, QueryList, ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { RadDataForm } from "nativescript-ui-dataform";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Page } from "tns-core-modules/ui/page";
 import { Settings } from "~/settings/settings";
-import { BusCustomer } from "~/shared/models/busCustomer.model";
 import { Groep } from "~/shared/models/groep.model";
 import { SizeCustomer } from "~/shared/models/sizeCustomer.model";
 import { SuitSize } from "~/shared/models/suitSize.model";
@@ -37,8 +36,13 @@ export class SizesComponent implements OnInit {
 
     ngOnInit(): void {
         this.getSizes();
-        this.page.on(Page.navigatingToEvent, () => {
-            this.getGroeps();
+        this.getGroeps();
+
+        this.page.backgroundSpanUnderStatusBar = true;
+        this.page.on("loaded", (args) => {
+            if (this.page.android) {
+                this.page.android.setFitsSystemWindows(true);
+            }
         });
     }
 
@@ -54,6 +58,8 @@ export class SizesComponent implements OnInit {
     getGroeps(): void {
         const locationId = Settings.getLocation();
         const date = Settings.getDate();
+
+        this.isBusy = true;
 
         this.groepService.getAllGroepsForWeekAndLocationAction(date, locationId)
             .subscribe(
@@ -77,11 +83,14 @@ export class SizesComponent implements OnInit {
                         this.groep = this.groeps[0];
                     }
 
+                    this.isBusy = false;
+
                     this.getCustomers();
 
                 },
                 (error) => {
                     console.dir(error);
+                    this.isBusy = false;
                     this.hasGroeps = false;
                     /*TODO: handle errors*/
                 }
@@ -103,6 +112,7 @@ export class SizesComponent implements OnInit {
                     (error) => {
                         console.dir(error);
                         this.hasGroeps = false;
+                        this.isBusy = false;
                         /*TODO: handle errors*/
                     }
                 );
@@ -111,14 +121,17 @@ export class SizesComponent implements OnInit {
     }
 
     getSizes(): void {
+        this.isBusy = true;
         this.suitSizeService.getAllAction()
             .subscribe(
                 (result: Array<SuitSize>) => {
                     this.sizes = [{key: "0", label: "Kies een Maat"}];
                     this.sizes = [...this.sizes, ...result.map(({ id, name }) => ({ key: id, label: name }))];
+                    this.isBusy = false;
                 },
                 (error) => {
                     console.dir(error);
+                    this.isBusy = false;
                     /*TODO: handle errors*/
                 }
             );
@@ -130,13 +143,16 @@ export class SizesComponent implements OnInit {
         const sizeCustomer: SizeCustomer = <SizeCustomer> JSON.parse(dataForm.editedObject);
 
         if (sizeCustomer.size !== "0") {
+            this.isBusy = true;
             this.customerService.putCustomerSizeAction(sizeCustomer)
                 .subscribe(
                     () => {
                         console.log("Updated customer");
+                        this.isBusy = false;
                     },
                     (error) => {
                         console.dir(error);
+                        this.isBusy = false;
                         /*TODO: handle errors*/
                     }
                 );

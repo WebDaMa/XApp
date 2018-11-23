@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular";
+import { Page } from "tns-core-modules/ui/page";
 import { Settings } from "~/settings/settings";
 import { Volpension } from "~/shared/models/volpension.model";
 import { CustomerService } from "~/shared/services/customer.service";
@@ -19,11 +21,20 @@ export class VolpensionComponent implements OnInit {
 
     isBusy: boolean = true;
 
-    constructor(private customerService: CustomerService, private routerExtensions: RouterExtensions) {
+    constructor(private customerService: CustomerService, private routerExtensions: RouterExtensions,
+                private page: Page, private activeRoute: ActivatedRoute) {
     }
 
     ngOnInit(): void {
         this.getCustomersVolpension();
+
+        this.page.backgroundColor = "#000000";
+        this.page.backgroundSpanUnderStatusBar = true;
+        this.page.on("loaded", (args) => {
+            if (this.page.android) {
+                this.page.android.setFitsSystemWindows(true);
+            }
+        });
     }
 
     getCustomersVolpension(): void {
@@ -47,6 +58,6 @@ export class VolpensionComponent implements OnInit {
     }
 
     goBack() {
-        this.routerExtensions.backToPreviousPage();
+        this.routerExtensions.back({ relativeTo: this.activeRoute });
     }
 }

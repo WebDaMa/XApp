@@ -1,4 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
+import * as app from "tns-core-modules/application";
+import { Page } from "tns-core-modules/ui/page";
 import { Settings } from "~/settings/settings";
 import { Guide } from "~/shared/models/guide.model";
 import { Planning } from "~/shared/models/planning.model";
@@ -13,7 +16,7 @@ import { PlanningService } from "~/shared/services/planning.service";
 })
 export class WeekOverviewComponent implements OnInit {
 
-    isBusy: boolean = true;
+    isBusy: boolean;
 
     guides: Array<object> = [];
 
@@ -21,7 +24,8 @@ export class WeekOverviewComponent implements OnInit {
 
     plannings: Array<Planning> = [];
 
-    constructor(private planningService: PlanningService, private guideService: GuideService) {
+    constructor(private planningService: PlanningService, private guideService: GuideService,
+                private page: Page) {
         // Use the component constructor to inject providers.
     }
 
@@ -72,11 +76,13 @@ export class WeekOverviewComponent implements OnInit {
                             { key: id, label: guideShort + " - " + guideFirstName + " " + guideLastName }))];
 
                     console.log("Found me some Guides!");
+                    this.isBusy = false;
                     this.getWeekPlanning();
 
                 },
                 (error) => {
                     console.dir(error);
+                    this.isBusy = false;
                     /*TODO: handle errors*/
                 }
             );
@@ -90,6 +96,11 @@ export class WeekOverviewComponent implements OnInit {
 
         return this.days[day];
 
+    }
+
+    onDrawerButtonTap(): void {
+        const sideDrawer = <RadSideDrawer>app.getRootView();
+        sideDrawer.showDrawer();
     }
 
 }

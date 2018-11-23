@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular";
 import { RadDataForm } from "nativescript-ui-dataform";
+import { Page } from "tns-core-modules/ui/page";
 import { Settings } from "~/settings/settings";
 import { Guide } from "~/shared/models/guide.model";
 import { Planning } from "~/shared/models/planning.model";
@@ -18,23 +20,34 @@ export class PlanningComponent implements OnInit {
     guides: Array<object> = [];
     plannings: Array<Planning>;
 
+    date: string = "";
+    locationId: string = "";
+
     isBusy: boolean = false;
 
     constructor(private customerService: CustomerService,
                 private routerExtensions: RouterExtensions, private planningService: PlanningService,
-                private guideService: GuideService) {
+                private guideService: GuideService, private page: Page, private activeRoute: ActivatedRoute) {
 
     }
 
     ngOnInit(): void {
+        this.date = Settings.getDate();
+        this.locationId = Settings.getLocation();
+
         this.getGuides();
+
+        this.page.backgroundSpanUnderStatusBar = true;
+        this.page.on("loaded", (args) => {
+            if (this.page.android) {
+                this.page.android.setFitsSystemWindows(true);
+            }
+        });
     }
 
     getPlannings(): void {
         this.isBusy = true;
-        const locationId = Settings.getLocation();
-        const date = Settings.getDate();
-        this.planningService.getAllByDayAndLocationAction(date, locationId)
+        this.planningService.getAllByDayAndLocationAction(this.date, this.locationId)
             .subscribe(
                 (result: Array<Planning>) => {
                     this.plannings = result;
@@ -50,9 +63,7 @@ export class PlanningComponent implements OnInit {
 
     getGuides(): void {
         this.isBusy = true;
-        const locationId = Settings.getLocation();
-        const date = Settings.getDate();
-        this.guideService.getAllGuidesForWeekAndLocationAction(date, locationId)
+        this.guideService.getAllGuidesForWeekAndLocationAction(this.date, this.locationId)
             .subscribe(
                 (result: Array<Guide>) => {
                     this.guides = [{key: "0", label: "Kies een Gids"}];
@@ -92,6 +103,6 @@ export class PlanningComponent implements OnInit {
     }
 
     goBack() {
-        this.routerExtensions.backToPreviousPage();
+        this.routerExtensions.back({ relativeTo: this.activeRoute });
     }
 }

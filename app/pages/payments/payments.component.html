@@ -30,7 +30,7 @@
         <GridLayout *ngFor="let customer of customers" columns="10, *, *, auto" rows="*" class="m-5 h3">
             <Label row="0" col="1" [text]="customer.customer"></Label>
             <TextView row="0" col="2" [text]="customer.payments" editable="false"></TextView>
-            <Button text="&#xf0fe;" row="0" col="3" class="btn btn-primary btn-active fas" [nsRouterLink]="['/payments/', customer.id]"></Button>
+            <Button text="&#xf0fe;" row="0" col="3" class="btn btn-primary btn-active fas" [nsRouterLink]="['../payments/', customer.id]"></Button>
         </GridLayout>
     </StackLayout>
 </ScrollView>

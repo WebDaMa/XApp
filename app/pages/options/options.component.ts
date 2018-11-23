@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { RadDataForm } from "nativescript-ui-dataform";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
+import * as app from "tns-core-modules/application";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Page } from "tns-core-modules/ui/page";
 import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
@@ -27,7 +29,7 @@ export class OptionsComponent implements OnInit {
     groep: Groep;
     hasGroeps: boolean = false;
 
-    isBusy: boolean = true;
+    isBusy: boolean;
 
     activities: Array<any> = [];
 
@@ -54,15 +56,10 @@ export class OptionsComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.page.on(Page.navigatingToEvent, () => {
-            this.isBusy = true;
-            this.getGroeps();
-        });
-
+        this.getGroeps();
     }
 
     selectedGroepIndexChanged(args) {
-        this.isBusy = true;
         const picker = <ListPicker>args.object;
 
         if (this.groeps.length > 0) {
@@ -77,8 +74,6 @@ export class OptionsComponent implements OnInit {
     }
 
     selectedOptionCategoryIndexChanged(args) {
-        this.isBusy = true;
-
         const segmentedBar = <SegmentedBar>args.object;
         const selectedIndex = segmentedBar.selectedIndex;
 
@@ -90,23 +85,20 @@ export class OptionsComponent implements OnInit {
     }
 
     getCustomers(): void {
-        if (Settings.getCurrentTabViewIndex() === 3) {
+        if ((typeof this.groep !== "undefined" &&
+        this.groep !== null ? this.groep.id : void 0) != null) {
+            switch (this.optionCategory.name) {
+                case "raft":
+                    this.getRaftingCustomers();
+                    break;
 
-            if ((typeof this.groep !== "undefined" &&
-            this.groep !== null ? this.groep.id : void 0) != null) {
-                switch (this.optionCategory.name) {
-                    case "raft":
-                        this.getRaftingCustomers();
-                        break;
+                case "canyon":
+                    this.getCanyoningCustomers();
+                    break;
 
-                    case "canyon":
-                        this.getCanyoningCustomers();
-                        break;
-
-                    case "special":
-                        this.getSpecialCustomers();
-                        break;
-                }
+                case "special":
+                    this.getSpecialCustomers();
+                    break;
             }
         }
     }
@@ -114,6 +106,8 @@ export class OptionsComponent implements OnInit {
     getGroeps(): void {
         const locationId = Settings.getLocation();
         const date = Settings.getDate();
+
+        this.isBusy = true;
 
         this.groepService.getAllGroepsForWeekAndLocationAction(date, locationId)
             .subscribe(
@@ -151,6 +145,8 @@ export class OptionsComponent implements OnInit {
     }
 
     getOptionCategories(): void {
+        this.isBusy = true;
+
         this.optionService.getAllCategoriesAction()
             .subscribe(
                 (result: Array<OptionCategory>) => {
@@ -183,6 +179,8 @@ export class OptionsComponent implements OnInit {
     }
 
     getRaftingCustomers(): void {
+        this.isBusy = true;
+
         this.customerService.getAllByGroepWithRaftingOptionAction(this.groep.id)
             .subscribe(
                 (result: Array<RaftingCustomer>) => {
@@ -203,6 +201,8 @@ export class OptionsComponent implements OnInit {
     }
 
     getCanyoningCustomers(): void {
+        this.isBusy = true;
+
         this.customerService.getAllByGroepWithCanyoningOptionAction(this.groep.id)
             .subscribe(
                 (result: Array<CanyoningCustomer>) => {
@@ -233,6 +233,8 @@ export class OptionsComponent implements OnInit {
     }
 
     getSpecialCustomers(): void {
+        this.isBusy = true;
+
         this.customerService.getAllByGroepWithSpecialOptionAction(this.groep.id)
             .subscribe(
                 (result: Array<SpecialCustomer>) => {
@@ -265,6 +267,8 @@ export class OptionsComponent implements OnInit {
         if ((typeof this.optionCategory !== "undefined" &&
         this.optionCategory !== null ? this.optionCategory.id : void 0) != null &&
             this.optionCategory.name === "raft") {
+            this.isBusy = true;
+
             this.optionService.getAllActivitiesByCategoryAction(this.optionCategory.id)
                 .subscribe(
                     (result: Array<Activity>) => {
@@ -273,10 +277,13 @@ export class OptionsComponent implements OnInit {
                             ...result.map(({id, name}) => ({key: id, label: name}))];
 
                         console.log("got me some activities");
+                        this.isBusy = false;
+
                         this.getCustomers();
                     },
                     (error) => {
                         console.dir(error);
+                        this.isBusy = false;
                         /*TODO: handle errors*/
                     }
                 );
@@ -289,13 +296,17 @@ export class OptionsComponent implements OnInit {
         const dataForm = <RadDataForm>args.object;
         const raftingCustomer: RaftingCustomer = <RaftingCustomer> JSON.parse(dataForm.editedObject);
 
+        this.isBusy = true;
+
         this.customerService.putCustomerRaftingOptionAction(raftingCustomer)
             .subscribe(
                 () => {
+                    this.isBusy = false;
                     console.log("Updated rafting customer");
                 },
                 (error) => {
                     console.dir(error);
+                    this.isBusy = false;
                     /*TODO: handle errors*/
                 }
             );
@@ -304,6 +315,7 @@ export class OptionsComponent implements OnInit {
     dfPropertyCommittedCanyoning(args): void {
         const dataForm = <RadDataForm>args.object;
         const canyoningCustomer: CanyoningCustomer = <CanyoningCustomer> JSON.parse(dataForm.editedObject);
+
         canyoningCustomer.activityIds = (typeof canyoningCustomer.activityIds === "string" &&
             canyoningCustomer.activityIds.length > 2)
         || (typeof canyoningCustomer.activityIds === "object" &&
@@ -313,12 +325,16 @@ export class OptionsComponent implements OnInit {
         if (canyoningCustomer.activityIds) {
             canyoningCustomer.activityIds = JSON.stringify(canyoningCustomer.activityIds);
 
+            this.isBusy = true;
+
             this.customerService.putCustomerCanyoningOptionAction(canyoningCustomer)
                 .subscribe(
                     () => {
+                        this.isBusy = false;
                         console.log("Updated canyoning customer");
                     },
                     (error) => {
+                        this.isBusy = false;
                         console.dir(error);
                         /*TODO: handle errors*/
                     }
@@ -379,18 +395,26 @@ export class OptionsComponent implements OnInit {
 
         if (specialCustomer.activityIds) {
             specialCustomer.activityIds = JSON.stringify(specialCustomer.activityIds);
+            this.isBusy = true;
 
             this.customerService.putCustomerSpecialOptionAction(specialCustomer)
                 .subscribe(
                     () => {
+                        this.isBusy = false;
                         console.log("Updated special customer");
                     },
                     (error) => {
+                        this.isBusy = false;
                         console.dir(error);
                         /*TODO: handle errors*/
                     }
                 );
         }
+    }
+
+    onDrawerButtonTap(): void {
+        const sideDrawer = <RadSideDrawer>app.getRootView();
+        sideDrawer.showDrawer();
     }
 
 }

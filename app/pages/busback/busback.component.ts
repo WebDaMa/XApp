@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular";
 import { RadDataForm } from "nativescript-ui-dataform";
 import { Settings } from "~/settings/settings";
@@ -13,7 +14,7 @@ import { CustomerService } from "~/shared/services/customer.service";
     templateUrl: "./busback.component.html"
 })
 export class BusbackComponent implements OnInit {
-    isBusy: boolean = true;
+    isBusy: boolean;
 
     checkinBusBack: CheckinBus = {
         total: "0",
@@ -21,7 +22,8 @@ export class BusbackComponent implements OnInit {
         date: ""
     };
 
-    constructor(private customerService: CustomerService, private routerExtensions: RouterExtensions) {
+    constructor(private customerService: CustomerService, private routerExtensions: RouterExtensions,
+                private activeRoute: ActivatedRoute) {
     }
 
     ngOnInit(): void {
@@ -30,6 +32,7 @@ export class BusbackComponent implements OnInit {
 
     getCustomersBusBack(): void {
         const date = Settings.getDate();
+        this.isBusy = true;
 
         this.customerService.getBusBackCustomersByWeek(date)
             .subscribe(
@@ -39,6 +42,7 @@ export class BusbackComponent implements OnInit {
                 },
                 (error) => {
                     console.dir(error);
+                    this.isBusy = false;
                     /*TODO: handle errors*/
                 }
             );
@@ -48,19 +52,23 @@ export class BusbackComponent implements OnInit {
         const dataForm = <RadDataForm>args.object;
         const busCostumer: BusCustomer = <BusCustomer> JSON.parse(dataForm.editedObject);
 
+        this.isBusy = true;
+
         this.customerService.putBusBackCustomerAction(busCostumer)
             .subscribe(
                 () => {
+                    this.isBusy = false;
                     console.log("Updated customer");
                 },
                 (error) => {
                     console.dir(error);
+                    this.isBusy = false;
                     /*TODO: handle errors*/
                 }
             );
     }
 
     goBack() {
-        this.routerExtensions.backToPreviousPage();
+        this.routerExtensions.back({ relativeTo: this.activeRoute });
     }
 }

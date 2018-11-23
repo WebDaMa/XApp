@@ -1,15 +1,17 @@
 import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
-
-import { PlanningComponent } from "~/pages/planning/planning.component";
+import { MaterialsSettingsComponent } from "~/pages/materials/materials-settings/materials-settings.component";
+import { MaterialsComponent } from "~/pages/materials/materials.component";
 
 const routes: Routes = [
-    { path: "", component: PlanningComponent }
+    { path: "", redirectTo: "materials" },
+    { path: "materials", component: MaterialsComponent },
+    { path: "materials/settings", component: MaterialsSettingsComponent}
 ];
 
 @NgModule({
     imports: [NativeScriptRouterModule.forChild(routes)],
     exports: [NativeScriptRouterModule]
 })
-export class PlanningRoutingModule { }
+export class MaterialsRoutingModule { }

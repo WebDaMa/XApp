@@ -1,17 +1,15 @@
 import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
-import { MaterialsSettingsComponent } from "~/pages/materials/materials-settings/materials-settings.component";
-import { MaterialsComponent } from "~/pages/materials/materials.component";
+import { SizesComponent } from "~/pages/sizes/sizes.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "materials" },
-    { path: "materials", component: MaterialsComponent },
-    { path: "materials/settings", component: MaterialsSettingsComponent}
+    { path: "", redirectTo: "sizes" },
+    { path: "sizes", component: SizesComponent }
 ];
 
 @NgModule({
     imports: [NativeScriptRouterModule.forChild(routes)],
     exports: [NativeScriptRouterModule]
 })
-export class MaterialsRoutingModule { }
+export class SizesRoutingModule { }

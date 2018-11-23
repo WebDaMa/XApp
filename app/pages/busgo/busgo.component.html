@@ -17,7 +17,7 @@
     <StackLayout>
         <Label [text]="'Bus Heen - '+ checkinBusGo.date " class="h3 text-center"></Label>
         <GridLayout columns="*, *, *, * ,*, *" rows="auto" class="m-5 h3" backgroundColor="#e5e5e5">
-            <Label [text]="'Totaal ' + checkinBusGo.total" class="font-weight-bold" col="0"></Label>
+            <Label [text]="'Tot ' + checkinBusGo.total" class="font-weight-bold" col="0"></Label>
             <Label text="XAD" col="1"></Label>
             <Label text="FAD" col="2"></Label>
             <Label text="JAD" col="3"></Label>
@@ -56,15 +56,16 @@
                                     <TKPropertyEditor tkEntityPropertyEditor type="Switch"></TKPropertyEditor>
                                 </TKEntityProperty>
                                 <TKEntityProperty tkPropertyGroupProperties columnIndex="1" readOnly="true"
-                                                  name="customer" displayName="Deelnemer" index="0">
+                                                  name="customer" displayName="" index="0">
                                     <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
                                 </TKEntityProperty>
                                 <TKEntityProperty tkPropertyGroupProperties columnIndex="2" readOnly="true"
-                                                  name="gsm" displayName="GSM" index="0">
+                                                  name="gsm" displayName="" index="0">
                                     <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
                                 </TKEntityProperty>
                             </TKPropertyGroup>
                         </RadDataForm>
+                        <StackLayout class="hr-light"></StackLayout>
                     </StackLayout>
                 </StackLayout>
             </StackLayout>

@@ -9,7 +9,7 @@
     NavigationButton as a side-drawer button in iOS is not possible,
     because its function is to always navigate back in the application.
     -->
-    <Label class="action-bar-title" text="Planning"></Label>
+    <Label class="action-bar-title" [text]="date + ' - Planning'"></Label>
 </ActionBar>
 <ScrollView>
     <StackLayout class="page page-content" tkMainContent>
@@ -30,7 +30,7 @@
                                       name="groepName" index="0">
                     </TKEntityProperty>
 
-                    <TKEntityProperty tkPropertyGroupProperties columnIndex="0" name="date"
+                    <TKEntityProperty tkPropertyGroupProperties columnIndex="0" name="date" hidden="true" readOnly="true"
                                       displayName="Datum" index="0">
                         <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
                     </TKEntityProperty>

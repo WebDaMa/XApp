@@ -3,6 +3,8 @@ import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptFormsModule } from "nativescript-angular";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { NativeScriptUIDataFormModule } from "nativescript-ui-dataform/angular";
+import { PaymentsAddComponent } from "~/pages/payments/payments-add/paymentsAdd.component";
 import { PaymentsRoutingModule } from "~/pages/payments/payments-routing.module";
 import { PaymentsComponent } from "./payments.component";
 
@@ -11,10 +13,12 @@ import { PaymentsComponent } from "./payments.component";
         NativeScriptCommonModule,
         PaymentsRoutingModule,
         NativeScriptFormsModule,
-        NativeScriptHttpClientModule
+        NativeScriptHttpClientModule,
+        NativeScriptUIDataFormModule
     ],
     declarations: [
-        PaymentsComponent
+        PaymentsComponent,
+        PaymentsAddComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

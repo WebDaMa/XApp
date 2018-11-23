@@ -1,42 +1,23 @@
-<ActionBar class="action-bar">
-    <!--
-    Use the NavigationButton as a side-drawer button in Android
-    because ActionItems are shown on the right side of the ActionBar
-    -->
-    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
-    <!--
-    Use the ActionItem for IOS with position set to left. Using the
-    NavigationButton as a side-drawer button in iOS is not possible,
-    because its function is to always navigate back in the application.
-    -->
-    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
-                ios.position="left">
-    </ActionItem>
-    <Label class="action-bar-title" [text]="title" ngDefaultControl></Label>
-</ActionBar>
+<TabView androidTabsPosition="bottom">
 
-<!--
-The TabView component provides a simple way to navigate between different views by
-tapping on some of the tabs or by swiping between the views.
-Learn more about the TabView component in this documentation article:
-http://docs.nativescript.org/angular/code-samples/ui/tab-view
--->
-<TabView (selectedIndexChanged)="onSelectedIndexChanged($event)" androidTabsPosition="bottom">
+    <page-router-outlet
+            *tabItem="{title: 'Materiaal'}"
+            name="materialsTab" actionBarVisibility="never">
+    </page-router-outlet>
 
-    <StackLayout *tabItem="{title: 'Materiaal', iconSource: getIconSource('materials')}">
-        <Materials></Materials>
-    </StackLayout>
+    <page-router-outlet
+            *tabItem="{title: 'Planning'}"
+            name="weekOverviewTab" actionBarVisibility="never">
+    </page-router-outlet>
 
-    <StackLayout *tabItem="{title: 'Planning', iconSource: getIconSource('planning')}">
-        <WeekOverview></WeekOverview>
-    </StackLayout>
+    <page-router-outlet
+            *tabItem="{title: 'Pakmaat'}"
+            name="sizesTab" actionBarVisibility="never">
+    </page-router-outlet>
 
-    <StackLayout *tabItem="{title: 'Pakmaat', iconSource: getIconSource('sizes')}" >
-        <Sizes></Sizes>
-    </StackLayout>
-
-    <StackLayout *tabItem="{title: 'Opties', iconSource: getIconSource('options')}">
-        <Options></Options>
-    </StackLayout>
+    <page-router-outlet
+            *tabItem="{title: 'Opties'}"
+            name="optionsTab" actionBarVisibility="never">
+    </page-router-outlet>
 
 </TabView>

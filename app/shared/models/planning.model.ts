@@ -7,4 +7,5 @@ export class Planning {
     transport: string;
     date: string;
     groepName: string;
+    isUpdate: boolean;
 }

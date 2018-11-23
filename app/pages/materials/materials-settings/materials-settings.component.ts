@@ -1,16 +1,15 @@
 import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular";
-import { RadSideDrawer } from "nativescript-ui-sidedrawer";
-import * as app from "tns-core-modules/application";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Page } from "tns-core-modules/ui/page";
 import { Settings } from "~/settings/settings";
 import { Guide } from "~/shared/models/guide.model";
 import { GuideService } from "~/shared/services/guide.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
     selector: "MaterialsSettings",
-    moduleId: "module.id",
+    moduleId: module.id,
     providers: [GuideService],
     templateUrl: "./materials-settings.component.html"
 })
@@ -18,16 +17,15 @@ export class MaterialsSettingsComponent implements OnInit {
     guides: Array<Guide> = [];
     guideItems: object = {};
     guide: Guide;
-    hasGuides: boolean = false;
+    hasGuides: boolean;
     selectedIndex: number = 0;
+    isBusy: boolean;
 
-    constructor(private guideService: GuideService, private page: Page, private routerExtensions: RouterExtensions) {
+    constructor(private guideService: GuideService, private page: Page, private routerExtensions: RouterExtensions,
+                private activeRoute: ActivatedRoute) {
     }
 
     ngOnInit(): void {
-        this.page.on(Page.navigatingToEvent, () => {
-            this.getGuides();
-        });
         this.getGuides();
     }
 
@@ -48,6 +46,8 @@ export class MaterialsSettingsComponent implements OnInit {
         const locationId = Settings.getLocation();
         const date = Settings.getDate();
 
+        this.isBusy = true;
+        this.hasGuides = false;
         this.guideService.getAllGuidesForWeekAndLocationAction(date, locationId)
             .subscribe(
                 (result: Array<Guide>) => {
@@ -65,26 +65,25 @@ export class MaterialsSettingsComponent implements OnInit {
 
                             }
                         };
-                        this.hasGuides = true;
                         console.log("found me some guides");
+                        this.selectedIndex = appSettings.hasKey("guideIndex") ?
+                            appSettings.getNumber("guideIndex") : 0;
+                        this.guide = this.guides[this.selectedIndex];
+                        appSettings.setString("guideId", this.guide.id);
+                        this.hasGuides = true;
                     }
-
-                    this.selectedIndex = appSettings.hasKey("guideIndex") ?
-                        appSettings.getNumber("guideIndex") : 0;
-                    this.guide = this.guides[this.selectedIndex];
-                    appSettings.setString("guideId", this.guide.id);
-
+                    this.isBusy = false;
                 },
                 (error) => {
                     console.dir(error);
-                    this.hasGuides = false;
+                    this.isBusy = false;
                     /*TODO: handle errors*/
                 }
             );
     }
 
     goBack() {
-        this.routerExtensions.backToPreviousPage();
+        this.routerExtensions.back({ relativeTo: this.activeRoute });
     }
 
 }

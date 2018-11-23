@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { PageRoute, RouterExtensions } from "nativescript-angular";
 import { switchMap } from "rxjs/operators";
 import { Page } from "tns-core-modules/ui/page";
@@ -22,7 +23,8 @@ export class PaymentsAddComponent implements OnInit {
     };
 
     constructor(private groepService: GroepService, private customerService: CustomerService,
-                private routerExtensions: RouterExtensions, private page: Page, private pageRoute: PageRoute) {
+                private routerExtensions: RouterExtensions, private page: Page, private pageRoute: PageRoute,
+                private activeRoute: ActivatedRoute) {
         this.pageRoute.activatedRoute.pipe(
             switchMap((activatedRoute) => activatedRoute.params)
         ).forEach((params) => { this.payment.customerId = params.customer_id; });

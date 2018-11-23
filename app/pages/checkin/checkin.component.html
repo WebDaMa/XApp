@@ -28,11 +28,16 @@
             <Label row="0" col="3" text="Ingecheckt"></Label>
         </GridLayout>
 
-        <GridLayout *ngFor="let customer of customers" columns="10, *, *, auto" rows="*" class="m-5">
-            <Button class="btn btn-primary btn-active" row="0" col="1" [text]="customer.customer"
+        <GridLayout *ngFor="let customer of customers" columns="10, *, *, auto" rows="*" class="m-5"
+                    [ngClass]="{
+              'text-danger': !customer.isComplete,
+              'bg-danger': !customer.isComplete
+            }">
+            <Button class="btn btn-primary"  row="0" col="1" [text]="customer.customer"
                     [nsRouterLink]="['/checkin/', customer.id]"></Button>
-            <Button row="0" col="2" [text]="customer.booker" [nsRouterLink]="['/checkin/', customer.bookerId]" class="btn-grey btn"></Button>
-            <Switch row="0" col="3" [class]="customer.checkedin ? 'bg-primary h3' : (isInfoComplete(customer) ? '' : 'text-danger')" [checked]="customer.checkedin"
+            <Button row="0" col="2" [text]="customer.booker" [nsRouterLink]="['/checkin/', customer.bookerId]" class="btn btn-outline"></Button>
+            <Switch row="0" col="3" [class.bg-primary]="customer.checkedin" [class.h3]="customer.checkedin"
+                    [checked]="customer.checkedin"
                     (checkedChange)="checkinCustomer($event, customer)"></Switch>
         </GridLayout>
     </StackLayout>

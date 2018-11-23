@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
+import * as app from "tns-core-modules/application";
 import { Settings } from "~/settings/settings";
 import { Material } from "~/shared/models/material.model";
 import { MaterialService } from "~/shared/services/material.service";
@@ -60,6 +62,11 @@ export class MaterialsComponent implements OnInit {
                 this.isBusy = false;
             }
         );
+    }
+
+    onDrawerButtonTap(): void {
+        const sideDrawer = <RadSideDrawer>app.getRootView();
+        sideDrawer.showDrawer();
     }
 
 }

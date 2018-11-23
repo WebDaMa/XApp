@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular";
 import { RadDataForm } from "nativescript-ui-dataform";
+import { Page } from "tns-core-modules/ui/page";
 import { Switch } from "tns-core-modules/ui/switch";
 import { Settings } from "~/settings/settings";
 import { CheckinCustomer } from "~/shared/models/checkinCustomer.model";
@@ -23,16 +25,24 @@ export class GroepComponent implements OnInit {
     isBusy: boolean = true;
 
     constructor(private groepService: GroepService, private customerService: CustomerService,
-                private routerExtensions: RouterExtensions) {
+                private routerExtensions: RouterExtensions, private page: Page,
+                private activeRoute: ActivatedRoute) {
     }
 
     ngOnInit(): void {
         this.getGroeps();
+        this.page.backgroundSpanUnderStatusBar = true;
+        this.page.on("loaded", (args) => {
+            if (this.page.android) {
+                this.page.android.setFitsSystemWindows(true);
+            }
+        });
     }
 
     getGroeps(): void {
         const locationId = Settings.getLocation();
         const date = Settings.getDate();
+        this.isBusy = true;
 
         this.groepService.getAllGroepsForWeekAndLocationAction(date, locationId)
             .subscribe(
@@ -41,11 +51,13 @@ export class GroepComponent implements OnInit {
                     this.groeps = [{key: "0", label: "Kies een Groep"}];
                     this.groeps = [...this.groeps, ...result.map(({ id, name }) => ({ key: id, label: name }))];
 
+                    this.isBusy = false;
                     this.getCustomers();
 
                 },
                 (error) => {
                     console.dir(error);
+                    this.isBusy = false;
                     /*TODO: handle errors*/
                 }
             );
@@ -67,6 +79,7 @@ export class GroepComponent implements OnInit {
                 (error) => {
                     console.dir(error);
                     /*TODO: handle errors*/
+                    this.isBusy = false;
                 }
             );
 
@@ -88,12 +101,13 @@ export class GroepComponent implements OnInit {
                     (error) => {
                         console.dir(error);
                         /*TODO: handle errors*/
+                        this.isBusy = false;
                     }
                 );
         }
     }
 
     goBack() {
-        this.routerExtensions.backToPreviousPage();
+        this.routerExtensions.back({ relativeTo: this.activeRoute });
     }
 }

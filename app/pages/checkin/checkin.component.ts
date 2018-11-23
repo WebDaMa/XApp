@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Page } from "tns-core-modules/ui/page";
 import { Switch } from "tns-core-modules/ui/switch";
 import { Settings } from "~/settings/settings";
-import { BillCustomer } from "~/shared/models/billCustomer.model";
 import { CheckinCustomer } from "~/shared/models/checkinCustomer.model";
 import { Groep } from "~/shared/models/groep.model";
 import { CustomerService } from "~/shared/services/customer.service";
@@ -29,7 +29,8 @@ export class CheckinComponent implements OnInit {
     isBusy: boolean = true;
 
     constructor(private groepService: GroepService, private customerService: CustomerService,
-                private routerExtensions: RouterExtensions, private page: Page) {
+                private routerExtensions: RouterExtensions, private page: Page,
+                private activeRoute: ActivatedRoute) {
         this.page.on(Page.navigatingToEvent, () => {
             this.getCustomers();
         });
@@ -51,6 +52,8 @@ export class CheckinComponent implements OnInit {
     getGroeps(): void {
         const locationId = Settings.getLocation();
         const date = Settings.getDate();
+
+        this.isBusy = true;
 
         this.groepService.getAllGroepsForWeekAndLocationAction(date, locationId)
             .subscribe(
@@ -75,10 +78,12 @@ export class CheckinComponent implements OnInit {
                     }
 
                     this.getCustomers();
+                    this.isBusy = false;
 
                 },
                 (error) => {
                     console.dir(error);
+                    this.isBusy = false;
                     /*TODO: handle errors*/
                 }
             );
@@ -92,6 +97,10 @@ export class CheckinComponent implements OnInit {
                 .subscribe(
                     (result: Array<CheckinCustomer>) => {
 
+                        for (const customer of result) {
+                            customer.isComplete = this.isInfoComplete(customer);
+                        }
+
                         this.customers = result;
                         console.log("found me some checkin customers");
                         this.isBusy = false;
@@ -99,6 +108,7 @@ export class CheckinComponent implements OnInit {
                     (error) => {
                         console.dir(error);
                         this.hasGroeps = false;
+                        this.isBusy = false;
                         /*TODO: handle errors*/
                     }
                 );
@@ -116,9 +126,9 @@ export class CheckinComponent implements OnInit {
 
     checkinCustomer(args, customer: CheckinCustomer) {
         const checkinSwitch = <Switch>args.object;
-        const checkin = checkinSwitch.checked;
+        customer.checkedin = checkinSwitch.checked;
 
-        customer.checkedin = checkin;
+        this.isBusy = true;
 
         this.customerService.putCheckinCustomerAction(customer).subscribe(
             (res) => {
@@ -127,12 +137,13 @@ export class CheckinComponent implements OnInit {
             },
             (error) => {
                 console.dir(error);
+                this.isBusy = false;
                 /*TODO: handle errors*/
             }
         );
     }
 
     goBack() {
-        this.routerExtensions.backToPreviousPage();
+        this.routerExtensions.back({ relativeTo: this.activeRoute });
     }
 }

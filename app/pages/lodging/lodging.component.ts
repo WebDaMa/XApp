@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular";
 import { RadDataForm } from "nativescript-ui-dataform";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
+import { Page } from "tns-core-modules/ui/page";
 import { Settings } from "~/settings/settings";
 import { Agency } from "~/shared/models/agency.model";
 import { Lodging } from "~/shared/models/lodging.model";
@@ -18,7 +20,7 @@ import { CustomerService } from "~/shared/services/customer.service";
 export class LodgingComponent implements OnInit {
     selectedIndex: number = 0;
 
-    isBusy: boolean = true;
+    isBusy: boolean;
 
     agencies: Array<Agency> = [];
     agency: Agency = {
@@ -34,22 +36,29 @@ export class LodgingComponent implements OnInit {
     };
 
     constructor(private customerService: CustomerService, private agencyService: AgencyService,
-                private routerExtensions: RouterExtensions) {
+                private routerExtensions: RouterExtensions, private page: Page, private activeRoute: ActivatedRoute) {
     }
 
     ngOnInit(): void {
         this.getAgencies();
+        this.page.backgroundSpanUnderStatusBar = true;
+        this.page.on("loaded", (args) => {
+            if (this.page.android) {
+                this.page.android.setFitsSystemWindows(true);
+            }
+        });
     }
 
     getAgencies(): void {
         const date = Settings.getDate();
         const locationId = Settings.getLocation();
 
+        this.isBusy = true;
+
         this.agencyService.getAllAgenciesForWeekAndLocationAction(date, locationId)
             .subscribe(
                 (result: Array<Agency>) => {
                     this.agencies = result;
-                    this.isBusy = false;
                     if (this.agencies.length > 0) {
                         this.agenciesItems = {
                             items: this.agencies,
@@ -60,16 +69,18 @@ export class LodgingComponent implements OnInit {
                                 return item.name;
                             }
                         };
-
                         this.hasAgencies = true;
+
                         this.agency = this.agencies[0];
                         console.log("found me some agencies");
                     }
+                    this.isBusy = false;
                     this.getCustomersLodging();
                 },
                 (error) => {
                     console.dir(error);
                     this.hasAgencies = false;
+                    this.isBusy = false;
                     /*TODO: handle errors*/
                 }
             );
@@ -78,15 +89,17 @@ export class LodgingComponent implements OnInit {
     dfPropertyLodgingCommitted(args) {
         const dataForm = <RadDataForm>args.object;
         const lodgingCustomer: LodgingCustomer = <LodgingCustomer> JSON.parse(dataForm.editedObject);
-        console.log(lodgingCustomer);
 
+        this.isBusy = true;
         this.customerService.putLodgingLayoutCustomerAction(lodgingCustomer)
             .subscribe(
                 () => {
                     console.log("Updated customer");
+                    this.isBusy = false;
                 },
                 (error) => {
                     console.dir(error);
+                    this.isBusy = false;
                     /*TODO: handle errors*/
                 }
             );
@@ -125,6 +138,6 @@ export class LodgingComponent implements OnInit {
     }
 
     goBack() {
-        this.routerExtensions.backToPreviousPage();
+        this.routerExtensions.back({ relativeTo: this.activeRoute });
     }
 }
