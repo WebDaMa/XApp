@@ -56,7 +56,7 @@ var BillDetailComponent = /** @class */ (function () {
         });
     };
     BillDetailComponent.prototype.goBack = function () {
-        this.routerExtensions.backToPreviousPage();
+        this.routerExtensions.back({ relativeTo: this.activeRoute });
     };
     BillDetailComponent = __decorate([
         core_1.Component({

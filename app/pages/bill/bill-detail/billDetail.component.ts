@@ -77,6 +77,6 @@ export class BillDetailComponent implements OnInit {
     }
 
     goBack() {
-        this.routerExtensions.backToPreviousPage();
+        this.routerExtensions.back({ relativeTo: this.activeRoute });
     }
 }

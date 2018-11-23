@@ -10,7 +10,7 @@ import { GuideService } from "~/shared/services/guide.service";
 
 @Component({
     selector: "MaterialsSettings",
-    moduleId: module.id,
+    moduleId: "module.id",
     providers: [GuideService],
     templateUrl: "./materials-settings.component.html"
 })

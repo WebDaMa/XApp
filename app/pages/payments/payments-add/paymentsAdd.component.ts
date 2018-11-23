@@ -30,7 +30,12 @@ export class PaymentsAddComponent implements OnInit {
     }
 
     ngOnInit(): void {
-
+        this.page.backgroundSpanUnderStatusBar = true;
+        this.page.on("loaded", (args) => {
+            if (this.page.android) {
+                this.page.android.setFitsSystemWindows(true);
+            }
+        });
     }
 
     addPayment(): void {
@@ -49,6 +54,6 @@ export class PaymentsAddComponent implements OnInit {
     }
 
     goBack() {
-        this.routerExtensions.backToPreviousPage();
+        this.routerExtensions.back({ relativeTo: this.activeRoute });
     }
 }

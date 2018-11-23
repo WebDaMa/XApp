@@ -9,7 +9,7 @@
     NavigationButton as a side-drawer button in iOS is not possible,
     because its function is to always navigate back in the application.
     -->
-    <Text class="action-bar-title" text="Checkin"></Text>
+    <Label class="action-bar-title" text="Checkin"></Label>
 </ActionBar>
 <ScrollView>
     <StackLayout class="page page-content" tkMainContent>
@@ -24,27 +24,27 @@
                                   name="id" index="0">
                 </TKEntityProperty>
                 <TKEntityProperty tkPropertyGroupProperties columnIndex="0" name="firstName"
-                                  displayName="Voornaam" index="0">
+                                  displayName="Voornaam(*)" index="0">
                     <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
                 </TKEntityProperty>
                 <TKEntityProperty tkPropertyGroupProperties columnIndex="1" name="lastName"
-                                  displayName="Naam" index="0">
+                                  displayName="Naam(*)" index="0">
                     <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
                 </TKEntityProperty>
                 <TKEntityProperty tkPropertyGroupProperties columnIndex="2" name="birthdate"
-                                  displayName="Geboortedatum" index="0">
+                                  displayName="Geboortedatum(*)" index="0">
                     <TKPropertyEditor tkEntityPropertyEditor type="DatePicker"></TKPropertyEditor>
                 </TKEntityProperty>
                 <TKEntityProperty tkPropertyGroupProperties columnIndex="3" name="email"
-                                  displayName="E-mail" index="0">
+                                  displayName="E-mail(*)" index="0">
                     <TKPropertyEditor tkEntityPropertyEditor type="Email"></TKPropertyEditor>
                 </TKEntityProperty>
                 <TKEntityProperty tkPropertyGroupProperties columnIndex="4" name="nationalRegisterNumber"
-                                  displayName="Rijksregister" index="0">
+                                  displayName="Rijksregister(*)" index="0">
                     <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
                 </TKEntityProperty>
                 <TKEntityProperty tkPropertyGroupProperties columnIndex="5" name="expireDate"
-                                  displayName="Vervaldatum" index="0">
+                                  displayName="Vervaldatum(*)" index="0">
                     <TKPropertyEditor tkEntityPropertyEditor type="DatePicker"></TKPropertyEditor>
                 </TKEntityProperty>
                 <TKEntityProperty tkPropertyGroupProperties columnIndex="6" name="gsm"
