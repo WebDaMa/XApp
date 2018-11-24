@@ -1,34 +1,38 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { NavigationEnd, Router } from "@angular/router";
 import * as app from "application";
 import { RouterExtensions } from "nativescript-angular/router";
 import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from "nativescript-ui-sidedrawer";
-import { Observable } from "tns-core-modules/data/observable";
+import { filter } from "rxjs/operators";
 import { Settings } from "~/settings/settings";
-import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
     selector: "ns-app",
     templateUrl: "app.component.html"
 })
 export class AppComponent implements OnInit {
-    private _selectedPage: string;
+    private _activatedUrl: string;
     private _sideDrawerTransition: DrawerTransitionBase;
 
-    constructor(private routerExtensions: RouterExtensions) {
+    constructor(private router: Router, private routerExtensions: RouterExtensions) {
         // Use the component constructor to inject services.
     }
 
     ngOnInit(): void {
-        this._selectedPage = "/tabs";
+        this._activatedUrl = "/home";
         this._sideDrawerTransition = new SlideInOnTopTransition();
+
+        this.router.events
+            .pipe(filter((event: any) => event instanceof NavigationEnd))
+            .subscribe((event: NavigationEnd) => this._activatedUrl = event.urlAfterRedirects);
     }
 
     get sideDrawerTransition(): DrawerTransitionBase {
         return this._sideDrawerTransition;
     }
 
-    isPageSelected(pageTitle: string): boolean {
-        return pageTitle === this._selectedPage;
+    isComponentSelected(url: string): boolean {
+        return this._activatedUrl === url;
     }
 
     onNavItemTap(navItemRoute: string): void {
@@ -37,8 +41,6 @@ export class AppComponent implements OnInit {
                 name: "fade"
             }
         });
-
-        this._selectedPage = navItemRoute;
 
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.closeDrawer();
