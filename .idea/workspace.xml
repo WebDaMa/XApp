@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29231f43-1602-4262-8068-fafd9ea89c9e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/options/options.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/options/options.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/App_Resources/Android/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/Android/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/App_Resources/iOS/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/iOS/Info.plist" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -324,16 +324,15 @@
       <workItem from="1543349400559" duration="8000" />
       <workItem from="1543609261357" duration="551000" />
       <workItem from="1556362524086" duration="1000" />
-      <workItem from="1556362943207" duration="9918000" />
+      <workItem from="1556362943207" duration="10233000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="320748000" />
+    <option name="totallyTimeSpent" value="321063000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -341,9 +340,9 @@
       <window_info anchor="bottom" id="NativeScript" order="7" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.27" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.27" />
       <window_info anchor="bottom" id="TypeScript" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20069444" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20069444" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Nativescript Palette" order="3" />
       <window_info anchor="right" id="Database" order="3" />
