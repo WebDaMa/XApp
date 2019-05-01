@@ -90,6 +90,6 @@ export class CheckinDetailComponent implements OnInit {
     }
 
     goBack() {
-        this.routerExtensions.back({ relativeTo: this.activeRoute });
+        this.routerExtensions.back();
     }
 }

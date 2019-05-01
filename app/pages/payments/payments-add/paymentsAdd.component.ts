@@ -56,6 +56,6 @@ export class PaymentsAddComponent implements OnInit {
     }
 
     goBack() {
-        this.routerExtensions.back({ relativeTo: this.activeRoute });
+        this.routerExtensions.back();
     }
 }

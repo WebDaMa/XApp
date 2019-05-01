@@ -71,6 +71,10 @@ export class BusgoComponent implements OnInit {
     }
 
     goBack() {
-        this.routerExtensions.back({ relativeTo: this.activeRoute });
+        this.routerExtensions.navigate(["/tabs/default"], {
+            transition: {
+                name: "fade"
+            }
+        });
     }
 }

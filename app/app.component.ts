@@ -1,20 +1,25 @@
-import { Component, OnInit } from "@angular/core";
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from "@angular/core";
 import { NavigationEnd, Router } from "@angular/router";
 import * as app from "application";
 import { RouterExtensions } from "nativescript-angular/router";
 import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from "nativescript-ui-sidedrawer";
+import { RadSideDrawerComponent } from "nativescript-ui-sidedrawer/angular";
 import { filter } from "rxjs/operators";
+import { isAndroid, isIOS } from "tns-core-modules/platform";
 import { Settings } from "~/settings/settings";
 
 @Component({
     selector: "ns-app",
     templateUrl: "app.component.html"
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
+    @ViewChild(RadSideDrawerComponent) drawerComponent: RadSideDrawerComponent;
     private _activatedUrl: string;
     private _sideDrawerTransition: DrawerTransitionBase;
+    private drawer: RadSideDrawer;
 
-    constructor(private router: Router, private routerExtensions: RouterExtensions) {
+    constructor(private router: Router, private routerExtensions: RouterExtensions,
+                private changeDetectionRef: ChangeDetectorRef) {
         // Use the component constructor to inject services.
     }
 
@@ -25,6 +30,23 @@ export class AppComponent implements OnInit {
         this.router.events
             .pipe(filter((event: any) => event instanceof NavigationEnd))
             .subscribe((event: NavigationEnd) => this._activatedUrl = event.urlAfterRedirects);
+    }
+
+    ngAfterViewInit(): void {
+        this.drawer = this.drawerComponent.sideDrawer;
+        this.changeDetectionRef.detectChanges();
+
+        if (isIOS) {
+            // This disables the swipe gesture to open menu
+            this.drawer.ios.defaultSideDrawer.allowEdgeSwipe = false;
+        }
+    }
+
+    onLoaded() {
+        if (isAndroid) {
+            // This disables the swipe gesture to open menu, by setting the treshhold to '0'
+            this.drawer.android.setTouchTargetThreshold(0);
+        }
     }
 
     get sideDrawerTransition(): DrawerTransitionBase {
