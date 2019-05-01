@@ -31,7 +31,7 @@ export class MaterialsSettingsComponent implements OnInit {
 
     selectedIndexChanged(args) {
         const picker = <ListPicker>args.object;
-        const appSettings = require("application-settings");
+        const appSettings = require("tns-core-modules/application-settings");
 
         if (this.guides.length > 0) {
             appSettings.setNumber("guideIndex", picker.selectedIndex);
@@ -42,7 +42,7 @@ export class MaterialsSettingsComponent implements OnInit {
     }
 
     getGuides(): void {
-        const appSettings = require("application-settings");
+        const appSettings = require("tns-core-modules/application-settings");
         const locationId = Settings.getLocation();
         const date = Settings.getDate();
 

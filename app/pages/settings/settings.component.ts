@@ -31,7 +31,7 @@ export class SettingsComponent implements OnInit {
 
     selectedIndexChanged(args) {
         const picker = <ListPicker>args.object;
-        const appSettings = require("application-settings");
+        const appSettings = require("tns-core-modules/application-settings");
 
         if (this.locations.length > 0) {
             appSettings.setNumber("locationIndex", picker.selectedIndex);
@@ -44,7 +44,7 @@ export class SettingsComponent implements OnInit {
     }
 
     getLocations(): void {
-        const appSettings = require("application-settings");
+        const appSettings = require("tns-core-modules/application-settings");
         this.locationService.getLocationsAction()
             .subscribe(
                 (result: Array<Location>) => {
@@ -76,7 +76,7 @@ export class SettingsComponent implements OnInit {
 
     onPickerLoaded(args) {
         const datePicker = <DatePicker>args.object;
-        const appSettings = require("application-settings");
+        const appSettings = require("tns-core-modules/application-settings");
 
         if (appSettings.hasKey("settingsDate")) {
             const date = new Date(appSettings.getString("settingsDate"));
@@ -90,7 +90,7 @@ export class SettingsComponent implements OnInit {
     }
 
     onDateChanged(args) {
-        const appSettings = require("application-settings");
+        const appSettings = require("tns-core-modules/application-settings");
         const date = args.value;
         let year;
         let month;
@@ -110,7 +110,7 @@ export class SettingsComponent implements OnInit {
     }
 
     setCurrentDay(): void {
-        const appSettings = require("application-settings");
+        const appSettings = require("tns-core-modules/application-settings");
         const now = new Date();
 
         let year;

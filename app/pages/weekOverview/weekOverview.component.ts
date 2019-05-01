@@ -39,7 +39,7 @@ export class WeekOverviewComponent implements OnInit {
         const date = Settings.getDate();
         const location = Settings.getLocation();
 
-        const appSettings = require("application-settings");
+        const appSettings = require("tns-core-modules/application-settings");
 
         let guideId: string = "3";
         if (appSettings.hasKey("guideId")) {

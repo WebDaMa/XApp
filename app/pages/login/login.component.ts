@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        const appSettings = require("application-settings");
+        const appSettings = require("tns-core-modules/application-settings");
         const token = appSettings.getString("token");
         if (appSettings.hasKey("token") && token !== "") {
             console.log("continue");
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 (result) => {
                     console.log("SuccesFull Login!");
-                    const appSettings = require("application-settings");
+                    const appSettings = require("tns-core-modules/application-settings");
                     appSettings.setString("token", (<any>result).access_token);
                     appSettings.setString("username", this.user.username);
                     console.log(appSettings.getString("username"));

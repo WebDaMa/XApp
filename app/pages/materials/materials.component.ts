@@ -44,7 +44,7 @@ export class MaterialsComponent implements OnInit {
 
         const date = Settings.getDate();
 
-        const appSettings = require("application-settings");
+        const appSettings = require("tns-core-modules/application-settings");
         let guideId: string = "3";
         if (appSettings.hasKey("guideId")) {
             guideId = appSettings.getString("guideId");

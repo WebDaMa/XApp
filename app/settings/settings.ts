@@ -1,7 +1,7 @@
 export class Settings {
 
     static getDate() {
-        const appSettings = require("application-settings");
+        const appSettings = require("tns-core-modules/application-settings");
 
         const now = new Date();
         let date: string = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
@@ -13,7 +13,7 @@ export class Settings {
     }
 
     static getLocation() {
-        const appSettings = require("application-settings");
+        const appSettings = require("tns-core-modules/application-settings");
         let locationId: string = "1";
         if (appSettings.hasKey("locationId")) {
             locationId = appSettings.getString("locationId");
@@ -23,7 +23,7 @@ export class Settings {
     }
 
     static getRole() {
-        const appSettings = require("application-settings");
+        const appSettings = require("tns-core-modules/application-settings");
         let role: string = "ROLE_USER";
         if (appSettings.hasKey("role")) {
             role = appSettings.getString("role");
@@ -33,7 +33,7 @@ export class Settings {
     }
 
     static getCurrentTabViewIndex() {
-        const appSettings = require("application-settings");
+        const appSettings = require("tns-core-modules/application-settings");
         let tabViewIndex: number = 0;
         if (appSettings.hasKey("tabViewIndex")) {
             tabViewIndex = appSettings.getNumber("tabViewIndex");
