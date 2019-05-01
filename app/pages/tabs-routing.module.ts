@@ -11,25 +11,25 @@ const routes: Routes = [
                 path: "materials",
                 outlet: "materialsTab",
                 component: NSEmptyOutletComponent,
-                loadChildren: "./materials/materials.module#MaterialsModule"
+                loadChildren: "~/pages/materials/materials.module#MaterialsModule"
             },
             {
                 path: "weekOverview",
                 outlet: "weekOverviewTab",
                 component: NSEmptyOutletComponent,
-                loadChildren: "./weekOverview/weekOverview.module#WeekOverviewModule"
+                loadChildren: "~/pages/weekOverview/weekOverview.module#WeekOverviewModule"
             },
             {
                 path: "sizes",
                 outlet: "sizesTab",
                 component: NSEmptyOutletComponent,
-                loadChildren: "./sizes/sizes.module#SizesModule"
+                loadChildren: "~/pages/sizes/sizes.module#SizesModule"
             },
             {
                 path: "options",
                 outlet: "optionsTab",
                 component: NSEmptyOutletComponent,
-                loadChildren: "./options/options.module#OptionsModule"
+                loadChildren: "~/pages/options/options.module#OptionsModule"
             }
         ]
     }
