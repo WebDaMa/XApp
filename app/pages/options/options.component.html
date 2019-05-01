@@ -30,8 +30,10 @@
 
         <ActivityIndicator [visibility]="isBusy ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100"
                            class="activity-indicator"></ActivityIndicator>
-
         <StackLayout [visibility]="optionCategory.name === 'raft' ? 'visible' : 'collapsed'">
+            <TextView [visibility]="raftingCustomers.length < 1 ? 'visible' : 'collapsed'"
+                      text="Geen opties gevonden voor deze groep."
+                      editable="false" class="text-center"></TextView>
             <StackLayout *ngFor="let customer of raftingCustomers">
                         <RadDataForm tkExampleTitle tkToggleNavButton [source]="customer"
                                      (propertyCommitted)="dfPropertyCommittedRafting($event)">
@@ -63,6 +65,9 @@
         </StackLayout>
 
         <StackLayout [visibility]="optionCategory.name === 'canyon' ? 'visible' : 'collapsed'">
+            <TextView [visibility]="canyoningCustomers.length < 1 ? 'visible' : 'collapsed'"
+                      text="Geen opties gevonden voor deze groep."
+                      editable="false" class="text-center"></TextView>
             <StackLayout *ngFor="let customer of canyoningCustomers">
                 <RadDataForm tkExampleTitle tkToggleNavButton [source]="customer"
                              (propertyCommitted)="dfPropertyCommittedCanyoning($event)">
@@ -99,6 +104,9 @@
         </StackLayout>
 
         <StackLayout [visibility]="optionCategory.name === 'special' ? 'visible' : 'collapsed'">
+            <TextView [visibility]="specialCustomers.length < 1 ? 'visible' : 'collapsed'"
+                      text="Geen opties gevonden voor deze groep."
+                      editable="false" class="text-center"></TextView>
             <StackLayout *ngFor="let customer of specialCustomers">
                 <RadDataForm tkExampleTitle tkToggleNavButton [source]="customer"
                              (propertyCommitted)="dfPropertyCommittedSpecial($event)">
