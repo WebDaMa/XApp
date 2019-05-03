@@ -13,22 +13,22 @@
     "lint": "tslint \"app/**/*.ts\""
   },
   "dependencies": {
-    "@angular/common": "~7.0.0",
-    "@angular/compiler": "~7.0.0",
-    "@angular/core": "~7.0.0",
-    "@angular/forms": "~7.0.0",
-    "@angular/http": "~7.0.0",
-    "@angular/platform-browser": "~7.0.0",
-    "@angular/platform-browser-dynamic": "~7.0.0",
-    "@angular/router": "~7.0.0",
-    "nativescript-angular": "^7.0.1",
+    "@angular/common": "~7.2.0",
+    "@angular/compiler": "~7.2.0",
+    "@angular/core": "~7.2.0",
+    "@angular/forms": "~7.2.0",
+    "@angular/http": "~7.2.0",
+    "@angular/platform-browser": "~7.2.0",
+    "@angular/platform-browser-dynamic": "~7.2.0",
+    "@angular/router": "~7.2.0",
+    "nativescript-angular": "^7.2.3",
     "nativescript-theme-core": "^1.0.4",
     "nativescript-ui-dataform": "^3.9.0",
     "nativescript-ui-sidedrawer": "^5.0.0",
     "reflect-metadata": "~0.1.10",
     "rxjs": "^6.3.3",
     "tns-core-modules": "^5.3.1",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.4"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^7.2.14",

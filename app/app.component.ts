@@ -1,6 +1,6 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from "@angular/core";
 import { NavigationEnd, Router } from "@angular/router";
-import * as app from "application";
+import * as app from "tns-core-modules/application";
 import { RouterExtensions } from "nativescript-angular/router";
 import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from "nativescript-ui-sidedrawer";
 import { RadSideDrawerComponent } from "nativescript-ui-sidedrawer/angular";
@@ -71,7 +71,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     logout(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.closeDrawer();
-        const appSettings = require("application-settings");
+        const appSettings = require("tns-core-modules/application-settings");
         appSettings.setString("token", "");
         appSettings.setString("username", "");
         this.routerExtensions.navigate(["/login"], { clearHistory: true });
