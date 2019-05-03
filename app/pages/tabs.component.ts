@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular";
 import { Page } from "tns-core-modules/ui/page";
+import {RadSideDrawer} from "nativescript-ui-sidedrawer";
+import * as app from "tns-core-modules/application";
 
 @Component({
     selector: "Tabs",
@@ -17,15 +19,6 @@ export class TabsComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.page.actionBarHidden = true;
-        // Init your component properties here.
-        this.page.backgroundSpanUnderStatusBar = true;
-        this.page.on("loaded", (args) => {
-            if (this.page.android) {
-                this.page.android.setFitsSystemWindows(true);
-            }
-        });
-
         this.routerExtension.navigate([{
             outlets: {
                 materialsTab: ["materials"],
@@ -34,5 +27,10 @@ export class TabsComponent implements OnInit {
                 optionsTab: ["options"]
             }
         }], { relativeTo: this.activeRoute });
+    }
+
+    onDrawerButtonTap(): void {
+        const sideDrawer = <RadSideDrawer>app.getRootView();
+        sideDrawer.showDrawer();
     }
 }

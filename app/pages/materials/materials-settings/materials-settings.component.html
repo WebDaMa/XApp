@@ -1,17 +1,3 @@
-<ActionBar class="action-bar">
-    <!--
-    Use the NavigationButton as a side-drawer button in Android
-    because ActionItems are shown on the right side of the ActionBar
-    -->
-    <NavigationButton android.systemIcon="ic_menu_back" text="Back to ActionBar" (tap)="goBack()"></NavigationButton>
-    <!--
-    Use the ActionItem for IOS with position set to left. Using the
-    NavigationButton as a side-drawer button in iOS is not possible,
-    because its function is to always navigate back in the application.
-    -->
-    <Label class="action-bar-title" text="Materiaal Settings"></Label>
-</ActionBar>
-
 <StackLayout class="page page-content" tkMainContent>
     <GridLayout columns="10, *, *, 10" rows="auto" class="m-5">
         <Button col="1" horizontalAlignment="left" text="&#xf021;" class="fas btn btn-primary btn-active"
