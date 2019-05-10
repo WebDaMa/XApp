@@ -70,22 +70,19 @@ export class LoginComponent implements OnInit {
 
     decideRole(roles: Array<string>): string {
         let role = "ROLE_USER";
+
         if (roles.indexOf("ROLE_KV") !== -1) {
             role = "ROLE_KV";
-
-            return role;
         }
 
         if (roles.indexOf("ROLE_STV") !== -1) {
             role = "ROLE_STV";
-
-            return role;
         }
 
         if (roles.indexOf("ROLE_ADMIN") !== -1) {
             role = "ROLE_ADMIN";
-
-            return role;
         }
+
+        return role;
     }
 }
