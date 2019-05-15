@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular";
+import * as dialogs from "tns-core-modules/ui/dialogs";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Page } from "tns-core-modules/ui/page";
 import { Switch } from "tns-core-modules/ui/switch";
@@ -31,8 +31,7 @@ export class CheckinComponent implements OnInit {
     lastTimer = {id: null, value: -1};
 
     constructor(private groepService: GroepService, private customerService: CustomerService,
-                private routerExtensions: RouterExtensions, private page: Page,
-                private activeRoute: ActivatedRoute) {
+                private routerExtensions: RouterExtensions, private page: Page) {
         this.page.on(Page.navigatingToEvent, () => {
             this.getCustomers();
         });
@@ -40,6 +39,36 @@ export class CheckinComponent implements OnInit {
 
     ngOnInit(): void {
         this.getGroeps();
+        this.alertSaturday();
+    }
+
+    alertSaturday(): void {
+        const appSettings = require("tns-core-modules/application-settings");
+
+        if (appSettings.hasKey("settingsDate")) {
+            const weekDay = new Date(appSettings.getString("settingsDate")).getDay();
+
+            if (weekDay === 6) {
+                const options = {
+                    title: "Transfer Day",
+                    message: "Indien je acties voor huidige groepen wenst te doen, " +
+                    "pas je de datum naar vrijdag deze week aan bij settings!",
+                    okButtonText: "Settings",
+                    cancelButtonText: "Nieuwe groep"
+                };
+
+                dialogs.confirm(options).then((result: boolean) => {
+                    if (result) {
+                        this.routerExtensions.navigate(["/settings"], {
+                            transition: {
+                                name: "fade"
+                            }
+                        });
+                    }
+                });
+            }
+        }
+
     }
 
     selectedIndexChangeDebouncer(args) {

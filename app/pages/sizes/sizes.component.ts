@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core";
+import { RouterExtensions } from "nativescript-angular";
 import { RadDataForm } from "nativescript-ui-dataform";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
+import * as dialogs from "tns-core-modules/ui/dialogs";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Page } from "tns-core-modules/ui/page";
 import { Settings } from "~/settings/settings";
@@ -31,7 +33,7 @@ export class SizesComponent implements OnInit {
     sizes: Array<object> = [];
 
     constructor(private groepService: GroepService, private customerService: CustomerService,
-                private suitSizeService: SuitSizeService, private page: Page) {
+                private suitSizeService: SuitSizeService, private page: Page, private routerExtensions: RouterExtensions) {
     }
 
     ngOnInit(): void {
@@ -44,6 +46,37 @@ export class SizesComponent implements OnInit {
                 this.page.android.setFitsSystemWindows(true);
             }
         });
+
+        this.alertSaturday();
+    }
+
+    alertSaturday(): void {
+        const appSettings = require("tns-core-modules/application-settings");
+
+        if (appSettings.hasKey("settingsDate")) {
+            const weekDay = new Date(appSettings.getString("settingsDate")).getDay();
+
+            if (weekDay === 6) {
+                const options = {
+                    title: "Transfer Day",
+                    message: "Indien je acties voor huidige groepen wenst te doen, " +
+                    "pas je de datum naar vrijdag deze week aan bij settings!",
+                    okButtonText: "Settings",
+                    cancelButtonText: "Nieuwe groep"
+                };
+
+                dialogs.confirm(options).then((result: boolean) => {
+                    if (result) {
+                        this.routerExtensions.navigate(["/settings"], {
+                            transition: {
+                                name: "fade"
+                            }
+                        });
+                    }
+                });
+            }
+        }
+
     }
 
     selectedIndexChanged(args) {

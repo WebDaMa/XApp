@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular";
 import { DatePicker } from "tns-core-modules/ui/date-picker";
+import * as dialogs from "tns-core-modules/ui/dialogs";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Location } from "~/shared/models/location.model";
 import { LocationService } from "~/shared/services/location.service";
@@ -105,6 +106,24 @@ export class SettingsComponent implements OnInit {
             this.datePicker.day = day;
         }
 
+        /* Show alert on Saturday, as there are 2 groups, current group should use Friday.*/
+
+        this.alertSaturday(date);
+
+    }
+
+    alertSaturday(date): void {
+        const weekDay = date.getDay();
+        if (weekDay === 6) {
+            const options = {
+                title: "Transfer Day",
+                message: "Indien je acties voor huidige groepen wenst te doen, " +
+                "pas je de datum naar vrijdag aan!",
+                okButtonText: "OK"
+            };
+
+            dialogs.alert(options);
+        }
     }
 
     setCurrentDay(): void {

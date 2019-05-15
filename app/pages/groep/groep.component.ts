@@ -1,11 +1,9 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular";
 import { RadDataForm } from "nativescript-ui-dataform";
+import * as dialogs from "tns-core-modules/ui/dialogs";
 import { Page } from "tns-core-modules/ui/page";
-import { Switch } from "tns-core-modules/ui/switch";
 import { Settings } from "~/settings/settings";
-import { CheckinCustomer } from "~/shared/models/checkinCustomer.model";
 import { Groep } from "~/shared/models/groep.model";
 import { GroepCustomer } from "~/shared/models/groepCustomer.model";
 import { CustomerService } from "~/shared/services/customer.service";
@@ -25,8 +23,7 @@ export class GroepComponent implements OnInit {
     isBusy: boolean = true;
 
     constructor(private groepService: GroepService, private customerService: CustomerService,
-                private routerExtensions: RouterExtensions, private page: Page,
-                private activeRoute: ActivatedRoute) {
+                private routerExtensions: RouterExtensions, private page: Page) {
     }
 
     ngOnInit(): void {
@@ -37,6 +34,37 @@ export class GroepComponent implements OnInit {
                 this.page.android.setFitsSystemWindows(true);
             }
         });
+
+        this.alertSaturday();
+    }
+
+    alertSaturday(): void {
+        const appSettings = require("tns-core-modules/application-settings");
+
+        if (appSettings.hasKey("settingsDate")) {
+            const weekDay = new Date(appSettings.getString("settingsDate")).getDay();
+
+            if (weekDay === 6) {
+                const options = {
+                    title: "Transfer Day",
+                    message: "Indien je acties voor huidige groepen wenst te doen, " +
+                    "pas je de datum naar vrijdag deze week aan bij settings!",
+                    okButtonText: "Settings",
+                    cancelButtonText: "Nieuwe groep"
+                };
+
+                dialogs.confirm(options).then((result: boolean) => {
+                    if (result) {
+                        this.routerExtensions.navigate(["/settings"], {
+                            transition: {
+                                name: "fade"
+                            }
+                        });
+                    }
+                });
+            }
+        }
+
     }
 
     getGroeps(): void {

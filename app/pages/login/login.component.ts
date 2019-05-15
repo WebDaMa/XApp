@@ -3,6 +3,8 @@ import { RouterExtensions } from "nativescript-angular";
 import { Page } from "tns-core-modules/ui/page";
 import { User } from "~/shared/models/user.model";
 import { UserService } from "~/shared/services/user.service";
+import * as utils from "tns-core-modules/utils/utils";
+
 
 @Component({
     selector: "Login",
@@ -84,5 +86,9 @@ export class LoginComponent implements OnInit {
         }
 
         return role;
+    }
+
+    onForgotPasswordButtonTap(): void {
+        utils.openUrl("https://app.lifelongexploring.com/resetting/request");
     }
 }
