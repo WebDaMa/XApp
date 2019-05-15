@@ -51,12 +51,33 @@ export class OptionsComponent implements OnInit {
     hasSpecialCustomers: boolean = false;
     specialCustomers: Array<SpecialCustomer> = [];
 
+    lastTimer = {id: null, value: -1};
+
     constructor(private groepService: GroepService, private customerService: CustomerService,
                 private page: Page, private optionService: OptionService) {
     }
 
     ngOnInit(): void {
         this.getGroeps();
+    }
+
+    selectedIndexChangeDebouncer(args) {
+        const picker = <ListPicker>args.object;
+        console.log("picker selection: " + picker.selectedIndex);
+        // If we are the same index as the last time, or the next time; we skip doing anything.
+        if (picker.selectedIndex === this.lastTimer.value) { return; }
+
+        // Grab our current value...
+        this.lastTimer.value = picker.selectedIndex;
+
+        // If the timer is already running, clear it...
+        if (this.lastTimer.id != null) { clearTimeout(this.lastTimer.id); }
+
+        // Start a new timer  (runs in 1/4 of a second)
+        this.lastTimer.id = setTimeout(() => {
+            this.lastTimer.id = null;
+            this.selectedGroepIndexChanged(args);
+        }, 250);
     }
 
     selectedGroepIndexChanged(args) {

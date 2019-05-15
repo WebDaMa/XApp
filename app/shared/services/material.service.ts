@@ -12,9 +12,9 @@ export class MaterialService extends Service {
         super();
     }
 
-    getTotalForGuideAndDateAction(guideId, date): Observable<Material> {
+    getTotalForGuideDateAndLocationAction(guideId, date, locationId): Observable<Material> {
         const headers = this.createRequestHeader();
-        const url = Config.apiUrl + "api/suitsize/total/" + guideId + "/" + date;
+        const url = Config.apiUrl + "api/suitsize/total/" + guideId + "/" + date + "/" + locationId;
         console.log(url);
 
         return this.http.get<Material>(url, { headers });

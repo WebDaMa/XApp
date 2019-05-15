@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular";
 import { RadDataForm } from "nativescript-ui-dataform";
 import { Settings } from "~/settings/settings";
@@ -22,8 +21,7 @@ export class BusbackComponent implements OnInit {
         date: ""
     };
 
-    constructor(private customerService: CustomerService, private routerExtensions: RouterExtensions,
-                private activeRoute: ActivatedRoute) {
+    constructor(private customerService: CustomerService, private routerExtensions: RouterExtensions) {
     }
 
     ngOnInit(): void {

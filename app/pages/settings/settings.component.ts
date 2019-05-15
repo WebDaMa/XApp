@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular";
 import { DatePicker } from "tns-core-modules/ui/date-picker";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
@@ -21,8 +20,7 @@ export class SettingsComponent implements OnInit {
     isBusy: boolean = true;
 
     @ViewChild(DatePicker) datePicker: DatePicker;
-    constructor(private locationService: LocationService, private routerExtensions: RouterExtensions,
-                private activeRoute: ActivatedRoute) {
+    constructor(private locationService: LocationService, private routerExtensions: RouterExtensions) {
     }
 
     ngOnInit(): void {

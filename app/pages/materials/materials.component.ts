@@ -46,10 +46,14 @@ export class MaterialsComponent implements OnInit {
 
         const appSettings = require("tns-core-modules/application-settings");
         let guideId: string = "3";
+        let locationId: string = "1";
+        if (appSettings.hasKey("locationId")) {
+            locationId = appSettings.getString("locationId");
+        }
         if (appSettings.hasKey("guideId")) {
             guideId = appSettings.getString("guideId");
         }
-        this.materialService.getTotalForGuideAndDateAction(guideId, date).subscribe(
+        this.materialService.getTotalForGuideDateAndLocationAction(guideId, date, locationId).subscribe(
             (result: Material) => {
 
                 this.material = result;

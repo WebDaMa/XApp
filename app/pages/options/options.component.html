@@ -7,7 +7,7 @@
         <Label class="text-center" [visibility]="!hasGroeps ? 'visible' : 'collapse'"
                text="Geen groepen gevonden, kies een andere locatie of dag."></Label>
         <ListPicker [items]="groepItems" [visibility]="hasGroeps ? 'visible' : 'collapse'"
-                    [selectedIndex]="selectedGroepIndex" (selectedIndexChange)="selectedGroepIndexChanged($event)"
+                    [selectedIndex]="selectedGroepIndex" (selectedIndexChange)="selectedIndexChangeDebouncer($event)"
                     class=""></ListPicker>
         <SegmentedBar [items]="optionCategoryItems" [visibility]="hasGroeps ? 'visible' : 'collapse'"
                       (selectedIndexChange)="selectedOptionCategoryIndexChanged($event)"></SegmentedBar>
