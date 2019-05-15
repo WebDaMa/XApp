@@ -147,6 +147,7 @@ export class SettingsComponent implements OnInit {
         appSettings.remove("settingsDate");
 
         alert("Datum ingesteld op: " + year + "-" + month + "-" + day);
+        this.alertSaturday(now);
     }
 
     goBack() {

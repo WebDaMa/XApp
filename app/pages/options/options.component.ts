@@ -98,6 +98,8 @@ export class OptionsComponent implements OnInit {
 
     selectedIndexChangeDebouncer(args) {
         const picker = <ListPicker>args.object;
+        this.formEditCounter = 0;
+        this.noActivityRafters = 0;
         // If we are the same index as the last time, or the next time; we skip doing anything.
         if (picker.selectedIndex === this.lastTimer.value) { return; }
 
@@ -363,9 +365,11 @@ export class OptionsComponent implements OnInit {
         const dataForm = <RadDataForm>args.object;
         const raftingCustomer: RaftingCustomer = <RaftingCustomer> JSON.parse(dataForm.editedObject);
 
-        this.formEditCounter ++;
+        if (this.noActivityRafters > 0) {
+            this.formEditCounter ++;
+        }
         /*Used to check if first updates happened to skip empty update requests*/
-        if (this.formEditCounter > this.noActivityRafters) {
+        if (this.formEditCounter > this.noActivityRafters && !this.isBusy) {
             const options = {
                 title: "Activiteit Wijzigen",
                 message: "Wilt u de activiteit voor " + raftingCustomer.customer + " wijzigen?",
@@ -379,7 +383,6 @@ export class OptionsComponent implements OnInit {
                 }
             });
         }
-
 
     }
 
