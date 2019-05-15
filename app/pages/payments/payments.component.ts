@@ -27,6 +27,8 @@ export class PaymentsComponent implements OnInit {
 
     isBusy: boolean = true;
 
+    lastTimer = {id: null, value: -1};
+
     constructor(private groepService: GroepService, private customerService: CustomerService,
                 private routerExtensions: RouterExtensions, private page: Page, private activeRoute: ActivatedRoute) {
         this.page.on(Page.navigatingToEvent, () => {
@@ -37,6 +39,24 @@ export class PaymentsComponent implements OnInit {
     ngOnInit(): void {
         this.getGroeps();
 
+    }
+
+    selectedIndexChangeDebouncer(args) {
+        const picker = <ListPicker>args.object;
+        // If we are the same index as the last time, or the next time; we skip doing anything.
+        if (picker.selectedIndex === this.lastTimer.value) { return; }
+
+        // Grab our current value...
+        this.lastTimer.value = picker.selectedIndex;
+
+        // If the timer is already running, clear it...
+        if (this.lastTimer.id != null) { clearTimeout(this.lastTimer.id); }
+
+        // Start a new timer  (runs in 1/4 of a second)
+        this.lastTimer.id = setTimeout(() => {
+            this.lastTimer.id = null;
+            this.selectedIndexChanged(args);
+        }, 350);
     }
 
     selectedIndexChanged(args) {

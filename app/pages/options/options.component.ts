@@ -63,7 +63,6 @@ export class OptionsComponent implements OnInit {
 
     selectedIndexChangeDebouncer(args) {
         const picker = <ListPicker>args.object;
-        console.log("picker selection: " + picker.selectedIndex);
         // If we are the same index as the last time, or the next time; we skip doing anything.
         if (picker.selectedIndex === this.lastTimer.value) { return; }
 
@@ -77,7 +76,7 @@ export class OptionsComponent implements OnInit {
         this.lastTimer.id = setTimeout(() => {
             this.lastTimer.id = null;
             this.selectedGroepIndexChanged(args);
-        }, 250);
+        }, 350);
     }
 
     selectedGroepIndexChanged(args) {

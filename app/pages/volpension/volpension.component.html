@@ -29,7 +29,7 @@
     <ListView [items]="volpension.allInTypes" class="m-5">
         <ng-template let-item="item" let-i="index">
             <GridLayout columns="*, *, *, * ,*, *" rows="auto" class="m-5">
-                <Label [text]="item.allInType" class="font-weight-bold" col="0"></Label>
+                <Label [text]="item.allInType" class="font-weight-bold h3" col="0"></Label>
                 <Label [text]="item.totals.XAD ? item.totals.XAD : 0" col="1"></Label>
                 <Label [text]="item.totals.FAD ? item.totals.FAD : 0" col="2"></Label>
                 <Label [text]="item.totals.JAD ? item.totals.JAD : 0" col="3"></Label>
@@ -39,7 +39,7 @@
         </ng-template>
     </ListView>
     |
-    <ScrollView>
+    <ScrollView height="100%">
         <StackLayout>
             <StackLayout *ngFor="let allInType of volpension.allInTypes">
                 <Label *ngIf="allInType.customers && allInType.customers.length > 0" [text]="allInType.allInType" class="text-center p-4" backgroundColor="#e5e5e5"></Label>

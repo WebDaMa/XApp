@@ -35,6 +35,8 @@ export class LodgingComponent implements OnInit {
         customers: []
     };
 
+    lastTimer = {id: null, value: -1};
+
     constructor(private customerService: CustomerService, private agencyService: AgencyService,
                 private routerExtensions: RouterExtensions, private page: Page, private activeRoute: ActivatedRoute) {
     }
@@ -125,6 +127,24 @@ export class LodgingComponent implements OnInit {
                     }
                 );
         }
+    }
+
+    selectedIndexChangeDebouncer(args) {
+        const picker = <ListPicker>args.object;
+        // If we are the same index as the last time, or the next time; we skip doing anything.
+        if (picker.selectedIndex === this.lastTimer.value) { return; }
+
+        // Grab our current value...
+        this.lastTimer.value = picker.selectedIndex;
+
+        // If the timer is already running, clear it...
+        if (this.lastTimer.id != null) { clearTimeout(this.lastTimer.id); }
+
+        // Start a new timer  (runs in 1/4 of a second)
+        this.lastTimer.id = setTimeout(() => {
+            this.lastTimer.id = null;
+            this.selectedIndexAgencyChanged(args);
+        }, 350);
     }
 
     selectedIndexAgencyChanged(args) {

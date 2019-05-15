@@ -19,7 +19,7 @@
         <Label class="text-center" [visibility]="!hasGroeps ? 'visible' : 'collapse'"
                text="Geen groepen gevonden, kies een andere locatie."></Label>
         <ListPicker [items]="groepItems" [visibility]="hasGroeps ? 'visible' : 'collapse'"
-                    [selectedIndex]="selectedIndex" (selectedIndexChange)="selectedIndexChanged($event)"
+                    [selectedIndex]="selectedIndex" (selectedIndexChange)="selectedIndexChangeDebouncer($event)"
                     class="p-10"></ListPicker>
 
         <GridLayout columns="10, *, *, *" rows="auto" class="m-5 h3" backgroundColor="#e5e5e5">
