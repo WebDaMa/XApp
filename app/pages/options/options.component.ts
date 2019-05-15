@@ -54,6 +54,9 @@ export class OptionsComponent implements OnInit {
     specialCustomers: Array<SpecialCustomer> = [];
 
     lastTimer = {id: null, value: -1};
+    /*Used To prevent first updates forced on load*/
+    formEditCounter: number = 0;
+    noActivityRafters: number = 0;
 
     constructor(private groepService: GroepService, private customerService: CustomerService,
                 private page: Page, private optionService: OptionService, private routerExtensions: RouterExtensions) {
@@ -126,13 +129,12 @@ export class OptionsComponent implements OnInit {
     }
 
     selectedOptionCategoryIndexChanged(args) {
+        this.formEditCounter = 0;
         const segmentedBar = <SegmentedBar>args.object;
         const selectedIndex = segmentedBar.selectedIndex;
 
-        if (this.optionCategories.length > 0) {
-            this.optionCategory = this.optionCategories[selectedIndex];
-            this.getActivities();
-        }
+        this.optionCategory = this.optionCategories[selectedIndex];
+        this.getActivities();
 
     }
 
@@ -239,6 +241,10 @@ export class OptionsComponent implements OnInit {
                     this.raftingCustomers = result;
                     this.hasRaftingCustomers = true;
                     console.log("found me some rafting customers");
+
+                    /*Count those with no activity to prevent upload bug*/
+                    this.countEmptyRaftingActivityCustomers();
+
                     this.isBusy = false;
                 },
                 (error) => {
@@ -250,6 +256,15 @@ export class OptionsComponent implements OnInit {
                 }
             );
 
+    }
+
+    countEmptyRaftingActivityCustomers(): void {
+        this.noActivityRafters = 0;
+        this.raftingCustomers.forEach((customer) => {
+            if (customer.activityId === null) {
+                this.noActivityRafters ++;
+            }
+        });
     }
 
     getCanyoningCustomers(): void {
@@ -348,6 +363,27 @@ export class OptionsComponent implements OnInit {
         const dataForm = <RadDataForm>args.object;
         const raftingCustomer: RaftingCustomer = <RaftingCustomer> JSON.parse(dataForm.editedObject);
 
+        this.formEditCounter ++;
+        /*Used to check if first updates happened to skip empty update requests*/
+        if (this.formEditCounter > this.noActivityRafters) {
+            const options = {
+                title: "Activiteit Wijzigen",
+                message: "Wilt u de activiteit voor " + raftingCustomer.customer + " wijzigen?",
+                okButtonText: "Wijzigen",
+                cancelButtonText: "Cancel"
+            };
+
+            dialogs.confirm(options).then((result: boolean) => {
+                if (result) {
+                    this.updateRaftingCustomer(raftingCustomer);
+                }
+            });
+        }
+
+
+    }
+
+    updateRaftingCustomer(raftingCustomer): void {
         this.isBusy = true;
 
         this.customerService.putCustomerRaftingOptionAction(raftingCustomer)

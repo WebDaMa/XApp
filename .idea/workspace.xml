@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29231f43-1602-4262-8068-fafd9ea89c9e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/pages/bill/bill.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/bill/bill.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/checkin/checkin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/checkin/checkin.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/groep/groep.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/groep/groep.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/login/login.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/options/options.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/options/options.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/payments/payments.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/payments/payments.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/settings/settings.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/settings/settings.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/sizes/sizes.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/sizes/sizes.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="login.component.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/pages/login/login.component.ts">
+      <file leaf-file-name="options.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/pages/options/options.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="90" column="39" lean-forward="true" selection-start-line="90" selection-start-column="39" selection-end-line="90" selection-end-column="39" />
+            <state relative-caret-position="269">
+              <caret line="369" column="34" selection-start-line="369" selection-start-column="34" selection-end-line="369" selection-end-column="34" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -44,7 +36,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>&quot;</find>
       <find>&quot;fa</find>
       <find>fa</find>
       <find>d3d3d3</find>
@@ -74,6 +65,7 @@
       <find>application-settings</find>
       <find>app</find>
       <find>groeps</find>
+      <find>formEditCounter</find>
     </findStrings>
     <replaceStrings>
       <replace>Array&lt;Size&gt;</replace>
@@ -134,7 +126,6 @@
         <option value="$PROJECT_DIR$/app/pages/materials/materials-settings/materials-settings.component.html" />
         <option value="$PROJECT_DIR$/app/pages/sizes/sizes.component.html" />
         <option value="$PROJECT_DIR$/app/pages/weekOverview/weekOverview.component.html" />
-        <option value="$PROJECT_DIR$/app/App_Resources/Android/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/pages/busback/busback.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/materials/materials.component.ts" />
         <option value="$PROJECT_DIR$/app/shared/services/material.service.ts" />
@@ -151,11 +142,12 @@
         <option value="$PROJECT_DIR$/app/pages/sizes/sizes.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/payments/payments.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/groep/groep.component.ts" />
-        <option value="$PROJECT_DIR$/app/pages/options/options.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/checkin/checkin.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/bill/bill.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/login/login.component.html" />
         <option value="$PROJECT_DIR$/app/pages/login/login.component.ts" />
+        <option value="$PROJECT_DIR$/app/App_Resources/Android/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/pages/options/options.component.ts" />
       </list>
     </option>
   </component>
@@ -199,6 +191,19 @@
               <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="XApp" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XApp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="App_Resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XApp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="App_Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="Android" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
@@ -379,12 +384,12 @@
       <workItem from="1556362943207" duration="13427000" />
       <workItem from="1556752524096" duration="8321000" />
       <workItem from="1557518857734" duration="357000" />
-      <workItem from="1557519544796" duration="14532000" />
+      <workItem from="1557519544796" duration="17196000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="347467000" />
+    <option name="totallyTimeSpent" value="350131000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -396,7 +401,7 @@
       <window_info anchor="bottom" id="NativeScript" order="7" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.6533333" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.2988889" />
       <window_info anchor="bottom" id="TypeScript" order="7" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20069444" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
@@ -578,13 +583,6 @@
     <entry file="file://$PROJECT_DIR$/app/pages/weekOverview/weekOverview.component.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/App_Resources/Android/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="139" selection-start-line="2" selection-start-column="139" selection-end-line="2" selection-end-column="139" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/busback/busback.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -625,13 +623,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/package.json">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/options/options.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="77" column="73" lean-forward="true" selection-start-line="77" selection-start-column="73" selection-end-line="77" selection-end-column="73" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/busgo/busgo.component.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -738,16 +729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/options/options.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/settings/settings.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2073">
@@ -796,6 +777,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
           <caret line="90" column="39" lean-forward="true" selection-start-line="90" selection-start-column="39" selection-end-line="90" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/App_Resources/Android/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="110" selection-start-line="2" selection-start-column="110" selection-end-line="2" selection-end-column="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/options/options.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="716">
+          <caret line="42" column="98" selection-start-line="42" selection-start-column="98" selection-end-line="42" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/options/options.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="369" column="34" selection-start-line="369" selection-start-column="34" selection-end-line="369" selection-end-column="34" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
