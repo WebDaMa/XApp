@@ -64,36 +64,6 @@ export class OptionsComponent implements OnInit {
 
     ngOnInit(): void {
         this.getGroeps();
-        this.alertSaturday();
-    }
-
-    alertSaturday(): void {
-        const appSettings = require("tns-core-modules/application-settings");
-
-        if (appSettings.hasKey("settingsDate")) {
-            const weekDay = new Date(appSettings.getString("settingsDate")).getDay();
-
-            if (weekDay === 6) {
-                const options = {
-                    title: "Transfer Day",
-                    message: "Indien je acties voor huidige groepen wenst te doen, " +
-                    "pas je de datum naar vrijdag deze week aan bij settings!",
-                    okButtonText: "Settings",
-                    cancelButtonText: "Nieuwe groep"
-                };
-
-                dialogs.confirm(options).then((result: boolean) => {
-                    if (result) {
-                        this.routerExtensions.navigate(["/settings"], {
-                            transition: {
-                                name: "fade"
-                            }
-                        });
-                    }
-                });
-            }
-        }
-
     }
 
     selectedIndexChangeDebouncer(args) {

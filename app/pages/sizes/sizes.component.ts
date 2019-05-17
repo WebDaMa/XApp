@@ -34,7 +34,8 @@ export class SizesComponent implements OnInit {
     lastTimer = {id: null, value: -1};
 
     constructor(private groepService: GroepService, private customerService: CustomerService,
-                private suitSizeService: SuitSizeService, private page: Page, private routerExtensions: RouterExtensions) {
+                private suitSizeService: SuitSizeService, private page: Page,
+                private routerExtensions: RouterExtensions) {
     }
 
     ngOnInit(): void {
@@ -48,37 +49,8 @@ export class SizesComponent implements OnInit {
             }
         });
 
-        this.alertSaturday();
     }
 
-    alertSaturday(): void {
-        const appSettings = require("tns-core-modules/application-settings");
-
-        if (appSettings.hasKey("settingsDate")) {
-            const weekDay = new Date(appSettings.getString("settingsDate")).getDay();
-
-            if (weekDay === 6) {
-                const options = {
-                    title: "Transfer Day",
-                    message: "Indien je acties voor huidige groepen wenst te doen, " +
-                    "pas je de datum naar vrijdag deze week aan bij settings!",
-                    okButtonText: "Settings",
-                    cancelButtonText: "Nieuwe groep"
-                };
-
-                dialogs.confirm(options).then((result: boolean) => {
-                    if (result) {
-                        this.routerExtensions.navigate(["/settings"], {
-                            transition: {
-                                name: "fade"
-                            }
-                        });
-                    }
-                });
-            }
-        }
-
-    }
 
     selectedIndexChangeDebouncer(args) {
         const picker = <ListPicker>args.object;

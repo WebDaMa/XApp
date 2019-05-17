@@ -66,6 +66,14 @@ export class BusbackComponent implements OnInit {
             );
     }
 
+    /*callCustomer(customer) {
+        const phoneNumber = customer.gsm;
+
+        TNSPhone.requestCallPermission("You should accept the permission to be able to make a direct phone call.")
+            .then(() => TNSPhone.dial(phoneNumber, false))
+            .catch(() => TNSPhone.dial(phoneNumber, true));
+    }*/
+
     goBack() {
         this.routerExtensions.navigate(["/tabs/default"], {
             transition: {

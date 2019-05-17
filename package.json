@@ -6,7 +6,7 @@
   "nativescript": {
     "id": "org.nativescript.XApp",
     "tns-android": {
-      "version": "5.3.1"
+      "version": "5.4.0"
     }
   },
   "scripts": {
@@ -27,12 +27,12 @@
     "nativescript-ui-sidedrawer": "^5.0.0",
     "reflect-metadata": "~0.1.10",
     "rxjs": "^6.3.3",
-    "tns-core-modules": "^5.3.1",
+    "tns-core-modules": "^5.4.0",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "^7.2.14",
-    "@ngtools/webpack": "~7.0.0",
+    "@angular/compiler-cli": "~7.2.0",
+    "@ngtools/webpack": "~7.2.0",
     "babel-traverse": "6.26.0",
     "babel-types": "6.26.0",
     "babylon": "6.18.0",
@@ -40,7 +40,7 @@
     "lazy": "1.0.11",
     "nativescript-dev-sass": "^1.7.0",
     "nativescript-dev-typescript": "^0.7.6",
-    "nativescript-dev-webpack": "^0.21.2",
+    "nativescript-dev-webpack": "^0.22.0",
     "string-replace-loader": "^2.1.1",
     "tslint": "~5.10.0",
     "typescript": "~3.1.1",

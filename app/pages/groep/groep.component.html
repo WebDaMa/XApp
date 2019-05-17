@@ -15,8 +15,13 @@
     <StackLayout class="page page-content" tkMainContent>
         <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100"
                            class="activity-indicator"></ActivityIndicator>
+        <TextView [visibility]="!hasCustomers && !isBusy ? 'visible' : 'collapsed'"
+                  text="Geen deelnemers gevonden voor deze week en locatie. Ga naar settings om een andere dag of locatie te kiezen."
+                  editable="false" class="text-center"></TextView>
         <StackLayout *ngFor="let customer of customers" class="m-5">
-            <StackLayout class="hr-light"></StackLayout>
+            <StackLayout class="m-5 p-l-10 h2" backgroundColor="#e5e5e5">
+                <Label [text]="customer.customer"></Label>
+            </StackLayout>
             <RadDataForm tkExampleTitle tkToggleNavButton [source]="customer"
                          (propertyCommitted)="dfPropertyCommitted($event)">
                 <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
@@ -24,7 +29,7 @@
                     <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" readOnly="true"
                                       name="id" index="0">
                     </TKEntityProperty>
-                    <TKEntityProperty tkPropertyGroupProperties columnIndex="0" readOnly="true" name="customer"
+                    <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" readOnly="true" name="customer"
                                       displayName="Deelnemer" index="0">
                         <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
                     </TKEntityProperty>

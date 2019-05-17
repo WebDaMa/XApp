@@ -19,6 +19,7 @@ import { PlanningService } from "~/shared/services/planning.service";
 export class PlanningComponent implements OnInit {
     guides: Array<object> = [];
     plannings: Array<Planning>;
+    hasPlannings: boolean = false;
 
     date: string = "";
     locationId: string = "";
@@ -53,9 +54,13 @@ export class PlanningComponent implements OnInit {
                     this.plannings = result;
                     console.log("found me some plannings");
                     this.isBusy = false;
+                    if (this.plannings.length > 0) {
+                        this.hasPlannings = true;
+                    }
                 },
                 (error) => {
                     console.dir(error);
+                    this.isBusy = false;
                     /*TODO: handle errors*/
                 }
             );
@@ -75,6 +80,7 @@ export class PlanningComponent implements OnInit {
                 },
                 (error) => {
                     console.dir(error);
+                    this.isBusy = false;
                     /*TODO: handle errors*/
                 }
             );
@@ -96,6 +102,7 @@ export class PlanningComponent implements OnInit {
                     },
                     (error) => {
                         console.dir(error);
+                        this.isBusy = false;
                         /*TODO: handle errors*/
                     }
                 );

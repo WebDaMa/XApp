@@ -19,6 +19,7 @@ export class GroepComponent implements OnInit {
     groeps: Array<object> = [];
 
     customers: Array<GroepCustomer> = [];
+    hasCustomers: boolean = false;
 
     isBusy: boolean = true;
 
@@ -81,7 +82,6 @@ export class GroepComponent implements OnInit {
 
                     this.isBusy = false;
                     this.getCustomers();
-
                 },
                 (error) => {
                     console.dir(error);
@@ -101,6 +101,9 @@ export class GroepComponent implements OnInit {
                 (result: Array<GroepCustomer>) => {
 
                     this.customers = result;
+                    if (this.customers.length > 0) {
+                        this.hasCustomers = true;
+                    }
                     console.log("found me some groep customers");
                     this.isBusy = false;
                 },

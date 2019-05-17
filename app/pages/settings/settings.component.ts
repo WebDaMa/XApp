@@ -117,8 +117,8 @@ export class SettingsComponent implements OnInit {
         if (weekDay === 6) {
             const options = {
                 title: "Transfer Day",
-                message: "Indien je acties voor huidige groepen wenst te doen, " +
-                "pas je de datum naar vrijdag aan!",
+                message: "Indien je acties voor groepen die vandaag vertrekken wenst te doen, " +
+                "pas je de datum naar vrijdag(gisteren) aan!",
                 okButtonText: "OK"
             };
 
