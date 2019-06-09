@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular";
 import * as dialogs from "tns-core-modules/ui/dialogs";
 import { ListPicker } from "tns-core-modules/ui/list-picker";

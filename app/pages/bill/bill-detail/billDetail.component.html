@@ -35,10 +35,11 @@
             <Label row="0" col="3" [text]="'€ ' + option.price"></Label>
         </GridLayout>
 
-        <GridLayout columns="10, *, *, auto" rows="auto" class="m-5 h3" backgroundColor="#e5e5e5">
+        <GridLayout columns="10, *, *, *, auto" rows="auto" class="m-5 h3" backgroundColor="#e5e5e5">
             <Label row="0" col="1" text="Klant"></Label>
             <Label row="0" col="2" text="Totaal (€)"></Label>
             <Label row="0" col="3" text="Betaald"></Label>
+            <Label row="0" col="4" text="Payconiq"></Label>
         </GridLayout>
 
         <StackLayout *ngFor="let customer of customerBillDetail.totals">
@@ -61,14 +62,19 @@
                                       displayName="" index="0">
                         <TKPropertyEditor tkEntityPropertyEditor type="Switch"></TKPropertyEditor>
                     </TKEntityProperty>
+                    <TKEntityProperty tkPropertyGroupProperties columnIndex="3" name="payedPayconiq"
+                                      displayName="" index="0">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Switch"></TKPropertyEditor>
+                    </TKEntityProperty>
                 </TKPropertyGroup>
             </RadDataForm>
         </StackLayout>
 
-        <GridLayout columns="10, *, *, auto" rows="auto" class="m-5 h3" backgroundColor="#e5e5e5">
+        <GridLayout columns="10, *, *, *, auto" rows="auto" class="m-5 h3" backgroundColor="#e5e5e5">
             <Label row="0" col="1" text="Booker"></Label>
             <Label row="0" col="2" text="Totaal (€)"></Label>
             <Label row="0" col="3" text="Betaald"></Label>
+            <Label row="0" col="4" text="Payconiq"></Label>
         </GridLayout>
 
         <StackLayout>
@@ -88,6 +94,10 @@
                         <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
                     </TKEntityProperty>
                     <TKEntityProperty tkPropertyGroupProperties columnIndex="2" name="payed"
+                                      displayName="" index="0">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Switch"></TKPropertyEditor>
+                    </TKEntityProperty>
+                    <TKEntityProperty tkPropertyGroupProperties columnIndex="3" name="payedPayconiq"
                                       displayName="" index="0">
                         <TKPropertyEditor tkEntityPropertyEditor type="Switch"></TKPropertyEditor>
                     </TKEntityProperty>

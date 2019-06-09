@@ -4,4 +4,5 @@ export class BillCustomer {
     booker: string;
     bookerId: string;
     payed: boolean;
+    payedPayconiq: boolean;
 }

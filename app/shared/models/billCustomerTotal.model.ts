@@ -3,4 +3,5 @@ export class BillCustomerTotal {
     customer: string;
     total: string;
     payed: boolean;
+    payedPayconiq: boolean;
 }

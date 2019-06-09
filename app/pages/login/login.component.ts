@@ -1,10 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular";
 import { Page } from "tns-core-modules/ui/page";
+import * as utils from "tns-core-modules/utils/utils";
 import { User } from "~/shared/models/user.model";
 import { UserService } from "~/shared/services/user.service";
-import * as utils from "tns-core-modules/utils/utils";
-
 
 @Component({
     selector: "Login",

@@ -3,14 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="29231f43-1602-4262-8068-fafd9ea89c9e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/bill/bill-detail/billDetail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/bill/bill-detail/billDetail.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/bill/bill-detail/billDetail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/bill/bill-detail/billDetail.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/bill/bill.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/bill/bill.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/bill/bill.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/bill/bill.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/busback/busback.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/busback/busback.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/groep/groep.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/groep/groep.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/checkin/checkin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/checkin/checkin.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/groep/groep.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/groep/groep.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/options/options.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/options/options.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/planning/planning.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/planning/planning.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/planning/planning.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/planning/planning.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/lodging/lodging.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/lodging/lodging.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/login/login.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages/settings/settings.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/settings/settings.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/sizes/sizes.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/sizes/sizes.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pages/volpension/volpension.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/volpension/volpension.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/shared/models/billCustomer.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/billCustomer.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/shared/models/billCustomerTotal.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/models/billCustomerTotal.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
@@ -24,14 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="groep.component.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/pages/groep/groep.component.ts">
+      <file leaf-file-name="customer.service.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/shared/services/customer.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="104" selection-start-line="104" selection-end-line="104" />
-              <folding>
-                <element signature="e#0#61#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="24">
+              <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -47,7 +50,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>m-5</find>
       <find>h3 h3</find>
       <find>h3</find>
       <find>checkin</find>
@@ -77,6 +79,7 @@
       <find>&gt;</find>
       <find>form</find>
       <find>formEdit</find>
+      <find>ViewChild</find>
     </findStrings>
     <replaceStrings>
       <replace>Array&lt;Size&gt;</replace>
@@ -97,9 +100,9 @@
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/node_modules</dir>
-      <dir>$PROJECT_DIR$/app</dir>
       <dir>$PROJECT_DIR$</dir>
       <dir>$PROJECT_DIR$/app/pages</dir>
+      <dir>$PROJECT_DIR$/app</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -108,23 +111,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/pages/sizes/sizes.module.ts" />
-        <option value="$PROJECT_DIR$/app/pages/payments/payments.module.ts" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/app/main.ts" />
         <option value="$PROJECT_DIR$/tsconfig.json" />
         <option value="$PROJECT_DIR$/app/pages/tabs-routing.module.ts" />
         <option value="$PROJECT_DIR$/app/app-routing.module.ts" />
-        <option value="$PROJECT_DIR$/app/pages/bill/bill-detail/billDetail.component.html" />
-        <option value="$PROJECT_DIR$/app/pages/bill/bill-detail/billDetail.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/checkin/checkin-detail/checkinDetail.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/payments/payments-add/paymentsAdd.component.ts" />
-        <option value="$PROJECT_DIR$/app/pages/volpension/volpension.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/materials/materials-settings/materials-settings.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/weekOverview/weekOverview.component.ts" />
         <option value="$PROJECT_DIR$/app/settings/settings.ts" />
         <option value="$PROJECT_DIR$/app/shared/services/service.ts" />
-        <option value="$PROJECT_DIR$/app/app.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/tabs.component.html" />
         <option value="$PROJECT_DIR$/app/pages/tabs.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/materials/materials-settings/materials-settings.component.html" />
@@ -136,29 +133,35 @@
         <option value="$PROJECT_DIR$/app/pages/busgo/busgo.component.html" />
         <option value="$PROJECT_DIR$/app/pages/payments/payments.component.html" />
         <option value="$PROJECT_DIR$/app/pages/checkin/checkin.component.html" />
-        <option value="$PROJECT_DIR$/app/pages/lodging/lodging.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/lodging/lodging.component.html" />
         <option value="$PROJECT_DIR$/app/pages/volpension/volpension.component.html" />
-        <option value="$PROJECT_DIR$/app/pages/bill/bill.component.html" />
         <option value="$PROJECT_DIR$/app/pages/payments/payments.component.ts" />
-        <option value="$PROJECT_DIR$/app/pages/checkin/checkin.component.ts" />
-        <option value="$PROJECT_DIR$/app/pages/bill/bill.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/login/login.component.html" />
         <option value="$PROJECT_DIR$/app/pages/login/login.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/sizes/sizes.component.html" />
         <option value="$PROJECT_DIR$/app/app.component.html" />
         <option value="$PROJECT_DIR$/app/pages/busgo/busgo.component.ts" />
-        <option value="$PROJECT_DIR$/app/pages/busback/busback.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/busback/busback.component.html" />
         <option value="$PROJECT_DIR$/app/App_Resources/Android/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/App_Resources/iOS/Info.plist" />
-        <option value="$PROJECT_DIR$/app/pages/settings/settings.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/options/options.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/sizes/sizes.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/planning/planning.component.html" />
         <option value="$PROJECT_DIR$/app/pages/groep/groep.component.html" />
         <option value="$PROJECT_DIR$/app/pages/planning/planning.component.ts" />
+        <option value="$PROJECT_DIR$/app/app.component.ts" />
+        <option value="$PROJECT_DIR$/app/pages/busback/busback.component.ts" />
+        <option value="$PROJECT_DIR$/app/pages/checkin/checkin.component.ts" />
         <option value="$PROJECT_DIR$/app/pages/groep/groep.component.ts" />
+        <option value="$PROJECT_DIR$/app/pages/lodging/lodging.component.ts" />
+        <option value="$PROJECT_DIR$/app/pages/settings/settings.component.ts" />
+        <option value="$PROJECT_DIR$/app/pages/volpension/volpension.component.ts" />
+        <option value="$PROJECT_DIR$/app/shared/models/billCustomer.model.ts" />
+        <option value="$PROJECT_DIR$/app/pages/bill/bill.component.html" />
+        <option value="$PROJECT_DIR$/app/pages/bill/bill-detail/billDetail.component.ts" />
+        <option value="$PROJECT_DIR$/app/shared/models/billCustomerTotal.model.ts" />
+        <option value="$PROJECT_DIR$/app/pages/bill/bill.component.ts" />
+        <option value="$PROJECT_DIR$/app/pages/bill/bill-detail/billDetail.component.html" />
       </list>
     </option>
   </component>
@@ -191,6 +194,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -214,6 +218,21 @@
               <item name="XApp" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="bill" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XApp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="bill" type="462c0819:PsiDirectoryNode" />
+              <item name="bill-detail" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XApp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="groep" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -222,6 +241,13 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="lodging" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XApp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
@@ -237,11 +263,23 @@
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="planning" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XApp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="XApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XApp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -355,15 +393,20 @@
       <workItem from="1556752524096" duration="8321000" />
       <workItem from="1557518857734" duration="357000" />
       <workItem from="1557519544796" duration="23181000" />
-      <workItem from="1558091493808" duration="6428000" />
+      <workItem from="1558091493808" duration="8493000" />
+      <workItem from="1559140681850" duration="199000" />
+      <workItem from="1559922937709" duration="2863000" />
+      <workItem from="1559931329468" duration="91000" />
+      <workItem from="1560091142557" duration="3798000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="362544000" />
+    <option name="totallyTimeSpent" value="371560000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -371,9 +414,9 @@
       <window_info anchor="bottom" id="NativeScript" order="7" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.8788889" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.16111112" />
       <window_info anchor="bottom" id="TypeScript" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20069444" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20069444" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Nativescript Palette" order="3" />
       <window_info anchor="right" id="Database" order="3" />
@@ -450,31 +493,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5864" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/bill/bill.module.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/_tabs.component.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/tabs.component.android.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/tabs.component.ios.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/_app-common.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1402" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/_app-variables.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/app.android.scss">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -551,23 +569,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/lodging/lodging.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="37" selection-start-line="37" selection-end-line="38" />
-          <folding>
-            <element signature="e#0#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/services/customer.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="126" column="4" selection-start-line="126" selection-start-column="4" selection-end-line="126" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/checkin/checkin.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -582,24 +583,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/checkin/checkin.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="71" column="5" lean-forward="true" selection-start-line="44" selection-start-column="4" selection-end-line="71" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/login/login.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" column="89" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/login/login.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="90" column="39" lean-forward="true" selection-start-line="90" selection-start-column="39" selection-end-line="90" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -631,31 +618,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/bill/bill.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="88" column="5" selection-start-line="72" selection-start-column="4" selection-end-line="88" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/bill/bill.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="32" column="70" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="32" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/busgo/busgo.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-968">
           <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/busback/busback.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -680,23 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/settings/settings.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="120" column="62" lean-forward="true" selection-start-line="120" selection-start-column="62" selection-end-line="120" selection-end-column="62" />
-          <folding>
-            <element signature="e#0#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/materials/materials.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="950">
@@ -708,9 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4524">
           <caret line="319" lean-forward="true" selection-start-line="319" selection-end-line="319" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -718,9 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -763,19 +706,133 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="313">
           <caret line="56" column="31" lean-forward="true" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/login/login.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/busback/busback.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/checkin/checkin.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/groep/groep.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/lodging/lodging.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/settings/settings.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/volpension/volpension.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/models/billCustomerDetail.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/models/billCustomer.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/models/billCustomerTotal.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/bill/bill.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="144" column="52" selection-start-line="144" selection-start-column="52" selection-end-line="144" selection-end-column="52" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/groep/groep.component.ts">
+    <entry file="file://$PROJECT_DIR$/app/pages/bill/bill.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="104" selection-start-line="104" selection-end-line="104" />
+        <state relative-caret-position="575">
+          <caret line="36" column="60" selection-start-line="36" selection-start-column="60" selection-end-line="36" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/bill/bill-detail/billDetail.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="98" column="39" lean-forward="true" selection-start-line="98" selection-start-column="39" selection-end-line="98" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/bill/bill-detail/billDetail.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="45" column="35" lean-forward="true" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
           <folding>
-            <element signature="e#0#61#0" expanded="true" />
+            <element signature="e#0#50#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/services/customer.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
         </state>
       </provider>
     </entry>

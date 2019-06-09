@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
 import { PageRoute, RouterExtensions } from "nativescript-angular";
 import { RadDataForm } from "nativescript-ui-dataform";
 import { switchMap } from "rxjs/operators";
@@ -22,7 +21,8 @@ export class BillDetailComponent implements OnInit {
             id: "",
             customer: "",
             total: "",
-            payed: false
+            payed: false,
+            payedPayconiq: false
         },
         totals: [],
         options: []
@@ -31,8 +31,7 @@ export class BillDetailComponent implements OnInit {
     isBusy: boolean = true;
 
     constructor(private customerService: CustomerService,
-                private routerExtensions: RouterExtensions, private pageRoute: PageRoute,
-                private activeRoute: ActivatedRoute) {
+                private routerExtensions: RouterExtensions, private pageRoute: PageRoute) {
         this.pageRoute.activatedRoute.pipe(
             switchMap((activatedRoute) => activatedRoute.params)
         ).forEach((params) => { this.customerId = params.customer_id; });

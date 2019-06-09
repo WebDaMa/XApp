@@ -20,7 +20,7 @@ export class SettingsComponent implements OnInit {
 
     isBusy: boolean = true;
 
-    @ViewChild(DatePicker) datePicker: DatePicker;
+    @ViewChild(DatePicker, {static: false}) datePicker: DatePicker;
     constructor(private locationService: LocationService, private routerExtensions: RouterExtensions) {
     }
 

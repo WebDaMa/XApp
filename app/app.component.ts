@@ -13,7 +13,7 @@ import { Settings } from "~/settings/settings";
     templateUrl: "app.component.html"
 })
 export class AppComponent implements OnInit, AfterViewInit {
-    @ViewChild(RadSideDrawerComponent) drawerComponent: RadSideDrawerComponent;
+    @ViewChild(RadSideDrawerComponent, {static: false}) drawerComponent: RadSideDrawerComponent;
     private _activatedUrl: string;
     private _sideDrawerTransition: DrawerTransitionBase;
     private drawer: RadSideDrawer;
