@@ -350,7 +350,9 @@ export class OptionsComponent implements OnInit {
             dialogs.confirm(options).then((result: boolean) => {
                 if (result) {
                     this.updateRaftingCustomer(raftingCustomer);
-                }
+                }/* else {
+                     TODO: Activity is not PUT, but stays in UI!
+                }*/
             });
         }
 

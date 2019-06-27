@@ -1,0 +1,10 @@
+<StackLayout>
+    <Button col="1" horizontalAlignment="left" text="&#xf021;" class="fas btn btn-primary btn-active"
+                (tap)="getGuides()"></Button>
+    <Label class="text-center" text="Kies een gids:" [visibility]="hasGuides ? 'visible' : 'collapse'"></Label>
+
+    <Button (tap)="displayGuideDialog()" [text]="guide.guideShort + ' - ' + guide.guideFirstName + ' &#xf105;'" [visibility]="hasGuides ? 'visible' : 'collapse'" class="fas btn btn-primary btn-active" ></Button>
+    <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100" class="activity-indicator"></ActivityIndicator>
+    <TextView [visibility]="!hasGuides ? 'visible' : 'collapsed'" text="Geen gids gevonden, kies een andere locatie of datum bij settings."
+              editable="false" class="text-center"></TextView>
+</StackLayout>
