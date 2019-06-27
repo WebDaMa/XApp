@@ -39,7 +39,7 @@ export class GuidesActionComponent implements OnInit {
         };
 
         action(options).then((result) => {
-            this.guideChanged(result);
+            if (result !== "Cancel") {this.guideChanged(result); }
         });
     }
 
