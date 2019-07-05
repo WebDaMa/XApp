@@ -262,30 +262,33 @@ export class OptionsComponent implements OnInit {
     }
 
     dfPropertyCommittedRafting(args): void {
-        const dataForm = <RadDataForm>args.object;
-        const raftingCustomer: RaftingCustomer = <RaftingCustomer> JSON.parse(dataForm.editedObject);
+        if (this.hasRaftingCustomers) {
+            const dataForm = <RadDataForm>args.object;
+            const raftingCustomer: RaftingCustomer = <RaftingCustomer> JSON.parse(dataForm.editedObject);
 
-        if (this.noActivityRafters > 0) {
-            this.formEditCounter ++;
+            if (this.noActivityRafters > 0) {
+                this.formEditCounter ++;
+            }
+            /*Used to check if first updates happened to skip empty update requests*/
+            if (this.formEditCounter > this.noActivityRafters && !this.isBusy) {
+                const options = {
+                    title: "Activiteit Wijzigen",
+                    message: "Wilt u de activiteit voor " + raftingCustomer.customer + " wijzigen?",
+                    okButtonText: "Wijzigen",
+                    cancelButtonText: "Cancel"
+                };
+
+                dialogs.confirm(options).then((result: boolean) => {
+                    if (result) {
+                        this.updateRaftingCustomer(raftingCustomer);
+                    } else {
+                        /*Refresh UI*/
+                        this.formEditCounter = 0;
+                        this.getCustomers();
+                    }
+                });
+            }
         }
-        /*Used to check if first updates happened to skip empty update requests*/
-        if (this.formEditCounter > this.noActivityRafters && !this.isBusy) {
-            const options = {
-                title: "Activiteit Wijzigen",
-                message: "Wilt u de activiteit voor " + raftingCustomer.customer + " wijzigen?",
-                okButtonText: "Wijzigen",
-                cancelButtonText: "Cancel"
-            };
-
-            dialogs.confirm(options).then((result: boolean) => {
-                if (result) {
-                    this.updateRaftingCustomer(raftingCustomer);
-                }/* else {
-                     TODO: Activity is not PUT, but stays in UI!
-                }*/
-            });
-        }
-
     }
 
     updateRaftingCustomer(raftingCustomer): void {
