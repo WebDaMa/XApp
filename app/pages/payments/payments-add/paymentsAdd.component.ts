@@ -5,12 +5,12 @@ import { switchMap } from "rxjs/operators";
 import { Page } from "tns-core-modules/ui/page";
 import { Payment } from "~/shared/models/payment.model";
 import { CustomerService } from "~/shared/services/customer.service";
-import { GroepService } from "~/shared/services/groep.service";
+import { GroupService } from "~/shared/services/group.service";
 
 @Component({
     selector: "PaymentsAdd",
     moduleId: module.id,
-    providers: [GroepService, CustomerService],
+    providers: [GroupService, CustomerService],
     templateUrl: "./paymentsAdd.component.html"
 })
 export class PaymentsAddComponent implements OnInit {
@@ -22,7 +22,7 @@ export class PaymentsAddComponent implements OnInit {
         price: 0
     };
 
-    constructor(private groepService: GroepService, private customerService: CustomerService,
+    constructor(private groepService: GroupService, private customerService: CustomerService,
                 private routerExtensions: RouterExtensions, private page: Page, private pageRoute: PageRoute,
                 private activeRoute: ActivatedRoute) {
         this.pageRoute.activatedRoute.pipe(

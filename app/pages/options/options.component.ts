@@ -1,35 +1,29 @@
 import { Component, OnInit } from "@angular/core";
-import { RouterExtensions } from "nativescript-angular";
 import { RadDataForm } from "nativescript-ui-dataform";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import * as dialogs from "tns-core-modules/ui/dialogs";
-import { ListPicker } from "tns-core-modules/ui/list-picker";
+import { action } from "tns-core-modules/ui/dialogs";
 import { Page } from "tns-core-modules/ui/page";
 import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
 import { Settings } from "~/settings/settings";
 import { Activity } from "~/shared/models/activity.model";
 import { CanyoningCustomer } from "~/shared/models/canyoningCustomer.model";
-import { Groep } from "~/shared/models/groep.model";
+import { Group } from "~/shared/models/groep.model";
 import { OptionCategory } from "~/shared/models/optionCategory.model";
 import { RaftingCustomer } from "~/shared/models/raftingCustomer.model";
 import { SpecialCustomer } from "~/shared/models/specialCustomer.model";
 import { CustomerService } from "~/shared/services/customer.service";
-import { GroepService } from "~/shared/services/groep.service";
+import { GroupService } from "~/shared/services/group.service";
 import { OptionService } from "~/shared/services/option.service";
 
 @Component({
     selector: "Options",
     moduleId: module.id,
-    providers: [GroepService, CustomerService, OptionService],
+    providers: [GroupService, CustomerService, OptionService],
     templateUrl: "./options.component.html"
 })
 export class OptionsComponent implements OnInit {
-
-    groeps: Array<Groep> = [];
-    groepItems: object = {};
-    groep: Groep;
-    hasGroeps: boolean = false;
 
     isBusy: boolean;
 
@@ -53,51 +47,28 @@ export class OptionsComponent implements OnInit {
     hasSpecialCustomers: boolean = false;
     specialCustomers: Array<SpecialCustomer> = [];
 
+    /*TODO: change to GroupsActionComponent when they fix it inside tabs*/
+    groups: Array<Group> = [];
+    groupItems: Array<string> = [];
+    group: Group = {
+        id: "1",
+        name: "Loading"
+    };
+    hasGroups: boolean = false;
+
+    selectedIndex: number = 0;
+
     lastTimer = {id: null, value: -1};
     /*Used To prevent first updates forced on load*/
     formEditCounter: number = 0;
     noActivityRafters: number = 0;
 
-    constructor(private groepService: GroepService, private customerService: CustomerService,
-                private page: Page, private optionService: OptionService, private routerExtensions: RouterExtensions) {
+    constructor(private groupService: GroupService, private customerService: CustomerService,
+                private page: Page, private optionService: OptionService) {
     }
 
     ngOnInit(): void {
-        this.getGroeps();
-    }
-
-    selectedIndexChangeDebouncer(args) {
-        const picker = <ListPicker>args.object;
-        this.formEditCounter = 0;
-        this.noActivityRafters = 0;
-        // If we are the same index as the last time, or the next time; we skip doing anything.
-        if (picker.selectedIndex === this.lastTimer.value) { return; }
-
-        // Grab our current value...
-        this.lastTimer.value = picker.selectedIndex;
-
-        // If the timer is already running, clear it...
-        if (this.lastTimer.id != null) { clearTimeout(this.lastTimer.id); }
-
-        // Start a new timer  (runs in 1/4 of a second)
-        this.lastTimer.id = setTimeout(() => {
-            this.lastTimer.id = null;
-            this.selectedGroepIndexChanged(args);
-        }, 350);
-    }
-
-    selectedGroepIndexChanged(args) {
-        const picker = <ListPicker>args.object;
-
-        if (this.groeps.length > 0) {
-            this.groep = this.groeps[picker.selectedIndex];
-
-            if ((typeof this.optionCategory !== "undefined" &&
-            this.optionCategory !== null ? this.optionCategory.id : void 0) != null) {
-                this.getOptionCategories();
-            }
-        }
-
+        this.getGroups();
     }
 
     selectedOptionCategoryIndexChanged(args) {
@@ -111,8 +82,8 @@ export class OptionsComponent implements OnInit {
     }
 
     getCustomers(): void {
-        if ((typeof this.groep !== "undefined" &&
-        this.groep !== null ? this.groep.id : void 0) != null) {
+        if ((typeof this.group !== "undefined" &&
+        this.group !== null ? this.group.id : void 0) != null) {
             switch (this.optionCategory.name) {
                 case "raft":
                     this.getRaftingCustomers();
@@ -127,47 +98,6 @@ export class OptionsComponent implements OnInit {
                     break;
             }
         }
-    }
-
-    getGroeps(): void {
-        const locationId = Settings.getLocation();
-        const date = Settings.getDate();
-
-        this.isBusy = true;
-
-        this.groepService.getAllGroepsForWeekAndLocationAction(date, locationId)
-            .subscribe(
-                (result: Array<Groep>) => {
-
-                    this.groeps = result;
-
-                    if (this.groeps.length > 0) {
-                        this.groepItems = {
-                            items: this.groeps,
-                            length: this.groeps.length,
-                            getItem: (index) => {
-                                const item = this.groeps[index];
-
-                                return item.name;
-                            }
-                        };
-                        this.hasGroeps = true;
-                        console.log("found me some groeps");
-
-                        this.groep = this.groeps[0];
-                        this.getOptionCategories();
-                    }
-                    this.isBusy = false;
-
-                },
-                (error) => {
-                    console.dir(error);
-                    this.hasGroeps = false;
-                    this.isBusy = false;
-
-                    /*TODO: handle errors*/
-                }
-            );
     }
 
     getOptionCategories(): void {
@@ -207,7 +137,7 @@ export class OptionsComponent implements OnInit {
     getRaftingCustomers(): void {
         this.isBusy = true;
 
-        this.customerService.getAllByGroepWithRaftingOptionAction(this.groep.id)
+        this.customerService.getAllByGroepWithRaftingOptionAction(this.group.id)
             .subscribe(
                 (result: Array<RaftingCustomer>) => {
                     this.raftingCustomers = result;
@@ -242,7 +172,7 @@ export class OptionsComponent implements OnInit {
     getCanyoningCustomers(): void {
         this.isBusy = true;
 
-        this.customerService.getAllByGroepWithCanyoningOptionAction(this.groep.id)
+        this.customerService.getAllByGroepWithCanyoningOptionAction(this.group.id)
             .subscribe(
                 (result: Array<CanyoningCustomer>) => {
                     let i = 0;
@@ -274,7 +204,7 @@ export class OptionsComponent implements OnInit {
     getSpecialCustomers(): void {
         this.isBusy = true;
 
-        this.customerService.getAllByGroepWithSpecialOptionAction(this.groep.id)
+        this.customerService.getAllByGroepWithSpecialOptionAction(this.group.id)
             .subscribe(
                 (result: Array<SpecialCustomer>) => {
                     let i = 0;
@@ -478,6 +408,76 @@ export class OptionsComponent implements OnInit {
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
+    }
+
+    displayGroupDialog() {
+        const options = {
+            title: "Selecteer een groep.",
+            message: "Groepen:",
+            cancelButtonText: "Cancel",
+            actions: this.groupItems
+        };
+
+        action(options).then((result) => {
+            if (result !== "Cancel") {
+                this.groupChanged(result);
+            }
+        });
+    }
+
+    groupChanged(groupItem) {
+        if (this.groups.length > 0) {
+            /*Get Guide ID first*/
+            const groupId = groupItem.substring(
+                groupItem.lastIndexOf("[") + 1,
+                groupItem.lastIndexOf("]")
+            );
+
+            this.selectedIndex = this.groups.map((x) => x.id).indexOf(groupId);
+            Settings.setGroupIndex(this.selectedIndex);
+            this.group = this.groups[this.selectedIndex];
+            Settings.setGroupId(this.group.id);
+            this.getOptionCategories();
+        }
+    }
+
+    getGroups(): void {
+        const locationId = Settings.getLocation();
+        const date = Settings.getDate();
+
+        this.isBusy = true;
+
+        this.groupService.getAllGroepsForWeekAndLocationAction(date, locationId)
+            .subscribe(
+                (result: Array<Group>) => {
+
+                    this.groups = result;
+
+                    if (this.groups.length > 0) {
+                        for (const groupItem of this.groups) {
+                            this.groupItems.push(
+                                groupItem.name + " [" +
+                                groupItem.id + "]"
+                            );
+                        }
+                        console.log("found me some groups");
+                        this.selectedIndex = Settings.getGroupIndex();
+                        this.group = this.groups[this.selectedIndex];
+                        Settings.setGroupId(this.group.id);
+                        this.hasGroups = true;
+                        this.getOptionCategories();
+                    }
+
+                    this.isBusy = false;
+
+                },
+                (error) => {
+                    console.dir(error);
+                    this.isBusy = false;
+                    this.hasGroups = false;
+                    /*TODO: handle errors*/
+                }
+            );
     }
 
 }

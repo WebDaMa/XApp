@@ -16,10 +16,7 @@
 
     <ScrollView>
         <StackLayout>
-            <Label class="text-center" [visibility]="!hasAgencies ? 'visible' : 'collapse'" text="Geen agencies gevonden, kies een andere locatie bij settings."></Label>
-            <ListPicker [items]="agenciesItems" [visibility]="hasAgencies ? 'visible' : 'collapse'" (selectedIndexChange)="selectedIndexChangeDebouncer($event)"
-                        class="p-10"></ListPicker>
-            <Label [text]="agency.name + ' - '+ lodging.date " class="h3 text-center" [visibility]="hasAgencies && agency != null && agency.name != null ? 'visible' : 'collapse'"></Label>
+            <AgenciesAction #agenciesAction></AgenciesAction>
 
             <StackLayout *ngFor="let customer of lodging.customers">
                 <RadDataForm tkExampleTitle tkToggleNavButton [source]="customer" (propertyCommitted)="dfPropertyLodgingCommitted($event)">

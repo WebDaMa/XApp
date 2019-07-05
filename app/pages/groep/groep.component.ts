@@ -4,15 +4,15 @@ import { RadDataForm } from "nativescript-ui-dataform";
 import * as dialogs from "tns-core-modules/ui/dialogs";
 import { Page } from "tns-core-modules/ui/page";
 import { Settings } from "~/settings/settings";
-import { Groep } from "~/shared/models/groep.model";
+import { Group } from "~/shared/models/groep.model";
 import { GroepCustomer } from "~/shared/models/groepCustomer.model";
 import { CustomerService } from "~/shared/services/customer.service";
-import { GroepService } from "~/shared/services/groep.service";
+import { GroupService } from "~/shared/services/group.service";
 
 @Component({
     selector: "Groep",
     moduleId: module.id,
-    providers: [GroepService, CustomerService],
+    providers: [GroupService, CustomerService],
     templateUrl: "./groep.component.html"
 })
 export class GroepComponent implements OnInit {
@@ -23,7 +23,7 @@ export class GroepComponent implements OnInit {
 
     isBusy: boolean = true;
 
-    constructor(private groepService: GroepService, private customerService: CustomerService,
+    constructor(private groepService: GroupService, private customerService: CustomerService,
                 private routerExtensions: RouterExtensions, private page: Page) {
     }
 
@@ -75,7 +75,7 @@ export class GroepComponent implements OnInit {
 
         this.groepService.getAllGroepsForWeekAndLocationAction(date, locationId)
             .subscribe(
-                (result: Array<Groep>) => {
+                (result: Array<Group>) => {
 
                     this.groeps = [{key: "0", label: "Kies een Groep"}];
                     this.groeps = [...this.groeps, ...result.map(({ id, name }) => ({ key: id, label: name }))];

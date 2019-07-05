@@ -16,9 +16,9 @@ var SizesComponent = /** @class */ (function () {
         this.suitSizeService = suitSizeService;
         this.page = page;
         this.routerExtensions = routerExtensions;
-        this.groeps = [];
-        this.groepItems = {};
-        this.hasGroeps = false;
+        this.groups = [];
+        this.groupItems = {};
+        this.hasGroups = false;
         this.isBusy = true;
         this.selectedIndex = 0;
         this.customers = [];
@@ -27,7 +27,7 @@ var SizesComponent = /** @class */ (function () {
     SizesComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.getSizes();
-        this.getGroeps();
+        this.getGroups();
         this.page.backgroundSpanUnderStatusBar = true;
         this.page.on("loaded", function (args) {
             if (_this.page.android) {
@@ -63,21 +63,21 @@ var SizesComponent = /** @class */ (function () {
     };
     SizesComponent.prototype.selectedIndexChanged = function (args) {
         var picker = args.object;
-        if (this.groeps.length > 0) {
-            this.groep = this.groeps[picker.selectedIndex];
+        if (this.groups.length > 0) {
+            this.group = this.groups[picker.selectedIndex];
             this.getCustomers();
         }
     };
-    SizesComponent.prototype.getGroeps = function () {
+    SizesComponent.prototype.getGroups = function () {
         var _this = this;
         var locationId = settings_1.Settings.getLocation();
         var date = settings_1.Settings.getDate();
         this.isBusy = true;
         this.groepService.getAllGroepsForWeekAndLocationAction(date, locationId)
             .subscribe(function (result) {
-            _this.groeps = result;
+            _this.groups = result;
             if (_this.groeps.length > 0) {
-                _this.groepItems = {
+                _this.groupItems = {
                     items: _this.groeps,
                     length: _this.groeps.length,
                     getItem: function (index) {
@@ -85,32 +85,32 @@ var SizesComponent = /** @class */ (function () {
                         return item.name;
                     }
                 };
-                _this.hasGroeps = true;
+                _this.hasGroups = true;
                 console.log("found me some size groeps");
-                _this.groep = _this.groeps[0];
+                _this.group = _this.groeps[0];
             }
             _this.isBusy = false;
             _this.getCustomers();
         }, function (error) {
             console.dir(error);
             _this.isBusy = false;
-            _this.hasGroeps = false;
+            _this.hasGroups = false;
             /*TODO: handle errors*/
         });
     };
     SizesComponent.prototype.getCustomers = function () {
         var _this = this;
-        if ((typeof this.groep !== "undefined" &&
-            this.groep !== null ? this.groep.id : void 0) != null) {
+        if ((typeof this.group !== "undefined" &&
+            this.group !== null ? this.group.id : void 0) != null) {
             this.isBusy = true;
-            this.customerService.getAllByGroepAction(this.groep.id)
+            this.customerService.getAllByGroepAction(this.group.id)
                 .subscribe(function (result) {
                 _this.customers = result;
                 console.log("found me some size customers");
                 _this.isBusy = false;
             }, function (error) {
                 console.dir(error);
-                _this.hasGroeps = false;
+                _this.hasGroups = false;
                 _this.isBusy = false;
                 /*TODO: handle errors*/
             });

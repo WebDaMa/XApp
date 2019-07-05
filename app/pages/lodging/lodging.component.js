@@ -45,9 +45,9 @@ var LodgingComponent = /** @class */ (function () {
         this.isBusy = true;
         this.agencyService.getAllAgenciesForWeekAndLocationAction(date, locationId)
             .subscribe(function (result) {
-            _this.agencies = result;
+            _this.locations = result;
             if (_this.agencies.length > 0) {
-                _this.agenciesItems = {
+                _this.locatonsItems = {
                     items: _this.agencies,
                     length: _this.agencies.length,
                     getItem: function (index) {
@@ -55,15 +55,15 @@ var LodgingComponent = /** @class */ (function () {
                         return item.name;
                     }
                 };
-                _this.hasAgencies = true;
-                _this.agency = _this.agencies[0];
+                _this.hasLocations = true;
+                _this.location = _this.agencies[0];
                 console.log("found me some agencies");
             }
             _this.isBusy = false;
             _this.getCustomersLodging();
         }, function (error) {
             console.dir(error);
-            _this.hasAgencies = false;
+            _this.hasLocations = false;
             _this.isBusy = false;
             /*TODO: handle errors*/
         });

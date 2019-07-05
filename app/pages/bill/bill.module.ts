@@ -4,6 +4,7 @@ import { NativeScriptFormsModule } from "nativescript-angular";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { NativeScriptUIDataFormModule } from "nativescript-ui-dataform/angular";
+import { GroupsActionModule } from "~/components/groups-action/groups-action.module";
 import { BillDetailComponent } from "~/pages/bill/bill-detail/billDetail.component";
 import { BillRoutingModule } from "~/pages/bill/bill-routing.module";
 import { BillComponent } from "./bill.component";
@@ -14,7 +15,8 @@ import { BillComponent } from "./bill.component";
         BillRoutingModule,
         NativeScriptFormsModule,
         NativeScriptHttpClientModule,
-        NativeScriptUIDataFormModule
+        NativeScriptUIDataFormModule,
+        GroupsActionModule
     ],
     declarations: [
         BillComponent,

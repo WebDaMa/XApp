@@ -1,48 +1,33 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular";
 import { RadDataForm } from "nativescript-ui-dataform";
-import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Page } from "tns-core-modules/ui/page";
+import { AgenciesActionComponent } from "~/components/agencies-action/agencies-action.component";
 import { Settings } from "~/settings/settings";
-import { Agency } from "~/shared/models/agency.model";
 import { Lodging } from "~/shared/models/lodging.model";
 import { LodgingCustomer } from "~/shared/models/lodgingCustomer.model";
-import { AgencyService } from "~/shared/services/agency.service";
 import { CustomerService } from "~/shared/services/customer.service";
 
 @Component({
     selector: "Lodging",
     moduleId: module.id,
-    providers: [CustomerService, AgencyService],
+    providers: [CustomerService],
     templateUrl: "./lodging.component.html"
 })
-export class LodgingComponent implements OnInit {
-    selectedIndex: number = 0;
-
+export class LodgingComponent implements OnInit, AfterViewInit {
     isBusy: boolean;
-
-    agencies: Array<Agency> = [];
-    agency: Agency = {
-        id: "",
-        name: ""
-    };
-    agenciesItems: object = {};
-    hasAgencies: boolean = false;
 
     lodging: Lodging = {
         date: "",
         customers: []
     };
 
-    lastTimer = {id: null, value: -1};
-
-    constructor(private customerService: CustomerService, private agencyService: AgencyService,
-                private routerExtensions: RouterExtensions, private page: Page, private activeRoute: ActivatedRoute) {
+    @ViewChild(AgenciesActionComponent, {static: false}) agenciesAction: AgenciesActionComponent;
+    constructor(private customerService: CustomerService,
+                private routerExtensions: RouterExtensions, private page: Page) {
     }
 
     ngOnInit(): void {
-        this.getAgencies();
         this.page.backgroundSpanUnderStatusBar = true;
         this.page.on("loaded", (args) => {
             if (this.page.android) {
@@ -51,41 +36,10 @@ export class LodgingComponent implements OnInit {
         });
     }
 
-    getAgencies(): void {
-        const date = Settings.getDate();
-        const locationId = Settings.getLocation();
-
-        this.isBusy = true;
-
-        this.agencyService.getAllAgenciesForWeekAndLocationAction(date, locationId)
-            .subscribe(
-                (result: Array<Agency>) => {
-                    this.agencies = result;
-                    if (this.agencies.length > 0) {
-                        this.agenciesItems = {
-                            items: this.agencies,
-                            length: this.agencies.length,
-                            getItem: (index) => {
-                                const item = this.agencies[index];
-
-                                return item.name;
-                            }
-                        };
-                        this.hasAgencies = true;
-
-                        this.agency = this.agencies[0];
-                        console.log("found me some agencies");
-                    }
-                    this.isBusy = false;
-                    this.getCustomersLodging();
-                },
-                (error) => {
-                    console.dir(error);
-                    this.hasAgencies = false;
-                    this.isBusy = false;
-                    /*TODO: handle errors*/
-                }
-            );
+    ngAfterViewInit() {
+        this.agenciesAction.agencyEmitter.subscribe((agency) => {
+            this.getCustomersLodging();
+        });
     }
 
     dfPropertyLodgingCommitted(args) {
@@ -112,9 +66,10 @@ export class LodgingComponent implements OnInit {
         const date = Settings.getDate();
         const locationId = Settings.getLocation();
 
-        if ((typeof this.agency !== "undefined" &&
-        this.agency !== null ? this.agency.id : void 0) != null) {
-            this.customerService.getAllByAgencyForLodgingAndLocationAndPeriodAction(this.agency.id, locationId, date)
+        if ((typeof this.agenciesAction.agency !== "undefined" &&
+        this.agenciesAction.agency !== null ? this.agenciesAction.agency.id : void 0) != null) {
+            this.customerService.getAllByAgencyForLodgingAndLocationAndPeriodAction(this.agenciesAction.agency.id,
+                locationId, date)
                 .subscribe(
                     (result: Lodging) => {
                         this.lodging = result;
@@ -127,34 +82,6 @@ export class LodgingComponent implements OnInit {
                     }
                 );
         }
-    }
-
-    selectedIndexChangeDebouncer(args) {
-        const picker = <ListPicker>args.object;
-        // If we are the same index as the last time, or the next time; we skip doing anything.
-        if (picker.selectedIndex === this.lastTimer.value) { return; }
-
-        // Grab our current value...
-        this.lastTimer.value = picker.selectedIndex;
-
-        // If the timer is already running, clear it...
-        if (this.lastTimer.id != null) { clearTimeout(this.lastTimer.id); }
-
-        // Start a new timer  (runs in 1/4 of a second)
-        this.lastTimer.id = setTimeout(() => {
-            this.lastTimer.id = null;
-            this.selectedIndexAgencyChanged(args);
-        }, 350);
-    }
-
-    selectedIndexAgencyChanged(args) {
-        const picker = <ListPicker>args.object;
-
-        if (this.agencies.length > 0) {
-            this.agency = this.agencies[picker.selectedIndex];
-            this.getCustomersLodging();
-        }
-
     }
 
     goBack() {

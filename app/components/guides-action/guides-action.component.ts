@@ -44,8 +44,6 @@ export class GuidesActionComponent implements OnInit {
     }
 
     guideChanged(guideItem) {
-        const appSettings = require("tns-core-modules/application-settings");
-
         if (this.guides.length > 0) {
             /*Get Guide ID first*/
             const guideId = guideItem.substring(
@@ -54,9 +52,9 @@ export class GuidesActionComponent implements OnInit {
             );
 
             this.selectedIndex = this.guides.map((x) => x.id).indexOf(guideId);
-            appSettings.setNumber("guideIndex", this.selectedIndex);
+            Settings.setGuideIndex(this.selectedIndex);
             this.guide = this.guides[this.selectedIndex];
-            appSettings.setString("guideId", this.guide.id);
+            Settings.setGuideId(this.guide.id);
         }
 
     }
@@ -84,10 +82,9 @@ export class GuidesActionComponent implements OnInit {
                             );
                         }
                         console.log("found me some guides");
-                        this.selectedIndex = appSettings.hasKey("guideIndex") ?
-                            appSettings.getNumber("guideIndex") : 0;
+                        this.selectedIndex = Settings.getGuideIndex();
                         this.guide = this.guides[this.selectedIndex];
-                        appSettings.setString("guideId", this.guide.id);
+                        Settings.setGuideId(this.guide.id);
                         this.hasGuides = true;
                     }
                     this.isBusy = false;

@@ -86,9 +86,9 @@ var PaymentsComponent = /** @class */ (function () {
         var date = settings_1.Settings.getDate();
         this.groepService.getAllGroepsForWeekAndLocationAction(date, locationId)
             .subscribe(function (result) {
-            _this.groeps = result;
+            _this.groups = result;
             if (_this.groeps.length > 0) {
-                _this.groepItems = {
+                _this.groupItems = {
                     items: _this.groeps,
                     length: _this.groeps.length,
                     getItem: function (index) {
@@ -96,14 +96,14 @@ var PaymentsComponent = /** @class */ (function () {
                         return item.name;
                     }
                 };
-                _this.hasGroeps = true;
+                _this.hasGroups = true;
                 console.log("found me some size groeps");
-                _this.groep = _this.groeps[0];
+                _this.group = _this.groeps[0];
             }
             _this.getCustomers();
         }, function (error) {
             console.dir(error);
-            _this.hasGroeps = false;
+            _this.hasGroups = false;
             /*TODO: handle errors*/
         });
     };

@@ -60,8 +60,8 @@ var GroepComponent = /** @class */ (function () {
         this.isBusy = true;
         this.groepService.getAllGroepsForWeekAndLocationAction(date, locationId)
             .subscribe(function (result) {
-            _this.groeps = [{ key: "0", label: "Kies een Groep" }];
-            _this.groeps = _this.groeps.concat(result.map(function (_a) {
+            _this.groups = [{ key: "0", label: "Kies een Groep" }];
+            _this.groups = _this.groeps.concat(result.map(function (_a) {
                 var id = _a.id, name = _a.name;
                 return ({ key: id, label: name });
             }));

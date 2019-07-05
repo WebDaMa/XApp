@@ -1,76 +1,37 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import {AfterViewInit, Component, OnInit, ViewChild} from "@angular/core";
 import { RouterExtensions } from "nativescript-angular";
 import { DatePicker } from "tns-core-modules/ui/date-picker";
 import * as dialogs from "tns-core-modules/ui/dialogs";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { Location } from "~/shared/models/location.model";
 import { LocationService } from "~/shared/services/location.service";
+import {GroupsActionComponent} from "~/components/groups-action/groups-action.component";
+import {LocationsActionComponent} from "~/components/locations-action/locations-action.component";
+import {Settings} from "~/settings/settings";
 
 @Component({
     selector: "Settings",
     moduleId: module.id,
-    providers: [LocationService],
+    providers: [],
     templateUrl: "./settings.component.html"
 })
-export class SettingsComponent implements OnInit {
+export class SettingsComponent implements AfterViewInit {
     locations: Array<Location> = [];
     locationItems: object = {};
     location: Location;
     selectedIndex: number = 0;
 
-    isBusy: boolean = true;
-
+    @ViewChild(LocationsActionComponent, {static: false}) locationsAction: LocationsActionComponent;
     @ViewChild(DatePicker, {static: false}) datePicker: DatePicker;
-    constructor(private locationService: LocationService, private routerExtensions: RouterExtensions) {
+    constructor(private routerExtensions: RouterExtensions) {
     }
 
-    ngOnInit(): void {
-        this.getLocations();
-    }
-
-    selectedIndexChanged(args) {
-        const picker = <ListPicker>args.object;
-        const appSettings = require("tns-core-modules/application-settings");
-
-        if (this.locations.length > 0) {
-            appSettings.setNumber("locationIndex", picker.selectedIndex);
-            this.location = this.locations[picker.selectedIndex];
-            appSettings.setString("locationId", this.location.id);
-            appSettings.setNumber("guideIndex", 0);
-            appSettings.setNumber("groepIndex", 0);
-        }
-
-    }
-
-    getLocations(): void {
-        const appSettings = require("tns-core-modules/application-settings");
-        this.locationService.getLocationsAction()
-            .subscribe(
-                (result: Array<Location>) => {
-
-                    this.locations = result;
-
-                    this.locationItems = {
-                        items: this.locations,
-                        length: this.locations.length,
-                        getItem: (index) => {
-                            const item = this.locations[index];
-
-                            return item.code;
-                        }
-                    };
-
-                    this.selectedIndex = appSettings.hasKey("locationIndex") ?
-                        appSettings.getNumber("locationIndex") : 0;
-                    this.isBusy = false;
-
-                },
-                (error) => {
-                    console.dir(error);
-                    /*TODO: handle errors*/
-                    this.isBusy = false;
-                }
-            );
+    ngAfterViewInit() {
+        this.locationsAction.locationEmitter.subscribe((location) => {
+            /*Reset indexes*/
+            Settings.setGuideIndex(0);
+            Settings.setGroupIndex(0);
+        });
     }
 
     onPickerLoaded(args) {

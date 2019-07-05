@@ -17,9 +17,9 @@ var OptionsComponent = /** @class */ (function () {
         this.page = page;
         this.optionService = optionService;
         this.routerExtensions = routerExtensions;
-        this.groeps = [];
-        this.groepItems = {};
-        this.hasGroeps = false;
+        this.groups = [];
+        this.groupItems = {};
+        this.hasGroups = false;
         this.activities = [];
         this.optionCategories = [];
         this.optionCategoryItems = [];
@@ -37,7 +37,7 @@ var OptionsComponent = /** @class */ (function () {
         this.lastTimer = { id: null, value: -1 };
     }
     OptionsComponent.prototype.ngOnInit = function () {
-        this.getGroeps();
+        this.getGroups();
         this.alertSaturday();
     };
     OptionsComponent.prototype.alertSaturday = function () {
@@ -86,8 +86,8 @@ var OptionsComponent = /** @class */ (function () {
     };
     OptionsComponent.prototype.selectedGroepIndexChanged = function (args) {
         var picker = args.object;
-        if (this.groeps.length > 0) {
-            this.groep = this.groeps[picker.selectedIndex];
+        if (this.groups.length > 0) {
+            this.group = this.groups[picker.selectedIndex];
             if ((typeof this.optionCategory !== "undefined" &&
                 this.optionCategory !== null ? this.optionCategory.id : void 0) != null) {
                 this.getOptionCategories();
@@ -103,8 +103,8 @@ var OptionsComponent = /** @class */ (function () {
         }
     };
     OptionsComponent.prototype.getCustomers = function () {
-        if ((typeof this.groep !== "undefined" &&
-            this.groep !== null ? this.groep.id : void 0) != null) {
+        if ((typeof this.group !== "undefined" &&
+            this.group !== null ? this.group.id : void 0) != null) {
             switch (this.optionCategory.name) {
                 case "raft":
                     this.getRaftingCustomers();
@@ -118,32 +118,32 @@ var OptionsComponent = /** @class */ (function () {
             }
         }
     };
-    OptionsComponent.prototype.getGroeps = function () {
+    OptionsComponent.prototype.getGroups = function () {
         var _this = this;
         var locationId = settings_1.Settings.getLocation();
         var date = settings_1.Settings.getDate();
         this.isBusy = true;
         this.groepService.getAllGroepsForWeekAndLocationAction(date, locationId)
             .subscribe(function (result) {
-            _this.groeps = result;
-            if (_this.groeps.length > 0) {
-                _this.groepItems = {
-                    items: _this.groeps,
-                    length: _this.groeps.length,
+            _this.groups = result;
+            if (_this.groups.length > 0) {
+                _this.groupItems = {
+                    items: _this.groups,
+                    length: _this.groups.length,
                     getItem: function (index) {
-                        var item = _this.groeps[index];
+                        var item = _this.groups[index];
                         return item.name;
                     }
                 };
-                _this.hasGroeps = true;
+                _this.hasGroups = true;
                 console.log("found me some groeps");
-                _this.groep = _this.groeps[0];
+                _this.group = _this.groups[0];
                 _this.getOptionCategories();
             }
             _this.isBusy = false;
         }, function (error) {
             console.dir(error);
-            _this.hasGroeps = false;
+            _this.hasGroups = false;
             _this.isBusy = false;
             /*TODO: handle errors*/
         });
@@ -178,7 +178,7 @@ var OptionsComponent = /** @class */ (function () {
     OptionsComponent.prototype.getRaftingCustomers = function () {
         var _this = this;
         this.isBusy = true;
-        this.customerService.getAllByGroepWithRaftingOptionAction(this.groep.id)
+        this.customerService.getAllByGroepWithRaftingOptionAction(this.group.id)
             .subscribe(function (result) {
             _this.raftingCustomers = result;
             _this.hasRaftingCustomers = true;
@@ -194,7 +194,7 @@ var OptionsComponent = /** @class */ (function () {
     OptionsComponent.prototype.getCanyoningCustomers = function () {
         var _this = this;
         this.isBusy = true;
-        this.customerService.getAllByGroepWithCanyoningOptionAction(this.groep.id)
+        this.customerService.getAllByGroepWithCanyoningOptionAction(this.group.id)
             .subscribe(function (result) {
             var i = 0;
             for (var _i = 0, result_1 = result; _i < result_1.length; _i++) {
@@ -220,7 +220,7 @@ var OptionsComponent = /** @class */ (function () {
     OptionsComponent.prototype.getSpecialCustomers = function () {
         var _this = this;
         this.isBusy = true;
-        this.customerService.getAllByGroepWithSpecialOptionAction(this.groep.id)
+        this.customerService.getAllByGroepWithSpecialOptionAction(this.group.id)
             .subscribe(function (result) {
             var i = 0;
             for (var _i = 0, result_2 = result; _i < result_2.length; _i++) {

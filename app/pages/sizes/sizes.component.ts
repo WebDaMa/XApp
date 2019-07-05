@@ -1,47 +1,49 @@
 import { Component, OnInit } from "@angular/core";
-import { RouterExtensions } from "nativescript-angular";
 import { RadDataForm } from "nativescript-ui-dataform";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
-import * as dialogs from "tns-core-modules/ui/dialogs";
-import { ListPicker } from "tns-core-modules/ui/list-picker";
+import { action } from "tns-core-modules/ui/dialogs";
 import { Page } from "tns-core-modules/ui/page";
 import { Settings } from "~/settings/settings";
-import { Groep } from "~/shared/models/groep.model";
+import { Group } from "~/shared/models/groep.model";
 import { SizeCustomer } from "~/shared/models/sizeCustomer.model";
 import { SuitSize } from "~/shared/models/suitSize.model";
 import { CustomerService } from "~/shared/services/customer.service";
-import { GroepService } from "~/shared/services/groep.service";
+import { GroupService } from "~/shared/services/group.service";
 import { SuitSizeService } from "~/shared/services/suitSize.service";
 
 @Component({
     selector: "Sizes",
     moduleId: module.id,
-    providers: [GroepService, CustomerService, SuitSizeService],
+    providers: [CustomerService, GroupService, SuitSizeService],
     templateUrl: "./sizes.component.html"
 })
 export class SizesComponent implements OnInit {
-    groeps: Array<Groep> = [];
-    groepItems: object = {};
-    groep: Groep;
-    hasGroeps: boolean = false;
+    isBusy: boolean = false;
 
-    isBusy: boolean = true;
-
-    selectedIndex: number = 0;
     customers: Array<SizeCustomer> = [];
     sizes: Array<object> = [];
-    lastTimer = {id: null, value: -1};
 
-    constructor(private groepService: GroepService, private customerService: CustomerService,
+    groups: Array<Group> = [];
+    groupItems: Array<string> = [];
+    group: Group = {
+        id: "1",
+        name: "Loading"
+    };
+    hasGroups: boolean = false;
+
+    selectedIndex: number = 0;
+
+    constructor(private customerService: CustomerService,
                 private suitSizeService: SuitSizeService, private page: Page,
-                private routerExtensions: RouterExtensions) {
+                private groupService: GroupService) {
     }
 
     ngOnInit(): void {
+        this.getGroups();
         this.getSizes();
-        this.getGroeps();
 
+        /*Do we still need this?*/
         this.page.backgroundSpanUnderStatusBar = true;
         this.page.on("loaded", (args) => {
             if (this.page.android) {
@@ -51,96 +53,21 @@ export class SizesComponent implements OnInit {
 
     }
 
-
-    selectedIndexChangeDebouncer(args) {
-        const picker = <ListPicker>args.object;
-        // If we are the same index as the last time, or the next time; we skip doing anything.
-        if (picker.selectedIndex === this.lastTimer.value) { return; }
-
-        // Grab our current value...
-        this.lastTimer.value = picker.selectedIndex;
-
-        // If the timer is already running, clear it...
-        if (this.lastTimer.id != null) { clearTimeout(this.lastTimer.id); }
-
-        // Start a new timer  (runs in 1/4 of a second)
-        this.lastTimer.id = setTimeout(() => {
-            this.lastTimer.id = null;
-            this.selectedIndexChanged(args);
-        }, 350);
-    }
-
-    selectedIndexChanged(args) {
-        const picker = <ListPicker>args.object;
-
-        if (this.groeps.length > 0) {
-            this.groep = this.groeps[picker.selectedIndex];
-            this.getCustomers();
-        }
-    }
-
-    getGroeps(): void {
-        const locationId = Settings.getLocation();
-        const date = Settings.getDate();
-
+    getCustomers(): void {
         this.isBusy = true;
-
-        this.groepService.getAllGroepsForWeekAndLocationAction(date, locationId)
+        this.customerService.getAllByGroepAction(this.group.id)
             .subscribe(
-                (result: Array<Groep>) => {
+                (result: Array<SizeCustomer>) => {
 
-                    this.groeps = result;
-
-                    if (this.groeps.length > 0) {
-                        this.groepItems = {
-                            items: this.groeps,
-                            length: this.groeps.length,
-                            getItem: (index) => {
-                                const item = this.groeps[index];
-
-                                return item.name;
-                            }
-                        };
-
-                        this.hasGroeps = true;
-                        console.log("found me some size groeps");
-                        this.groep = this.groeps[0];
-                    }
-
+                    this.customers = result;
+                    console.log("found me some size customers");
                     this.isBusy = false;
-
-                    this.getCustomers();
-
                 },
                 (error) => {
                     console.dir(error);
                     this.isBusy = false;
-                    this.hasGroeps = false;
-                    /*TODO: handle errors*/
                 }
             );
-    }
-
-    getCustomers(): void {
-        if ((typeof this.groep !== "undefined" &&
-        this.groep !== null ? this.groep.id : void 0) != null) {
-            this.isBusy = true;
-            this.customerService.getAllByGroepAction(this.groep.id)
-                .subscribe(
-                    (result: Array<SizeCustomer>) => {
-
-                        this.customers = result;
-                        console.log("found me some size customers");
-                        this.isBusy = false;
-                    },
-                    (error) => {
-                        console.dir(error);
-                        this.hasGroeps = false;
-                        this.isBusy = false;
-                        /*TODO: handle errors*/
-                    }
-                );
-        }
 
     }
 
@@ -186,6 +113,76 @@ export class SizesComponent implements OnInit {
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
+    }
+
+    displayGroupDialog() {
+        const options = {
+            title: "Selecteer een groep.",
+            message: "Groepen:",
+            cancelButtonText: "Cancel",
+            actions: this.groupItems
+        };
+
+        action(options).then((result) => {
+            if (result !== "Cancel") {
+                this.groupChanged(result);
+            }
+        });
+    }
+
+    groupChanged(groupItem) {
+        if (this.groups.length > 0) {
+            /*Get Guide ID first*/
+            const groupId = groupItem.substring(
+                groupItem.lastIndexOf("[") + 1,
+                groupItem.lastIndexOf("]")
+            );
+
+            this.selectedIndex = this.groups.map((x) => x.id).indexOf(groupId);
+            Settings.setGroupIndex(this.selectedIndex);
+            this.group = this.groups[this.selectedIndex];
+            Settings.setGroupId(this.group.id);
+            this.getCustomers();
+        }
+    }
+
+    getGroups(): void {
+        const locationId = Settings.getLocation();
+        const date = Settings.getDate();
+
+        this.isBusy = true;
+
+        this.groupService.getAllGroepsForWeekAndLocationAction(date, locationId)
+            .subscribe(
+                (result: Array<Group>) => {
+
+                    this.groups = result;
+
+                    if (this.groups.length > 0) {
+                        for (const groupItem of this.groups) {
+                            this.groupItems.push(
+                                groupItem.name + " [" +
+                                groupItem.id + "]"
+                            );
+                        }
+                        console.log("found me some groups");
+                        this.selectedIndex = Settings.getGroupIndex();
+                        this.group = this.groups[this.selectedIndex];
+                        Settings.setGroupId(this.group.id);
+                        this.hasGroups = true;
+                        this.getCustomers();
+                    }
+
+                    this.isBusy = false;
+
+                },
+                (error) => {
+                    console.dir(error);
+                    this.isBusy = false;
+                    this.hasGroups = false;
+                    /*TODO: handle errors*/
+                }
+            );
     }
 
 }

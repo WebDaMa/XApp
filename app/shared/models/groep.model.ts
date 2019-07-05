@@ -1,4 +1,4 @@
 import { TypeName } from "~/shared/models/base/typeName.model";
 
-export class Groep extends TypeName {
+export class Group extends TypeName {
 }

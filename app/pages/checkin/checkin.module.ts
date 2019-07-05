@@ -4,6 +4,7 @@ import { NativeScriptFormsModule } from "nativescript-angular";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { NativeScriptUIDataFormModule } from "nativescript-ui-dataform/angular";
+import { GroupsActionModule } from "~/components/groups-action/groups-action.module";
 import { CheckinDetailComponent } from "~/pages/checkin/checkin-detail/checkinDetail.component";
 import { CheckinRoutingModule } from "~/pages/checkin/checkin-routing.module";
 import { CheckinComponent } from "./checkin.component";
@@ -14,7 +15,8 @@ import { CheckinComponent } from "./checkin.component";
         CheckinRoutingModule,
         NativeScriptFormsModule,
         NativeScriptHttpClientModule,
-        NativeScriptUIDataFormModule
+        NativeScriptUIDataFormModule,
+        GroupsActionModule
     ],
     declarations: [
         CheckinComponent,

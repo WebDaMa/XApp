@@ -1,45 +1,36 @@
-import { Component, OnInit } from "@angular/core";
+import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular";
 import * as dialogs from "tns-core-modules/ui/dialogs";
-import { ListPicker } from "tns-core-modules/ui/list-picker";
-import { Page } from "tns-core-modules/ui/page";
 import { Switch } from "tns-core-modules/ui/switch";
+import { GroupsActionComponent } from "~/components/groups-action/groups-action.component";
 import { Settings } from "~/settings/settings";
 import { CheckinCustomer } from "~/shared/models/checkinCustomer.model";
-import { Groep } from "~/shared/models/groep.model";
 import { CustomerService } from "~/shared/services/customer.service";
-import { GroepService } from "~/shared/services/groep.service";
 
 @Component({
     selector: "Checkin",
     moduleId: module.id,
-    providers: [GroepService, CustomerService],
+    providers: [CustomerService],
     templateUrl: "./checkin.component.html"
 })
-export class CheckinComponent implements OnInit {
-    groeps: Array<Groep> = [];
-    groepItems: object = {};
-    groep: Groep;
-    hasGroeps: boolean = false;
-
-    selectedIndex: number = 0;
-
+export class CheckinComponent implements OnInit, AfterViewInit {
     customers: Array<CheckinCustomer> = [];
 
     isBusy: boolean = true;
 
-    lastTimer = {id: null, value: -1};
-
-    constructor(private groepService: GroepService, private customerService: CustomerService,
-                private routerExtensions: RouterExtensions, private page: Page) {
-        this.page.on(Page.navigatingToEvent, () => {
-            this.getCustomers();
-        });
+    @ViewChild(GroupsActionComponent, {static: false}) groupsAction: GroupsActionComponent;
+    constructor(private customerService: CustomerService,
+                private routerExtensions: RouterExtensions) {
     }
 
     ngOnInit(): void {
-        this.getGroeps();
         this.alertSaturday();
+    }
+
+    ngAfterViewInit() {
+        this.groupsAction.groupEmitter.subscribe((group) => {
+            this.getCustomers();
+        });
     }
 
     alertSaturday(): void {
@@ -71,78 +62,11 @@ export class CheckinComponent implements OnInit {
 
     }
 
-    selectedIndexChangeDebouncer(args) {
-        const picker = <ListPicker>args.object;
-        // If we are the same index as the last time, or the next time; we skip doing anything.
-        if (picker.selectedIndex === this.lastTimer.value) { return; }
-
-        // Grab our current value...
-        this.lastTimer.value = picker.selectedIndex;
-
-        // If the timer is already running, clear it...
-        if (this.lastTimer.id != null) { clearTimeout(this.lastTimer.id); }
-
-        // Start a new timer  (runs in 1/4 of a second)
-        this.lastTimer.id = setTimeout(() => {
-            this.lastTimer.id = null;
-            this.selectedIndexChanged(args);
-        }, 350);
-    }
-
-    selectedIndexChanged(args) {
-        const picker = <ListPicker>args.object;
-
-        if (this.groeps.length > 0) {
-            this.groep = this.groeps[picker.selectedIndex];
-            this.getCustomers();
-        }
-    }
-
-    getGroeps(): void {
-        const locationId = Settings.getLocation();
-        const date = Settings.getDate();
-
-        this.isBusy = true;
-
-        this.groepService.getAllGroepsForWeekAndLocationAction(date, locationId)
-            .subscribe(
-                (result: Array<Groep>) => {
-
-                    this.groeps = result;
-
-                    if (this.groeps.length > 0) {
-                        this.groepItems = {
-                            items: this.groeps,
-                            length: this.groeps.length,
-                            getItem: (index) => {
-                                const item = this.groeps[index];
-
-                                return item.name;
-                            }
-                        };
-
-                        this.hasGroeps = true;
-                        console.log("found me some checkin groeps");
-                        this.groep = this.groeps[0];
-                    }
-
-                    this.getCustomers();
-                    this.isBusy = false;
-
-                },
-                (error) => {
-                    console.dir(error);
-                    this.isBusy = false;
-                    /*TODO: handle errors*/
-                }
-            );
-    }
-
     getCustomers(): void {
-        if ((typeof this.groep !== "undefined" &&
-        this.groep !== null ? this.groep.id : void 0) != null) {
+        if ((typeof this.groupsAction.group !== "undefined" &&
+        this.groupsAction.group !== null ? this.groupsAction.group.id : void 0) != null) {
             this.isBusy = true;
-            this.customerService.getAllByGroepForCheckinAction(this.groep.id)
+            this.customerService.getAllByGroepForCheckinAction(this.groupsAction.group.id)
                 .subscribe(
                     (result: Array<CheckinCustomer>) => {
 
@@ -156,7 +80,6 @@ export class CheckinComponent implements OnInit {
                     },
                     (error) => {
                         console.dir(error);
-                        this.hasGroeps = false;
                         this.isBusy = false;
                         /*TODO: handle errors*/
                     }

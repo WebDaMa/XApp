@@ -1,0 +1,9 @@
+<StackLayout>
+    <Button col="1" horizontalAlignment="left" text="&#xf021;" class="fas btn btn-primary btn-active"
+                (tap)="getLocations()"></Button>
+    <TextView editable="false" class="text-center" [visibility]="!hasLocations ? 'visible' : 'collapse'" text="Geen locaties gevonden."></TextView>
+
+    <Button (tap)="displayLocationDialog()" [text]="location.code + ' &#xf078;'" [visibility]="hasLocations ? 'visible' : 'collapse'" class="fas btn btn-primary btn-active" ></Button>
+    <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100" class="activity-indicator"></ActivityIndicator>
+
+</StackLayout>
