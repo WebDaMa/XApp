@@ -59,9 +59,6 @@ export class OptionsComponent implements OnInit {
     selectedIndex: number = 0;
 
     lastTimer = {id: null, value: -1};
-    /*Used To prevent first updates forced on load*/
-    formEditCounter: number = 0;
-    noActivityRafters: number = 0;
 
     constructor(private groupService: GroupService, private customerService: CustomerService,
                 private page: Page, private optionService: OptionService) {
@@ -72,7 +69,6 @@ export class OptionsComponent implements OnInit {
     }
 
     selectedOptionCategoryIndexChanged(args) {
-        this.formEditCounter = 0;
         const segmentedBar = <SegmentedBar>args.object;
         const selectedIndex = segmentedBar.selectedIndex;
 
@@ -145,8 +141,6 @@ export class OptionsComponent implements OnInit {
                     console.log("found me some rafting customers");
 
                     /*Count those with no activity to prevent upload bug*/
-                    this.countEmptyRaftingActivityCustomers();
-
                     this.isBusy = false;
                 },
                 (error) => {
@@ -158,15 +152,6 @@ export class OptionsComponent implements OnInit {
                 }
             );
 
-    }
-
-    countEmptyRaftingActivityCustomers(): void {
-        this.noActivityRafters = 0;
-        this.raftingCustomers.forEach((customer) => {
-            if (customer.activityId === null) {
-                this.noActivityRafters ++;
-            }
-        });
     }
 
     getCanyoningCustomers(): void {
@@ -266,28 +251,24 @@ export class OptionsComponent implements OnInit {
             const dataForm = <RadDataForm>args.object;
             const raftingCustomer: RaftingCustomer = <RaftingCustomer> JSON.parse(dataForm.editedObject);
 
-            if (this.noActivityRafters > 0) {
-                this.formEditCounter ++;
-            }
             /*Used to check if first updates happened to skip empty update requests*/
-            if (this.formEditCounter > this.noActivityRafters && !this.isBusy) {
-                const options = {
-                    title: "Activiteit Wijzigen",
-                    message: "Wilt u de activiteit voor " + raftingCustomer.customer + " wijzigen?",
-                    okButtonText: "Wijzigen",
-                    cancelButtonText: "Cancel"
-                };
+            const options = {
+                title: "Activiteit Wijzigen",
+                message: "Wilt u de activiteit voor " + raftingCustomer.customer + " wijzigen?",
+                okButtonText: "Wijzigen",
+                cancelButtonText: "Cancel"
+            };
 
-                dialogs.confirm(options).then((result: boolean) => {
-                    if (result) {
-                        this.updateRaftingCustomer(raftingCustomer);
-                    } else {
-                        /*Refresh UI*/
-                        this.formEditCounter = 0;
-                        this.getCustomers();
-                    }
-                });
-            }
+            /* Bugs on first ui load when options get filled
+            dialogs.confirm(options).then((result: boolean) => {
+                if (result) {
+                    this.updateRaftingCustomer(raftingCustomer);
+                } else {
+                    this.getCustomers();
+                }
+            });
+            */
+            this.updateRaftingCustomer(raftingCustomer);
         }
     }
 
