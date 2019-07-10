@@ -18,6 +18,7 @@
         <TextView [visibility]="!hasPlannings && !isBusy ? 'visible' : 'collapsed'"
                   text="Geen planningen gevonden voor vandaag op locatie. Ga naar settings om een andere dag of locatie te kiezen."
                   editable="false" class="text-center"></TextView>
+        <WeekAction #weekAction></WeekAction>
         <StackLayout *ngFor="let planning of plannings">
             <StackLayout class="m-5 p-l-10 h2" backgroundColor="#e5e5e5">
                 <Label [text]="planning.groepName"></Label>

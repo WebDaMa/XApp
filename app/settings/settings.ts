@@ -16,7 +16,7 @@ export class Settings {
     }
 
     static getGuideId() {
-        return this.getStringKey("guideId");
+        return this.getStringKey("guideId", "3");
     }
 
     static setGuideId(indexNumber: string) {
@@ -64,7 +64,7 @@ export class Settings {
     }
 
     static getLocationId() {
-        return this.getStringKey("locationId");
+        return this.getStringKey("locationId", "1");
     }
 
     static setLocationId(indexNumber: string) {

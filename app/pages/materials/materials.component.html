@@ -9,8 +9,10 @@
     <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100"
                        class="activity-indicator"></ActivityIndicator>
     <TextView [visibility]="material.groupTotal + 1 < 2 && !isBusy ? 'visible' : 'collapsed'"
-              text="Geen materiaal lijst gevonden voor deze dag. Ga naar settings om een andere dag of gids te kiezen."
+              text="Geen materiaal lijst gevonden voor deze dag. Kies een andere dag of gids."
               editable="false" class="text-center"></TextView>
+
+    <WeekAction #weekAction></WeekAction>
 
     <ScrollView height="100%">
         <StackLayout>

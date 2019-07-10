@@ -4,6 +4,7 @@ import { NativeScriptFormsModule } from "nativescript-angular";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { NativeScriptUIDataFormModule } from "nativescript-ui-dataform/angular";
+import { WeekActionModule } from "~/components/week-action/week-action.module";
 import { PlanningRoutingModule } from "~/pages/planning/planning-routing.module";
 import { PlanningComponent } from "./planning.component";
 
@@ -13,7 +14,8 @@ import { PlanningComponent } from "./planning.component";
         PlanningRoutingModule,
         NativeScriptFormsModule,
         NativeScriptHttpClientModule,
-        NativeScriptUIDataFormModule
+        NativeScriptUIDataFormModule,
+        WeekActionModule
     ],
     declarations: [
         PlanningComponent

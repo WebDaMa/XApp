@@ -1,8 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular";
 import { RadDataForm } from "nativescript-ui-dataform";
 import { Page } from "tns-core-modules/ui/page";
+import { WeekActionComponent } from "~/components/week-action/week-action.component";
 import { Settings } from "~/settings/settings";
 import { Guide } from "~/shared/models/guide.model";
 import { Planning } from "~/shared/models/planning.model";
@@ -16,7 +16,7 @@ import { PlanningService } from "~/shared/services/planning.service";
     providers: [CustomerService, PlanningService, GuideService],
     templateUrl: "./planning.component.html"
 })
-export class PlanningComponent implements OnInit {
+export class PlanningComponent implements OnInit, AfterViewInit {
     guides: Array<object> = [];
     plannings: Array<Planning>;
     hasPlannings: boolean = false;
@@ -26,10 +26,10 @@ export class PlanningComponent implements OnInit {
 
     isBusy: boolean = false;
 
+    @ViewChild(WeekActionComponent, {static: false}) weekAction: WeekActionComponent;
     constructor(private customerService: CustomerService,
                 private routerExtensions: RouterExtensions, private planningService: PlanningService,
-                private guideService: GuideService, private page: Page, private activeRoute: ActivatedRoute) {
-
+                private guideService: GuideService, private page: Page) {
     }
 
     ngOnInit(): void {
@@ -43,6 +43,13 @@ export class PlanningComponent implements OnInit {
             if (this.page.android) {
                 this.page.android.setFitsSystemWindows(true);
             }
+        });
+    }
+
+    ngAfterViewInit() {
+        this.weekAction.weekEmitter.subscribe((day) => {
+            this.date = day;
+            this.getPlannings();
         });
     }
 
