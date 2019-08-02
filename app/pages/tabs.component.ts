@@ -6,7 +6,7 @@ import {RadSideDrawer} from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 
 @Component({
-    selector: "Tabs",
+    selector: "MainTabs",
     moduleId: module.id,
     templateUrl: "./tabs.component.html",
     styleUrls: ["./tabs.component.scss"]

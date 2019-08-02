@@ -6,7 +6,7 @@
   "nativescript": {
     "id": "org.nativescript.XApp",
     "tns-android": {
-      "version": "6.0.0"
+      "version": "5.4.0"
     }
   },
   "scripts": {
@@ -23,8 +23,8 @@
     "@angular/router": "8.0.0",
     "nativescript-angular": "^8.0.0",
     "nativescript-theme-core": "^1.0.4",
-    "nativescript-ui-dataform": "5.0.0",
-    "nativescript-ui-sidedrawer": "7.0.0",
+    "nativescript-ui-dataform": "^3.9.0",
+    "nativescript-ui-sidedrawer": "^5.0.0",
     "reflect-metadata": "~0.1.10",
     "rxjs": "^6.3.3",
     "tns-core-modules": "^6.0.2",
@@ -38,12 +38,13 @@
     "babylon": "6.18.0",
     "codelyzer": "~4.3.0",
     "lazy": "1.0.11",
-    "nativescript-dev-webpack": "1.0.1",
+    "nativescript-dev-sass": "^1.7.0",
+    "nativescript-dev-typescript": "^0.10.0",
+    "nativescript-dev-webpack": "^0.24.1",
     "string-replace-loader": "^2.1.1",
     "tslint": "~5.10.0",
-    "typescript": "3.4.5",
-    "webpack-replace-loader": "^1.3.0",
-    "node-sass": "4.12.0"
+    "typescript": "~3.4.5",
+    "webpack-replace-loader": "^1.3.0"
   },
   "author": "Danny Matthijs"
 }
