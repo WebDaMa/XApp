@@ -9,7 +9,7 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
             <Label class="sidedrawer-header-brand" text="X-Adventure"></Label>
             <Label class="footnote" text="Menu"></Label>
         </StackLayout>
-    
+
         <ScrollView row="1">
             <StackLayout class="sidedrawer-content">
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/tabs/default')" (tap)="onNavItemTap('/tabs/default')">
@@ -27,10 +27,10 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                     <Label col="1" text="Bus check terug" class="p-r-10"></Label>
                 </GridLayout>
 
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/payments')" (tap)="onNavItemTap('/payments')">
+                <!-- <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/payments')" (tap)="onNavItemTap('/payments')">
                     <Label col="0" text="&#xf153;&nbsp;&nbsp;" class="fas"></Label>
                     <Label col="1" text="Kosten" class="p-r-10"></Label>
-                </GridLayout>
+                </GridLayout> -->
 
                 <StackLayout class="hr-light"></StackLayout>
 
@@ -64,10 +64,10 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                         <Label col="1" text="Planning" class="p-r-10"></Label>
                     </GridLayout>
 
-                    <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/bill')" (tap)="onNavItemTap('/bill')">
+                    <!-- <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/bill')" (tap)="onNavItemTap('/bill')">
                         <Label col="0" text="&#xf571;&nbsp;&nbsp;" class="fas"></Label>
                         <Label col="1" text="Afrekening" class="p-r-10"></Label>
-                    </GridLayout>
+                    </GridLayout> -->
                 </StackLayout>
 
 

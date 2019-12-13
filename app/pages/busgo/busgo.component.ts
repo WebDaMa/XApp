@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular";
 import { RadDataForm } from "nativescript-ui-dataform";
 import { Settings } from "~/settings/settings";
@@ -23,8 +22,8 @@ export class BusgoComponent implements OnInit {
 
     isBusy: boolean;
 
-    constructor(private customerService: CustomerService, private routerExtensions: RouterExtensions,
-                private activeRoute: ActivatedRoute) {
+    constructor(private customerService: CustomerService, private routerExtensions: RouterExtensions)
+    {
     }
 
     ngOnInit(): void {
@@ -50,7 +49,7 @@ export class BusgoComponent implements OnInit {
             );
     }
 
-    dfPropertyGoCommitted(args) {
+    dfPropertyGoCommitted(args: any) {
         const dataForm = <RadDataForm>args.object;
         const busCostumer: BusCustomer = <BusCustomer> JSON.parse(dataForm.editedObject);
 
@@ -58,7 +57,7 @@ export class BusgoComponent implements OnInit {
 
         this.customerService.putBusGoCustomerAction(busCostumer)
             .subscribe(
-                (res) => {
+                () => {
                     console.log("Updated customer");
                     this.isBusy = false;
                 },
@@ -76,5 +75,11 @@ export class BusgoComponent implements OnInit {
                 name: "fade"
             }
         });
+    }
+
+    callNumber(number: string) {
+        console.log("click");
+        const phone = require( "nativescript-phone" );
+        phone.dial(number, false);
     }
 }

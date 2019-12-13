@@ -44,7 +44,7 @@
             <StackLayout>
                 <StackLayout *ngFor="let place of checkinBusGo.places">
                     <Label [text]="place.place" class="text-center h3 p-4" backgroundColor="#e5e5e5"></Label>
-                    <StackLayout *ngFor="let customer of place.customers">
+                    <StackLayout *ngFor="let customer of place.customers" (click)="callNumber(customer.gsm)">
                         <RadDataForm tkExampleTitle tkToggleNavButton [source]="customer"
                                      (propertyCommitted)="dfPropertyGoCommitted($event)">
                             <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
@@ -65,6 +65,7 @@
                                 </TKEntityProperty>
                             </TKPropertyGroup>
                         </RadDataForm>
+                        <Button text="Call" (tap)="callNumber(customer.gsm)"></Button>
                         <StackLayout class="hr-light"></StackLayout>
                     </StackLayout>
                 </StackLayout>

@@ -5,14 +5,14 @@ import * as app from "tns-core-modules/application";
 import * as dialogs from "tns-core-modules/ui/dialogs";
 import { action } from "tns-core-modules/ui/dialogs";
 import { Page } from "tns-core-modules/ui/page";
-import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
+// import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
 import { Settings } from "~/settings/settings";
 import { Activity } from "~/shared/models/activity.model";
-import { CanyoningCustomer } from "~/shared/models/canyoningCustomer.model";
+// import { CanyoningCustomer } from "~/shared/models/canyoningCustomer.model";
 import { Group } from "~/shared/models/groep.model";
 import { OptionCategory } from "~/shared/models/optionCategory.model";
 import { RaftingCustomer } from "~/shared/models/raftingCustomer.model";
-import { SpecialCustomer } from "~/shared/models/specialCustomer.model";
+// import { SpecialCustomer } from "~/shared/models/specialCustomer.model";
 import { CustomerService } from "~/shared/services/customer.service";
 import { GroupService } from "~/shared/services/group.service";
 import { OptionService } from "~/shared/services/option.service";
@@ -29,8 +29,8 @@ export class OptionsComponent implements OnInit {
 
     activities: Array<any> = [];
 
-    optionCategories: Array<OptionCategory> = [];
-    optionCategoryItems: Array<SegmentedBarItem> = [];
+    // optionCategories: Array<OptionCategory> = [];
+    // optionCategoryItems: Array<SegmentedBarItem> = [];
     optionCategory: OptionCategory = {
         id: "1",
         name: ""
@@ -41,11 +41,11 @@ export class OptionsComponent implements OnInit {
     hasRaftingCustomers: boolean = false;
     raftingCustomers: Array<RaftingCustomer> = [];
 
-    hasCanyoningCustomers: boolean = false;
-    canyoningCustomers: Array<CanyoningCustomer> = [];
-
-    hasSpecialCustomers: boolean = false;
-    specialCustomers: Array<SpecialCustomer> = [];
+    // hasCanyoningCustomers: boolean = false;
+    // canyoningCustomers: Array<CanyoningCustomer> = [];
+    //
+    // hasSpecialCustomers: boolean = false;
+    // specialCustomers: Array<SpecialCustomer> = [];
 
     /*TODO: change to GroupsActionComponent when they fix it inside tabs*/
     groups: Array<Group> = [];
@@ -68,67 +68,70 @@ export class OptionsComponent implements OnInit {
         this.getGroups();
     }
 
-    selectedOptionCategoryIndexChanged(args) {
-        const segmentedBar = <SegmentedBar>args.object;
-        const selectedIndex = segmentedBar.selectedIndex;
-
-        this.optionCategory = this.optionCategories[selectedIndex];
-        this.getActivities();
-
-    }
+    // selectedOptionCategoryIndexChanged(args) {
+    //     const segmentedBar = <SegmentedBar>args.object;
+    //     const selectedIndex = segmentedBar.selectedIndex;
+    //
+    //     this.optionCategory = this.optionCategories[selectedIndex];
+    //     this.getActivities();
+    //
+    // }
 
     getCustomers(): void {
         if ((typeof this.group !== "undefined" &&
         this.group !== null ? this.group.id : void 0) != null) {
-            switch (this.optionCategory.name) {
-                case "raft":
-                    this.getRaftingCustomers();
-                    break;
-
-                case "canyon":
-                    this.getCanyoningCustomers();
-                    break;
-
-                case "special":
-                    this.getSpecialCustomers();
-                    break;
-            }
+          //Base version
+          this.getRaftingCustomers();
+        //
+        //     switch (this.optionCategory.name) {
+        //         case "raft":
+        //             this.getRaftingCustomers();
+        //             break;
+        //
+        //         case "canyon":
+        //             this.getCanyoningCustomers();
+        //             break;
+        //
+        //         case "special":
+        //             this.getSpecialCustomers();
+        //             break;
+        //     }
         }
     }
 
-    getOptionCategories(): void {
-        this.isBusy = true;
-
-        this.optionService.getAllCategoriesAction()
-            .subscribe(
-                (result: Array<OptionCategory>) => {
-
-                    this.optionCategories = result;
-                    console.log("found me some optionCategories");
-
-                    this.optionCategoryItems = [];
-                    for (const optionCategory of this.optionCategories) {
-                        const segmentedBarItem = <SegmentedBarItem>new SegmentedBarItem();
-                        segmentedBarItem.title = optionCategory.name;
-                        this.optionCategoryItems.push(segmentedBarItem);
-                    }
-
-                    if (this.optionCategories.length > 0) {
-                        this.optionCategory = this.optionCategories[0];
-                        this.getActivities();
-                    } else {
-                        this.isBusy = false;
-                    }
-
-                },
-                (error) => {
-                    console.dir(error);
-                    this.isBusy = false;
-
-                    /*TODO: handle errors*/
-                }
-            );
-    }
+    // getOptionCategories(): void {
+    //     this.isBusy = true;
+    //
+    //     this.optionService.getAllCategoriesAction()
+    //         .subscribe(
+    //             (result: Array<OptionCategory>) => {
+    //
+    //                 this.optionCategories = result;
+    //                 console.log("found me some optionCategories");
+    //
+    //                 this.optionCategoryItems = [];
+    //                 for (const optionCategory of this.optionCategories) {
+    //                     const segmentedBarItem = <SegmentedBarItem>new SegmentedBarItem();
+    //                     segmentedBarItem.title = optionCategory.name;
+    //                     this.optionCategoryItems.push(segmentedBarItem);
+    //                 }
+    //
+    //                 if (this.optionCategories.length > 0) {
+    //                     this.optionCategory = this.optionCategories[0];
+    //                     this.getActivities();
+    //                 } else {
+    //                     this.isBusy = false;
+    //                 }
+    //
+    //             },
+    //             (error) => {
+    //                 console.dir(error);
+    //                 this.isBusy = false;
+    //
+    //                 /*TODO: handle errors*/
+    //             }
+    //         );
+    // }
 
     getRaftingCustomers(): void {
         this.isBusy = true;
@@ -154,68 +157,68 @@ export class OptionsComponent implements OnInit {
 
     }
 
-    getCanyoningCustomers(): void {
-        this.isBusy = true;
-
-        this.customerService.getAllByGroepWithCanyoningOptionAction(this.group.id)
-            .subscribe(
-                (result: Array<CanyoningCustomer>) => {
-                    let i = 0;
-                    for (const canyoningCustomer of result) {
-                        canyoningCustomer.possibleActivitiesFull =
-                            this.mapCustomerActivitiesFull(canyoningCustomer.possibleActivities);
-                        canyoningCustomer.possibleActivities =
-                            this.mapCustomerActivitiesName(canyoningCustomer.possibleActivities);
-                        result[i] = canyoningCustomer;
-                        i++;
-                    }
-                    this.canyoningCustomers = result;
-                    this.hasCanyoningCustomers = true;
-                    console.log("found me some customers");
-                    this.isBusy = false;
-
-                },
-                (error) => {
-                    console.dir(error);
-                    this.hasCanyoningCustomers = false;
-                    this.isBusy = false;
-
-                    /*TODO: handle errors*/
-                }
-            );
-
-    }
-
-    getSpecialCustomers(): void {
-        this.isBusy = true;
-
-        this.customerService.getAllByGroepWithSpecialOptionAction(this.group.id)
-            .subscribe(
-                (result: Array<SpecialCustomer>) => {
-                    let i = 0;
-                    for (const specialCustomer of result) {
-                        specialCustomer.possibleActivitiesFull =
-                            this.mapCustomerActivitiesFull(specialCustomer.possibleActivities);
-                        specialCustomer.possibleActivities =
-                            this.mapCustomerActivitiesName(specialCustomer.possibleActivities);
-                        result[i] = specialCustomer;
-                        i++;
-                    }
-                    this.specialCustomers = result;
-                    this.hasSpecialCustomers = true;
-                    console.log("found me some customers");
-                    this.isBusy = false;
-                },
-                (error) => {
-                    console.dir(error);
-                    this.hasSpecialCustomers = false;
-                    this.isBusy = false;
-
-                    /*TODO: handle errors*/
-                }
-            );
-
-    }
+    // getCanyoningCustomers(): void {
+    //     this.isBusy = true;
+    //
+    //     this.customerService.getAllByGroepWithCanyoningOptionAction(this.group.id)
+    //         .subscribe(
+    //             (result: Array<CanyoningCustomer>) => {
+    //                 let i = 0;
+    //                 for (const canyoningCustomer of result) {
+    //                     canyoningCustomer.possibleActivitiesFull =
+    //                         this.mapCustomerActivitiesFull(canyoningCustomer.possibleActivities);
+    //                     canyoningCustomer.possibleActivities =
+    //                         this.mapCustomerActivitiesName(canyoningCustomer.possibleActivities);
+    //                     result[i] = canyoningCustomer;
+    //                     i++;
+    //                 }
+    //                 this.canyoningCustomers = result;
+    //                 this.hasCanyoningCustomers = true;
+    //                 console.log("found me some customers");
+    //                 this.isBusy = false;
+    //
+    //             },
+    //             (error) => {
+    //                 console.dir(error);
+    //                 this.hasCanyoningCustomers = false;
+    //                 this.isBusy = false;
+    //
+    //                 /*TODO: handle errors*/
+    //             }
+    //         );
+    //
+    // }
+    //
+    // getSpecialCustomers(): void {
+    //     this.isBusy = true;
+    //
+    //     this.customerService.getAllByGroepWithSpecialOptionAction(this.group.id)
+    //         .subscribe(
+    //             (result: Array<SpecialCustomer>) => {
+    //                 let i = 0;
+    //                 for (const specialCustomer of result) {
+    //                     specialCustomer.possibleActivitiesFull =
+    //                         this.mapCustomerActivitiesFull(specialCustomer.possibleActivities);
+    //                     specialCustomer.possibleActivities =
+    //                         this.mapCustomerActivitiesName(specialCustomer.possibleActivities);
+    //                     result[i] = specialCustomer;
+    //                     i++;
+    //                 }
+    //                 this.specialCustomers = result;
+    //                 this.hasSpecialCustomers = true;
+    //                 console.log("found me some customers");
+    //                 this.isBusy = false;
+    //             },
+    //             (error) => {
+    //                 console.dir(error);
+    //                 this.hasSpecialCustomers = false;
+    //                 this.isBusy = false;
+    //
+    //                 /*TODO: handle errors*/
+    //             }
+    //         );
+    //
+    // }
 
     getActivities(): void {
         if ((typeof this.optionCategory !== "undefined" &&
@@ -289,35 +292,35 @@ export class OptionsComponent implements OnInit {
             );
     }
 
-    dfPropertyCommittedCanyoning(args): void {
-        const dataForm = <RadDataForm>args.object;
-        const canyoningCustomer: CanyoningCustomer = <CanyoningCustomer> JSON.parse(dataForm.editedObject);
-
-        canyoningCustomer.activityIds = (typeof canyoningCustomer.activityIds === "string" &&
-            canyoningCustomer.activityIds.length > 2)
-        || (typeof canyoningCustomer.activityIds === "object" &&
-            canyoningCustomer.activityIds.length !== 0) ? this.getActivityIds(canyoningCustomer.activityIds,
-            canyoningCustomer.possibleActivitiesFull) : [];
-
-        if (canyoningCustomer.activityIds) {
-            canyoningCustomer.activityIds = JSON.stringify(canyoningCustomer.activityIds);
-
-            this.isBusy = true;
-
-            this.customerService.putCustomerCanyoningOptionAction(canyoningCustomer)
-                .subscribe(
-                    () => {
-                        this.isBusy = false;
-                        console.log("Updated canyoning customer");
-                    },
-                    (error) => {
-                        this.isBusy = false;
-                        console.dir(error);
-                        /*TODO: handle errors*/
-                    }
-                );
-        }
-    }
+    // dfPropertyCommittedCanyoning(args): void {
+    //     const dataForm = <RadDataForm>args.object;
+    //     const canyoningCustomer: CanyoningCustomer = <CanyoningCustomer> JSON.parse(dataForm.editedObject);
+    //
+    //     canyoningCustomer.activityIds = (typeof canyoningCustomer.activityIds === "string" &&
+    //         canyoningCustomer.activityIds.length > 2)
+    //     || (typeof canyoningCustomer.activityIds === "object" &&
+    //         canyoningCustomer.activityIds.length !== 0) ? this.getActivityIds(canyoningCustomer.activityIds,
+    //         canyoningCustomer.possibleActivitiesFull) : [];
+    //
+    //     if (canyoningCustomer.activityIds) {
+    //         canyoningCustomer.activityIds = JSON.stringify(canyoningCustomer.activityIds);
+    //
+    //         this.isBusy = true;
+    //
+    //         this.customerService.putCustomerCanyoningOptionAction(canyoningCustomer)
+    //             .subscribe(
+    //                 () => {
+    //                     this.isBusy = false;
+    //                     console.log("Updated canyoning customer");
+    //                 },
+    //                 (error) => {
+    //                     this.isBusy = false;
+    //                     console.dir(error);
+    //                     /*TODO: handle errors*/
+    //                 }
+    //             );
+    //     }
+    // }
 
     getActivityIds(activities, activitiesFull): Array<string> {
         const activitiesIds = [];
@@ -360,34 +363,34 @@ export class OptionsComponent implements OnInit {
         return activities.map(({id, name}) => ({key: id, label: name}));
     }
 
-    dfPropertyCommittedSpecial(args): void {
-        const dataForm = <RadDataForm>args.object;
-        const specialCustomer: SpecialCustomer = <SpecialCustomer> JSON.parse(dataForm.editedObject);
-
-        specialCustomer.activityIds = (typeof specialCustomer.activityIds === "string" &&
-            specialCustomer.activityIds.length > 2)
-        || (typeof specialCustomer.activityIds === "object" &&
-            specialCustomer.activityIds.length !== 0) ? this.getActivityIds(specialCustomer.activityIds,
-            specialCustomer.possibleActivitiesFull) : [];
-
-        if (specialCustomer.activityIds) {
-            specialCustomer.activityIds = JSON.stringify(specialCustomer.activityIds);
-            this.isBusy = true;
-
-            this.customerService.putCustomerSpecialOptionAction(specialCustomer)
-                .subscribe(
-                    () => {
-                        this.isBusy = false;
-                        console.log("Updated special customer");
-                    },
-                    (error) => {
-                        this.isBusy = false;
-                        console.dir(error);
-                        /*TODO: handle errors*/
-                    }
-                );
-        }
-    }
+    // dfPropertyCommittedSpecial(args): void {
+    //     const dataForm = <RadDataForm>args.object;
+    //     const specialCustomer: SpecialCustomer = <SpecialCustomer> JSON.parse(dataForm.editedObject);
+    //
+    //     specialCustomer.activityIds = (typeof specialCustomer.activityIds === "string" &&
+    //         specialCustomer.activityIds.length > 2)
+    //     || (typeof specialCustomer.activityIds === "object" &&
+    //         specialCustomer.activityIds.length !== 0) ? this.getActivityIds(specialCustomer.activityIds,
+    //         specialCustomer.possibleActivitiesFull) : [];
+    //
+    //     if (specialCustomer.activityIds) {
+    //         specialCustomer.activityIds = JSON.stringify(specialCustomer.activityIds);
+    //         this.isBusy = true;
+    //
+    //         this.customerService.putCustomerSpecialOptionAction(specialCustomer)
+    //             .subscribe(
+    //                 () => {
+    //                     this.isBusy = false;
+    //                     console.log("Updated special customer");
+    //                 },
+    //                 (error) => {
+    //                     this.isBusy = false;
+    //                     console.dir(error);
+    //                     /*TODO: handle errors*/
+    //                 }
+    //             );
+    //     }
+    // }
 
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
@@ -421,7 +424,7 @@ export class OptionsComponent implements OnInit {
             Settings.setGroupIndex(this.selectedIndex);
             this.group = this.groups[this.selectedIndex];
             Settings.setGroupId(this.group.id);
-            this.getOptionCategories();
+            // this.getOptionCategories();
         }
     }
 
@@ -449,7 +452,7 @@ export class OptionsComponent implements OnInit {
                         this.group = this.groups[this.selectedIndex];
                         Settings.setGroupId(this.group.id);
                         this.hasGroups = true;
-                        this.getOptionCategories();
+                        // this.getOptionCategories();
                     }
 
                     this.isBusy = false;

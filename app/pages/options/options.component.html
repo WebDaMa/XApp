@@ -10,12 +10,12 @@
             <TextView [visibility]="!hasGroups ? 'visible' : 'collapsed'" text="Geen groepen gevonden, kies een andere locatie of datum bij settings."
                       editable="false" class="text-center"></TextView>
         </StackLayout>
-        <SegmentedBar [items]="optionCategoryItems" [visibility]="hasGroups ? 'visible' : 'collapse'"
-                      (selectedIndexChange)="selectedOptionCategoryIndexChanged($event)"></SegmentedBar>
+        <!-- <SegmentedBar [items]="optionCategoryItems" [visibility]="hasGroups ? 'visible' : 'collapse'"
+                      (selectedIndexChange)="selectedOptionCategoryIndexChanged($event)"></SegmentedBar> -->
 
         <ActivityIndicator [visibility]="isBusy ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100"
                            class="activity-indicator"></ActivityIndicator>
-        <StackLayout [visibility]="optionCategory.name === 'raft' ? 'visible' : 'collapsed'">
+        <!-- <StackLayout [visibility]="optionCategory.name === 'raft' ? 'visible' : 'collapsed'"> -->
             <TextView [visibility]="raftingCustomers.length < 1 ? 'visible' : 'collapsed'"
                       text="Geen opties gevonden voor deze groep."
                       editable="false" class="text-center"></TextView>
@@ -47,9 +47,9 @@
                             </TKPropertyGroup>
                         </RadDataForm>
             </StackLayout>
-        </StackLayout>
+        <!-- </StackLayout> -->
 
-        <StackLayout [visibility]="optionCategory.name === 'canyon' ? 'visible' : 'collapsed'">
+        <!-- <StackLayout [visibility]="optionCategory.name === 'canyon' ? 'visible' : 'collapsed'">
             <TextView [visibility]="canyoningCustomers.length < 1 ? 'visible' : 'collapsed'"
                       text="Geen opties gevonden voor deze groep."
                       editable="false" class="text-center"></TextView>
@@ -86,9 +86,9 @@
                     </TKPropertyGroup>
                 </RadDataForm>
             </StackLayout>
-        </StackLayout>
+        </StackLayout> -->
 
-        <StackLayout [visibility]="optionCategory.name === 'special' ? 'visible' : 'collapsed'">
+        <!-- <StackLayout [visibility]="optionCategory.name === 'special' ? 'visible' : 'collapsed'">
             <TextView [visibility]="specialCustomers.length < 1 ? 'visible' : 'collapsed'"
                       text="Geen opties gevonden voor deze groep."
                       editable="false" class="text-center"></TextView>
@@ -124,7 +124,7 @@
                     </TKPropertyGroup>
                 </RadDataForm>
             </StackLayout>
-        </StackLayout>
+        </StackLayout> -->
 
     </StackLayout>
 </ScrollView>
