@@ -28,7 +28,7 @@ export class WeekActionComponent implements OnInit {
         for (let i = 0; i < 7; i++) {
             if (i - day !== 0) {
                 const days = i - day;
-                const newDate = new Date(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                const newDate = new Date(date.getTime() + (days * 86400000));
                 const dateString: string = newDate.getFullYear() + "-" + (newDate.getMonth() + 1) +
                     "-" + newDate.getDate();
                 this.daysItems.push(dateString);
