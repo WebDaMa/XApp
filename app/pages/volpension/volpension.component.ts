@@ -64,4 +64,8 @@ export class VolpensionComponent implements OnInit {
             }
         });
     }
+
+    isTotal(total: string): boolean {
+        return Number(total) + 1 < 2;
+    }
 }

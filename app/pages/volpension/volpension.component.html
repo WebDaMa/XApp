@@ -23,7 +23,7 @@
         <Label text="TEA" col="4"></Label>
         <Label text="Totaal" col="5"></Label>
     </GridLayout>
-    <TextView [visibility]="volpension.total + 1 < 2 && !isBusy ? 'visible' : 'collapsed'" text="Geen volpension lijst gevonden voor deze week. Ga naar settings om een andere dag te kiezen."
+    <TextView [visibility]="isTotal(volpension.total) && !isBusy ? 'visible' : 'collapsed'" text="Geen volpension lijst gevonden voor deze week. Ga naar settings om een andere dag te kiezen."
               editable="false" class="text-center"></TextView>
 
     <ListView [items]="volpension.allInTypes" class="m-5">

@@ -77,9 +77,13 @@ export class BusgoComponent implements OnInit {
         });
     }
 
-    callNumber(number: string) {
+    callNumber(phonenumber: string) {
         console.log("click");
-        const phone = require( "nativescript-phone" );
-        phone.dial(number, false);
+        // const phone = require( "nativescript-phone" );
+        // phone.dial(number, false);
+    }
+
+    isTotal(total: string): boolean {
+        return Number(total) + 1 < 2;
     }
 }

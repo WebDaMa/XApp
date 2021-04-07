@@ -3,12 +3,13 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
 import { User } from "~/shared/models/user.model";
+import { EnvironmentManagerService } from "~/shared/services/env.service";
+import { Service } from "~/shared/services/service";
 import { Config } from "../config";
-import {Service} from "~/shared/services/service";
 
 @Injectable()
 export class UserService extends Service {
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private environmentManagerService: EnvironmentManagerService) {
         super();
     }
 
@@ -20,8 +21,8 @@ export class UserService extends Service {
             url,
             {
                 grant_type: "password",
-                client_id: Config.appKey,
-                client_secret: Config.appSecret,
+                client_id: this.environmentManagerService.getAppKey(),
+                client_secret: this.environmentManagerService.getAppSecret(),
                 username: user.username,
                 password: user.password
             },
@@ -31,7 +32,7 @@ export class UserService extends Service {
 
     register(user: User) {
         return this.http.post(
-            Config.apiUrl + "user/" + Config.appKey,
+            Config.apiUrl + "user/" + this.environmentManagerService.getAppKey(),
             JSON.stringify({
                 username: user.username,
                 password: user.password

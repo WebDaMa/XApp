@@ -3,11 +3,12 @@ import { RouterExtensions } from "nativescript-angular";
 import { Page } from "tns-core-modules/ui/page";
 import * as utils from "tns-core-modules/utils/utils";
 import { User } from "~/shared/models/user.model";
+import { EnvironmentManagerService } from "~/shared/services/env.service";
 import { UserService } from "~/shared/services/user.service";
 
 @Component({
     selector: "Login",
-    providers: [UserService],
+    providers: [UserService, EnvironmentManagerService],
     moduleId: module.id,
     templateUrl: "./login.component.html"
 })

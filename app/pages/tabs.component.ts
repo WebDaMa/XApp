@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular";
-import { Page } from "tns-core-modules/ui/page";
-import {RadSideDrawer} from "nativescript-ui-sidedrawer";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
+import { Page } from "tns-core-modules/ui/page";
 
 @Component({
     selector: "MainTabs",

@@ -24,7 +24,7 @@
             <Label text="TEA" col="4"></Label>
             <Label text="Totaal" col="5"></Label>
         </GridLayout>
-        <TextView [visibility]="checkinBusGo.total + 1 < 2 && !isBusy ? 'visible' : 'collapsed'" text="Geen bus lijst gevonden voor deze dag. Ga naar settings om een andere dag te kiezen."
+        <TextView [visibility]="isTotal(checkinBusGo.total) && !isBusy ? 'visible' : 'collapsed'" text="Geen bus lijst gevonden voor deze dag. Ga naar settings om een andere dag te kiezen."
                   editable="false" class="text-center"></TextView>
 
         <ListView [items]="checkinBusGo.places" class="m-5">

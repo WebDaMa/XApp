@@ -81,4 +81,8 @@ export class BusbackComponent implements OnInit {
             }
         });
     }
+
+    isTotal(total: string): boolean {
+        return Number(total) + 1 < 2;
+    }
 }

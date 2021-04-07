@@ -12,8 +12,6 @@
     <Label class="action-bar-title" text="Settings"></Label>
 </ActionBar>
 <StackLayout class="page page-content" tkMainContent>
-    <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100" class="activity-indicator"></ActivityIndicator>
-
     <DatePicker #datePicker (loaded)="onPickerLoaded($event)" (dateChange)="onDateChanged($event)"
                 verticalAlignment="center"></DatePicker>
     <Button text="Huidige dag continu!" (tap)="setCurrentDay()" class="btn btn-primary btn-active"></Button>

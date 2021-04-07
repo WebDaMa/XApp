@@ -1,13 +1,10 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from "@angular/core";
+import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular";
 import { DatePicker } from "tns-core-modules/ui/date-picker";
 import * as dialogs from "tns-core-modules/ui/dialogs";
-import { ListPicker } from "tns-core-modules/ui/list-picker";
+import { LocationsActionComponent } from "~/components/locations-action/locations-action.component";
+import { Settings } from "~/settings/settings";
 import { Location } from "~/shared/models/location.model";
-import { LocationService } from "~/shared/services/location.service";
-import {GroupsActionComponent} from "~/components/groups-action/groups-action.component";
-import {LocationsActionComponent} from "~/components/locations-action/locations-action.component";
-import {Settings} from "~/settings/settings";
 
 @Component({
     selector: "Settings",
