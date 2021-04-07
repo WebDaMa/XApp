@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29231f43-1602-4262-8068-fafd9ea89c9e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/shared/services/env.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App_Resources/Android/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/Android/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main.aot.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.aot.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/busback/busback.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/busback/busback.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/busback/busback.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/busback/busback.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/busgo/busgo.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/busgo/busgo.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/busgo/busgo.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/busgo/busgo.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/settings/settings.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/settings/settings.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/settings/settings.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/settings/settings.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/tabs.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/tabs.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/volpension/volpension.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/volpension/volpension.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/volpension/volpension.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/volpension/volpension.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shared/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/shared/services/user.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -333,7 +314,7 @@
       <workItem from="1607421457233" duration="186000" />
       <workItem from="1613218444639" duration="235000" />
       <workItem from="1616517495852" duration="825000" />
-      <workItem from="1617818174704" duration="3726000" />
+      <workItem from="1617818174704" duration="4176000" />
     </task>
     <servers />
   </component>
