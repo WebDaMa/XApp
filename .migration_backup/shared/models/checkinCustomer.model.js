@@ -1,9 +1,0 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var CheckinCustomer = /** @class */ (function () {
-    function CheckinCustomer() {
-    }
-    return CheckinCustomer;
-}());
-exports.CheckinCustomer = CheckinCustomer;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2hlY2tpbkN1c3RvbWVyLm1vZGVsLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiY2hlY2tpbkN1c3RvbWVyLm1vZGVsLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUE7SUFBQTtJQVdBLENBQUM7SUFBRCxzQkFBQztBQUFELENBQUMsQUFYRCxJQVdDO0FBWFksMENBQWUiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY2xhc3MgQ2hlY2tpbkN1c3RvbWVyIHtcbiAgICBpZDogc3RyaW5nO1xuICAgIGN1c3RvbWVyOiBzdHJpbmc7XG4gICAgYm9va2VyOiBzdHJpbmc7XG4gICAgYm9va2VySWQ6IHN0cmluZztcbiAgICBjaGVja2VkaW46IGJvb2xlYW47XG4gICAgYmlydGhkYXRlOiBzdHJpbmc7XG4gICAgZW1haWw6IHN0cmluZztcbiAgICBuYXRpb25hbFJlZ2lzdGVyTnVtYmVyOiBzdHJpbmc7XG4gICAgZXhwaXJlRGF0ZTogc3RyaW5nO1xuICAgIGlzQ29tcGxldGU6IGJvb2xlYW47XG59XG4iXX0=
