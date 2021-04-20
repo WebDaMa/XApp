@@ -70,6 +70,8 @@ export class LocationsActionComponent implements OnInit {
                     this.locations = result;
 
                     if (this.locations.length > 0) {
+                        // Make empty first
+                        this.locatonsItems = [];
                         for (const locationItem of this.locations) {
                             this.locatonsItems.push(
                                 locationItem.code + " [" +

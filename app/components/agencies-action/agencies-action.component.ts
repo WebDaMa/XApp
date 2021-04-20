@@ -73,6 +73,8 @@ export class AgenciesActionComponent implements OnInit {
                     this.agencies = result;
 
                     if (this.agencies.length > 0) {
+                        // Make empty first
+                        this.agenciesItems = [];
                         for (const agencyItem of this.agencies) {
                             this.agenciesItems.push(
                                 agencyItem.name + " [" +

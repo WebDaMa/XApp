@@ -11,10 +11,7 @@ const routes: Routes = [
     { path: "volpension", loadChildren: "~/pages/volpension/volpension.module#VolpensionModule" },
     { path: "lodging", loadChildren: "~/pages/lodging/lodging.module#LodgingModule" },
     { path: "groep", loadChildren: "~/pages/groep/groep.module#GroepModule" },
-    { path: "checkin", loadChildren: "~/pages/checkin/checkin.module#CheckinModule" },
     { path: "planning", loadChildren: "~/pages/planning/planning.module#PlanningModule" },
-    // { path: "payments", loadChildren: "~/pages/payments/payments.module#PaymentsModule" },
-    // { path: "bill", loadChildren: "~/pages/bill/bill.module#BillModule" },
     {
         path: "tabs",
         loadChildren: "~/pages/tabs.module#TabsModule"

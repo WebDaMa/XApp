@@ -1,20 +1,20 @@
-<StackLayout>
-    <GridLayout columns="10, *, *, 10" rows="auto" class="m-5">
-        <Button col="1" horizontalAlignment="left" text="&#xf021;" class="fas btn btn-primary btn-active"
-                (tap)="reload()"></Button>
-        <Button col="2" horizontalAlignment="right" text="&#xf013;" class="fas btn btn-grey btn-primary"
-                [nsRouterLink]="['../materials/settings']"></Button>
-    </GridLayout>
+<ScrollView>
+    <StackLayout class="page page-content" tkMainContent>
+        <GridLayout columns="10, *, *, 10" rows="auto" class="m-5">
+            <Button col="1" horizontalAlignment="left" text="&#xf021;" class="fas btn btn-primary btn-active"
+                    (tap)="reload()"></Button>
+            <Button col="2" horizontalAlignment="right" text="&#xf013;" class="fas btn btn-grey btn-primary"
+                    [nsRouterLink]="['../materials/settings']"></Button>
+        </GridLayout>
 
-    <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100"
-                       class="activity-indicator"></ActivityIndicator>
-    <TextView [visibility]="material.groupTotal + 1 < 2 && !isBusy ? 'visible' : 'collapsed'"
-              text="Geen materiaal lijst gevonden voor deze dag. Kies een andere dag of gids."
-              editable="false" class="text-center"></TextView>
+        <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100"
+                           class="activity-indicator"></ActivityIndicator>
+        <TextView [visibility]="material.groupTotal + 1 < 2 && !isBusy ? 'visible' : 'collapsed'"
+                  text="Geen materiaal lijst gevonden voor deze dag. Kies een andere dag of gids."
+                  editable="false" class="text-center"></TextView>
 
-    <WeekAction #weekAction></WeekAction>
+        <WeekAction #weekAction></WeekAction>
 
-    <ScrollView height="100%">
         <StackLayout>
             <GridLayout columns="10, *, *" rows="auto, auto, auto, auto" class="m-5">
                 <Label row="0" col="1" [text]="material.date"></Label>
@@ -60,7 +60,6 @@
                 <Label row="0" col="3" [text]="customer.sizeInfo"></Label>
             </GridLayout>
         </StackLayout>
-    </ScrollView>
-
-</StackLayout>
+    </StackLayout>
+</ScrollView>
 

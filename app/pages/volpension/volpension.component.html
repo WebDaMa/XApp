@@ -11,23 +11,25 @@
     -->
     <Label class="action-bar-title" text="Volpension"></Label>
 </ActionBar>
-<StackLayout class="page page-content" tkMainContent>
-    <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100" class="activity-indicator"></ActivityIndicator>
+<ScrollView>
+    <StackLayout class="page page-content" tkMainContent>
+        <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100"
+                           class="activity-indicator"></ActivityIndicator>
 
-    <Label [text]="'Volpension - '+ volpension.date " class="h3 text-center"></Label>
-    <GridLayout columns="*, *, *, * ,*, *" rows="auto" class="m-5 h3" backgroundColor="#e5e5e5">
-        <Label [text]="'Tot ' + volpension.total" class="font-weight-bold" col="0"></Label>
-        <Label text="XAD" col="1"></Label>
-        <Label text="FAD" col="2"></Label>
-        <Label text="JAD" col="3"></Label>
-        <Label text="TEA" col="4"></Label>
-        <Label text="Totaal" col="5"></Label>
-    </GridLayout>
-    <TextView [visibility]="isTotal(volpension.total) && !isBusy ? 'visible' : 'collapsed'" text="Geen volpension lijst gevonden voor deze week. Ga naar settings om een andere dag te kiezen."
-              editable="false" class="text-center"></TextView>
+        <Label [text]="'Volpension - '+ volpension.date " class="h3 text-center"></Label>
+        <GridLayout columns="*, *, *, * ,*, *" rows="auto" class="m-5 h3" backgroundColor="#e5e5e5">
+            <Label [text]="'Tot ' + volpension.total" class="font-weight-bold" col="0"></Label>
+            <Label text="XAD" col="1"></Label>
+            <Label text="FAD" col="2"></Label>
+            <Label text="JAD" col="3"></Label>
+            <Label text="TEA" col="4"></Label>
+            <Label text="Totaal" col="5"></Label>
+        </GridLayout>
+        <TextView [visibility]="isTotal(volpension.total) && !isBusy ? 'visible' : 'collapsed'"
+                  text="Geen volpension lijst gevonden voor deze week. Ga naar settings om een andere dag te kiezen."
+                  editable="false" class="text-center"></TextView>
 
-    <ListView [items]="volpension.allInTypes" class="m-5">
-        <ng-template let-item="item" let-i="index">
+        <StackLayout *ngFor="let item of volpension.allInTypes" class="m-5">
             <GridLayout columns="*, *, *, * ,*, *" rows="auto" class="m-5">
                 <Label [text]="item.allInType" class="font-weight-bold h3" col="0"></Label>
                 <Label [text]="item.totals.XAD ? item.totals.XAD : 0" col="1"></Label>
@@ -36,36 +38,34 @@
                 <Label [text]="item.totals.TEA ? item.totals.TEA : 0" col="4"></Label>
                 <Label [text]="item.total" col="5"></Label>
             </GridLayout>
-        </ng-template>
-    </ListView>
-    |
-    <ScrollView height="100%">
-        <StackLayout>
-            <StackLayout *ngFor="let allInType of volpension.allInTypes">
-                <Label *ngIf="allInType.customers && allInType.customers.length > 0" [text]="allInType.allInType" class="text-center p-4" backgroundColor="#e5e5e5"></Label>
-                <StackLayout *ngFor="let customer of allInType.customers">
-                    <RadDataForm tkExampleTitle tkToggleNavButton [source]="customer">
-                        <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
-                            <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true"
-                                              readOnly="true" name="id" index="0">
-                            </TKEntityProperty>
-                            <TKEntityProperty tkPropertyGroupProperties columnIndex="0" readOnly="true"
-                                              name="customer" displayName="Deelnemer" index="0">
-                                <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
-                            </TKEntityProperty>
-                            <TKEntityProperty tkPropertyGroupProperties columnIndex="1" readOnly="true"
-                                              name="agency" displayName="Agentschap" index="0">
-                                <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
-                            </TKEntityProperty>
-                            <TKEntityProperty tkPropertyGroupProperties columnIndex="2" readOnly="true"
-                                              name="infoFile" displayName="Opmerking" index="0">
-                                <TKPropertyEditor tkEntityPropertyEditor type="MultilineText"></TKPropertyEditor>
-                            </TKEntityProperty>
-                        </TKPropertyGroup>
-                    </RadDataForm>
-                </StackLayout>
+        </StackLayout>
+        |
+
+        <StackLayout *ngFor="let allInType of volpension.allInTypes">
+            <Label *ngIf="allInType.customers && allInType.customers.length > 0" [text]="allInType.allInType"
+                   class="text-center p-4" backgroundColor="#e5e5e5"></Label>
+            <StackLayout *ngFor="let customer of allInType.customers">
+                <RadDataForm tkExampleTitle tkToggleNavButton [source]="customer">
+                    <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
+                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true"
+                                          readOnly="true" name="id" index="0">
+                        </TKEntityProperty>
+                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" readOnly="true"
+                                          name="customer" displayName="Deelnemer" index="0">
+                            <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                        </TKEntityProperty>
+                        <TKEntityProperty tkPropertyGroupProperties columnIndex="1" readOnly="true"
+                                          name="agency" displayName="Agentschap" index="0">
+                            <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                        </TKEntityProperty>
+                        <TKEntityProperty tkPropertyGroupProperties columnIndex="2" readOnly="true"
+                                          name="infoFile" displayName="Opmerking" index="0">
+                            <TKPropertyEditor tkEntityPropertyEditor type="MultilineText"></TKPropertyEditor>
+                        </TKEntityProperty>
+                    </TKPropertyGroup>
+                </RadDataForm>
             </StackLayout>
         </StackLayout>
-    </ScrollView>
+    </StackLayout>
 
-</StackLayout>
+</ScrollView>

@@ -73,6 +73,8 @@ export class GuidesActionComponent implements OnInit {
                     this.guides = result;
 
                     if (this.guides.length > 0) {
+                        // Make empty first
+                        this.guideItems = [];
                         for (const guideItem of this.guides) {
                             this.guideItems.push(
                                 guideItem.guideShort + " - " +

@@ -1,5 +1,5 @@
 <ScrollView>
-    <StackLayout>
+    <StackLayout class="page page-content" tkMainContent>
         <StackLayout>
             <Button col="1" horizontalAlignment="left" text="&#xf021;" class="fas btn btn-primary btn-active"
                     (tap)="getGroups()"></Button>
@@ -47,84 +47,5 @@
                             </TKPropertyGroup>
                         </RadDataForm>
             </StackLayout>
-        <!-- </StackLayout> -->
-
-        <!-- <StackLayout [visibility]="optionCategory.name === 'canyon' ? 'visible' : 'collapsed'">
-            <TextView [visibility]="canyoningCustomers.length < 1 ? 'visible' : 'collapsed'"
-                      text="Geen opties gevonden voor deze groep."
-                      editable="false" class="text-center"></TextView>
-            <StackLayout *ngFor="let customer of canyoningCustomers">
-                <RadDataForm tkExampleTitle tkToggleNavButton [source]="customer"
-                             (propertyCommitted)="dfPropertyCommittedCanyoning($event)">
-                    <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
-                        <TKDataFormGridLayout tkPropertyGroupLayout></TKDataFormGridLayout>
-                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" readOnly="true" hidden="true" name="id"
-                                          index="0">
-                        </TKEntityProperty>
-                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" name="possibleActivities"
-                                          index="0">
-                        </TKEntityProperty>
-                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" name="possibleActivitiesFull"
-                                          index="0">
-                        </TKEntityProperty>
-                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" readOnly="true"
-                                          name="customer"
-                                          displayName="Deelnemer" index="0">
-                            <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
-                        </TKEntityProperty>
-                        <TKEntityProperty tkPropertyGroupProperties columnIndex="1" name="programType"
-                                          displayName="Program" index="0">
-                            <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
-                        </TKEntityProperty>
-                        <TKEntityProperty tkDataFormProperty columnIndex="2" name="activityIds"
-                                          displayName="Canyons"
-                                          autoCompleteDisplayMode="token" [valuesProvider]="customer.possibleActivities"
-                                          index="0">
-                            <TKPropertyEditor tkEntityPropertyEditor
-                                              type="AutoCompleteInline"></TKPropertyEditor>
-                        </TKEntityProperty>
-                    </TKPropertyGroup>
-                </RadDataForm>
-            </StackLayout>
-        </StackLayout> -->
-
-        <!-- <StackLayout [visibility]="optionCategory.name === 'special' ? 'visible' : 'collapsed'">
-            <TextView [visibility]="specialCustomers.length < 1 ? 'visible' : 'collapsed'"
-                      text="Geen opties gevonden voor deze groep."
-                      editable="false" class="text-center"></TextView>
-            <StackLayout *ngFor="let customer of specialCustomers">
-                <RadDataForm tkExampleTitle tkToggleNavButton [source]="customer"
-                             (propertyCommitted)="dfPropertyCommittedSpecial($event)">
-                    <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
-                        <TKDataFormGridLayout tkPropertyGroupLayout></TKDataFormGridLayout>
-                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" name="id"
-                                          index="0">
-                        </TKEntityProperty>
-                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" name="possibleActivities"
-                                          index="0">
-                        </TKEntityProperty>
-                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" name="possibleActivitiesFull"
-                                          index="0">
-                        </TKEntityProperty>
-                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" readOnly="true"
-                                          name="customer"
-                                          displayName="Deelnemer" index="0">
-                            <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
-                        </TKEntityProperty>
-                        <TKEntityProperty tkPropertyGroupProperties columnIndex="1" name="programType"
-                                          displayName="Program" index="0">
-                            <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
-                        </TKEntityProperty>
-                        <TKEntityProperty tkDataFormProperty columnIndex="2" name="activityIds"
-                                          displayName="Specials" autoCompleteDisplayMode="tokens"
-                                          [valuesProvider]="customer.possibleActivities" index="0">
-                            <TKPropertyEditor tkEntityPropertyEditor
-                                              type="AutoCompleteInline"></TKPropertyEditor>
-                        </TKEntityProperty>
-                    </TKPropertyGroup>
-                </RadDataForm>
-            </StackLayout>
-        </StackLayout> -->
-
     </StackLayout>
 </ScrollView>

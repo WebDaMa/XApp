@@ -441,6 +441,8 @@ export class OptionsComponent implements OnInit {
                     this.groups = result;
 
                     if (this.groups.length > 0) {
+                        // make it empty again
+                        this.groupItems = [];
                         for (const groupItem of this.groups) {
                             this.groupItems.push(
                                 groupItem.name + " [" +

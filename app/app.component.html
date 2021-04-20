@@ -35,11 +35,6 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                 <StackLayout class="hr-light"></StackLayout>
 
                 <StackLayout [visibility]="checkRoles(['ROLE_KV', 'ROLE_STV', 'ROLE_ADMIN']) ? 'visible' : 'collapsed'">
-                    <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/checkin')" (tap)="onNavItemTap('/checkin')">
-                        <Label col="0" text="&#xf4fc;&nbsp;&nbsp;" class="fas"></Label>
-                        <Label col="1" text="Checkin" class="p-r-10"></Label>
-                    </GridLayout>
-
                     <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/lodging')" (tap)="onNavItemTap('/lodging')">
                         <Label col="0" text="&#xf594;&nbsp;&nbsp;" class="fas"></Label>
                         <Label col="1" text="Logement" class="p-r-10"></Label>

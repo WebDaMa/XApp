@@ -75,6 +75,8 @@ export class GroupsActionComponent implements OnInit {
                     this.groups = result;
 
                     if (this.groups.length > 0) {
+                        // Make it empty first
+                        this.groupItems = [];
                         for (const groupItem of this.groups) {
                             this.groupItems.push(
                                 groupItem.name + " [" +
