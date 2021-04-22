@@ -5,6 +5,8 @@ import { WeekActionComponent } from "~/components/week-action/week-action.compon
 import { Settings } from "~/settings/settings";
 import { Material } from "~/shared/models/material.model";
 import { MaterialService } from "~/shared/services/material.service";
+import {GuidesActionComponent} from "~/components/guides-action/guides-action.component";
+import {Guide} from "~/shared/models/guide.model";
 
 @Component({
     selector: "Materials",
@@ -20,6 +22,7 @@ export class MaterialsComponent implements OnInit, AfterViewInit {
     date: string;
 
     @ViewChild(WeekActionComponent, {static: false}) weekAction: WeekActionComponent;
+    @ViewChild(GuidesActionComponent, {static: false}) guideAction: GuidesActionComponent;
     constructor(private materialService: MaterialService) {
         // Use the component constructor to inject providers.
     }
@@ -40,6 +43,9 @@ export class MaterialsComponent implements OnInit, AfterViewInit {
     ngAfterViewInit() {
         this.weekAction.weekEmitter.subscribe((day) => {
             this.date = day;
+            this.reload();
+        });
+        this.guideAction.guideEmitter.subscribe((guide: Guide) => {
             this.reload();
         });
     }

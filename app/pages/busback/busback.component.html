@@ -42,30 +42,31 @@
             |
         </StackLayout>
         <StackLayout *ngFor="let place of checkinBusBack.places">
-            <Label [text]="place.place" class="text-center h3 p-4" backgroundColor="#e5e5e5"></Label>
-            <StackLayout *ngFor="let customer of place.customers">
-                <RadDataForm tkExampleTitle tkToggleNavButton [source]="customer"
-                             (propertyCommitted)="dfPropertyBackCommitted($event)">
-                    <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
-                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true"
-                                          readOnly="true" name="id" index="0">
-                        </TKEntityProperty>
-                        <TKEntityProperty tkPropertyGroupProperties columnIndex="0" name="busCheckedIn"
-                                          displayName="" index="0">
-                            <TKPropertyEditor tkEntityPropertyEditor type="Switch"></TKPropertyEditor>
-                        </TKEntityProperty>
-                        <TKEntityProperty tkPropertyGroupProperties columnIndex="1" readOnly="true"
-                                          name="customer" displayName="" index="0">
-                            <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
-                        </TKEntityProperty>
-                        <TKEntityProperty tkPropertyGroupProperties columnIndex="2" readOnly="true"
-                                          name="gsm" displayName="" index="0">
-                            <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
-                        </TKEntityProperty>
-                    </TKPropertyGroup>
-                </RadDataForm>
-                <StackLayout class="hr-light"></StackLayout>
-            </StackLayout>
+            <Button [text]="place.place" (tap)="selectPlace(place)" [backgroundColor]="isSelectedColor(place)"></Button>
+        </StackLayout>
+        <StackLayout *ngFor="let customer of selectedPlace.customers">
+            <RadDataForm tkExampleTitle tkToggleNavButton [source]="customer"
+                         (propertyCommitted)="dfPropertyBackCommitted($event)">
+                <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
+                    <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true"
+                                      readOnly="true" name="id" index="0">
+                    </TKEntityProperty>
+                    <TKEntityProperty tkPropertyGroupProperties columnIndex="0" name="busCheckedIn"
+                                      displayName="" index="0">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Switch"></TKPropertyEditor>
+                    </TKEntityProperty>
+                    <TKEntityProperty tkPropertyGroupProperties columnIndex="1" readOnly="true"
+                                      name="customer" displayName="" index="0">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                    </TKEntityProperty>
+                    <TKEntityProperty tkPropertyGroupProperties columnIndex="2" readOnly="true"
+                                      name="gsm" displayName="" index="0">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Label"></TKPropertyEditor>
+                    </TKEntityProperty>
+                </TKPropertyGroup>
+            </RadDataForm>
+            <Button text="Call" (tap)="callNumber(customer.gsm)"></Button>
+            <StackLayout class="hr-light"></StackLayout>
         </StackLayout>
 
     </StackLayout>

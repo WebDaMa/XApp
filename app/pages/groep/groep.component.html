@@ -18,7 +18,14 @@
         <TextView [visibility]="!hasCustomers && !isBusy ? 'visible' : 'collapsed'"
                   text="Geen deelnemers gevonden voor deze week en locatie. Ga naar settings om een andere dag of locatie te kiezen."
                   editable="false" class="text-center"></TextView>
-        <StackLayout *ngFor="let customer of customers" class="m-5">
+        <SearchBar hint="Zoek een klant ..."
+                   [text]="searchPhrase" (textChange)="onTextChanged($event)"
+                   (clear)="onClear($event)" (submit)="onSubmit($event)">
+        </SearchBar>
+        <StackLayout *ngFor="let customer of customers" class="m-5" [visibility]="filteredCustomers.length === 0 ? 'visible' : 'collapsed'">
+            <Button [text]="customer.customer" (tap)="filterCustomers(customer.customer)"></Button>
+        </StackLayout>
+        <StackLayout *ngFor="let customer of filteredCustomers" class="m-5" [visibility]="filteredCustomers.length > 0 ? 'visible' : 'collapsed'">
             <StackLayout class="m-5 p-l-10 h2" backgroundColor="#e5e5e5">
                 <Label [text]="customer.customer"></Label>
             </StackLayout>

@@ -1,6 +1,4 @@
 <StackLayout>
-    <Button col="1" horizontalAlignment="left" text="&#xf021;" class="fas btn btn-primary btn-active"
-                (tap)="getGuides()"></Button>
     <Label class="text-center" text="Kies een gids:" [visibility]="hasGuides ? 'visible' : 'collapse'"></Label>
 
     <Button (tap)="displayGuideDialog()" [text]="guide.guideShort + ' - ' + guide.guideFirstName + ' &#xf078;'" [visibility]="hasGuides ? 'visible' : 'collapse'" class="fas btn btn-primary btn-active" ></Button>

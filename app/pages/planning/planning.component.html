@@ -20,10 +20,10 @@
                   editable="false" class="text-center"></TextView>
         <WeekAction #weekAction></WeekAction>
         <StackLayout *ngFor="let planning of plannings">
-            <StackLayout class="m-5 p-l-10 h2" backgroundColor="#e5e5e5">
-                <Label [text]="planning.groepName"></Label>
-            </StackLayout>
-            <RadDataForm tkExampleTitle tkToggleNavButton [source]="planning"
+            <Button [text]="planning.groepName" (tap)="selectPlanning(planning)" [backgroundColor]="isSelectedColor(planning)"></Button>
+        </StackLayout>
+        <StackLayout [visibility]="selectedPlanning.id !== '' ? 'visible' : 'collapsed'">
+            <RadDataForm tkExampleTitle tkToggleNavButton [source]="selectedPlanning"
                          (propertyCommitted)="dfPropertyCommitted($event)">
                 <TKPropertyGroup tkDataFormGroups collapsible="false" name="" hidden="false">
                     <TKEntityProperty tkPropertyGroupProperties columnIndex="0" hidden="true" readOnly="true"
@@ -45,7 +45,7 @@
                     </TKEntityProperty>
 
                     <TKEntityProperty tkPropertyGroupProperties columnIndex="1" name="guideId" displayName="Gids"
-                        [valuesProvider]="guides" index="0">
+                                      [valuesProvider]="guides" index="0">
                         <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
                     </TKEntityProperty>
 

@@ -1,8 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular";
+import * as TNSPhone from "nativescript-phone";
 import { RadDataForm } from "nativescript-ui-dataform";
 import { Settings } from "~/settings/settings";
 import { BusCustomer } from "~/shared/models/busCustomer.model";
+import { BusPlace } from "~/shared/models/busPlace.model";
 import { CheckinBus } from "~/shared/models/checkinBus.model";
 import { CustomerService } from "~/shared/services/customer.service";
 
@@ -19,6 +21,13 @@ export class BusbackComponent implements OnInit {
         total: "0",
         places: [],
         date: ""
+    };
+
+    selectedPlace: BusPlace = {
+        total: "0",
+        totals: [],
+        place: "",
+        customers: []
     };
 
     constructor(private customerService: CustomerService, private routerExtensions: RouterExtensions) {
@@ -46,7 +55,7 @@ export class BusbackComponent implements OnInit {
             );
     }
 
-    dfPropertyBackCommitted(args) {
+    dfPropertyBackCommitted(args): void {
         const dataForm = <RadDataForm>args.object;
         const busCostumer: BusCustomer = <BusCustomer> JSON.parse(dataForm.editedObject);
 
@@ -66,15 +75,26 @@ export class BusbackComponent implements OnInit {
             );
     }
 
-    /*callCustomer(customer) {
-        const phoneNumber = customer.gsm;
-
+    callNumber(phoneNumber): void {
+        // Dial a phone number.
         TNSPhone.requestCallPermission("You should accept the permission to be able to make a direct phone call.")
             .then(() => TNSPhone.dial(phoneNumber, false))
             .catch(() => TNSPhone.dial(phoneNumber, true));
-    }*/
+    }
 
-    goBack() {
+    selectPlace(place: BusPlace): void {
+        this.selectedPlace = place;
+    }
+
+    isSelectedColor(place: BusPlace): string {
+        if (place === this.selectedPlace) {
+            return "#70b32e";
+        }
+
+        return "#e5e5e5";
+    }
+
+    goBack(): void {
         this.routerExtensions.navigate(["/tabs/default"], {
             transition: {
                 name: "fade"

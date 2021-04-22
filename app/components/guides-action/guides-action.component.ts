@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import {Component, EventEmitter, OnInit} from "@angular/core";
 import { action } from "tns-core-modules/ui/dialogs";
 import { Settings } from "~/settings/settings";
 import { Guide } from "~/shared/models/guide.model";
@@ -11,6 +11,7 @@ import { GuideService } from "~/shared/services/guide.service";
     templateUrl: "./guides-action.component.html"
 })
 export class GuidesActionComponent implements OnInit {
+    guideEmitter: EventEmitter<Guide> = new EventEmitter<Guide>();
     guides: Array<Guide> = [];
     guideItems: Array<string> = [];
     guide: Guide = {
@@ -55,6 +56,7 @@ export class GuidesActionComponent implements OnInit {
             Settings.setGuideIndex(this.selectedIndex);
             this.guide = this.guides[this.selectedIndex];
             Settings.setGuideId(this.guide.id);
+            this.guideEmitter.emit(this.guide);
         }
 
     }

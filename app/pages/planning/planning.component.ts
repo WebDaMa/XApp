@@ -20,6 +20,17 @@ export class PlanningComponent implements OnInit, AfterViewInit {
     guides: Array<object> = [];
     plannings: Array<Planning>;
     hasPlannings: boolean = false;
+    selectedPlanning: Planning = {
+        id: "",
+        activity: "",
+        guideId: "",
+        cag1Id: "",
+        cag2Id: "",
+        transport: "",
+        date: "",
+        groepName: "",
+        isUpdate: true
+    };
 
     date: string = "";
     locationId: string = "";
@@ -49,6 +60,17 @@ export class PlanningComponent implements OnInit, AfterViewInit {
     ngAfterViewInit() {
         this.weekAction.weekEmitter.subscribe((day) => {
             this.date = day;
+            this.selectedPlanning = {
+                id: "",
+                activity: "",
+                guideId: "",
+                cag1Id: "",
+                cag2Id: "",
+                transport: "",
+                date: "",
+                groepName: "",
+                isUpdate: true
+            };
             this.getPlannings();
         });
     }
@@ -114,6 +136,18 @@ export class PlanningComponent implements OnInit, AfterViewInit {
                     }
                 );
         }
+    }
+
+    selectPlanning(planning: Planning): void {
+        this.selectedPlanning = planning;
+    }
+
+    isSelectedColor(planning: Planning): string {
+        if (planning === this.selectedPlanning) {
+            return "#70b32e";
+        }
+
+        return "#e5e5e5";
     }
 
     goBack() {

@@ -1,8 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular";
+import * as TNSPhone from "nativescript-phone";
 import { RadDataForm } from "nativescript-ui-dataform";
 import { Settings } from "~/settings/settings";
 import { BusCustomer } from "~/shared/models/busCustomer.model";
+import { BusPlace } from "~/shared/models/busPlace.model";
 import { CheckinBus } from "~/shared/models/checkinBus.model";
 import { CustomerService } from "~/shared/services/customer.service";
 
@@ -20,10 +22,16 @@ export class BusgoComponent implements OnInit {
         date: ""
     };
 
+    selectedPlace: BusPlace = {
+        total: "0",
+        totals: [],
+        place: "",
+        customers: []
+    };
+
     isBusy: boolean;
 
-    constructor(private customerService: CustomerService, private routerExtensions: RouterExtensions)
-    {
+    constructor(private customerService: CustomerService, private routerExtensions: RouterExtensions) {
     }
 
     ngOnInit(): void {
@@ -49,7 +57,7 @@ export class BusgoComponent implements OnInit {
             );
     }
 
-    dfPropertyGoCommitted(args: any) {
+    dfPropertyGoCommitted(args: any): void {
         const dataForm = <RadDataForm>args.object;
         const busCostumer: BusCustomer = <BusCustomer> JSON.parse(dataForm.editedObject);
 
@@ -69,7 +77,7 @@ export class BusgoComponent implements OnInit {
             );
     }
 
-    goBack() {
+    goBack(): void {
         this.routerExtensions.navigate(["/tabs/default"], {
             transition: {
                 name: "fade"
@@ -77,10 +85,23 @@ export class BusgoComponent implements OnInit {
         });
     }
 
-    callNumber(phonenumber: string) {
-        console.log("click");
-        // const phone = require( "nativescript-phone" );
-        // phone.dial(number, false);
+    callNumber(phoneNumber): void {
+        // Dial a phone number.
+        TNSPhone.requestCallPermission("You should accept the permission to be able to make a direct phone call.")
+            .then(() => TNSPhone.dial(phoneNumber, false))
+            .catch(() => TNSPhone.dial(phoneNumber, true));
+    }
+
+    selectPlace(place: BusPlace): void {
+        this.selectedPlace = place;
+    }
+
+    isSelectedColor(place: BusPlace): string {
+        if (place === this.selectedPlace) {
+            return "#70b32e";
+        }
+
+        return "#e5e5e5";
     }
 
     isTotal(total: string): boolean {

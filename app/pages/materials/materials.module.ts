@@ -4,7 +4,6 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { GuidesActionComponent } from "~/components/guides-action/guides-action.component";
 import { WeekActionModule } from "~/components/week-action/week-action.module";
 import { MaterialsRoutingModule } from "~/pages/materials/materials-routing.module";
-import { MaterialsSettingsComponent } from "~/pages/materials/materials-settings/materials-settings.component";
 import { MaterialsComponent } from "./materials.component";
 
 @NgModule({
@@ -15,7 +14,6 @@ import { MaterialsComponent } from "./materials.component";
     ],
     declarations: [
         MaterialsComponent,
-        MaterialsSettingsComponent,
         GuidesActionComponent
     ],
     schemas: [

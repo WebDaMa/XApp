@@ -3,6 +3,7 @@ import { RouterExtensions } from "nativescript-angular";
 import { RadDataForm } from "nativescript-ui-dataform";
 import * as dialogs from "tns-core-modules/ui/dialogs";
 import { Page } from "tns-core-modules/ui/page";
+import { SearchBar } from "tns-core-modules/ui/search-bar";
 import { Settings } from "~/settings/settings";
 import { Group } from "~/shared/models/groep.model";
 import { GroepCustomer } from "~/shared/models/groepCustomer.model";
@@ -19,7 +20,10 @@ export class GroepComponent implements OnInit {
     groeps: Array<object> = [];
 
     customers: Array<GroepCustomer> = [];
+    filteredCustomers: Array<GroepCustomer> = [];
     hasCustomers: boolean = false;
+
+    searchPhrase: string = "";
 
     isBusy: boolean = true;
 
@@ -136,6 +140,27 @@ export class GroepComponent implements OnInit {
                     }
                 );
         }
+    }
+
+    onSubmit(args) {
+        const searchBar = args.object as SearchBar;
+        this.filterCustomers(searchBar.text);
+    }
+
+    onTextChanged(args) {
+        const searchBar = args.object as SearchBar;
+        this.filterCustomers(searchBar.text);
+    }
+
+    onClear(args) {
+        this.filteredCustomers = [];
+    }
+
+    filterCustomers(filter: string) {
+        this.searchPhrase = filter;
+        this.filteredCustomers = this.customers.filter((customer) => {
+            return customer.customer.includes(filter);
+        });
     }
 
     goBack() {
