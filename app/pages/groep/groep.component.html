@@ -26,7 +26,7 @@
                    (clear)="onClear($event)" (submit)="onSubmit($event)">
         </SearchBar>
         <StackLayout *ngFor="let customer of customers" class="m-5" [visibility]="filteredCustomers.length === 0 ? 'visible' : 'collapsed'">
-            <Button [text]="customer.customer" (tap)="filterCustomers(customer.customer)"></Button>
+            <Button [class]="customer.groupLayoutId !== null ? 'btn-primary' : ''" [text]="customer.customer" (tap)="filterCustomers(customer.customer)"></Button>
         </StackLayout>
         <StackLayout *ngFor="let customer of filteredCustomers" class="m-5" [visibility]="filteredCustomers.length > 0 ? 'visible' : 'collapsed'">
             <StackLayout class="m-5 p-l-10 h2" backgroundColor="#e5e5e5">

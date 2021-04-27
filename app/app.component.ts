@@ -1,10 +1,12 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from "@angular/core";
 import { NavigationEnd, Router } from "@angular/router";
-import * as app from "tns-core-modules/application";
 import { RouterExtensions } from "nativescript-angular/router";
+import * as appversion from "nativescript-appversion";
 import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from "nativescript-ui-sidedrawer";
 import { RadSideDrawerComponent } from "nativescript-ui-sidedrawer/angular";
 import { filter } from "rxjs/operators";
+import * as app from "tns-core-modules/application";
+import * as appSettings from "tns-core-modules/application-settings";
 import { isAndroid, isIOS } from "tns-core-modules/platform";
 import { Settings } from "~/settings/settings";
 
@@ -17,6 +19,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     private _activatedUrl: string;
     private _sideDrawerTransition: DrawerTransitionBase;
     private drawer: RadSideDrawer;
+    private _appVersionNumber: string = "";
+    private _username: string = "";
 
     constructor(private router: Router, private routerExtensions: RouterExtensions,
                 private changeDetectionRef: ChangeDetectorRef) {
@@ -26,6 +30,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     ngOnInit(): void {
         this._activatedUrl = "/home";
         this._sideDrawerTransition = new SlideInOnTopTransition();
+        this._username = appSettings.getString("username");
 
         this.router.events
             .pipe(filter((event: any) => event instanceof NavigationEnd))
@@ -40,6 +45,11 @@ export class AppComponent implements OnInit, AfterViewInit {
             // This disables the swipe gesture to open menu
             this.drawer.ios.defaultSideDrawer.allowEdgeSwipe = false;
         }
+
+        // Show app Version
+        appversion.getVersionName().then((v: string) => {
+            this._appVersionNumber = v;
+        });
     }
 
     onLoaded() {
@@ -51,6 +61,14 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     get sideDrawerTransition(): DrawerTransitionBase {
         return this._sideDrawerTransition;
+    }
+
+    get username(): string {
+        return this._username;
+    }
+
+    get appVersionNumber(): string {
+        return this._appVersionNumber;
     }
 
     isComponentSelected(url: string): boolean {
@@ -72,7 +90,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     logout(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.closeDrawer();
-        const appSettings = require("tns-core-modules/application-settings");
         appSettings.setString("token", "");
         appSettings.setString("username", "");
         this.routerExtensions.navigate(["/login"], { clearHistory: true });

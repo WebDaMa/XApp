@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
+import * as app from "application";
 import { RouterExtensions } from "nativescript-angular";
 import { RadDataForm } from "nativescript-ui-dataform";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as dialogs from "tns-core-modules/ui/dialogs";
 import { Page } from "tns-core-modules/ui/page";
 import { SearchBar } from "tns-core-modules/ui/search-bar";
@@ -9,8 +11,6 @@ import { Group } from "~/shared/models/groep.model";
 import { GroepCustomer } from "~/shared/models/groepCustomer.model";
 import { CustomerService } from "~/shared/services/customer.service";
 import { GroupService } from "~/shared/services/group.service";
-import {RadSideDrawer} from "nativescript-ui-sidedrawer";
-import * as app from "application";
 
 @Component({
     selector: "Groep",
@@ -161,7 +161,7 @@ export class GroepComponent implements OnInit {
     filterCustomers(filter: string) {
         this.searchPhrase = filter;
         this.filteredCustomers = this.customers.filter((customer) => {
-            return customer.customer.includes(filter);
+            return customer.customer.toLowerCase().includes(filter.toLowerCase());
         });
     }
 

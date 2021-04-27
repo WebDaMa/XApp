@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular";
+import * as appSettings from "tns-core-modules/application-settings";
 import { Page } from "tns-core-modules/ui/page";
 import * as utils from "tns-core-modules/utils/utils";
 import { User } from "~/shared/models/user.model";
@@ -20,7 +21,6 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        const appSettings = require("tns-core-modules/application-settings");
         const token = appSettings.getString("token");
         if (appSettings.hasKey("token") && token !== "") {
             console.log("continue");
@@ -48,7 +48,6 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 (result) => {
                     console.log("SuccesFull Login!");
-                    const appSettings = require("tns-core-modules/application-settings");
                     appSettings.setString("token", (<any>result).access_token);
                     appSettings.setString("username", this.user.username);
                     console.log(appSettings.getString("username"));

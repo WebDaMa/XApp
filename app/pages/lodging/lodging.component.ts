@@ -1,14 +1,15 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
+import * as app from "application";
 import { RouterExtensions } from "nativescript-angular";
 import { RadDataForm } from "nativescript-ui-dataform";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { Page } from "tns-core-modules/ui/page";
+import { SearchBar } from "ui/search-bar";
 import { AgenciesActionComponent } from "~/components/agencies-action/agencies-action.component";
 import { Settings } from "~/settings/settings";
 import { Lodging } from "~/shared/models/lodging.model";
 import { LodgingCustomer } from "~/shared/models/lodgingCustomer.model";
 import { CustomerService } from "~/shared/services/customer.service";
-import {RadSideDrawer} from "nativescript-ui-sidedrawer";
-import * as app from "application";
 
 @Component({
     selector: "Lodging",
@@ -18,11 +19,14 @@ import * as app from "application";
 })
 export class LodgingComponent implements OnInit, AfterViewInit {
     isBusy: boolean;
+    searchPhrase: string = "";
 
     lodging: Lodging = {
         date: "",
         customers: []
     };
+
+    filteredCustomers: Array<LodgingCustomer> = [];
 
     @ViewChild(AgenciesActionComponent, {static: false}) agenciesAction: AgenciesActionComponent;
     constructor(private customerService: CustomerService,
@@ -84,6 +88,27 @@ export class LodgingComponent implements OnInit, AfterViewInit {
                     }
                 );
         }
+    }
+
+    onSubmit(args) {
+        const searchBar = args.object as SearchBar;
+        this.filterCustomers(searchBar.text);
+    }
+
+    onTextChanged(args) {
+        const searchBar = args.object as SearchBar;
+        this.filterCustomers(searchBar.text);
+    }
+
+    onClear(args) {
+        this.filteredCustomers = [];
+    }
+
+    filterCustomers(filter: string) {
+        this.searchPhrase = filter;
+        this.filteredCustomers = this.lodging.customers.filter((customer) => {
+            return customer.customer.toLowerCase().includes(filter.toLowerCase());
+        });
     }
 
     onDrawerButtonTap(): void {

@@ -6,8 +6,10 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
 <RadSideDrawer [drawerTransition]="sideDrawerTransition" gesturesEnabled="true">
     <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
         <StackLayout row="0" class="sidedrawer-header">
-            <Label class="sidedrawer-header-brand" text="X-Adventure"></Label>
-            <Label class="footnote" text="Menu"></Label>
+            <Label class="sidedrawer-header-brand m-t-25" text="X-Adventure"></Label>
+            <Label [text]="username"></Label>
+            <StackLayout class="hr-light m-t-10 m-b-15"></StackLayout>
+            <Label class="footnote" [text]="'App Versie: ' + appVersionNumber"></Label>
         </StackLayout>
 
         <ScrollView row="1">
