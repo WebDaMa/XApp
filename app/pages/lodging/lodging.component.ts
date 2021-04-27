@@ -7,6 +7,8 @@ import { Settings } from "~/settings/settings";
 import { Lodging } from "~/shared/models/lodging.model";
 import { LodgingCustomer } from "~/shared/models/lodgingCustomer.model";
 import { CustomerService } from "~/shared/services/customer.service";
+import {RadSideDrawer} from "nativescript-ui-sidedrawer";
+import * as app from "application";
 
 @Component({
     selector: "Lodging",
@@ -84,11 +86,8 @@ export class LodgingComponent implements OnInit, AfterViewInit {
         }
     }
 
-    goBack() {
-        this.routerExtensions.navigate(["/tabs/default"], {
-            transition: {
-                name: "fade"
-            }
-        });
+    onDrawerButtonTap(): void {
+        const sideDrawer = <RadSideDrawer>app.getRootView();
+        sideDrawer.showDrawer();
     }
 }

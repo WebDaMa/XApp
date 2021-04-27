@@ -12,6 +12,8 @@ const routes: Routes = [
     { path: "lodging", loadChildren: "~/pages/lodging/lodging.module#LodgingModule" },
     { path: "groep", loadChildren: "~/pages/groep/groep.module#GroepModule" },
     { path: "planning", loadChildren: "~/pages/planning/planning.module#PlanningModule" },
+    { path: "payments", loadChildren: "~/pages/payments/payments.module#PaymentsModule" },
+    { path: "bill", loadChildren: "~/pages/bill/bill.module#BillModule" },
     {
         path: "tabs",
         loadChildren: "~/pages/tabs.module#TabsModule"

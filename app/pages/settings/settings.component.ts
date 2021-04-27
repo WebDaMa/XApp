@@ -5,6 +5,8 @@ import * as dialogs from "tns-core-modules/ui/dialogs";
 import { LocationsActionComponent } from "~/components/locations-action/locations-action.component";
 import { Settings } from "~/settings/settings";
 import { Location } from "~/shared/models/location.model";
+import {RadSideDrawer} from "nativescript-ui-sidedrawer";
+import * as app from "application";
 
 @Component({
     selector: "Settings",
@@ -108,11 +110,17 @@ export class SettingsComponent implements AfterViewInit {
         this.alertSaturday(now);
     }
 
-    goBack() {
+    goHome() {
         this.routerExtensions.navigate(["/tabs/default"], {
             transition: {
                 name: "fade"
-            }
+            },
+            clearHistory: true
         });
+    }
+
+    onDrawerButtonTap(): void {
+        const sideDrawer = <RadSideDrawer>app.getRootView();
+        sideDrawer.showDrawer();
     }
 }

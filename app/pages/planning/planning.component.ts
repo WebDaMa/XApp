@@ -9,6 +9,8 @@ import { Planning } from "~/shared/models/planning.model";
 import { CustomerService } from "~/shared/services/customer.service";
 import { GuideService } from "~/shared/services/guide.service";
 import { PlanningService } from "~/shared/services/planning.service";
+import {RadSideDrawer} from "nativescript-ui-sidedrawer";
+import * as app from "application";
 
 @Component({
     selector: "Planning",
@@ -150,11 +152,8 @@ export class PlanningComponent implements OnInit, AfterViewInit {
         return "#e5e5e5";
     }
 
-    goBack() {
-        this.routerExtensions.navigate(["/tabs/default"], {
-            transition: {
-                name: "fade"
-            }
-        });
+    onDrawerButtonTap(): void {
+        const sideDrawer = <RadSideDrawer>app.getRootView();
+        sideDrawer.showDrawer();
     }
 }

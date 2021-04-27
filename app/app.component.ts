@@ -61,7 +61,8 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.routerExtensions.navigate([navItemRoute], {
             transition: {
                 name: "fade"
-            }
+            },
+            clearHistory: true
         });
 
         const sideDrawer = <RadSideDrawer>app.getRootView();

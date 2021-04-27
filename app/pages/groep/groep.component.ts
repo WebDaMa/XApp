@@ -9,6 +9,8 @@ import { Group } from "~/shared/models/groep.model";
 import { GroepCustomer } from "~/shared/models/groepCustomer.model";
 import { CustomerService } from "~/shared/services/customer.service";
 import { GroupService } from "~/shared/services/group.service";
+import {RadSideDrawer} from "nativescript-ui-sidedrawer";
+import * as app from "application";
 
 @Component({
     selector: "Groep",
@@ -163,11 +165,8 @@ export class GroepComponent implements OnInit {
         });
     }
 
-    goBack() {
-        this.routerExtensions.navigate(["/tabs/default"], {
-            transition: {
-                name: "fade"
-            }
-        });
+    onDrawerButtonTap(): void {
+        const sideDrawer = <RadSideDrawer>app.getRootView();
+        sideDrawer.showDrawer();
     }
 }

@@ -80,7 +80,7 @@ export class OptionsComponent implements OnInit {
     getCustomers(): void {
         if ((typeof this.group !== "undefined" &&
         this.group !== null ? this.group.id : void 0) != null) {
-          //Base version
+          // Base version
           this.getRaftingCustomers();
         //
         //     switch (this.optionCategory.name) {

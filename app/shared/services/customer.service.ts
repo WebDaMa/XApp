@@ -2,12 +2,17 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
+import { BillCustomer } from "~/shared/models/billCustomer.model";
+import { BillCustomerDetail } from "~/shared/models/billCustomerDetail.model";
+import { BillCustomerTotal } from "~/shared/models/billCustomerTotal.model";
 import { BusCustomer } from "~/shared/models/busCustomer.model";
 import { CanyoningCustomer } from "~/shared/models/canyoningCustomer.model";
 import { CheckinBus } from "~/shared/models/checkinBus.model";
 import { GroepCustomer } from "~/shared/models/groepCustomer.model";
 import { Lodging } from "~/shared/models/lodging.model";
 import { LodgingCustomer } from "~/shared/models/lodgingCustomer.model";
+import { Payment } from "~/shared/models/payment.model";
+import { PaymentCustomer } from "~/shared/models/paymentCustomer.model";
 import { RaftingCustomer } from "~/shared/models/raftingCustomer.model";
 import { SizeCustomer } from "~/shared/models/sizeCustomer.model";
 import { SpecialCustomer } from "~/shared/models/specialCustomer.model";
@@ -19,6 +24,30 @@ import { Config } from "../config";
 export class CustomerService extends Service {
     constructor(private http: HttpClient) {
         super();
+    }
+
+    getAllByGroepForBillAction(groepId): Observable<Array<BillCustomer>> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/groep/bill/" + groepId;
+        console.dir(url);
+
+        return this.http.get<Array<BillCustomer>>(url, { headers });
+    }
+
+    getAllByGroepForPaymentsAction(groepId): Observable<Array<PaymentCustomer>> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/groep/payments/" + groepId;
+        console.dir(url);
+
+        return this.http.get<Array<PaymentCustomer>>(url, { headers });
+    }
+
+    getBillByCustomerId(customerId): Observable<BillCustomerDetail> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/bill/" + customerId;
+        console.dir(url);
+
+        return this.http.get<BillCustomerDetail>(url, { headers });
     }
 
     getAllByGroepAction(groepId): Observable<Array<SizeCustomer>> {
@@ -109,6 +138,14 @@ export class CustomerService extends Service {
         return this.http.put(url, raftingCustomer, { headers });
     }
 
+    putBillPayedAction(billCustomerTotal: BillCustomerTotal): Observable<object> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/bill/" + billCustomerTotal.id;
+        console.dir(url);
+
+        return this.http.put(url, billCustomerTotal, { headers });
+    }
+
     putCustomerCanyoningOptionAction(canyoningCustomer: CanyoningCustomer): Observable<object> {
         const headers = this.createRequestHeader();
         const url = Config.apiUrl + "api/customers/canyoning/" + canyoningCustomer.id;
@@ -155,5 +192,13 @@ export class CustomerService extends Service {
         console.dir(url);
 
         return this.http.put(url, groepCustomer, { headers });
+    }
+
+    putPaymentToCustomerAction(payment: Payment): Observable<object> {
+        const headers = this.createRequestHeader();
+        const url = Config.apiUrl + "api/customers/payments/" + payment.customerId;
+        console.dir(url);
+
+        return this.http.put(url, payment, { headers });
     }
 }

@@ -5,6 +5,8 @@ import { Page } from "tns-core-modules/ui/page";
 import { Settings } from "~/settings/settings";
 import { Volpension } from "~/shared/models/volpension.model";
 import { CustomerService } from "~/shared/services/customer.service";
+import {RadSideDrawer} from "nativescript-ui-sidedrawer";
+import * as app from "application";
 
 @Component({
     selector: "Volpension",
@@ -57,12 +59,9 @@ export class VolpensionComponent implements OnInit {
             );
     }
 
-    goBack() {
-        this.routerExtensions.navigate(["/tabs/default"], {
-            transition: {
-                name: "fade"
-            }
-        });
+    onDrawerButtonTap(): void {
+        const sideDrawer = <RadSideDrawer>app.getRootView();
+        sideDrawer.showDrawer();
     }
 
     isTotal(total: string): boolean {

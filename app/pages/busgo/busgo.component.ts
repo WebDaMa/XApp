@@ -7,6 +7,8 @@ import { BusCustomer } from "~/shared/models/busCustomer.model";
 import { BusPlace } from "~/shared/models/busPlace.model";
 import { CheckinBus } from "~/shared/models/checkinBus.model";
 import { CustomerService } from "~/shared/services/customer.service";
+import {RadSideDrawer} from "nativescript-ui-sidedrawer";
+import * as app from "application";
 
 @Component({
     selector: "Busgo",
@@ -77,12 +79,9 @@ export class BusgoComponent implements OnInit {
             );
     }
 
-    goBack(): void {
-        this.routerExtensions.navigate(["/tabs/default"], {
-            transition: {
-                name: "fade"
-            }
-        });
+    onDrawerButtonTap(): void {
+        const sideDrawer = <RadSideDrawer>app.getRootView();
+        sideDrawer.showDrawer();
     }
 
     callNumber(phoneNumber): void {
