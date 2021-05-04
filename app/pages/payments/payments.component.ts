@@ -1,12 +1,13 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
+import * as app from "application";
 import { RouterExtensions } from "nativescript-angular";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as dialogs from "tns-core-modules/ui/dialogs";
 import { GroupsActionComponent } from "~/components/groups-action/groups-action.component";
 import { Settings } from "~/settings/settings";
+import { Group } from "~/shared/models/groep.model";
 import { PaymentCustomer } from "~/shared/models/paymentCustomer.model";
 import { CustomerService } from "~/shared/services/customer.service";
-import {RadSideDrawer} from "nativescript-ui-sidedrawer";
-import * as app from "application";
 
 @Component({
     selector: "Payments",
@@ -29,8 +30,8 @@ export class PaymentsComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        this.groupsAction.groupEmitter.subscribe((group) => {
-            this.getCustomers();
+        this.groupsAction.groupEmitter.subscribe((group: Group) => {
+            this.getCustomers(group);
         });
     }
 
@@ -63,11 +64,11 @@ export class PaymentsComponent implements OnInit, AfterViewInit {
 
     }
 
-    getCustomers(): void {
-        if ((typeof this.groupsAction.group !== "undefined" &&
-        this.groupsAction.group !== null ? this.groupsAction.group.id : void 0) != null) {
+    getCustomers(group: Group): void {
+        if ((typeof group !== "undefined" &&
+        group !== null ? group.id : void 0) != null) {
             this.isBusy = true;
-            this.customerService.getAllByGroepForPaymentsAction(this.groupsAction.group.id)
+            this.customerService.getAllByGroepForPaymentsAction(group.id)
                 .subscribe(
                     (result: Array<PaymentCustomer>) => {
 

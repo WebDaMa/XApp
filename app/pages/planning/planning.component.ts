@@ -1,7 +1,8 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
+import * as app from "application";
 import { RouterExtensions } from "nativescript-angular";
 import { RadDataForm } from "nativescript-ui-dataform";
-import { Page } from "tns-core-modules/ui/page";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { WeekActionComponent } from "~/components/week-action/week-action.component";
 import { Settings } from "~/settings/settings";
 import { Guide } from "~/shared/models/guide.model";
@@ -9,8 +10,6 @@ import { Planning } from "~/shared/models/planning.model";
 import { CustomerService } from "~/shared/services/customer.service";
 import { GuideService } from "~/shared/services/guide.service";
 import { PlanningService } from "~/shared/services/planning.service";
-import {RadSideDrawer} from "nativescript-ui-sidedrawer";
-import * as app from "application";
 
 @Component({
     selector: "Planning",
@@ -30,8 +29,7 @@ export class PlanningComponent implements OnInit, AfterViewInit {
         cag2Id: "",
         transport: "",
         date: "",
-        groepName: "",
-        isUpdate: true
+        groepName: ""
     };
 
     date: string = "";
@@ -40,23 +38,18 @@ export class PlanningComponent implements OnInit, AfterViewInit {
     isBusy: boolean = false;
 
     @ViewChild(WeekActionComponent, {static: false}) weekAction: WeekActionComponent;
-    constructor(private customerService: CustomerService,
-                private routerExtensions: RouterExtensions, private planningService: PlanningService,
-                private guideService: GuideService, private page: Page) {
-    }
+    constructor(
+        private customerService: CustomerService,
+        private routerExtensions: RouterExtensions,
+        private planningService: PlanningService,
+        private guideService: GuideService
+    ) {}
 
     ngOnInit(): void {
         this.date = Settings.getDate();
         this.locationId = Settings.getLocation();
 
         this.getGuides();
-
-        this.page.backgroundSpanUnderStatusBar = true;
-        this.page.on("loaded", (args) => {
-            if (this.page.android) {
-                this.page.android.setFitsSystemWindows(true);
-            }
-        });
     }
 
     ngAfterViewInit() {
@@ -70,51 +63,55 @@ export class PlanningComponent implements OnInit, AfterViewInit {
                 cag2Id: "",
                 transport: "",
                 date: "",
-                groepName: "",
-                isUpdate: true
+                groepName: ""
             };
             this.getPlannings();
         });
     }
 
     getPlannings(): void {
-        this.isBusy = true;
-        this.planningService.getAllByDayAndLocationAction(this.date, this.locationId)
-            .subscribe(
-                (result: Array<Planning>) => {
-                    this.plannings = result;
-                    console.log("found me some plannings");
-                    this.isBusy = false;
-                    if (this.plannings.length > 0) {
-                        this.hasPlannings = true;
+        if (this.date !== "" && this.locationId !== "") {
+            this.isBusy = true;
+            this.planningService.getAllByDayAndLocationAction(this.date, this.locationId)
+                .subscribe(
+                    (result: Array<Planning>) => {
+                        this.plannings = result;
+                        console.log("found me some plannings");
+                        this.isBusy = false;
+                        if (this.plannings.length > 0) {
+                            this.hasPlannings = true;
+                        }
+                    },
+                    (error) => {
+                        console.dir(error);
+                        this.isBusy = false;
+                        /*TODO: handle errors*/
                     }
-                },
-                (error) => {
-                    console.dir(error);
-                    this.isBusy = false;
-                    /*TODO: handle errors*/
-                }
-            );
+                );
+        }
+
     }
 
     getGuides(): void {
-        this.isBusy = true;
-        this.guideService.getAllGuidesForWeekAndLocationAction(this.date, this.locationId)
-            .subscribe(
-                (result: Array<Guide>) => {
-                    this.guides = [{key: "0", label: "Kies een Gids"}];
-                    this.guides = [...this.guides, ...result.map(
-                        ({ id, guideShort, guideFirstName, guideLastName }) => (
-                            { key: id, label: guideShort + " - " + guideFirstName + " " + guideLastName }))];
-                    this.getPlannings();
+        if (this.date !== "" && this.locationId !== "") {
+            this.isBusy = true;
+            this.guideService.getAllGuidesForWeekAndLocationAction(this.date, this.locationId)
+                .subscribe(
+                    (result: Array<Guide>) => {
+                        this.guides = [{key: null, label: "Kies een Gids"}];
+                        this.guides = [...this.guides, ...result.map(
+                            ({ id, guideShort, guideFirstName, guideLastName }) => (
+                                { key: id, label: guideShort + " - " + guideFirstName + " " + guideLastName }))];
+                        this.getPlannings();
 
-                },
-                (error) => {
-                    console.dir(error);
-                    this.isBusy = false;
-                    /*TODO: handle errors*/
-                }
-            );
+                    },
+                    (error) => {
+                        console.dir(error);
+                        this.isBusy = false;
+                        /*TODO: handle errors*/
+                    }
+                );
+        }
 
     }
 
@@ -122,7 +119,7 @@ export class PlanningComponent implements OnInit, AfterViewInit {
         const dataForm = <RadDataForm>args.object;
         const planning: Planning = <Planning> JSON.parse(dataForm.editedObject);
 
-        if (planning.guideId !== "0") {
+        if (planning.guideId !== null) {
             this.isBusy = true;
 
             this.planningService.putPlanningUpdateAction(planning)

@@ -22,9 +22,6 @@
                   text="Geen planningen gevonden voor vandaag op locatie. Ga naar settings om een andere dag of locatie te kiezen."
                   editable="false" class="text-center"></TextView>
         <WeekAction #weekAction></WeekAction>
-        <StackLayout *ngFor="let planning of plannings">
-            <Button [text]="planning.groepName" (tap)="selectPlanning(planning)" [backgroundColor]="isSelectedColor(planning)"></Button>
-        </StackLayout>
         <StackLayout [visibility]="selectedPlanning.id !== '' ? 'visible' : 'collapsed'">
             <RadDataForm tkExampleTitle tkToggleNavButton [source]="selectedPlanning"
                          (propertyCommitted)="dfPropertyCommitted($event)">
@@ -68,6 +65,9 @@
                     </TKEntityProperty>
                 </TKPropertyGroup>
             </RadDataForm>
+        </StackLayout>
+        <StackLayout *ngFor="let planning of plannings">
+            <Button [text]="planning.groepName" (tap)="selectPlanning(planning)" [backgroundColor]="isSelectedColor(planning)"></Button>
         </StackLayout>
     </StackLayout>
 </ScrollView>

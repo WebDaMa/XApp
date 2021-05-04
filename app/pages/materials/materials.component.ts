@@ -1,12 +1,12 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
+import { GuidesActionComponent } from "~/components/guides-action/guides-action.component";
 import { WeekActionComponent } from "~/components/week-action/week-action.component";
 import { Settings } from "~/settings/settings";
+import { Guide } from "~/shared/models/guide.model";
 import { Material } from "~/shared/models/material.model";
 import { MaterialService } from "~/shared/services/material.service";
-import {GuidesActionComponent} from "~/components/guides-action/guides-action.component";
-import {Guide} from "~/shared/models/guide.model";
 
 @Component({
     selector: "Materials",
@@ -41,7 +41,7 @@ export class MaterialsComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        this.weekAction.weekEmitter.subscribe((day) => {
+        this.weekAction.weekEmitter.subscribe((day: string) => {
             this.date = day;
             this.reload();
         });

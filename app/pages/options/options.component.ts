@@ -1,29 +1,22 @@
-import { Component, OnInit } from "@angular/core";
+import { AfterViewInit, Component, ViewChild } from "@angular/core";
 import { RadDataForm } from "nativescript-ui-dataform";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
-import * as dialogs from "tns-core-modules/ui/dialogs";
-import { action } from "tns-core-modules/ui/dialogs";
-import { Page } from "tns-core-modules/ui/page";
-// import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
-import { Settings } from "~/settings/settings";
+import { GroupsActionComponent } from "~/components/groups-action/groups-action.component";
 import { Activity } from "~/shared/models/activity.model";
-// import { CanyoningCustomer } from "~/shared/models/canyoningCustomer.model";
 import { Group } from "~/shared/models/groep.model";
 import { OptionCategory } from "~/shared/models/optionCategory.model";
 import { RaftingCustomer } from "~/shared/models/raftingCustomer.model";
-// import { SpecialCustomer } from "~/shared/models/specialCustomer.model";
 import { CustomerService } from "~/shared/services/customer.service";
-import { GroupService } from "~/shared/services/group.service";
 import { OptionService } from "~/shared/services/option.service";
 
 @Component({
     selector: "Options",
     moduleId: module.id,
-    providers: [GroupService, CustomerService, OptionService],
+    providers: [CustomerService, OptionService],
     templateUrl: "./options.component.html"
 })
-export class OptionsComponent implements OnInit {
+export class OptionsComponent implements AfterViewInit {
 
     isBusy: boolean;
 
@@ -36,8 +29,6 @@ export class OptionsComponent implements OnInit {
         name: "raft"
     };
 
-    selectedGroepIndex: number = 0;
-
     hasRaftingCustomers: boolean = false;
     raftingCustomers: Array<RaftingCustomer> = [];
 
@@ -47,25 +38,16 @@ export class OptionsComponent implements OnInit {
     // hasSpecialCustomers: boolean = false;
     // specialCustomers: Array<SpecialCustomer> = [];
 
-    /*TODO: change to GroupsActionComponent when they fix it inside tabs*/
-    groups: Array<Group> = [];
-    groupItems: Array<string> = [];
-    group: Group = {
-        id: "1",
-        name: "Loading"
-    };
-    hasGroups: boolean = false;
+    @ViewChild(GroupsActionComponent, {static: false}) groupsAction: GroupsActionComponent;
+    constructor(
+        private customerService: CustomerService,
+        private optionService: OptionService
+    ) {}
 
-    selectedIndex: number = 0;
-
-    lastTimer = {id: null, value: -1};
-
-    constructor(private groupService: GroupService, private customerService: CustomerService,
-                private page: Page, private optionService: OptionService) {
-    }
-
-    ngOnInit(): void {
-        this.getGroups();
+    ngAfterViewInit() {
+        this.groupsAction.groupEmitter.subscribe((group: Group) => {
+            this.getActivities();
+        });
     }
 
     // selectedOptionCategoryIndexChanged(args) {
@@ -78,25 +60,22 @@ export class OptionsComponent implements OnInit {
     // }
 
     getCustomers(): void {
-        if ((typeof this.group !== "undefined" &&
-        this.group !== null ? this.group.id : void 0) != null) {
-          // Base version
-          this.getRaftingCustomers();
-        //
-        //     switch (this.optionCategory.name) {
-        //         case "raft":
-        //             this.getRaftingCustomers();
-        //             break;
-        //
-        //         case "canyon":
-        //             this.getCanyoningCustomers();
-        //             break;
-        //
-        //         case "special":
-        //             this.getSpecialCustomers();
-        //             break;
-        //     }
-        }
+      // Base version
+      this.getRaftingCustomers();
+    //
+    //     switch (this.optionCategory.name) {
+    //         case "raft":
+    //             this.getRaftingCustomers();
+    //             break;
+    //
+    //         case "canyon":
+    //             this.getCanyoningCustomers();
+    //             break;
+    //
+    //         case "special":
+    //             this.getSpecialCustomers();
+    //             break;
+    //     }
     }
 
     // getOptionCategories(): void {
@@ -137,7 +116,7 @@ export class OptionsComponent implements OnInit {
         this.isBusy = true;
         // this.hasRaftingCustomers = false;
 
-        this.customerService.getAllByGroepWithRaftingOptionAction(this.group.id)
+        this.customerService.getAllByGroepWithRaftingOptionAction(this.groupsAction.group.id)
             .subscribe(
                 (result: Array<RaftingCustomer>) => {
                     this.raftingCustomers = result;
@@ -220,9 +199,7 @@ export class OptionsComponent implements OnInit {
     // }
 
     getActivities(): void {
-        if ((typeof this.optionCategory !== "undefined" &&
-        this.optionCategory !== null ? this.optionCategory.id : void 0) != null &&
-            this.optionCategory.name === "raft") {
+        if (this.activities.length === 0) {
             this.isBusy = true;
 
             this.optionService.getAllActivitiesByCategoryAction(this.optionCategory.id)
@@ -394,82 +371,6 @@ export class OptionsComponent implements OnInit {
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
-    }
-
-    displayGroupDialog() {
-        const options = {
-            title: "Selecteer een groep.",
-            message: "Groepen:",
-            cancelButtonText: "Cancel",
-            actions: this.groupItems
-        };
-
-        action(options).then((result) => {
-            if (result !== "Cancel") {
-                this.groupChanged(result);
-            }
-        });
-    }
-
-    groupChanged(groupItem) {
-        if (this.groups.length > 0) {
-            /*Get Guide ID first*/
-            const groupId = groupItem.substring(
-                groupItem.lastIndexOf("[") + 1,
-                groupItem.lastIndexOf("]")
-            );
-
-            this.hasRaftingCustomers = false;
-
-            this.selectedIndex = this.groups.map((x) => x.id).indexOf(groupId);
-            Settings.setGroupIndex(this.selectedIndex);
-            this.group = this.groups[this.selectedIndex];
-            Settings.setGroupId(this.group.id);
-            // this.getOptionCategories();
-            this.getRaftingCustomers();
-        }
-    }
-
-    getGroups(): void {
-        const locationId = Settings.getLocation();
-        const date = Settings.getDate();
-
-        this.isBusy = true;
-
-        this.groupService.getAllGroepsForWeekAndLocationAction(date, locationId)
-            .subscribe(
-                (result: Array<Group>) => {
-
-                    this.groups = result;
-
-                    if (this.groups.length > 0) {
-                        // make it empty again
-                        this.groupItems = [];
-                        for (const groupItem of this.groups) {
-                            this.groupItems.push(
-                                groupItem.name + " [" +
-                                groupItem.id + "]"
-                            );
-                        }
-                        console.log("found me some groups");
-                        this.selectedIndex = Settings.getGroupIndex();
-                        this.group = this.groups[this.selectedIndex];
-                        Settings.setGroupId(this.group.id);
-                        this.hasGroups = true;
-                        // this.getOptionCategories();
-                        this.getActivities();
-                    }
-
-                    this.isBusy = false;
-
-                },
-                (error) => {
-                    console.dir(error);
-                    this.isBusy = false;
-                    this.hasGroups = false;
-                    /*TODO: handle errors*/
-                }
-            );
     }
 
 }
