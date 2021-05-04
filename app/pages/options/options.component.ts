@@ -33,7 +33,7 @@ export class OptionsComponent implements OnInit {
     // optionCategoryItems: Array<SegmentedBarItem> = [];
     optionCategory: OptionCategory = {
         id: "1",
-        name: ""
+        name: "raft"
     };
 
     selectedGroepIndex: number = 0;
@@ -135,6 +135,7 @@ export class OptionsComponent implements OnInit {
 
     getRaftingCustomers(): void {
         this.isBusy = true;
+        // this.hasRaftingCustomers = false;
 
         this.customerService.getAllByGroepWithRaftingOptionAction(this.group.id)
             .subscribe(
@@ -142,8 +143,6 @@ export class OptionsComponent implements OnInit {
                     this.raftingCustomers = result;
                     this.hasRaftingCustomers = true;
                     console.log("found me some rafting customers");
-
-                    /*Count those with no activity to prevent upload bug*/
                     this.isBusy = false;
                 },
                 (error) => {
@@ -229,7 +228,7 @@ export class OptionsComponent implements OnInit {
             this.optionService.getAllActivitiesByCategoryAction(this.optionCategory.id)
                 .subscribe(
                     (result: Array<Activity>) => {
-                        this.activities = [{key: "0", label: "Kies een activiteit"}];
+                        this.activities = [{key: null, label: "Kies een activiteit"}];
                         this.activities = [...this.activities,
                             ...result.map(({id, name}) => ({key: id, label: name}))];
 
@@ -420,11 +419,14 @@ export class OptionsComponent implements OnInit {
                 groupItem.lastIndexOf("]")
             );
 
+            this.hasRaftingCustomers = false;
+
             this.selectedIndex = this.groups.map((x) => x.id).indexOf(groupId);
             Settings.setGroupIndex(this.selectedIndex);
             this.group = this.groups[this.selectedIndex];
             Settings.setGroupId(this.group.id);
             // this.getOptionCategories();
+            this.getRaftingCustomers();
         }
     }
 
@@ -455,6 +457,7 @@ export class OptionsComponent implements OnInit {
                         Settings.setGroupId(this.group.id);
                         this.hasGroups = true;
                         // this.getOptionCategories();
+                        this.getActivities();
                     }
 
                     this.isBusy = false;

@@ -15,7 +15,8 @@ import { UserService } from "~/shared/services/user.service";
 })
 export class LoginComponent implements OnInit {
     user: User;
-    isLoggingIn = true;
+    isLoggingIn: boolean = true;
+    isBusy: boolean = false;
 
     constructor(private routerExtensions: RouterExtensions, private userService: UserService, private page: Page) {
     }
@@ -44,6 +45,7 @@ export class LoginComponent implements OnInit {
     }
 
     onSigninButtonTap(): void {
+        this.isBusy = true;
         this.userService.login(this.user)
             .subscribe(
                 (result) => {
@@ -55,7 +57,7 @@ export class LoginComponent implements OnInit {
                     this.userService.getRoles().subscribe(
                         (res: Array<string>) => {
                             appSettings.setString("role", this.decideRole(res));
-
+                            this.isBusy = false;
                             this.routerExtensions.navigate(
                                 ["/tabs/default"],
                                 { clearHistory: true });
@@ -64,6 +66,7 @@ export class LoginComponent implements OnInit {
                 },
                 (error) => {
                     console.dir(error);
+                    this.isBusy = false;
                     alert(error.error.error_description);
                 }
             );

@@ -2,7 +2,8 @@
     <Label class="action-bar-title" text="Login"></Label>
 </ActionBar>
 <StackLayout class="page p-t-15">
-
+    <ActivityIndicator [visibility]="isBusy  ? 'visible' : 'collapsed'" [busy]="isBusy" width="100" height="100"
+                       class="activity-indicator"></ActivityIndicator>
     <TextField class="m-t-10 m-b-10 m-l-15 m-r-15" hint="Username" keyboardType="email" autocorrect="false" autocapitalization="none"
         [(ngModel)]="user.username"></TextField>
     <TextField class="m-t-10 m-b-10 m-l-15 m-r-15" hint="Password" secure="true" autocorrect="false" autocapitalization="none"
