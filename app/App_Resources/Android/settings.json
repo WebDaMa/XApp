@@ -1,5 +1,1 @@
-{
-  "appId": "org.nativescript.XApp",
-  "targetSdkVersion": 29,
-  "minSdkVersion": 23
-}
+{"appId":"org.nativescript.XApp","targetSdkVersion":29,"minSdkVersion":null}
