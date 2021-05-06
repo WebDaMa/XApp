@@ -30,7 +30,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     ngOnInit(): void {
         this._activatedUrl = "/home";
         this._sideDrawerTransition = new SlideInOnTopTransition();
-        this._username = appSettings.getString("username");
 
         this.router.events
             .pipe(filter((event: any) => event instanceof NavigationEnd))
@@ -38,6 +37,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit(): void {
+        this.username = appSettings.getString("username");
         this.drawer = this.drawerComponent.sideDrawer;
         this.changeDetectionRef.detectChanges();
 
@@ -65,6 +65,10 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     get username(): string {
         return this._username;
+    }
+
+    set username(username: string) {
+        this._username = username;
     }
 
     get appVersionNumber(): string {
