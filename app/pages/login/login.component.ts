@@ -83,6 +83,10 @@ export class LoginComponent implements OnInit {
             role = "ROLE_STV";
         }
 
+        if (roles.indexOf("ROLE_CMS") !== -1) {
+            role = "ROLE_CMS";
+        }
+
         if (roles.indexOf("ROLE_ADMIN") !== -1) {
             role = "ROLE_ADMIN";
         }

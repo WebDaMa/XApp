@@ -34,7 +34,9 @@ export class BillDetailComponent implements OnInit {
                 private routerExtensions: RouterExtensions, private pageRoute: PageRoute) {
         this.pageRoute.activatedRoute.pipe(
             switchMap((activatedRoute) => activatedRoute.params)
-        ).forEach((params) => { this.customerId = params.customer_id; });
+        ).forEach((params) => {
+            this.customerId = params.customer_id;
+        });
     }
 
     ngOnInit(): void {
@@ -59,7 +61,7 @@ export class BillDetailComponent implements OnInit {
 
     dfPropertyPayedCommitted(args): void {
         const dataForm = <RadDataForm>args.object;
-        const customer: BillCustomerTotal = <BillCustomerTotal> JSON.parse(dataForm.editedObject);
+        const customer: BillCustomerTotal = <BillCustomerTotal>JSON.parse(dataForm.editedObject);
 
         this.isBusy = true;
 
@@ -78,6 +80,6 @@ export class BillDetailComponent implements OnInit {
     }
 
     goBack() {
-        this.routerExtensions.navigate(["/bill"], { clearHistory: true });
+        this.routerExtensions.navigate(["/bill"], {clearHistory: true});
     }
 }
